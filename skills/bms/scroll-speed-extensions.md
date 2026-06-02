@@ -1,6 +1,6 @@
 # #SCROLL / #SPEED 扩展
 
-> 来源：BMSE Help (bmse_help_full/beat.html)
+> 来源：[BMSE Help — 拍子・拡張命令タブ](https://hitkey.nekokan.dyndns.info/bmse_help_full/beat.html)
 > 这些是 Bemuse 提出的 BMS 扩展命令，用于在不改变小节长度的情况下控制滚动速度。
 
 ## #SCROLL[01-ZZ] n

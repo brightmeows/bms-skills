@@ -1,6 +1,6 @@
 # 62 进制 BMS 格式规范
 
-> 来源：beatoraja 团队（Google Docs）
+> 来源：[62進数BMSフォーマット仕様書](https://docs.google.com/document/u/0/d/e/2PACX-1vTl8zOS3ukl5HpuNsBUlN8rn_ZaNdJSHb8a4se3Z3ap9Y6UJ1nB8LA3HnxWAk9kMTDp0j9orpg43-tl/pub)
 > beatoraja 0.8.7 起支持在 BMS 定义中使用 62 进制数。WAV·BMP 的最大定义数从 1295 增加到 3843。
 
 ## 概述

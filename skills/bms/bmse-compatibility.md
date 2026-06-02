@@ -1,6 +1,6 @@
 # BMSE 兼容性参考
 
-> 来源：BMSE Help (bmse_help_full/beat.html)
+> 来源：[BMSE Help — 拍子・拡張命令タブ](https://hitkey.nekokan.dyndns.info/bmse_help_full/beat.html)
 > 涉及 BMSE 打开和保存 BMS 文件时对命令的处理行为。
 
 ## 一、BMSE 打开时会改写的命令
