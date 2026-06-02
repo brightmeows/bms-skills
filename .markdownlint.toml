@@ -1,5 +1,10 @@
 # BMS memo markdownlint 配置
-# 禁用规则的详细原因见 AGENTS.md → Disabled Rules
+#
+# 以下禁用规则均因 BMS 技术文档特例：
+# - #WAV01 / #PLAYER 是 BMS 语法在代码块中被误判为标题 (MD025)
+# - 表格内 <pre> 代码块无法统一 fenced/indented (MD046)
+# - <pre> 嵌入导致管道符/列数误报 (MD055/MD056)
+# - CJK+代码混排表格列对齐误报 (MD060)
 
 default = true
 MD025 = false   # #WAV01 / #PLAYER 是 BMS 语法，非标题
