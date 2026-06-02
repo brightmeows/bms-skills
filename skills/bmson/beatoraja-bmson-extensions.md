@@ -20,7 +20,7 @@ BMSON 将 BMS 的头部信息、通道数据、定义等以 JSON 对象表示，
 
 - 在根级 BMSInfo 对象中指定全局长音类型。
 - 值：`1`（LN）、`2`（CN）、`3`（HCN）。
-- 类型定义同 `#LNMODE`。
+- 类型定义同 BMS 侧 [`#LNMODE`](./../bms/beatoraja-extensions.md)。
 
 ```json
 {
@@ -63,6 +63,7 @@ BMSON 将 BMS 的头部信息、通道数据、定义等以 JSON 对象表示，
 | 值 | `ScrollEvent[]` |
 | 支持 | beatoraja 0.7.6+ |
 
+- BMSON 形式的 `#SCROLL` / `#SPEED`，详见 BMS 侧 [`scroll-speed-extensions.md`](./../bms/scroll-speed-extensions.md)。
 - 以事件数组形式定义谱面各位置的滚动速度倍率。
 - 每个事件包含 `y`（位置）和 `rate`（倍率）。
 - 倍率为负值时谱面**逆走**。
