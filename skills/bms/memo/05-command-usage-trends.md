@@ -20,7 +20,7 @@
 | `#BMP[00-ZZ] filename` | 定义编号的 36 进制化 | nanasi |
 | `#WAVxx oggfilename` | `#WAVxx` 的 Ogg 定义，仅扩展名不同的同名文件替代搜索 | DDR |
 | `#BMPxx videofilename` | `#BMPxx` 的视频定义，排除文件扩展名的替代搜索 | LR |
-| `#SUBTITLE string` | 注：此命令不同于"隐式副标题(bemaniaDX 扩展)" | nanasi |
+| `#SUBTITLE string` | 注：此命令不同于“隐式副标题(bemaniaDX 扩展)” | nanasi |
 | `#SUBARTIST string` | 音源切片制作、视频制作、谱师等 | LR |
 | `#DIFFICULTY [1-5]` | 谱面难度类型 | nanasi |
 | `#STAGEFILE imagefilename` | 加载时的启动画面 | BM98k |

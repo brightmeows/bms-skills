@@ -13,7 +13,7 @@
 - 从 `#IF` 到 `#ENDIF` 之间的区间是块语句。
 - 与 `#RANDOM` 生成值相同标签的块，其内容会被应用。
 - 与生成值不匹配的块，其内容会被全部忽略。
-- 也就是说，这种语法使得制作 **"每次游玩都会变化的 BMS"** 成为可能。
+- 也就是说，这种语法使得制作 **“每次游玩都会变化的 BMS”** 成为可能。
   - 1998-08-09: BM98 实现了 `#RANDOM`。（早于 `#PLAYER 3` (DP), `#TOTAL`, `#xxx07` (BGA LAYER) 等）
   - 这一特性是为了模拟 beatmania 的 DJ BATTLE 而提出的。
   - 据我所知，最早的随机化 BMS 是 FANKS "Anthology" COLLECTION (cranky, 1998-11-06)
@@ -46,7 +46,7 @@
 - 因为 `#RANDOM` 块包含了不属于 `#IF` 部分的行。
 - 音符 `11` 和音符 `44` 没有写在顶层。因此，这些孤儿的显示不被保证。
 - 在 BM98、ruvit、uBMplay 中，结果与第一个示例相同。但在 nazo、LR2、BMSE 等中，这些孤儿会被忽略。
-- 如果它们是"公共部分"，我们应该将其写在 `#RANDOM` 块的外部。
+- 如果它们是“公共部分”，我们应该将其写在 `#RANDOM` 块的外部。
 
 ### 嵌套 `#RANDOM` 示例
 
@@ -78,11 +78,11 @@
 | ------ | ------ |
 | BMSE（部分支持） | <https://hitkey.nekokan.dyndns.info/090102/090102_01.png> |
 | BMSC（不支持） | <https://hitkey.nekokan.dyndns.info/090102/090102_02.png> |
-| iBMSC 3.0（部分支持） | <https://hitkey.nekokan.dyndns.info/img/20120123_ibmsc30_random.png><br>"扩展代码"选项卡的隔离是准确的。该选项卡至少可存储 700,000 字符以上。<br>但目前的隔离还不完善，"编辑面板"中仍会显示流控表达式。 |
+| iBMSC 3.0（部分支持） | <https://hitkey.nekokan.dyndns.info/img/20120123_ibmsc30_random.png><br>“扩展代码”选项卡的隔离是准确的。该选项卡至少可存储 700,000 字符以上。<br>但目前的隔离还不完善，“编辑面板”中仍会显示流控表达式。 |
 
 - 该 BMS 在 `#026-033` 中使用 40 个 `#RANDOM` 语句来随机化音符的节奏。
 - 概念图：<https://hitkey.nekokan.dyndns.info/090102/090102_03.gif>
-- BMSE 能解析 `#RANDOM` 部分并将其分离到"扩展命令"选项卡。然而，该 BMS 中过多的 `#RANDOM` 块会超出 BMSE "扩展命令"选项卡的容量。通过此 BMS，我发现"扩展命令"选项卡最多只能容纳 65535
+- BMSE 能解析 `#RANDOM` 部分并将其分离到“扩展命令”选项卡。然而，该 BMS 中过多的 `#RANDOM` 块会超出 BMSE “扩展命令”选项卡的容量。通过此 BMS，我发现“扩展命令”选项卡最多只能容纳 65535
   字符。
 
 ### 通用注意事项
@@ -95,9 +95,9 @@
   `#TITLE`, `#RANK`, `#BPM[01-ZZ]` 都受到该语法控制。
   - 第 347781-409539 行的部分是 `#IF 14` (347780-409542) 的子级。
   - 该谱面使用了 6177 个 `#RANDOM` 语句，其中 1260 个是第 347780 行 `#IF 14` 的子级。
-  - 该 BMS 是"**无限兄弟**"的绝佳样本。这是被称为 benchmark BMS 的 kusofumen 的典型示例。
-  - 该 BMS 不包含"**无限子孙**"元素，对许多实现来说算是幸运。
-- 几乎所有的实现都无法解析"无限控制流"。
+  - 该 BMS 是“**无限兄弟**”的绝佳样本。这是被称为 benchmark BMS 的 kusofumen 的典型示例。
+  - 该 BMS 不包含“**无限子孙**”元素，对许多实现来说算是幸运。
+- 几乎所有的实现都无法解析“无限控制流”。
 - 几乎在所有情况下，可随机化的头部都有限制，或者语句的数量有限制。
 - 例如，在允许嵌套的实现中，理论上应该可以实现半永久的嵌套。
   - 然而，无论嵌套深度如何，我们都必须始终写上块结束命令 `#ENDRANDOM`。
@@ -129,7 +129,7 @@
   |<pre><code>#00111:11<br><br>#RANDOM 2<br>  #IF 1<br>    #00212:22<br>  #ENDIF<br>  #IF 2<br>    #00313:33<br>  #ENDIF<br><br>#00414:44<br>#00515:55<br><br>#RONDAM 3<br>  #IF 1<br>    #00616:66<br>  #ENDIF<br>  #IF 2<br>    #00717:77<br>  #ENDIF<br>  #IF 3<br>    #00818:88<br>  #ENDIF<br><br>#00919:99</code></pre>|此行为顶层，始终被解释。<br><br>┐<br>│<br>│<br>│<br>│<br>│<br>┆ 无法确定 #RANDOM 是否在此处关闭。<br><br>┐ 通常情况下，这些行属于顶层。<br>┘ 但在 #RONDAM 中，这可能不正确。此处可能成为孤儿块。<br><br>] 此行被注释掉。<br>┐<br>│ 如果前一个 #RANDOM 生成值为 1，则此块也被应用。<br>┘<br>┐<br>│ 如果前一个 #RANDOM 生成值为 2，则此块也被应用。<br>┘<br>┐<br>│ 如果前一个 #RANDOM 生成值为 3，则此块也被应用。<br>┘ 但这不可能实现，因此此块无论如何都不会被应用。<br><br>] 此行属于顶层吗？在 #RANDOM 外部吗？真的吗？|
 
   - 如果第一个 `#RANDOM 2` 不存在，上述示例会发生什么？
-    - nanasi 不会将 `#IF` 块识别为 `#IF` 块。也就是说，`#IF` 块的内容会以与"写在 `#RANDOM` 外部的命令行"相同的优先级处理。
+    - nanasi 不会将 `#IF` 块识别为 `#IF` 块。也就是说，`#IF` 块的内容会以与“写在 `#RANDOM` 外部的命令行”相同的优先级处理。
     - LR2 和 uBMplay 会忽略所有孤立的 `#IF` 内容。（丢弃: `#00616:66`, `#00717:77`, `#00818:88`）
     - PMSee-V 会发出如下警告：`在第一个 #RANDOM 或 #SETRANDOM 之前出现了 #IF！！`
 - 控制流的问题在于语法错误很容易被写出来。
@@ -152,8 +152,8 @@
   (<http://uploader.bms.ms/data/PW/vm3_ts3.zip>)（目前无法下载）
   - 请将 lovetricks.**ogg** 的扩展名改为 bms、bme 或 bml。
   - `#END IF` 是基于误解的拼写错误。或者这可能是故意的技巧，但我对此不感兴趣。
-  - 通常的实现会忽略这一行。也就是说，这是"没有 `#ENDIF` 的 `#IF`"的问题。
-  - 不支持嵌套 `#RANDOM` 的实现可以轻松处理此示例。因为在 `#IF` 块中，如果在找到 `#ENDIF` 之前发现了另一个 `#IF`，可以断定"它不是嵌套，而是相邻的兄弟块"。
+  - 通常的实现会忽略这一行。也就是说，这是“没有 `#ENDIF` 的 `#IF`”的问题。
+  - 不支持嵌套 `#RANDOM` 的实现可以轻松处理此示例。因为在 `#IF` 块中，如果在找到 `#ENDIF` 之前发现了另一个 `#IF`，可以断定“它不是嵌套，而是相邻的兄弟块”。
   - 对于支持嵌套的实现来说，这个示例很麻烦，因为它无法忽视它是嵌套的可能性。
     - 我想起了没有结束标签的 HTML。HTML 解析器必须完成比 XML 解析器更困难的任务。
     - BMS 解析器是否应该获得类似 HTML 解析器的能力？我认为 BMS 最好还是 XML 化。
@@ -184,13 +184,13 @@ uBMplay 1.5.2 及更新, Sonorous (UTF-8), BGAEncAdv, TechnicalGroove
 | ------ | ------ |
 | 来源 | pomu2 |
 | 支持 | pomu2, WAview, in_bm2, nanasi, Aqua, PMSee-V, IIDXv, HDX, outliner, iBMSC (3.0+ / partial), Angolmois, Sonorous, BGAEncAdv, TechnicalGroove |
-| 类似功能 | bms2avi（"SEED"菜单）, bmx2wav (bmx2wav.ini 的 RandomConstantValue) |
+| 类似功能 | bms2avi（“SEED”菜单）, bmx2wav (bmx2wav.ini 的 RandomConstantValue) |
 
 - 如果用 `#SETRANDOM *n*` 代替 `#RANDOM *n*`，则会生成常量 `*n*`。
 
 |示例|说明|
 |------|------|
-|<pre><code>// #RANDOM 3<br>#SETRANDOM 2<br>  #IF 1<br>    #WAV01 a.wav<br>  #ENDIF<br>  #IF 2<br>    #WAV01 b.wav<br>  #ENDIF<br>  #IF 3<br>    #WAV01 c.wav<br>  #ENDIF<br>#ENDRANDOM</code></pre>|- 此示例注释掉了原来的 `#RANDOM` 语句。<br>- 目前几乎还没有实现支持缩进，因此使用缩进还为时过早。本文件为使示例代码更易读而使用了缩进。<br>- 此 `#SETRANDOM` 始终生成 `2`，因此标签为"2"的块始终被选中。<br>- 结果，`#WAV01 b.wav` 始终被应用。<br>- 只要指定了 `#SETRANDOM 2`，`#IF 1` 和 `#IF 3` 就永远不会被选中。<br>- 未被选中的语句块会被简单地忽略。|
+|<pre><code>// #RANDOM 3<br>#SETRANDOM 2<br>  #IF 1<br>    #WAV01 a.wav<br>  #ENDIF<br>  #IF 2<br>    #WAV01 b.wav<br>  #ENDIF<br>  #IF 3<br>    #WAV01 c.wav<br>  #ENDIF<br>#ENDRANDOM</code></pre>|- 此示例注释掉了原来的 `#RANDOM` 语句。<br>- 目前几乎还没有实现支持缩进，因此使用缩进还为时过早。本文件为使示例代码更易读而使用了缩进。<br>- 此 `#SETRANDOM` 始终生成 `2`，因此标签为“2”的块始终被选中。<br>- 结果，`#WAV01 b.wav` 始终被应用。<br>- 只要指定了 `#SETRANDOM 2`，`#IF 1` 和 `#IF 3` 就永远不会被选中。<br>- 未被选中的语句块会被简单地忽略。|
 
 - 看起来 `#SETRANDOM` 很可能是为了测试嵌套控制语法而准备的命令。
 
@@ -206,7 +206,7 @@ uBMplay 1.5.2 及更新, Sonorous (UTF-8), BGAEncAdv, TechnicalGroove
 - `#ELSEIF *n*` 语句可以在 `#IF` 语句和 `#ENDIF` 语句之间的任意位置多次书写。
 - 如果存在 `#ELSE`，`#ELSEIF *n*` 语句应写在 `#ELSE` 的前面。
 - 如果不需要，我们不必写 `#ELSEIF`。
-- "标签与生成值匹配的块中的第一个块"的内容会被应用。示例：
+- “标签与生成值匹配的块中的第一个块”的内容会被应用。示例：
 
 |代码|说明|
 |------|------|
@@ -249,7 +249,7 @@ uBMplay 1.5.2 及更新, Sonorous (UTF-8), BGAEncAdv, TechnicalGroove
 |----------------|-------------------|------|
 |<pre><code>#RANDOM 64<br>  #IF 1<br>    // special pattern<br>  #ENDIF<br>  #IF 2<br>    // default pattern<br>  #ENDIF<br>    ...<br>  #IF 64<br>    // default pattern<br>  #ENDIF<br>#ENDRANDOM</code></pre>|<pre><code>#RANDOM 64<br>  #IF 1<br>    // special<br>  #ELSE<br>    // default<br>  #ENDIF<br>#ENDRANDOM</code></pre><br>注：违反 nanasi 规范|- 生成值为 `1` 时，应用特殊模式。<br>- 生成值非 `1` 时，应用默认模式。<br>- 如果不使用 `#ELSE`，则必须写 1 个特殊模式和 63 个默认模式。|
 
-- nanasi 规范写道："需要覆盖 1-*x* 的所有模式。"
+- nanasi 规范写道：“需要覆盖 1-*x* 的所有模式。”
   - 因此，上述两个示例违反了 nanasi 规范。
   - 但是，nanasi 能够准确解析上述两个示例。
   - IIDXv 和 outliner 也能够准确解析上述两个示例。
@@ -269,10 +269,10 @@ uBMplay 1.5.2 及更新, Sonorous (UTF-8), BGAEncAdv, TechnicalGroove
 - 不支持 `#ENDRANDOM` 的实现会直接忽略 `#ENDRANDOM`。
   - 如果 `#ENDRANDOM` 从一开始就包含在 BMS 规范中，程序员的工作会比现在稍微轻松一些。
   - 但事实并非如此，因此解析 `#RANDOM` 成了一件麻烦的工作。
-- nanasi 规范写道："嵌套分支时必须使用 `#ENDRANDOM`。"
+- nanasi 规范写道：“嵌套分支时必须使用 `#ENDRANDOM`。”
   - 但实际上，**即使不嵌套 `#RANDOM`，我们也应该始终写上 `#ENDRANDOM`**。
   - 因为如果没有 `#ENDRANDOM` 的 `#RANDOM` 语句出现 47 次以上，nanasi 会强制终止。
-- 在除 nanasi 之外的所有"支持（嵌套）`#RANDOM` 的实现"中，`#ENDRANDOM` 是可省略的。
+- 在除 nanasi 之外的所有“支持（嵌套）`#RANDOM` 的实现”中，`#ENDRANDOM` 是可省略的。
   - 因此，目前来说，`#ENDRANDOM` 仅用于让 nanasi 准确解释 `#RANDOM`。
   - 但我建议始终写上 `#ENDRANDOM`，因为它能使 BMS 代码更易读。
 - IIDXv 和 HDX 在找到 `#ENDRANDOM` 时，会将该层级的 `#RANDOM` 生成值重置为 `1`。
@@ -297,9 +297,9 @@ uBMplay 1.5.2 及更新, Sonorous (UTF-8), BGAEncAdv, TechnicalGroove
   *fall-through***。
 - `#ENDSW` 结束 `#SWITCH` 块。与 `#ENDRANDOM` 的情况不同，谱师不允许省略 `#ENDSW`。
 - 也可以使用 `#DEF` 代替 `#CASE`。
-  - nanasi 规范写道："如果之前的 #CASE 都不匹配，则执行。"
+  - nanasi 规范写道：“如果之前的 #CASE 都不匹配，则执行。”
   - 但是，即使 `#CASE` 已经与目标值匹配，如果省略了 `#SKIP`，`#DEF` 也会通过 *fall-through* 被应用。
-  - `#DEF` 是作为"当所有 `#CASE` 都不匹配时应应用的 **def**ault 选项"而准备的命令（至少在 nanasi 中是这样）。
+  - `#DEF` 是作为“当所有 `#CASE` 都不匹配时应应用的 **def**ault 选项”而准备的命令（至少在 nanasi 中是这样）。
   - 因此，谱师不应为一个 `#SWITCH` 写多个 `#DEF`。
   - 此外，如果需要 `#DEF`，谱师应将 `#DEF` 写在所有其他 `#CASE` 之后。
     - 这条规则并未写在 nanasi 规范中，但我们必须遵守这条规则。
@@ -307,7 +307,7 @@ uBMplay 1.5.2 及更新, Sonorous (UTF-8), BGAEncAdv, TechnicalGroove
       视为一个整体，并应用其间所有的内容。
     - IIDXv、HDX 和 outliner 能够正确解释写在 `#CASE` 之前的 `#DEF`。从 `#DEF` 的 *fall-through* 也是有效的。如果 `#DEF` 与下一个 `#CASE` 之间没有
       `#SKIP`，解析会流向下一个 `#CASE`。
-  - 我认为"CASE 之前的 DEF"或 *fall-through* 这样的风格是不雅的。但我不懂编程，所以无法下定论。
+  - 我认为“CASE 之前的 DEF”或 *fall-through* 这样的风格是不雅的。但我不懂编程，所以无法下定论。
 
 ### SWITCH 示例
 
@@ -336,10 +336,10 @@ uBMplay 1.5.2 及更新, Sonorous (UTF-8), BGAEncAdv, TechnicalGroove
   - 谱师必须按升序书写每个标签。
   - 每个标签只能书写一次。
   - `#RANDOM` 也是如此。一些实现能解释不规范的流控语句，但并非所有实现都能。
-- BMSE 不支持的命令行会被分离到 BMSE 的"扩展命令"选项卡。
-  - BMSE 能解析 `#IF`-`#ENDIF` 的区间并将其分离到"扩展命令"选项卡，这是非常出色的特性。
+- BMSE 不支持的命令行会被分离到 BMSE 的“扩展命令”选项卡。
+  - BMSE 能解析 `#IF`-`#ENDIF` 的区间并将其分离到“扩展命令”选项卡，这是非常出色的特性。
   - 但 BMSE 不支持 `#SWITCH`，因此 `#SWITCH` 的区分内容将作为顶层代码被解释。
-  - 也就是说，结果与"在 BMSC 中打开 RANDOMized BMS 时"相同。(<https://hitkey.nekokan.dyndns.info/090102/090102_02.png>)
+  - 也就是说，结果与“在 BMSC 中打开 RANDOMized BMS 时”相同。(<https://hitkey.nekokan.dyndns.info/090102/090102_02.png>)
 - 目前仍然不存在能够编辑控制流本身的 BMS 编辑器。据我推测，如果存在，它可能会以大纲处理器的形式呈现。
 - 根据 nanasi 规范：
   - **`#SWITCH` 块可以写在 `#RANDOM` 块中。**
@@ -376,13 +376,13 @@ uBMplay 1.5.2 及更新, Sonorous (UTF-8), BGAEncAdv, TechnicalGroove
 | BMS List Sorter, BME2WAV, BMX2WAV | Yes | Yes | No |
 | Angolmois, Sonorous (non-UTF8) | Yes | Yes | No |
 
-- 使用制表符或半角空格进行缩进。（在 IIDXv 支持页面中称为"段落化"）
+- 使用制表符或半角空格进行缩进。（在 IIDXv 支持页面中称为“段落化”）
 - 我认为这对谱师非常有用。我已经无法在不使用缩进的情况下编写控制流了。
-- 在 fgt, fgt++, fgt#, BGAEncoder（仅限头行）, BGAEncAdv, TechnicalGroove 中，"`#`"以外的任何字符都会成为缩进。
+- 在 fgt, fgt++, fgt#, BGAEncoder（仅限头行）, BGAEncAdv, TechnicalGroove 中，“`#`”以外的任何字符都会成为缩进。
   - forgetalia 系列**无法注释掉命令行**。
   - BGAEncoder **无法注释掉头行**。
-  - BGAEncAdv 和 TechnicalGroove 除了"`//`"外，**无法注释掉命令行**。
-  - 一些 BMS 因此规范而失去兼容性。（例如：FANKS "RANDOM" COLLECTION 用"`/`"注释掉了 `#random`）
+  - BGAEncAdv 和 TechnicalGroove 除了“`//`”外，**无法注释掉命令行**。
+  - 一些 BMS 因此规范而失去兼容性。（例如：FANKS "RANDOM" COLLECTION 用“`/`”注释掉了 `#random`）
 
 ---
 
@@ -391,7 +391,7 @@ uBMplay 1.5.2 及更新, Sonorous (UTF-8), BGAEncAdv, TechnicalGroove
 | 项目 | 内容 |
 | ------ | ------ |
 | 来源 | IIDXv |
-| 支持 | IIDXv, HDX, outliner（不包括转义）, BGAEncAdv（仅"`//`"）, TechnicalGroove（仅"`//`"） |
+| 支持 | IIDXv, HDX, outliner（不包括转义）, BGAEncAdv（仅“`//`”）, TechnicalGroove（仅“`//`”） |
 
 - 用于谱面调试的显式注释语法。
 - 注释语法优先于控制语法被解释。
@@ -407,7 +407,7 @@ uBMplay 1.5.2 及更新, Sonorous (UTF-8), BGAEncAdv, TechnicalGroove
 
 |解析前|解析后|说明|
 |--------|--------|------|
-|<pre><code>#TITLE foo-/*bar-*/baz; :)<br>#RANDOM 23<br>  #IF 1<br>    #00111:XX<br>  #ELSEIF 2/*<br>    #00112:YY<br>  #ELSEIF ; */3<br>    #00113:ZZ<br>  #ELSE//IF 4<br>    #00114:AA<br>  #ENDIF<br>//*<br>#ARTIST foon<br>/*/<br>#ARTIST asso<br>//*/<br>#BPM 130</code></pre>|<pre><code>#TITLE foo-baz<br>#RANDOM 23<br>  #IF 1<br>    #00111:XX<br>  #ELSEIF 2<br><br>3<br>    #00113:ZZ<br>  #ELSE<br>    #00114:AA<br>  #ENDIF<br><br>#ARTIST foon<br><br><br><br>#BPM 130</code></pre>|- 与编程语言不同，不会变成 `#ELSEIF 23` 的结果。<br>- 这是因为遵循了 BMS "一行一个命令"的规范。<br>- 注释的结果是，行中只留下字符 `3`。此行根据 BMS 规范被解释为隐式注释行，被简单地忽略。<br><br>- 如果删除 `//*` 开头的一个斜杠：<br>  - 此处会按如下方式被注释掉：<br>    <pre><code>/*<br>#ARTIST foon<br>/*/<br>#ARTIST asso<br>//*/</code></pre> 或 <pre><code>/* (another solution)<br>#ARTIST foon<br>/*/<br>#ARTIST asso<br>/**/</code></pre><br>  - 这样就可以轻松切换块注释的开关。|
+|<pre><code>#TITLE foo-/*bar-*/baz; :)<br>#RANDOM 23<br>  #IF 1<br>    #00111:XX<br>  #ELSEIF 2/*<br>    #00112:YY<br>  #ELSEIF ; */3<br>    #00113:ZZ<br>  #ELSE//IF 4<br>    #00114:AA<br>  #ENDIF<br>//*<br>#ARTIST foon<br>/*/<br>#ARTIST asso<br>//*/<br>#BPM 130</code></pre>|<pre><code>#TITLE foo-baz<br>#RANDOM 23<br>  #IF 1<br>    #00111:XX<br>  #ELSEIF 2<br><br>3<br>    #00113:ZZ<br>  #ELSE<br>    #00114:AA<br>  #ENDIF<br><br>#ARTIST foon<br><br><br><br>#BPM 130</code></pre>|- 与编程语言不同，不会变成 `#ELSEIF 23` 的结果。<br>- 这是因为遵循了 BMS “一行一个命令”的规范。<br>- 注释的结果是，行中只留下字符 `3`。此行根据 BMS 规范被解释为隐式注释行，被简单地忽略。<br><br>- 如果删除 `//*` 开头的一个斜杠：<br>  - 此处会按如下方式被注释掉：<br>    <pre><code>/*<br>#ARTIST foon<br>/*/<br>#ARTIST asso<br>//*/</code></pre> 或 <pre><code>/* (another solution)<br>#ARTIST foon<br>/*/<br>#ARTIST asso<br>/**/</code></pre><br>  - 这样就可以轻松切换块注释的开关。|
 
 ### 转义
 
@@ -418,7 +418,7 @@ uBMplay 1.5.2 及更新, Sonorous (UTF-8), BGAEncAdv, TechnicalGroove
 - 在 IIDXv 2.13+ 和 HDX 0.98+ 中，提供了**字符串转义**。（**但这并不能禁用注释语法**）
   - 所有接受字符串值的命令都可以用引号 (U+0022) 将值括起来。
   - 引号括起来的字符串中的注释标记仅作为普通字符串解释。
-  - 此外，前置转义字符 "`\`" (U+005C) 的字符仅作为普通字符解释。
+  - 此外，前置转义字符 “`\`” (U+005C) 的字符仅作为普通字符解释。
 
 | 示例 | IIDXv/HDX 显示 | 其他软件显示 |
 | ------ | --------------- | ------------- |
@@ -427,7 +427,7 @@ uBMplay 1.5.2 及更新, Sonorous (UTF-8), BGAEncAdv, TechnicalGroove
 | `#ARTIST "C:\usr the "DPer" (http://hitkey.nekokan.dyndns.info/)"` | `C:usr the DPer (https://hitkey.nekokan.dyndns.info/)` | `"C:\usr the "DPer" (https://hitkey.nekokan.dyndns.info/)"` |
 | `#ARTIST "C:\\usr the \"DPer\" (http://hitkey.nekokan.dyndns.info/)"` | `C:\usr the "DPer" (https://hitkey.nekokan.dyndns.info/)` | `"C:\\usr the \"DPer\" (https://hitkey.nekokan.dyndns.info/)"` |
 
-- HDX 0.99 及更新版本中，未用 U+0022 括起来的 "`\`" (U+005C) 会直接输出，不再进行转义。
+- HDX 0.99 及更新版本中，未用 U+0022 括起来的 “`\`” (U+005C) 会直接输出，不再进行转义。
 
 ---
 

@@ -24,15 +24,15 @@
 - 对于现代实现，我们完全可以将所有谱面的扩展名改为 BMS。
   **（但如果是 9KEYS，我们必须将扩展名改为 PMS（\*.pms）。否则，fgt++/fgt# 会将其作为 BMS-DP（10KEYS）显示。LR2 会将 BME-SP 类型的 9KEYS 直接显示为 BME-SP。）**
 - 不过，在 Windows 资源管理器中寻找谱面等场合，扩展名仍然有用。
-  - "**5K** is BMS."
-  - "**7K** is BME."
-  - "**LN** is BML."
-  - "**9K** is PMS."
+  - “**5K** is BMS.”
+  - “**7K** is BME.”
+  - “**LN** is BML.”
+  - “**9K** is PMS.”
   
   对于了解 BMS 上下文的人来说，理解这种命名很容易。（这些是包含误解但易于理解的总结。）
 
 - 除此之外，还存在源自 BMS 的格式。详情请参考 [BMS 扩展名表](http://itkhps.web.fc2.com/bmsk.html)。
-  - MGQ: 使用长音符通道的 24KEYS BMS。"Music Game Quest" 构思了类似 KEYBOARDMANIA 的玩法。
+  - MGQ: 使用长音符通道的 24KEYS BMS。“Music Game Quest” 构思了类似 KEYBOARDMANIA 的玩法。
   - MBM: MacBeat MOD。使用 `#WAVCMD` 的 BMS 谱面必须将扩展名改为 MBM。
   - EMS: AngelicPianizm 类型的 24KEYS BMS。KbMediaPlayer (bmse.kpi) 至今仍支持此格式。
   - KMS: KeyMani 类型的 24KEYS BMS。
@@ -65,14 +65,14 @@ BMS 起源于对 *beatmania* 的模仿。
 **历史沿革：**
 
 - **1997-12-10**: *beatmania* 开始运营。
-- **1998-05-04**: Urao Yane 向 NBK 提出了 "**Be-Music Data Format**" 草案。这就是今天 BMS 格式的基础。
+- **1998-05-04**: Urao Yane 向 NBK 提出了 “**Be-Music Data Format**” 草案。这就是今天 BMS 格式的基础。
 - **1998-05-05**: NBK 基于 Urao Yane 的草案创建了 House Music 的谱面文件，并将其提交给 Urao Yane。
-- **1998-06-07**: 在游戏中心 "Chirucoporto" 举办的线下聚会中，Urao Yane 展示了 *BM98* ver 1.00。
+- **1998-06-07**: 在游戏中心 “Chirucoporto” 举办的线下聚会中，Urao Yane 展示了 *BM98* ver 1.00。
 - **1998-06-08**: Urao Yane 创建了[他自己的主页](http://bm98.yaneu.com/)，并在网上公开了 BM98 ver 1.03。
 - **1998-06-28**: Kazutoshi Takata 公开了 **BMS Viewer** Version0.8。
 - **1998-07-10**: Urao Yane 暂时停止了 BM98 的公开。
   - 关于这一经过，Urao Yane 本人撰写的文档：[《Game Labo》（1999 年 4 月 16 日发售的书籍）中公开的原稿](http://bm98.yaneu.com/bm98/gamelab9904.txt)
-  - 由于各种原因引起了混乱，Urao Yane 于 1999 年永久停止了 BM98 的公开：["关于今后 BM98 活动的方针"](http://bm98.yaneu.com/bm98/bm98after.html)
+  - 由于各种原因引起了混乱，Urao Yane 于 1999 年永久停止了 BM98 的公开：[“关于今后 BM98 活动的方针”](http://bm98.yaneu.com/bm98/bm98after.html)
 - **1998-10-20**: TIX 公开了 **BMS Creator** v0.02.02（[改版履历](http://www.doits.jp/mediamaximum/contents/bm98/onlinemanual/version.html)）。……我们终于从文本编辑器中解放了。
 - **1998-11-26**: Urao Yane 展示了 [BMS Format Specification](http://bm98.yaneu.com/bm98/bmsformat.html)。
 
@@ -97,7 +97,7 @@ BMS 起源于对 *beatmania* 的模仿。
       |120|1|120/120 (BMSE 可正确解释)|
       |119|0.991666666666666|119/120 (BMSE 无法正确解释)|
 
-      实际 BPM 不变、仅改变谱面滚动速度的演出效果，在日本俗称为"ソフラン"（soft landing）
+      实际 BPM 不变、仅改变谱面滚动速度的演出效果，在日本俗称为“ソフラン”（soft landing）
         （[YouTube](https://www.youtube.com/watch?v=n7wVTsTUdp4)）。相关玩笑 BMS 可从[玩笑网站](http://yoruiro2s.s362.xrea.com/iidxcontroller/bms/index.html)下载。
     - 3.0 以后的 iBMSC 是两者的混合体。理论上，已不存在我们无法编辑的节奏。
 
@@ -124,7 +124,7 @@ BMS 起源于对 *beatmania* 的模仿。
 | `#xxx15` | 1P-side KEY5 | 同上。玩家必须按下与谱面指示对应的 KEY。 |
 | `#xxx16` | 1P-side SCRATCH | 同上。`#xxx16` 是通过转动转盘演奏的 Note 的轨道。 |
 |`#xxx17`|1P-side FREE-ZONE|- `#xxx17` 设置**可自由刮擦转盘的区间**。|
-- 从"放置对象的位置"开始的"1 个四分音符"的长度即为 1 个 FREE-ZONE。
+- 从“放置对象的位置”开始的“1 个四分音符”的长度即为 1 个 FREE-ZONE。
 - 如果在 FREE-ZONE 关闭之前，在 `#xxx17` 上放置了新的对象，则 FREE-ZONE 会延长。
 - 在 `#xxx17` 设定的区间内如果有 `#xxx16` 的 SCRATCH，则 SCRATCH 会重叠显示在 FREE-ZONE 上。
 
@@ -137,14 +137,14 @@ BMS 起源于对 *beatmania* 的模仿。
 - 1 个 FREE-ZONE，无论长度如何，都计为 1 个应演奏的 Note。
 - FREE-ZONE 内的转盘对象，无论数量多少，都不计入应演奏的 Note。
 - 如果 1 个 FREE-ZONE 内有 1 个以上的转盘对象，判定分为 3 种：
-    0. 若全部以最佳时机演奏，则获得"相当于 1 个对象的最佳得分"。
+    0. 若全部以最佳时机演奏，则获得“相当于 1 个对象的最佳得分”。
     1. 若 FREE-ZONE 区间内从未进行刮擦，则不得分。
     2. 其他情况下，视为 1 个对象以尚可的时机被演奏，获得相应分数。
 - 如果 1 个 FREE-ZONE 内没有转盘对象，判定分为 2 种：
     1. 若 FREE-ZONE 区间内从未进行刮擦，则不得分。
     2. 其他情况下，视为 1 个对象以尚可的时机被演奏，获得相应分数。
 
-    如果谱面中存在哪怕 1 处无刮擦的 FREE-ZONE，则绝对无法取得"Perfect"。
+    如果谱面中存在哪怕 1 处无刮擦的 FREE-ZONE，则绝对无法取得“Perfect”。
 - 分配给 `#xxx16` 和 `#xxx17` 的声音与实际播放的声音之间有什么关系？我以前应该调查过，但记不起结果了。
 - 支持 FREE-ZONE 的实现，应该呈现与 [*beatmania* 相同的渲染效果](https://www.youtube.com/watch?v=TxBCnbX5QEw)。
 - 仅 BM98, BMSC, BMSV, nBMplay, Aqua (?), fgt（最初版本）支持此规格。
@@ -155,7 +155,7 @@ BMS 起源于对 *beatmania* 的模仿。
   - ~~它将拥有类似长音符的专用通道，通过起点和终点设定区间。~~
   - ~~FREE-ZONE 不仅应适用于转盘，也应适用于键位。~~
   - ~~FREE-ZONE 必须从分数和 Note 数的计算中完全分离。~~
-  - ~~不过，更好的格式应该会出现。因为所有对象不仅应有"点"，还应有"区间"。~~
+  - ~~不过，更好的格式应该会出现。因为所有对象不仅应有“点”，还应有“区间”。~~
 - 近年来，通道 `#xxx17` 几乎不再作为 FREE-ZONE 使用。
   - nanasi 和 Angolmois 将此通道用作脚踏板对象。
   - nanasi, pomu2 和 Angolmois 将此通道用作 18KEYS (PMS-DP) 的按钮之一。
@@ -171,7 +171,7 @@ BMS 起源于对 *beatmania* 的模仿。
 - 因此，通道 `#xxx37` 和 `#xxx47` 不被支持。（BM98 会产生编译错误）
 - 但是，将 `#xxx17` 作为键位而非 FREE-ZONE 支持的实现也会支持 `#xxx37`。
 - 支持 18KEYS 的 nanasi 和 pomu2 也将 `#xxx47` 作为不可见对象支持。
-- Angolmois 可通过 "`--key-spec`" 选项自定义 `#xxx[1-6][0-Z]` 全部作为可演奏轨道。因此，Angolmois 支持 `#xxx[30-4Z]` 全部作为不可见对象。
+- Angolmois 可通过 “`--key-spec`” 选项自定义 `#xxx[1-6][0-Z]` 全部作为可演奏轨道。因此，Angolmois 支持 `#xxx[30-4Z]` 全部作为不可见对象。
 - 一些实现存在与不可见对象相关的 Bug。
   - pomu2: 应用 DOUBLE 系 LIGHT 选项时，分数可超过理论值。
   - 同上: 自动游玩中，不可见对象仍会发声。
@@ -187,8 +187,8 @@ BMS 起源于对 *beatmania* 的模仿。
 
 - **1999-02-26**: *beatmaniaIIDX* 开始运营。
 - 为了支持 7KEYS，BMS 的扩展格式 *Project2DX* 由 Urami 提出。
-  - 此格式将通道 `#xxx21` 用作"7KEYS 模式下的 1P 侧 KEY6"。
-  - 此格式将通道 `#xxx22` 用作"7KEYS 模式下的 1P 侧 KEY7"。
+  - 此格式将通道 `#xxx21` 用作“7KEYS 模式下的 1P 侧 KEY6”。
+  - 此格式将通道 `#xxx22` 用作“7KEYS 模式下的 1P 侧 KEY7”。
   - 通过使用 `#ExtChr`，谱面可直接修改 BM98 的视觉项目。即 5K-DP 显示为 7K-SP。
   - 这是一种谱面侧修改本体端显示的、类似 7KEYS 的做法。本质上它与 BMS 完全相同。
 - *Project2DX* 存在许多问题。
@@ -202,7 +202,7 @@ BMS 起源于对 *beatmania* 的模仿。
 - 为了完全支持 7KEYS，BMS 的扩展格式 **BME** 由 TIX 提出。
   - BME 是整合了 *FlashTerminal* 的通道与 BMS 的通道、使其可在 BMSC 中编辑的格式。
   - 如果现有实现要支持扩展通道，则需要重新设计。
-  - 为了不让不修改设计的实现读取"使用了扩展通道的谱面文件"，制定了将扩展名改为 BME 的规则。
+  - 为了不让不修改设计的实现读取“使用了扩展通道的谱面文件”，制定了将扩展名改为 BME 的规则。
 
 **原本的定义：**
 
@@ -212,14 +212,14 @@ BMS 起源于对 *beatmania* 的模仿。
 如果谱面包含 BMSC 无法编辑的命令，则使用扩展名 BME 是不合适的。
 例如：`#STOPxx n`, `#BPMxx n`, `#WAV01-FZ`, `#BMP00-FZ`, `#BGA00-ZZ`, `#xxx51-69` 等。
 
-不过，将扩展名改为 BME 总比改为 BMS 好。因为上述命令在广义上也属于"扩展"。
+不过，将扩展名改为 BME 总比改为 BMS 好。因为上述命令在广义上也属于“扩展”。
 
 **引用者补充：**
 
-前述专栏的结论是："已经没有了区分 BMS 和 BME 的意义。"
+前述专栏的结论是：“已经没有了区分 BMS 和 BME 的意义。”
 我同意他的观点。因为扩展命令已经很自然了。而且不支持扩展命令的实现已不再被使用。
-此外，BMSC 并未支持基本命令 `#RANDOM`。"严格的 BME"并非 BMS 的完全超集。我认为执着于起源或词典上的定义已无意义。
-顺便一提，我不反对将 BME 恰当地用作 7KEYS 的代名词——这虽不严格，但比"严格的 BME"更有用。
+此外，BMSC 并未支持基本命令 `#RANDOM`。“严格的 BME”并非 BMS 的完全超集。我认为执着于起源或词典上的定义已无意义。
+顺便一提，我不反对将 BME 恰当地用作 7KEYS 的代名词——这虽不严格，但比“严格的 BME”更有用。
 
 |origin|BMSC|
 |--------|------|
@@ -267,7 +267,7 @@ LN 是保持输入状态的操作，但另一些游戏可能要求快速重复�
 |长音符 (Long Note)|**2000-02-06**: KEYBOARDMANIA|在起点处 keydown 并保持。终点处的 Keyup 是必需的。|
 |キープ君 (Keep-kun)|**2000-04-20**: pop'n music MICKEY TUNES|显示为固定长度音符而非可变长度音符。按下的音符像进度条一样显示。这是一个时间计量器。|
 |![(Name unknown)](images/kintaro-ame.png)|**2001-02-21**: 太鼓达人|所有具有长度的对象都是需要连打的对象。这不是将一次动作拆分为 keydown-keep-keyup 的符号。而是无数 keydown 动作的符号。类似金太郎糖。（大概此后，长对象的命名变得名副其实了。）|
-|冻结箭头 (Freeze Arrow)|**2001-10-19**: DDRMAX -DDR 6thMIX-|请持续踩住面板。终点处无需抬脚。([DDR术语基础知识"Freeze Arrow"](http://mp.i-revo.jp/user.php/rjmwurxs/entry/4.html)) 即使改变步伐，只要在四分音符以内，箭头不会中断。恐怕考虑到"踩"这一操作，按下判定有所放宽。（某种意义上，这是长按与连打的组合。）|
+|冻结箭头 (Freeze Arrow)|**2001-10-19**: DDRMAX -DDR 6thMIX-|请持续踩住面板。终点处无需抬脚。([DDR术语基础知识“Freeze Arrow”](http://mp.i-revo.jp/user.php/rjmwurxs/entry/4.html)) 即使改变步伐，只要在四分音符以内，箭头不会中断。恐怕考虑到“踩”这一操作，按下判定有所放宽。（某种意义上，这是长按与连打的组合。）|
 |一圈刮擦 (One-turn Scratch)|**2002-01-31**: beatmania 7thMIX|必须在到达终点前将转盘旋转 360°。区间内旋转角度越接近 360°，得分越高。无需在终点恰好停止旋转。|
 |模拟摇杆音符 (Analog Note)|**2006-01-14**: DJMAX Portable|请持续旋转 PSP 的模拟摇杆。输入期间连击增加。需要保持输入至终点。|
 |按住长音符 (Hold Long Note)|**2008-10-31**: DJMAX TECHNICA|请持续按住圆形部分直至终点。中途松开则 BREAK。|
@@ -280,7 +280,7 @@ LN 是保持输入状态的操作，但另一些游戏可能要求快速重复�
 
 除 nanasi, HDX, Angolmois 之外的 BMS 应用不判定 LN 的终点，即终点处不需要 keyup。
 
-- 然而，我认为这一行为不适合"以点表示节奏、将动作与点关联"的 UI。
+- 然而，我认为这一行为不适合“以点表示节奏、将动作与点关联”的 UI。
 - 依我之见，如果游戏系统不强制 keyup，LN 不应明确显示终点——因为外观违反直觉。
 
 LN 给 Note 的计数方式带来了混乱。这对程序员、谱面作者和谱面收藏者来说都很麻烦。
@@ -376,7 +376,7 @@ LN 给 Note 的计数方式带来了混乱。这对程序员、谱面作者和�
 - **2000-04-28**: 作为模仿 *KEYBOARDMANIA* 的训练软件，*doremimania* 由 Koutaro Izumi 发布。
   - 该软件提出了后缀 **PMS** 作为专有扩展并实现。
   - 我推测这里的 PMS 是 Piano-Music-Script 的缩写。其记法与 BMS 完全不同，它们是各自独立的格式。
-  - 因此，"doremimania 支持的 PMS"与"BMS 子集的 PMS"之间没有兼容性。
+  - 因此，“doremimania 支持的 PMS”与“BMS 子集的 PMS”之间没有兼容性。
   - 本文不涉及 doremimania-PMS。（doremimania 的代理分发：[https://web.archive.org/web/*/http://www.geocities.co.jp/Athlete-Athene/7809/frojectd.html](https://web.archive.org/web/*/http://www.geocities.co.jp/Athlete-Athene/7809/frojectd.html)）
 - **2000-09-05**: 为了支持 9 按钮（9KEYS），Nekomi 发布了 **feeling pomu** 1.41 Test5（*ふぃーりんぐぽみゅ*）。
   - 该软件专门针对 9BUTTONS。BMS 或 BME 的谱面在游戏开始时自动扩展为 9 条轨道。
@@ -384,7 +384,7 @@ LN 给 Note 的计数方式带来了混乱。这对程序员、谱面作者和�
   - PMS 是将 BMS 的通道 `#xxx11-15` 和 `#xxx22-25` 显示为类似 pop'n music 的扩展名。
   - 虽然已有 doremimania 的专有扩展名 PMS，但它与 pomu-PMS 无关。
 - **2002-09-23**: **feeling pomu second** Ver 0.60 作为 feeling pomu 的更新版发布。（*ふぃーりんぐぽみゅせかんど*）
-  - 在官方页面上，Nekomi 将 "feeling pomu" 简称为 "*ぽみゅ*"，将 "feeling pomu second" 简称为 "*みゅに*"。
+  - 在官方页面上，Nekomi 将 “feeling pomu” 简称为 “*ぽみゅ*”，将 “feeling pomu second” 简称为 “*みゅに*”。
   - pomu2 同时支持 RDM 记法 `#xxx51-69` 和 `#LNOBJ xx`，并支持扩展名 BML。
   - PMS 不仅作为过滤器，还用于强制 9BUTTONS 模式。因为 **9KEYS 本质上是 BMS-DP**。
     - 区分 BMS-DP 与 9KEYS 的方法只有扩展名。
@@ -393,12 +393,12 @@ LN 给 Note 的计数方式带来了混乱。这对程序员、谱面作者和�
   - pomu2 还提出并实现了 18BUTTONS (PMS-DP)。这是街机中所没有的独特特征。
     - 18KEYS 使用通道 `#xxx11-29` 全部作为应演奏的对象。**18KEYS 本质上是 BME-DP**。
     - 因此，专门用于 18KEYS 的谱面必须将扩展名改为 PMS。
-- **2009-09-16**: LR2 beta3 090916 扩展了"当谱面扩展名为 PMS 时应解释的通道"。
+- **2009-09-16**: LR2 beta3 090916 扩展了“当谱面扩展名为 PMS 时应解释的通道”。
   - 简而言之，LR2 不仅将 BMS-DP，还将 **BME-SP** 也解释为适当的 PMS。
   - pomu2 从最初就支持此键位映射。nanasi 将此键位映射解释为脚踏板模式。
   - 从此版本起，LR2 可从编辑器中调用。**但是，当预览正在编辑的 9KEYS 乐谱时，LR2 不应用 9KEYS 显示。**
     - **2014-02-05**: 解决此问题的方法由 Misty.ls04 提出。（[Twitter](https://twitter.com/misty_ls04/status/431288455231193088)）
-    - **2014-06-01**: 为解决此问题，"lr2_pmsview_helper" 由 Misty.ls04 公开。请参考[我的文章](https://hitkey.nekokan.dyndns.info/diary1406.php#D140606)。
+    - **2014-06-01**: 为解决此问题，“lr2_pmsview_helper” 由 Misty.ls04 公开。请参考[我的文章](https://hitkey.nekokan.dyndns.info/diary1406.php#D140606)。
 
 |origin|pomu|
 |--------|------|

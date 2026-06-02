@@ -21,18 +21,18 @@
 | `#PLAYER 4` | 1P vs 2P | 2 条 groove 值 | Battle Play | 仅 BM98 (BM98k) 支持。 |
 
 - `#PLAYER 2` 是双人同时演奏双人用谱面的模式。类似合奏或二重奏。
-  - "Couple Play" 在 *beatmaniaIIDX 19 Lincle* (2011-09-15) 中被移除。
-  - 取而代之的是 **"FREE PLUS"** 模式，即双人同时演奏"两份单人用乐谱"。
-  - 例如，左侧玩家演奏 "DIAVOLO (SP-HYPER)"，右侧玩家演奏 "DIAVOLO (SP-ANOTHER)"。
+  - “Couple Play” 在 *beatmaniaIIDX 19 Lincle* (2011-09-15) 中被移除。
+  - 取而代之的是 **“FREE PLUS”** 模式，即双人同时演奏“两份单人用乐谱”。
+  - 例如，左侧玩家演奏 “DIAVOLO (SP-HYPER)”，右侧玩家演奏 “DIAVOLO (SP-ANOTHER)”。
 
-- "Battle Play" 同时进行两个 "Single Play"。
+- “Battle Play” 同时进行两个 “Single Play”。
   - 这是两名玩家同时演奏同一 SP 谱面、比拼分数的模式。
   - 因此，如果有 `#PLAYER 1` 的乐谱，客户端可通过游戏选项覆盖。
-  - 无需为 "Battle Play" 特意准备特殊乐谱。
+  - 无需为 “Battle Play” 特意准备特殊乐谱。
   - 因规范无意义，BM98 之后的所有软件都停止了对 `#PLAYER 4` 的支持。
   - 同样地，`#PLAYER 2` 是可由客户端覆盖的模式。
 
-- beatmania 的 "Single Play" 画面为 3 列静态布局：
+- beatmania 的 “Single Play” 画面为 3 列静态布局：
 
   ```text
   +--------+ +--------+ +--------+
@@ -49,7 +49,7 @@
 - 然而在 BMS 中，并非必须采用此布局。
   - 因为 PC 键盘并非为两人同时操作而设计。
   - 两人共用一台 PC 键盘的游玩方式已不再被接受。
-  - 即 "Couple Play" 和 "Battle Play" 已不再受欢迎，取而代之的是在线对战。
+  - 即 “Couple Play” 和 “Battle Play” 已不再受欢迎，取而代之的是在线对战。
 
 - BM98, BM98de, DDR, bemaniaDX, DDR 及 fgt++ 沿用了这种静态 3 列布局。LR2 的部分皮肤也是如此。
   - 但这种布局在其他实现中几乎见不到了。
@@ -57,11 +57,11 @@
 - 基于这些原因，`#PLAYER 2` 和 `#PLAYER 4` 取决于具体实现。
   - 例如，bemaniaDX 将 `#PLAYER 2` 和 `#PLAYER 4` 解释为 `#PLAYER 3`。
 
-- beatmania 系应用程序确定实现了 "Double Play"，即 `#PLAYER 3`。
+- beatmania 系应用程序确定实现了 “Double Play”，即 `#PLAYER 3`。
   - 因为在 beatmania 中，DP 是非常流行的游戏模式。
-  - 1P 侧谱面与 2P 侧谱面不相邻的 DP 布局，俗称为 "TWIN MIX PLAY (TMP)"。
-    - 早期 beatmania 系列不支持 "CENTER DOUBLE"，因此 DP 非常困难。
-  - "CENTER DOUBLE" 的画面布局为 1P 侧与 2P 侧相邻：
+  - 1P 侧谱面与 2P 侧谱面不相邻的 DP 布局，俗称为 “TWIN MIX PLAY (TMP)”。
+    - 早期 beatmania 系列不支持 “CENTER DOUBLE”，因此 DP 非常困难。
+  - “CENTER DOUBLE” 的画面布局为 1P 侧与 2P 侧相邻：
 
     ```text
     +--------+ +--------+ +--------+        ┌┐+--------+ +--------+┌┐
@@ -72,8 +72,8 @@
 
     - 影片屏幕显示在谱面以外的空间。
     - 一些实现可以分屏显示影片。 (<https://www.youtube.com/watch?v=FtQ8woowZiM>)
-  - "CENTER DOUBLE" 首次出现在 *beatmania complete MIX 2* (2000-01-27)。
-    - 因此一些较旧的实现不支持 "CENTER DOUBLE"。
+  - “CENTER DOUBLE” 首次出现在 *beatmania complete MIX 2* (2000-01-27)。
+    - 因此一些较旧的实现不支持 “CENTER DOUBLE”。
 
 - `#PLAYER` 不约束频道，因此 `#PLAYER 1` 和 `#xxx21-29` 可以同时写入。
 
@@ -98,7 +98,7 @@
 **remarks:**
 
 依赖 `#PLAYER` 命令进行渲染的实现会出现问题。
-`#PLAYER 1` 应应用 "Single Play" 模式，但朴素的实现也会显示 2P 侧物件。
+`#PLAYER 1` 应应用 “Single Play” 模式，但朴素的实现也会显示 2P 侧物件。
 此 bug 被一些幽默谱面故意利用。
 此时玩家击打物件的计数方式取决于实现。
 
@@ -148,7 +148,7 @@
 
 - 部分实现忽略 `#RANK`。
   - D3beat 忽略谱面的 `#RANK` 指定，强制应用各用户设定的判定难度。这大概是 `#RANK` 直接应用于触屏设备不太方便。
-  - O2mania ~~忽略谱面的 `#RANK` 指定，强制应用各用户设定的判定难度。~~ 判定等级似乎只有三种（Easy, Normal, Hard），未见 "Very Hard"。
+  - O2mania ~~忽略谱面的 `#RANK` 指定，强制应用各用户设定的判定难度。~~ 判定等级似乎只有三种（Easy, Normal, Hard），未见 “Very Hard”。
 
 ### #RANK 4
 
@@ -168,7 +168,7 @@
 | -------- | --------- |
 | fgt | fgt, Angolmois, TechnicalGroove |
 
-- 根据 forgetalia 的帮助文件，判定等级的初始值为 "`#RANK` 值加 2"（？）
+- 根据 forgetalia 的帮助文件，判定等级的初始值为 “`#RANK` 值加 2”（？）
 - 另外，文件指出可以指定 `#RANK 6` 或 `#RANK -1` 之类的值（？？）
 - 但我无法理解此规范。引用 forgetalia 帮助文件：
   > `#EXRANK` 与 `#RANK` 不作区分。由判定值来决定是哪一种。
@@ -176,9 +176,9 @@
 - 我很难将这晦涩的日文翻译成英文。
 - Angolmois 2.0 alpha 2 的相对 `#RANK` 与 forgetalia 的实现不同。引用 INTERNALS.md：
   `±{BAD:144, GOOD:84, GREAT:48, COOL:14.4} / (1.5 - #RANK-value * 0.25)` milliseconds
-  但 "Angolmois #RANK system is certainly ill-designed however, so it may change without a notice."
+  但 “Angolmois #RANK system is certainly ill-designed however, so it may change without a notice.”
 - TechnicalGroove 的 `#RANK` 是 `#EXRANK` 的别名，仅用于向后兼容。
-  - 应用 "`25 * #RANK-value + 50`" 作为 `#EXRANK` 的值。可带小数，无上限。
+  - 应用 “`25 * #RANK-value + 50`” 作为 `#EXRANK` 的值。可带小数，无上限。
   - JUST 范围以 `#DEFEXRANK 100` 为 `±16ms`（每增加 1 放宽 `0.16ms`）。
 
 ## #DEFEXRANK n
@@ -212,7 +212,7 @@
 | RANDOM | - | `#EXRANKxx n` | `#EXRANKxx n` | `#EXRANKxx n` | 存在动态判定变更时 |
 
 - fgt++ 没有 HI-SPEED 选项，因此推测其判定设定得较宽松。
-- ruvit 支持页面中，虽然未找到具体细节，但有如下描述："与 nanasi-groove 略有差异。"
+- ruvit 支持页面中，虽然未找到具体细节，但有如下描述：“与 nanasi-groove 略有差异。”
 - 例如，指定 `#DefExRank 199.97` 时，谱面将以 NORMAL 判定（`#RANK 2`）的 199.97% 判定宽度开始。
 - iBMSC 3.0 有 `#EXRANK` 的文本框，但实际上那是 `#DEFEXRANK`。
   我们使用它时，必须用文本编辑器打开输出的 BMS 文件，将 `#EXRANK` 改写为 `#DEFEXRANK`。
@@ -223,7 +223,7 @@
 | -------- | --------- |
 | TechnicalGroove | ~~TechnicalGroove~~ |
 
-- 使除 Scratch 外的演奏通道判定变为 "All or Nothing"。
+- 使除 Scratch 外的演奏通道判定变为 “All or Nothing”。
 - 存在 [Perfect GREAT, GREAT, GOOD, BAD, POOR] 五种判定等级的系统，只会出现 [Perfect GREAT, BAD, POOR]。
 - 此外，键盘通道的 Perfect GREAT 判定仅**1 帧宽度**。
 - 这是与 beatmaniaIIDX 的 *GAMBOL* (Another) 相同的判定模式。
@@ -249,10 +249,10 @@
 
 **remarks:**
 
-在 `#114` 中，判定变为与 nanasi 基准的 "VERY HARD" 相同宽度。
-在 `#114` 的第 4 拍，判定变为与 "NORMAL" 相同宽度。
+在 `#114` 中，判定变为与 nanasi 基准的 “VERY HARD” 相同宽度。
+在 `#114` 的第 4 拍，判定变为与 “NORMAL” 相同宽度。
 
-- nanasi 中，对于描述了 `#EXRANK` 的谱面，判定难度标签为 "RANDOM"。
+- nanasi 中，对于描述了 `#EXRANK` 的谱面，判定难度标签为 “RANDOM”。
 - 选曲列表中会显示专用图标。
 
 ## #TOTAL n
@@ -273,7 +273,7 @@
 
 - 省略 `#TOTAL` 时，规范未规定其应如何作用。
   - BM98 中，默认值为可视物件数加 200。
-  - 此行为是 "BMS 格式的规范" 还是 "BM98 的独有解释"，尚不明确。
+  - 此行为是 “BMS 格式的规范” 还是 “BM98 的独有解释”，尚不明确。
   - 大多数实现基于 BM98 的解释，但并非所有实现都如此。例如：
 
 | body | default |
@@ -290,14 +290,14 @@
 - **强烈不建议省略 `#TOTAL`**，因适用的默认值因软件而异。
 
 - 关于适当计算公式的讨论：
-  - *beatmaniaIIDX* 的 groove 值增加率据称为 "`7.605*NOTES/(0.01*NOTES+6.5)`"。
+  - *beatmaniaIIDX* 的 groove 值增加率据称为 “`7.605*NOTES/(0.01*NOTES+6.5)`”。
   - （但 IIDX 在 `#TOTAL` 低于 `260` 时，似乎会应用 `260`。）
   - 但也有不同意见，DJMAX 和 O2Jam 则又另当别论。
 
 - 部分实现中，指定负值为 `#TOTAL` 时，精确击打音符反而会减少 groove 值。
   - nazo, nazoZZ, PMSee-V, ...（可能还有同类实现，但我未作调查。）
 
-- 本部分描述了 "beatmania / beatmaniaIIDX 中的 NORMAL groove 值"。但：
+- 本部分描述了 “beatmania / beatmaniaIIDX 中的 NORMAL groove 值”。但：
 
 | name | the first appearance | remarks |
 | ------ | --------------------- | --------- |

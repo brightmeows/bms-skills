@@ -43,7 +43,7 @@ LN 在下次出现非 `00` 音符的位置闭合（LN 终点符号）。
 | <pre>#LNTYPE 1<br>#00151:00220000<br>#06451:000000000033</pre> | O2mania 以外的实现可省略此声明。LN 区间在 `#001` 中开始。若区间内未出现终点以外的物体，则该 LN 在 `#064` 处闭合。 |
 
 此例构成一个长度为 `#001-064` 的 LN 段落。
-一个 LN 段落可能算作"1 个物体"或"2 个物体"，取决于实现。多数实现算作 1 个物体。
+一个 LN 段落可能算作“1 个物体”或“2 个物体”，取决于实现。多数实现算作 1 个物体。
 
 若文件定义在 `#WAV22`，音会在起始位置播放。
 即使文件定义在 `#WAV33`，终点也不会播放音。`#LNTYPE 1` 中，结束位置的音始终被忽略。
@@ -63,7 +63,7 @@ LN 在下次出现非 `00` 音符的位置闭合（LN 终点符号）。
 | --- | --- |
 | <pre>#WAVaa onkeydown.wav<br>#WAVbb onkeyup.wav<br>#00151:00aa00bb</pre> | LN 始端用音。LN 终端用音。LN 始端播放 onkeydown.wav，LN 终端播放 onkeyup.wav。 |
 
-- 结合判定 LN 终端的游戏系统，可模拟再现 beatmania IIDX 的"背转 Scratch"。
+- 结合判定 LN 终端的游戏系统，可模拟再现 beatmania IIDX 的“背转 Scratch”。
 
 ---
 
@@ -86,7 +86,7 @@ LN 在下次出现非 `00` 音符的位置闭合（LN 终点符号）。
   - 2P-side LN: channel `#xxx71-7C` and `#xxx81-8C`
 - MGQ 格式已过时。不应再使用 MGQ-LN。
   - 对于类似 KEYBOARDMANIA 的游戏，已设计出比 MGQ 更合适的格式。
-  - 例如 Synthesia 支持"直接从 MIDI 生成谱面"和 87KEYS。
+  - 例如 Synthesia 支持“直接从 MIDI 生成谱面”和 87KEYS。
     <https://www.youtube.com/watch?v=euadl2uWy_g>
 - WAview 和 in_bm2 无法正确解析 MGQ-LN，至少不会按照 RDM 规范解释。
 - RDM 和 ruvit 中，最后一个音符若为 MGQ-LN，则无法正确解析（大概是 bug）。
@@ -98,7 +98,7 @@ LN 在下次出现非 `00` 音符的位置闭合（LN 终点符号）。
 LN 从出现非 `00` 音符的位置开始。
 LN 在非 `00` 音符连续期间保持连接。
 LN 在出现 `00` 时闭合。
-若"前一小节最后一个音符"非 `00`"且"当前小节第一个音符"也非 `00`，MGQ-LN 可跨越小节线连接。
+若“前一小节最后一个音符”非 `00`且“当前小节第一个音符”也非 `00`，MGQ-LN 可跨越小节线连接。
 
 | For example | remarks |
 | --- | --- |
@@ -145,7 +145,7 @@ ruvit 的实现如上所述，但 Guide to understand BMS format 所解释的 MG
   - 严格来说，不支持 `#LNOBJ` 的实现支持扩展名 BML 是错误的。
     - 支持 `#xxx51-69` 但不支持 `#LNOBJ` 因此不支持扩展名 BML 的实现：DDR
     - 不支持 `#LNOBJ` 但支持扩展名 BML 的宽松组：WAview, in_bm2, IIDXv, HDX, ~~iBMSC,~~ O2play
-  - BMSE 不显式支持 `#LNOBJ`，但可在"扩展命令"标签页中编辑 `#LNOBJ`。
+  - BMSE 不显式支持 `#LNOBJ`，但可在“扩展命令”标签页中编辑 `#LNOBJ`。
 - 对于 `#LNOBJ`，nanasi 和 fgt++ 存在无法识别小写 `#WAV` 索引的 bug，建议使用大写指定。
 
 ### LNOBJ details
@@ -159,7 +159,7 @@ ruvit 的实现如上所述，但 Guide to understand BMS format 所解释的 MG
 当结束标记通过判定线时，**定义为 `#LNOBJ` 的 `#WAV` 索引的文件会作为 BGM 播放。**
 
 - 这是符合 RDM 规范的行为，但大多数实现不会播放结束标记的音。
-- 将"空 `#WAV`"的索引定义为 `#LNOBJ` 可保持兼容性。
+- 将“空 `#WAV`”的索引定义为 `#LNOBJ` 可保持兼容性。
 
 | For example | remarks |
 | --- | --- |
@@ -197,7 +197,7 @@ ruvit 的实现如上所述，但 Guide to understand BMS format 所解释的 MG
 
 OCT/FP 是八度模式/脚踏板模式。此格式由 idee 于 2002 年（2003 年?）提出。
 八度模式使用 13 个按键和 2 个唱盘。可选使用 1 个脚踏板。
-这是 14KEYS（"7KEYS + 1 个唱盘"的双人模式）的外观修改模式。
+这是 14KEYS（“7KEYS + 1 个唱盘”的双人模式）的外观修改模式。
 此模式使用的通道与 14KEYS 完全相同。
 此格式使用可灵活修改外观的 nazo，将 14KEYS 表现为伪 OCT/FP。
 此格式的概念类似于 Project2DX。
@@ -207,14 +207,14 @@ BMSE 通过主题文件的方式支持编辑 OCT/FP 谱面。
 - 因此 nanasi 需要此 `#OCT/FP` 命令作为标识符。
 - 找到此命令时，nanasi 始终以 OCT/FP 模式渲染 BMS。
 - nanasi、uBMplay 1.5.0+ 和 TechnicalGroove 以外的应用会忽略此命令。
-  - BMSE 将 `#OCT/FP` 命令分离到"扩展命令"标签页。
+  - BMSE 将 `#OCT/FP` 命令分离到“扩展命令”标签页。
   - 需要手动修改 BMSE 的主题文件。步骤如下：
-    1. 选择 BMSE 窗口右上角的"基本"标签页。
-    2. 选择下拉菜单 "Play Mode"。
-    3. 选择菜单项 "13 keys (oct/fp)"。
-    4. 选择菜单栏项 "Settings"。
-    5. 选择子菜单项 "Select Theme"。
-    6. 选择孙菜单项 "Default (for oct/fp)"。
+    1. 选择 BMSE 窗口右上角的“基本”标签页。
+    2. 选择下拉菜单 “Play Mode”。
+    3. 选择菜单项 “13 keys (oct/fp)”。
+    4. 选择菜单栏项 “Settings”。
+    5. 选择子菜单项 “Select Theme”。
+    6. 选择孙菜单项 “Default (for oct/fp)”。
   - Angolmois 可通过命令行参数应用 OCT/FP 渲染。
     （`--key-spec '<Leftside string>' '<Rightside string>'`）
     例如：`$ angolmois.exe --key-spec '21p 16s 11a 12b 13a 14b 15a 18b 19a 22b 23a 24b 25a 28b 29a 26s' ''`
@@ -232,7 +232,7 @@ BMSE 通过主题文件的方式支持编辑 OCT/FP 谱面。
 | support: | nanasi, HDX (v0.99+), IIDXv (v2.14+), Sonorous（仅解析） |
 
 - BMS 侧定义的播放选项将强制应用于玩家侧。
-- 通常命令重复时采用"行号最大的行"，但 `#OPTION` 可部分重复。
+- 通常命令重复时采用“行号最大的行”，但 `#OPTION` 可部分重复。
 - 为应对其他应用可能支持此命令的情况，建议添加厂商前缀。
 
 | 机型 | 前缀 |

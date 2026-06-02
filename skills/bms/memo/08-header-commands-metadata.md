@@ -19,7 +19,7 @@
     <https://hitkey.nekokan.dyndns.info/bmse_help_full/Capture/textlength43679.txt>
   - DDR 若超过 500 字节将强制退出（文档中已说明）。
 - 部分实现会对文本进行 trim（nanasi, LR2 等）。
-  - 例如 `#TITLE    ABC` 将显示为 "ABC"。
+  - 例如 `#TITLE    ABC` 将显示为 “ABC”。
   - BMSE 不会 trim 文本。不进行无意识改动的编辑器是可取的。
 - 若文本包含多字节字符，可能产生字符编码问题。
   - ruvit, iBMSC, IIDXv, HDX, Sonorous, BGAEncAdv, TechnicalGroove 支持部分 ASCII 以外的字符集。
@@ -51,7 +51,7 @@
 | Maniac, SSR, Heavy | SSR |
 
 - **显然，当曲名包含这些词时，此功能会失效。**
-- 关键词重复时，将应用标签 "Basic"。
+- 关键词重复时，将应用标签 “Basic”。
 
 #### 隐式副标题
 
@@ -125,7 +125,7 @@
 | support: | 几乎所有 |
 
 - 定义艺术家。
-- "艺术家"是什么？规范未予说明。
+- “艺术家”是什么？规范未予说明。
 
 ### `#SUBARTIST <string>`
 
@@ -203,7 +203,7 @@
 | Another, Trick, Standard | Another |
 | Maniac, SSR, Heavy | SSR |
 
-- 关键词重复时，将应用标签 "Basic"。
+- 关键词重复时，将应用标签 “Basic”。
 
 ---
 
@@ -215,7 +215,7 @@
 | support: | pomu2, nanasi, PMSee-V, BM-A4, beat arranger, iBMSC (3.0+), Sonorous, TechnicalGroove(parsing-only) |
 
 - 此文本显示在选曲列表中。
-- 双引号用于表示"空字符串"。
+- 双引号用于表示“空字符串”。
 - 但部分旧 BMS 中存在不带双引号的谱面。（例如 `はーとのしっぽ`：<http://necoco.2-d.jp/bms/nm28_nm07.zip>）
 - 因此，开发者不应以双引号为前提进行解析。
 - 可省略。
@@ -281,7 +281,7 @@
 
 - 触碰后会减少血量的物件。
   - 例如 `ガバディ` (GABBAR-D)：<https://www.youtube.com/watch?v=fnkWsyvvOrw>
-  - 虽然不太容易听清，但触碰到红色尖刺物件时会播放 "dosukoi" 音效。
+  - 虽然不太容易听清，但触碰到红色尖刺物件时会播放 “dosukoi” 音效。
   - Dosukoi 是相扑的呐喊声。【doθkói】
 - 地雷爆炸时，播放 `#WAV00` 中定义的文件。
   - PMSee-V 中地雷不会爆炸。
@@ -345,9 +345,9 @@
 - ~~以 IANA 注册名指定谱面所采用的字符集。
   (<http://www.iana.org/assignments/character-sets>)~~
 - 可指定 `[EUC-KR|SHIFT-JIS|UTF-8]` 作为值。例如：`#CHARSET EUC-KR`
-- 日语的 IANA 库名是 "Shift_JIS"（下划线而非连字符），但此命令需指定 `SHIFT-JIS`。
+- 日语的 IANA 库名是 “Shift_JIS”（下划线而非连字符），但此命令需指定 `SHIFT-JIS`。
 - 若文本文件（BMS 文件）包含 BOM，`#CHARSET` 将基于 BOM 内容处理。
-- 以 EUC-KR/Shift_JIS 以外编码创建的 BMS，建议以"带 BOM 的 UTF-8"保存后分发。
+- 以 EUC-KR/Shift_JIS 以外编码创建的 BMS，建议以“带 BOM 的 UTF-8”保存后分发。
 - ruvit 从版本 2.0b5p2 开始全面支持 Unicode，因此 `#CHARSET` 已被移除。
 - 目前，ruvit 会自动检测字符集。
 - 引用自 <https://nvyu.net/rdm/rby_ex.php>：

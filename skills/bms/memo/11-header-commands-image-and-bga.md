@@ -118,7 +118,7 @@ uBMplay (1.5.0+), IIDXv, HDX, Sonorous(?), BGAEncAdv, ...（调查中）
 - 支持哪些文件类型取决于实现。位图图像文件几乎一定被支持。
 - **BMP** 可能使用 **RLE**（Run Length Encoding）压缩。一些实现无法正确显示 RLE。
   - BMSC 不支持 RLE。某些实现会因不当的 BITMAPINFOHEADER 而崩溃。
-  - 似乎过去存在使用 **OS/2 Bitmap** 的 BMS。（例如 *LOVE'S REBIRTH*、*positive dance "2nd RAVE"*）详情请参考 <https://hitkey.nekokan.dyndns.info/bmpfmt.htm>。
+  - 似乎过去存在使用 **OS/2 Bitmap** 的 BMS。（例如 *LOVE'S REBIRTH*、*positive dance “2nd RAVE”*）详情请参考 <https://hitkey.nekokan.dyndns.info/bmpfmt.htm>。
 - 现代化实现支持 **PNG**。近年来 PNG 非常常用。无损压缩非常方便。
 - JPEG 和 GIF 不如 BMP 和 PNG 流行。
 - BMP 以外的图像文件格式支持状况：

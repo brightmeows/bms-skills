@@ -53,7 +53,7 @@
 
 - 定义视频的帧率（每秒显示帧数）。
 - 可指定包含小数部分的十进制数。
-- 视频的帧率可从 AVI 文件的属性"帧率"中查看（"*n* 帧/秒"）。
+- 视频的帧率可从 AVI 文件的属性“帧率”中查看（“*n* 帧/秒”）。
 - 省略此命令时，AVI 文件以自身帧率播放。
 - 更改播放速度的示例：
 
@@ -70,7 +70,7 @@ MOVIE.avi 将以 2 倍速播放。
 | bemaniaDX | bemaniaDX |
 
 - 定义视频的调色板。
-- 视频的调色板可从 AVI 文件的属性"视频采样大小"中查看（"*n* 位"）。
+- 视频的调色板可从 AVI 文件的属性“视频采样大小”中查看（“*n* 位”）。
 - 省略此命令时，默认值为 `16`（16bit color）。
 
 ## #VIDEODLY
@@ -138,12 +138,12 @@ MOVIE.avi 将以 2 倍速播放。
     - 例如，假设图像裁剪的偏移量为 (-5, -10)。
     - 当此图像裁剪被指示显示在坐标 (100, 120) 时，
     - 实际显示在坐标 (95, 110)。
-    - 若不需要偏移量，此"offsetX offsetY"参数可省略。
+    - 若不需要偏移量，此“offsetX offsetY”参数可省略。
   - `*x y*`:
     - 指定绝对坐标，适用于静态元素。
     - 例如修改判定线正下方的键盘图像等情况。
-    - 若不需要，此"x y"参数可省略。
-    - 指定此参数时，即使不需要"偏移量"，也**不能**省略"偏移量"参数。
+    - 若不需要，此“x y”参数可省略。
+    - 指定此参数时，即使不需要“偏移量”，也**不能**省略“偏移量”参数。
 - 简单示例：
 
 ```bms
@@ -190,11 +190,11 @@ MOVIE.avi 将以 2 倍速播放。
 |--------|---------|
 | BM98de | BM98de, RDM, bemaniaDX, nanasi (低于 1.00) |
 
-- 这是"以可执行文件为起点的相对路径定义"的别名。
-  1. 在与 bm98body.exe 同级的"Materials"目录下创建新目录。
+- 这是“以可执行文件为起点的相对路径定义”的别名。
+  1. 在与 bm98body.exe 同级的“Materials”目录下创建新目录。
   2. 在此新目录中放置音频文件或图像文件。
-  3. 在 BMS 侧使用 "`<`*foldername*`>`*filename*" 格式定义（目录名需用半角尖括号括起）。
-  4. 这样，"Materials"下目录中的文件也可被 BMS 引用。
+  3. 在 BMS 侧使用 “\`<\`*foldername*\`>\`*filename*” 格式定义（目录名需用半角尖括号括起）。
+  4. 这样，“Materials”下目录中的文件也可被 BMS 引用。
 - 目录层级示例：
 
 ```text
@@ -213,7 +213,7 @@ bm98_beta1
 #BMP01 <samples>sampleimage.bmp
 ```
 
-  该 BMS 将从"`bm98_beta1\Materials\samples\`"加载 `samplesound.wav` 和 `sampleimage.bmp`。
+  该 BMS 将从“`bm98_beta1\Materials\samples\`”加载 `samplesound.wav` 和 `sampleimage.bmp`。
 
 - 此功能可便于管理音色集。
 - 不过，现代实现支持路径定义而非 MATERIALS。
@@ -233,11 +233,11 @@ bm98_beta1
 
 | 优先级 | 路径 | 备注 |
 |--------|------|------|
-| 1 | 通常的"MATERIALS"定义 | `#WAVxx <*path*>*filename*` |
-| 2 | 与可执行文件同级的"Materials"文件夹 | 可与其他实现共享。 |
-| 3 | "`_datafiles\materials`"（nanasigroove 文件夹内） | nanasigroove 专用的"materials"文件夹 |
+| 1 | 通常的“MATERIALS”定义 | `#WAVxx <*path*>*filename*` |
+| 2 | 与可执行文件同级的“Materials”文件夹 | 可与其他实现共享。 |
+| 3 | “`_datafiles\materials`”（nanasigroove 文件夹内） | nanasigroove 专用的“materials”文件夹 |
 
-- "MATERIALS"、`#MATERIALSWAV` 和 `#MATERIALSBMP` 的支持已在 nanasi 1.00 中移除。
+- “MATERIALS”、`#MATERIALSWAV` 和 `#MATERIALSBMP` 的支持已在 nanasi 1.00 中移除。
 
 ## #MATERIALSBMP
 
@@ -254,11 +254,11 @@ bm98_beta1
 
 | 优先级 | 路径 | 备注 |
 |--------|------|------|
-| 1 | 通常的"MATERIALS"定义 | `#BMPxx <*path*>*filename*` |
-| 2 | 与可执行文件同级的"Materials"文件夹 | 可与其他实现共享。 |
-| 3 | "`_datafiles\materials`"（nanasigroove 文件夹内） | nanasigroove 专用的"materials"文件夹 |
+| 1 | 通常的“MATERIALS”定义 | `#BMPxx <*path*>*filename*` |
+| 2 | 与可执行文件同级的“Materials”文件夹 | 可与其他实现共享。 |
+| 3 | “`_datafiles\materials`”（nanasigroove 文件夹内） | nanasigroove 专用的“materials”文件夹 |
 
-- "MATERIALS"、`#MATERIALSWAV` 和 `#MATERIALSBMP` 的支持已在 nanasi 1.00 中移除。
+- “MATERIALS”、`#MATERIALSWAV` 和 `#MATERIALSBMP` 的支持已在 nanasi 1.00 中移除。
 
 ## #DIVIDEPROP
 

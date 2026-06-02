@@ -45,7 +45,7 @@
 - 原始规格：指定作为游戏画面背景显示的 640x480 图像。
   - DDR 和 nanasi 遵循原始规格。
 - 若在播放器皮肤的设定中提供了定义，则 LR2 和 pomu2 可使用此命令。
-  - 在 LR2 用皮肤 "OVER ACTiVE DX+" 中，多数情况下用作标题图像。
+  - 在 LR2 用皮肤 “OVER ACTiVE DX+” 中，多数情况下用作标题图像。
   - 例：[YouTube - OVER ACTiVE DX+ 2.50 DEMO](https://www.youtube.com/watch?v=5Q8pAA9O8Aw)
   - 在 `#STAGEFILE` 之外，游戏前在画面中央显示的曲目信息即为 `#BACKBMP`。
   - 此命令使曲目信息能以任意字体和布局装饰谱面。
