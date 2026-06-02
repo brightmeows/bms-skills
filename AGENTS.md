@@ -4,10 +4,10 @@
 
 ```bash
 # Check all memo markdown files
-markdownlint --config skills/bms/memo/.markdownlint.json skills/bms/memo/*.md
+markdownlint --config skills/bms/memo/.markdownlint.jsonc skills/bms/memo/*.md
 
 # Auto-fix fixable issues
-markdownlint --fix --config skills/bms/memo/.markdownlint.json skills/bms/memo/*.md
+markdownlint --fix --config skills/bms/memo/.markdownlint.jsonc skills/bms/memo/*.md
 ```
 
 ## Project Structure
@@ -15,7 +15,7 @@ markdownlint --fix --config skills/bms/memo/.markdownlint.json skills/bms/memo/*
 ```
 origin/                          # 原始日文 HTML 源文件 — 只读，勿编辑
 skills/bms/memo/                 # 中文翻译后的 markdown 文档 (14 篇)
-  .markdownlint.json             # markdownlint 配置
+  .markdownlint.jsonc            # markdownlint 配置（JSONC 格式，含注释）
   01-overview.md ... 14-channel-mapping.md
   images/                        # 图片资源
 ```
