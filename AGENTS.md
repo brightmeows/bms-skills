@@ -4,10 +4,10 @@
 
 ```bash
 # Check all memo markdown files
-markdownlint --config skills/bms/memo/.markdownlint.jsonc skills/bms/memo/*.md
+markdownlint --config .markdownlint.toml skills/bms/memo/*.md
 
 # Auto-fix fixable issues
-markdownlint --fix --config skills/bms/memo/.markdownlint.jsonc skills/bms/memo/*.md
+markdownlint --fix --config .markdownlint.toml skills/bms/memo/*.md
 ```
 
 ## Project Structure
@@ -15,14 +15,14 @@ markdownlint --fix --config skills/bms/memo/.markdownlint.jsonc skills/bms/memo/
 ```
 origin/                          # 原始日文 HTML 源文件 — 只读，勿编辑
 skills/bms/memo/                 # 中文翻译后的 markdown 文档 (14 篇)
-  .markdownlint.jsonc            # markdownlint 配置（JSONC 格式，含注释）
+  .markdownlint.toml             # markdownlint 配置（TOML 格式，含注释，项目根目录）
   01-overview.md ... 14-channel-mapping.md
   images/                        # 图片资源
 ```
 
 ## Markdown Formatting
 
-遵照 `skills/bms/memo/.markdownlint.json` 中配置的规则：
+遵照 `.markdownlint.toml` 中配置的规则：
 
 - 行宽 120 字符（表格行除外）
 - 代码块使用 fenced 风格 ` ``` `

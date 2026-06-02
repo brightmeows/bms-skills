@@ -1,0 +1,16 @@
+# BMS memo markdownlint 配置
+# 禁用规则的详细原因见 AGENTS.md → Disabled Rules
+
+default = true
+MD025 = false   # #WAV01 / #PLAYER 是 BMS 语法，非标题
+MD046 = false   # 表格内 <pre> 代码块无法统一 fenced/indented
+MD055 = false   # 表格内 <pre> 嵌入导致管道符风格不一致
+MD056 = false   # 同上，列数误报
+MD060 = false   # CJK+代码混排表格中列对齐误报严重
+
+[MD013]
+line_length = 120   # 行宽 120，技术文档够用
+tables = false      # 表格行内代码示例无法折行
+
+[MD033]
+allowed_elements = ["br", "code", "pre", "samples"]  # 表格内嵌代码 + BMS <samples> 语法
