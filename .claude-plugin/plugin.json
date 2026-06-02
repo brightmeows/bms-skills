@@ -1,0 +1,4 @@
+{
+  "name": "bms-skills",
+  "skills": ["./skills/bms", "./skills/bmson"]
+}

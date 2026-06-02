@@ -1,6 +1,7 @@
 ---
 name: bms
 description: Use when creating or editing BMS chart files, troubleshooting format issues, checking engine-specific behavior (beatoraja vs LR2), verifying BMSE compatibility, looking up channel mappings and header commands, or developing BMS tools that parse/generate BMS format.
+license: Apache-2.0
 ---
 
 # BMS 速查表
