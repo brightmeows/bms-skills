@@ -14,7 +14,8 @@
 ### npx skills（推荐）
 
 ```bash
-npx skills add https://codeberg.org/brightmeows/bms-skills
+# 注意：Codeberg（Forgejo）需使用 raw URL 路径
+npx skills add https://codeberg.org/brightmeows/bms-skills/raw/branch/main
 ```
 
 ### 手动引用
