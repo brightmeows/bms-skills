@@ -24,4 +24,4 @@ markdownlint --fix --config .markdownlint.toml skills/bms/*.md
 - 只修改格式问题，不修改文字、代码示例、数据内容
 - 文件名保持英文，与现有命名风格一致
 - 图片引用路径为相对路径 `images/`
-- `skills/bms/` 下的文档（含 `memo/`）必须有来源 URL，标记在开头的 `> 来源：[标题](URL)` 行
+- `skills/bms/` 和 `skills/bmson/` 下的文档必须有来源 URL，标记在开头的 `> 来源：[标题](URL)` 行
