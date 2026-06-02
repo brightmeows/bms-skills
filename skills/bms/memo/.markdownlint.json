@@ -6,7 +6,12 @@
   },
   "MD025": false,
   "MD033": {
-    "allowed_elements": ["br", "code", "pre", "samples"]
+    "allowed_elements": [
+      "br",
+      "code",
+      "pre",
+      "samples"
+    ]
   },
   "MD046": false,
   "MD055": false,

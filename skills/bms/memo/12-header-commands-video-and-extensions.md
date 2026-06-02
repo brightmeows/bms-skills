@@ -173,7 +173,7 @@ MOVIE.avi 将以 2 倍速播放。
   - 这是在尚未存在支持 7KEYS 的实现的时期的发明。
   - 当 BMS 中存在以下任一描述时，DDR 执行 *Project2DX* 专用处理：
 
-```
+```text
 #ExtChr 730 -1 245  1 257 18 201 140
 #ExtChr 774 -1 259 64 271 81 201 140
 #ExtChr 780 -1 335 64 347 81 201 140
@@ -206,7 +206,7 @@ MOVIE.avi 将以 2 倍速播放。
   4. 这样，"Materials"下目录中的文件也可被 BMS 引用。
 - 目录层级示例：
 
-```
+```text
 bm98_beta1
   ├ bm98body.exe
   ├ ...
@@ -216,7 +216,7 @@ bm98_beta1
                   └ sampleimage.bmp
 ```
 
-```
+```text
 // 位于其他位置的 BMS
 #WAV01 <samples>samplesound.wav
 #BMP01 <samples>sampleimage.bmp

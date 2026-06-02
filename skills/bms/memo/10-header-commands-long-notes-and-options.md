@@ -91,7 +91,7 @@ LN 在下次出现非 `00` 音符的位置闭合（LN 终点符号）。
 - WAview 和 in_bm2 无法正确解析 MGQ-LN，至少不会按照 RDM 规范解释。
 - RDM 和 ruvit 中，最后一个音符若为 MGQ-LN，则无法正确解析（大概是 bug）。
 
-### details
+### MGQ-LN details
 
 `#LNTYPE 2` 是 **MGQ 记法 LN**。
 
@@ -148,7 +148,7 @@ ruvit 的实现如上所述，但 Guide to understand BMS format 所解释的 MG
   - BMSE 不显式支持 `#LNOBJ`，但可在"扩展命令"标签页中编辑 `#LNOBJ`。
 - 对于 `#LNOBJ`，nanasi 和 fgt++ 存在无法识别小写 `#WAV` 索引的 bug，建议使用大写指定。
 
-### details
+### LNOBJ details
 
 `#LNOBJ` 是 RDM-type #1 的语法糖，为 **RDM-type #2 LN**。
 
