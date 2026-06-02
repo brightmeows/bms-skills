@@ -1,0 +1,19 @@
+{
+  "$schema": "https://schemas.agentskills.io/discovery/0.2.0/schema.json",
+  "skills": [
+    {
+      "name": "bms",
+      "type": "skill-md",
+      "description": "Use when creating or editing BMS chart files, troubleshooting format issues, checking engine-specific behavior (beatoraja vs LR2), verifying BMSE compatibility, looking up channel mappings and header commands, or developing BMS tools that parse/generate BMS format.",
+      "url": "https://codeberg.org/brightmeows/bms-skills/raw/branch/main/skills/bms/SKILL.md",
+      "digest": "sha256:a607f3bad8ce1580bbeed8f3d980fc7e1dd7b858d8826444511f4f6e9d5752c4"
+    },
+    {
+      "name": "bmson",
+      "type": "skill-md",
+      "description": "Use when working with .bmson files, creating or editing BMSON charts, converting between BMS and BMSON, implementing BMSON parsers/generators, looking up v1 JSON schema fields, or troubleshooting beatoraja BMSON extensions.",
+      "url": "https://codeberg.org/brightmeows/bms-skills/raw/branch/main/skills/bmson/SKILL.md",
+      "digest": "sha256:29446e2eff6d84554a706781911b354c8ad9bde90c243a1ff80632de183d0328"
+    }
+  ]
+}
