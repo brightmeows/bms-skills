@@ -96,7 +96,7 @@
 |          |                |
 | -------- | -------------- |
 | origin:  | BM98           |
-| support: | 部分           |
+| support: | 相当多         |
 
 - 在某些应用中，值 `0` 作为特殊难度显示。
 - 例如 BM98 不显示星号而显示问号。
@@ -108,7 +108,7 @@
 |          |                                                    |
 | -------- | -------------------------------------------------- |
 | origin:  | nanasi                                             |
-| support: | nanasi, iBMSC (3.0+), TechnicalGroove（调查中）    |
+| support: | nanasi, iBMSC (3.0+), TechnicalGroove, （调查中）    |
 
 - `#PLAYLEVEL` 的值可指定字符串。例如：`#PLAYLEVEL 安心`。
 - 也可如 `#PLAYLEVEL 12.4` 这样详细描述难度分类。

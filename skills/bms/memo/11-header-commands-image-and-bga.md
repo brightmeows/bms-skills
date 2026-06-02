@@ -192,9 +192,9 @@ Angolmois（有限尺寸和格式）, uBMplay (1.5.0+ / by DirectShow), Sonorous
 
 ||MPG|AVI|WMA|WMV|OGV|WebM|OGM|MOV|M2P|MP4|MKV|FLV|SWF|3GP|ASF|M4V|
 |---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
-|LR2|Yes|Yes|Yes|No|Yes|Yes|No|No|No|No|Yes?|No|No|No|No|No|
+|LR2|Yes|Yes|Yes|No|Yes|Yes|No|No|No|Yes?|No|No|No|No|No|No|
 |ruvit|Yes|Yes|No|No|No|Yes|No|No|No|No|No|No|No|No|No|No|
-|nazoZZ|Yes|Yes|No|No|No|No|No|No|No|No|Yes?|No|No|No|No|No|
+|nazoZZ|Yes|Yes|No|No|No|No|No|No|No|Yes?|No|No|No|No|No|No|
 |Angolmois|Yes|No|No|No|No|No|No|No|No|No|No|No|No|No|No|No|
 |Sonorous|Yes|No|No|No|No|No|No|No|No|No|No|No|No|No|No|No|
 |IIDXv, HDX|Yes|Yes|No|Yes|No|No|Yes|Yes|Yes|Yes|Yes|Yes|Yes|Yes|Yes|Yes|
@@ -369,7 +369,7 @@ BMSE, Angolmois, Sonorous, BGAEncAdv, pomu2
   - 这些值是**在显存 128MB** 环境下的调查结果。高性能计算机可能产生不同结果。
   - 若引用大于这些值的图像，可能导致以下问题：不显示、显示异常、**计算机无响应**等。
   - *FELYS* 的差分 (<https://manbow.nothing.sh/event/event.cgi?action=More_def&num=5&event=16>) 使用 `#BGA` 滚动宽度 3236 pixel 的图像文件（`#066-073`）。
-    此差分为 BM98de & DDR & pomu2 专用。虽然可以改写为其他格式，但 MixWaver、nanasi、ruvit 无法显示。
+    此差分为 BM98de & DDR & pomu2 专用。虽然可以改写为其他格式，但 MixWaver 无法显示。
 
 ## `#@BGA[00-ZZ] <[#BMP-index]> <sx> <sy> <w> <h> <dx> <dy>`
 

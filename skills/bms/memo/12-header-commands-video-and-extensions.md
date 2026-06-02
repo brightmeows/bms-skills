@@ -33,7 +33,7 @@
 | VIDEOFILE | `#VIDEOFILE` | bottom level |
 
 - 通道 `#xxx04` 和 `#xxx07` 中的黑色部分 (RGB:00:00:00) 变为透明。
-- 出错时，通道 `#xxx04`+`#xxx07` 的显示切换为通道 `#xxx06` 的显示。
+- 打出 Miss 时，通道 `#xxx04`+`#xxx07` 的显示切换为通道 `#xxx06` 的显示。
     经过一定时间后，恢复为通道 `#xxx04`+`#xxx07` 的显示。
 
 | summary | channel/header | remarks |
@@ -45,7 +45,7 @@
 
 - RDM 和 ruvit 中，VIDEOFILE 和 BGA 通道仅显示其中一方（排他性显示）。
 
-## #VIDEOF/s
+## #VIDEOf/s
 
 | origin | support |
 |--------|---------|
@@ -59,7 +59,7 @@
 
 | BMS code | remarks |
 | -------- | ------- |
-| `<pre>#VIDEOFILE MOVIE.avi<br>#VIDEOF/s 30</pre>` | MOVIE.avi 文件本身的帧率为 15 帧/秒。视频播放速度设为 30 FPS。 |
+| `<pre>#VIDEOFILE MOVIE.avi<br>#VIDEOf/s 30</pre>` | MOVIE.avi 文件本身的帧率为 15 帧/秒。视频播放速度设为 30 FPS。 |
 
 MOVIE.avi 将以 2 倍速播放。
 
@@ -146,27 +146,18 @@ MOVIE.avi 将以 2 倍速播放。
     - 指定此参数时，即使不需要"偏移量"，也**不能**省略"偏移量"参数。
 - 简单示例：
 
-| BMS code | remarks |
-|----------|---------|
-| ```
+```bms
+#bmp00 custom_skin1.bmp
+#bmp09 custom_skin2.bmp
+#bmpFF custom_skin3.bmp
+#extchr 512  09 30  0 99  9
+#extchr 514 255 38 11 62 19
+#extchr 516   0 38  1 62  9 -2 -2
+#extchr 513   0 38  1 62  9 -2 -2 0 0
+#extchr 512   9 30  0 49 19
+```
 
-# bmp00 custom_skin1.bmp
-
-# bmp09 custom_skin2.bmp
-
-# bmpFF custom_skin3.bmp
-
-# extchr 512  09 30  0 99  9
-
-# extchr 514 255 38 11 62 19
-
-# extchr 516   0 38  1 62  9 -2 -2
-
-# extchr 513   0 38  1 62  9 -2 -2 0 0
-
-# extchr 512   9 30  0 49 19
-
-``` | // 覆盖 characterID-`512` 的命令 |
+> // 覆盖 characterID-`512` 的命令
 
 - DDR 部分支持 *Project2DX* 格式（仅 1P 侧数据）。
   - 该格式是一种通过皮肤实现的 7KEYS 模拟，将通道 `#xxx21` 和 `#xxx22` 分配给 1P 侧的 KEY6 和 KEY7。

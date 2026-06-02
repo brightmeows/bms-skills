@@ -16,7 +16,7 @@
     [wiki[ja]](https://ja.wikipedia.org/wiki/BMS_%28%E9%9F%B3%E6%A5%BD%E3%82%B2%E3%83%BC%E3%83%A0%29))
   - **BME** (Be-Music Extend format): Be-Music Extend format
   - **BML** (Be-Music Longnote format): Be-Music Longnote format
-  - **PMS** (Po-Mu Script | feeling-PoMu Script (?)): Po-Mu Script
+  - **PMS** (feeling-PoMu Script): Po-Mu Script | feeling-PoMu Script (?)
 
 - 近年来，这些扩展名几乎仅为了向后兼容而存在。
 - 不支持谱面所需通道的实现会根据扩展名进行过滤。
@@ -89,7 +89,7 @@ BMS 起源于对 *beatmania* 的模仿。
 |number|object to change|remarks|
 |--------|-----------------|---------|
 |`#xxx01`|BGM|将在 `#WAVxx` 中定义的文件作为自动播放的音频对象放置。|
-|`#xxx02`|小节长|`#xxx02` 控制拍子（[Metre (music)](https://en.wikipedia.org/wiki/Metre_%28music%29)）。<br>- 小节长由整数或浮点数指定。<br>  - 值 1 为 4/4 拍。`#xxx01:11223344` // 相当于 4 个四分音符<br>  - 值 2 为 8/4 拍。`#xxx01:1122334411223344` // 相当于 8 个四分音符<br>  - 值 0.75 为 3/4 拍。`#xxx01:112233` // 相当于 3 个四分音符<br>  - 值 0.015625 为 1/64 拍。BMSE 可编辑的最小长度<br>  - 值 0.01 相当于 4 拍小节的 1%。BMSE 以 0.01625 倍数处理，会四舍五入<br>    ![BMSE rounds a value 0.01 to 0.01625](images/bmse_material_beat_humanshield.png)<br>  - BMSE/beditor 将长度与音符关联，擅长编辑[变拍子](https://en.wikipedia.org/wiki/List_of_musical_works_in_unusual_time_signatures)<br>  - BMSC/GDAC2 将长度作数值处理，擅长编辑与音乐无关的滚动速度变化|
+|`#xxx02`|小节长|`#xxx02` 控制拍子（[Metre (music)](https://en.wikipedia.org/wiki/Metre_%28music%29)）。<br>- 小节长由整数或浮点数指定。<br>  - 值 1 为 4/4 拍。`#xxx01:11223344` // 相当于 4 个四分音符<br>  - 值 2 为 8/4 拍。`#xxx01:1122334411223344` // 相当于 8 个四分音符<br>  - 值 0.75 为 3/4 拍。`#xxx01:112233` // 相当于 3 个四分音符<br>  - 值 0.015625 为 1/64 拍，相当于 1 个 64 分音符的长度。BMSE 可编辑的最小长度<br>  - 值 0.01 相当于 4 拍小节的 1%。BMSE 以 0.01625 倍数处理，会四舍五入<br>    ![BMSE rounds a value 0.01 to 0.01625](images/bmse_material_beat_humanshield.png)<br>  - BMSE/beditor 将长度与音符关联，擅长编辑[变拍子](https://en.wikipedia.org/wiki/List_of_musical_works_in_unusual_time_signatures)<br>  - BMSC/GDAC2 将长度作数值处理，擅长编辑与音乐无关的滚动速度变化|
 
       |BPM|小节长|比率 = 变化后 BPM / 变化前 BPM|
       |-----|--------|-------------------------------|
@@ -404,7 +404,7 @@ LN 给 Note 的计数方式带来了混乱。这对程序员、谱面作者和�
 |--------|------|
 |support|9KEYS (BMS-DP): pomu2, WAview, in_bm2, LR2, nanasi, fgt++, fgt#, GDAC2, BMSE, uBMplay, PMSee-V, bmx2wav, iBMSC (3.0+), Angolmois (2.0a2 or later); 9KEYS (BME-SP): pomu2, LR2, GDAC2 (774gsc), PMSee-V, bmx2wav, Angolmois (2.0a2 or later); 18KEYS (BME-DP): pomu2, nanasi, GDAC2 (774gsc), bmx2wav, Angolmois (2.0a2 or later, by `--key-spec`)|
 |header|为了兼容性，建议 PMS 指定 `#PLAYER 3`。|
-|channel|1:`11`, 2:`12`, 3:`13`, 4:`14`, 5:`15`, 6:`22`, 7:`23`, 8:`24`, 9:`25` (标准 PMS); 1:`11`, 2:`12`, 3:`13`, 4:`14`, 5:`15`, 6:`18`, 7:`19`, 8:`16`, 9:`17` (BME-SP); 1P-side: 1:`11`, 2:`12`, 3:`13`, 4:`14`, 5:`15`, 6:`18`, 7:`19`, 8:`16`, 9:`17`; 2P-side: 1:`21`, 2:`22`, 3:`23`, 4:`24`, 5:`25`, 6:`28`, 7:`29`, 8:`26`, 9:`27`|
+|channel|1:`11`, 2:`12`, 3:`13`, 4:`14`, 5:`15`, 6:`22`, 7:`23`, 8:`24`, 9:`25` (标准 PMS); 1:`11`, 2:`12`, 3:`13`, 4:`14`, 5:`15`, 6:`18`, 7:`19`, 8:`16`, 9:`17` (BME-SP，不太为人所知); 1P-side: 1:`11`, 2:`12`, 3:`13`, 4:`14`, 5:`15`, 6:`18`, 7:`19`, 8:`16`, 9:`17`; 2P-side: 1:`21`, 2:`22`, 3:`23`, 4:`24`, 5:`25`, 6:`28`, 7:`29`, 8:`26`, 9:`27`|
 
 - 不可见 `#xxx31-49`、LN `#xxx51-69` 和 地雷 `#xxxD1-E9` 遵循可见对象的通道映射。
 - 18KEYS 使用原本作为 FREE ZONE 通道的 `#xxxX7`。

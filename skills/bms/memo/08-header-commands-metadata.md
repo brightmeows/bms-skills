@@ -313,7 +313,7 @@
 | origin: | BMEV (?) |
 | support: | BMEV, WAview, in_bm2, uBMplay, IIDXv, Angolmois, Sonorous, BGAEncAdv, TechnicalGroove |
 
-- 可定义 WAV 文件所在目录的路径。
+- 可定义文件所在目录的路径。
 - （可能无法指定相对路径。）
 - 预期用于测试游玩。
 
@@ -339,11 +339,11 @@
 | | |
 | --- | --- |
 | origin: | ruvit |
-| support: | ruvit (2.0b5p2 以下) |
+| support: | ruvit (2.0b5p2 未満) |
 | caution: | **此命令已过时。我们不应再使用此命令。** |
 
-- 以 IANA 注册名指定谱面所采用的字符集。
-  (<http://www.iana.org/assignments/character-sets>)
+- ~~以 IANA 注册名指定谱面所采用的字符集。
+  (<http://www.iana.org/assignments/character-sets>)~~
 - 可指定 `[EUC-KR|SHIFT-JIS|UTF-8]` 作为值。例如：`#CHARSET EUC-KR`
 - 日语的 IANA 库名是 "Shift_JIS"（下划线而非连字符），但此命令需指定 `SHIFT-JIS`。
 - 若文本文件（BMS 文件）包含 BOM，`#CHARSET` 将基于 BOM 内容处理。

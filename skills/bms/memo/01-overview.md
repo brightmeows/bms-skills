@@ -58,7 +58,7 @@
 - 2013-10-18: Sonorous 0.1.0-pre (2013-10-13) / multi `#SUBTITLE` / multi `#COMMENT`
 - 2013-10-11: Sonorous 0.1.0-pre (2013-10-09)
 - 2013-10-07: 在 `#DEFEXRANK _n_` 补充了 TechnicalGroove 列 / 遗漏了 PMSee-V v2.1.5a (2013-07-15)（抱歉……抱歉……）
-- 2013-10-06: 补充了关于视频回退的内容
+- 2013-10-06: 补充了关于视频倒带的内容
 - 2013-09-23: Be-Music Helper (beta 4′) / woslicerIII (2013-09-22)
 - 2013-09-18: Be-Music Helper (beta 4) / Sonorous 0.1.0-pre (2013-09-17) / `#OPTION` 的所有值的枚举 (option.htm)
 - 2013-08-20: Angolmois 2.0 e5cea53a2cbd (SDL 2.0.\*) (fixed: `#BGA` 的兼容性)
