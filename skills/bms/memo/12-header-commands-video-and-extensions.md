@@ -1,6 +1,6 @@
 # 头部命令：视频与扩展
 
-> 来源：https://hitkey.nekokan.dyndns.info/cmdsJP.htm#HEADER
+> 来源：<https://hitkey.nekokan.dyndns.info/cmdsJP.htm#HEADER>
 
 ## #VIDEOFILE
 
@@ -32,8 +32,8 @@
 | BGA BASE | `#xxx04` | middle level |
 | VIDEOFILE | `#VIDEOFILE` | bottom level |
 
-  - 通道 `#xxx04` 和 `#xxx07` 中的黑色部分 (RGB:00:00:00) 变为透明。
-  - 出错时，通道 `#xxx04`+`#xxx07` 的显示切换为通道 `#xxx06` 的显示。
+- 通道 `#xxx04` 和 `#xxx07` 中的黑色部分 (RGB:00:00:00) 变为透明。
+- 出错时，通道 `#xxx04`+`#xxx07` 的显示切换为通道 `#xxx06` 的显示。
     经过一定时间后，恢复为通道 `#xxx04`+`#xxx07` 的显示。
 
 | summary | channel/header | remarks |
@@ -41,7 +41,7 @@
 | BGA POOR | `#xxx06` | top level |
 | VIDEOFILE | `#VIDEOFILE` | bottom level |
 
-    同样，通道 `#xxx06` 的黑色部分 (RGB:00:00:00) 变为透明。
+同样，通道 `#xxx06` 的黑色部分 (RGB:00:00:00) 变为透明。
 
 - RDM 和 ruvit 中，VIDEOFILE 和 BGA 通道仅显示其中一方（排他性显示）。
 
@@ -58,11 +58,8 @@
 - 更改播放速度的示例：
 
 | BMS code | remarks |
-|----------|---------|
-| ```
-#VIDEOFILE MOVIE.avi
-#VIDEOF/s 30
-``` | MOVIE.avi 文件本身的帧率为 15 帧/秒。视频播放速度设为 30 FPS。 |
+| -------- | ------- |
+| `<pre>#VIDEOFILE MOVIE.avi<br>#VIDEOF/s 30</pre>` | MOVIE.avi 文件本身的帧率为 15 帧/秒。视频播放速度设为 30 FPS。 |
 
 MOVIE.avi 将以 2 倍速播放。
 
@@ -118,7 +115,7 @@ MOVIE.avi 将以 2 倍速播放。
 
 | channel | `#xxx05` |
 |---------|----------|
-| detail | *BM98FinalSecret* (http://bm98.yaneu.com/bm98/bm98secret.html) |
+| detail | *BM98FinalSecret* (<http://bm98.yaneu.com/bm98/bm98secret.html>) |
 
 - 将 BMS 侧准备的 Extended-Character 文件应用于 BM98。
 - 播放画面上显示的所有元素均可替换为 BMS 侧准备的图像文件的一部分。
@@ -152,14 +149,23 @@ MOVIE.avi 将以 2 倍速播放。
 | BMS code | remarks |
 |----------|---------|
 | ```
-#bmp00 custom_skin1.bmp
-#bmp09 custom_skin2.bmp
-#bmpFF custom_skin3.bmp
-#extchr 512  09 30  0 99  9
-#extchr 514 255 38 11 62 19
-#extchr 516   0 38  1 62  9 -2 -2
-#extchr 513   0 38  1 62  9 -2 -2 0 0
-#extchr 512   9 30  0 49 19
+
+# bmp00 custom_skin1.bmp
+
+# bmp09 custom_skin2.bmp
+
+# bmpFF custom_skin3.bmp
+
+# extchr 512  09 30  0 99  9
+
+# extchr 514 255 38 11 62 19
+
+# extchr 516   0 38  1 62  9 -2 -2
+
+# extchr 513   0 38  1 62  9 -2 -2 0 0
+
+# extchr 512   9 30  0 49 19
+
 ``` | // 覆盖 characterID-`512` 的命令 |
 
 - DDR 部分支持 *Project2DX* 格式（仅 1P 侧数据）。
@@ -185,7 +191,7 @@ MOVIE.avi 将以 2 倍速播放。
 - BM98de 不一定支持 `#ExtChr`。
 - 然而，错误解释的结果可能恰好改变显示。
 - 此命令过于复杂，未能完全理解。请参考实际示例：
-  - *九十九里* (TEM, 2000-11-01) (http://childs.squares.net/bms/index.html) (umi_99ri.rar 中的 **umi_99ri_3.bms**)
+  - *九十九里* (TEM, 2000-11-01) (<http://childs.squares.net/bms/index.html>) (umi_99ri.rar 中的 **umi_99ri_3.bms**)
 
 ## MATERIALS
 

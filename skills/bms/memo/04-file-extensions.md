@@ -76,40 +76,43 @@ BMS 起源于对 *beatmania* 的模仿。
 - **1998-10-20**: TIX 公开了 **BMS Creator** v0.02.02（[改版履历](http://www.doits.jp/mediamaximum/contents/bm98/onlinemanual/version.html)）。……我们终于从文本编辑器中解放了。
 - **1998-11-26**: Urao Yane 展示了 [BMS Format Specification](http://bm98.yaneu.com/bm98/bmsformat.html)。
 
-| origin | BM98 |
+|origin|BM98|
 |--------|------|
-| support | BMS 的全部实现 |
-| header | `#PLAYER n`, `#GENRE string`, `#TITLE string`, `#ARTIST string`, `#BPM n`, `#MIDIFILE midiFilename`, `#PLAYLEVEL n`, `#RANK n`, `#VOLWAV n`, `#WAVxx audioFilename`, `#BMPxx imageFilename`, `#TOTAL n`, `#RANDOM n`, `#IF n`, `#ENDIF`, `#ExtChr SpriteNum BMPNum startX startY endX endY [offsetX offsetY [x y]]` |
-| channel | `#xxx01-06`, `#xxx11-17`, `#xxx21-27`, `#xxx31-36`, `#xxx41-46` |
+|support|BMS 的全部实现|
+|header|`#PLAYER n`, `#GENRE string`, `#TITLE string`, `#ARTIST string`, `#BPM n`, `#MIDIFILE midiFilename`, `#PLAYLEVEL n`, `#RANK n`, `#VOLWAV n`, `#WAVxx audioFilename`, `#BMPxx imageFilename`, `#TOTAL n`, `#RANDOM n`, `#IF n`, `#ENDIF`, `#ExtChr SpriteNum BMPNum startX startY endX endY [offsetX offsetY [x y]]`|
+|channel|`#xxx01-06`, `#xxx11-17`, `#xxx21-27`, `#xxx31-36`, `#xxx41-46`|
 
 各标头的详情另述。
 
 ### 各通道详情
 
-| number | object to change | remarks |
+|number|object to change|remarks|
 |--------|-----------------|---------|
-| `#xxx01` | BGM | 将在 `#WAVxx` 中定义的文件作为自动播放的音频对象放置。 |
-| `#xxx02` | 小节长 | `#xxx02` 控制拍子（[Metre (music)](https://en.wikipedia.org/wiki/Metre_%28music%29)）。<br>- 小节长由整数或浮点数指定。<br>  - 值 1 为 4/4 拍。`#xxx01:11223344` // 相当于 4 个四分音符<br>  - 值 2 为 8/4 拍。`#xxx01:1122334411223344` // 相当于 8 个四分音符<br>  - 值 0.75 为 3/4 拍。`#xxx01:112233` // 相当于 3 个四分音符<br>  - 值 0.015625 为 1/64 拍。BMSE 可编辑的最小长度<br>  - 值 0.01 相当于 4 拍小节的 1%。BMSE 以 0.01625 倍数处理，会四舍五入<br>    ![BMSE rounds a value 0.01 to 0.01625](images/bmse_material_beat_humanshield.png)<br>  - BMSE/beditor 将长度与音符关联，擅长编辑[变拍子](https://en.wikipedia.org/wiki/List_of_musical_works_in_unusual_time_signatures)<br>  - BMSC/GDAC2 将长度作数值处理，擅长编辑与音乐无关的滚动速度变化 |
+|`#xxx01`|BGM|将在 `#WAVxx` 中定义的文件作为自动播放的音频对象放置。|
+|`#xxx02`|小节长|`#xxx02` 控制拍子（[Metre (music)](https://en.wikipedia.org/wiki/Metre_%28music%29)）。<br>- 小节长由整数或浮点数指定。<br>  - 值 1 为 4/4 拍。`#xxx01:11223344` // 相当于 4 个四分音符<br>  - 值 2 为 8/4 拍。`#xxx01:1122334411223344` // 相当于 8 个四分音符<br>  - 值 0.75 为 3/4 拍。`#xxx01:112233` // 相当于 3 个四分音符<br>  - 值 0.015625 为 1/64 拍。BMSE 可编辑的最小长度<br>  - 值 0.01 相当于 4 拍小节的 1%。BMSE 以 0.01625 倍数处理，会四舍五入<br>    ![BMSE rounds a value 0.01 to 0.01625](images/bmse_material_beat_humanshield.png)<br>  - BMSE/beditor 将长度与音符关联，擅长编辑[变拍子](https://en.wikipedia.org/wiki/List_of_musical_works_in_unusual_time_signatures)<br>  - BMSC/GDAC2 将长度作数值处理，擅长编辑与音乐无关的滚动速度变化|
 
-      | BPM | 小节长 | 比率 = 变化后 BPM / 变化前 BPM |
+      |BPM|小节长|比率 = 变化后 BPM / 变化前 BPM|
       |-----|--------|-------------------------------|
-      | 121 | 1.008333333333333 | 121/120 (BMSE 无法正确解释) |
-      | 120 | 1 | 120/120 (BMSE 可正确解释) |
-      | 119 | 0.991666666666666 | 119/120 (BMSE 无法正确解释) |
+      |121|1.008333333333333|121/120 (BMSE 无法正确解释)|
+      |120|1|120/120 (BMSE 可正确解释)|
+      |119|0.991666666666666|119/120 (BMSE 无法正确解释)|
 
-      实际 BPM 不变、仅改变谱面滚动速度的演出效果，在日本俗称为"ソフラン"（soft landing）（[YouTube](https://www.youtube.com/watch?v=n7wVTsTUdp4)）。相关玩笑 BMS 可从[玩笑网站](http://yoruiro2s.s362.xrea.com/iidxcontroller/bms/index.html)下载。
+      实际 BPM 不变、仅改变谱面滚动速度的演出效果，在日本俗称为"ソフラン"（soft landing）
+        （[YouTube](https://www.youtube.com/watch?v=n7wVTsTUdp4)）。相关玩笑 BMS 可从[玩笑网站](http://yoruiro2s.s362.xrea.com/iidxcontroller/bms/index.html)下载。
     - 3.0 以后的 iBMSC 是两者的混合体。理论上，已不存在我们无法编辑的节奏。
-  - 在 BMS 中，`#xxx02` 的值仅作用于指定的小节。如果曲子完全是三拍子，则必须在所有小节中指定 `#xxx02:0.75`。
-  - 在 DTX 中，`#xxx02` 的值在遇到另一个 `#yyy02` 之前保持有效。如果曲子完全是三拍子，只需指定一次 `#00002:0.75`。
-  - 在 BMS 中，默认值 1 会隐式应用于省略了小节长的小节。
-  - 如果存在 `#99902`，nazo 在滚动到达 `#999` 之前不会结束谱面。
-    - 即使音乐已经结束，如果 `#xxx02` 写在音乐终点之后，nazo 会误以为还有未处理的对象残留。
-    - 在 BMSE 中，拍子选项卡的全选按钮会选中 `#000`-`#999` 全部。在此状态下指定 3/4，则 `#000`-`#999` 全部会变为 3/4 显示。例如编辑三拍子谱面时，此功能必定非常方便。但由于 nazo 过于愚蠢，我们不能依赖此功能。
 
-      | `#TITLE test` | 持续 33 分钟的机型 |
+- 在 BMS 中，`#xxx02` 的值仅作用于指定的小节。如果曲子完全是三拍子，则必须在所有小节中指定 `#xxx02:0.75`。
+- 在 DTX 中，`#xxx02` 的值在遇到另一个 `#yyy02` 之前保持有效。如果曲子完全是三拍子，只需指定一次 `#00002:0.75`。
+- 在 BMS 中，默认值 1 会隐式应用于省略了小节长的小节。
+- 如果存在 `#99902`，nazo 在滚动到达 `#999` 之前不会结束谱面。
+  - 即使音乐已经结束，如果 `#xxx02` 写在音乐终点之后，nazo 会误以为还有未处理的对象残留。
+  - 在 BMSE 中，拍子选项卡的全选按钮会选中 `#000`-`#999` 全部。在此状态下指定 3/4，则 `#000`-`#999` 全部会变为 3/4 显示。例如编辑三拍子谱面时，此功能必定非常方便。但由于 nazo 过于愚蠢，我们不能依赖此功能。
+
+      |`#TITLE test`|持续 33 分钟的机型|
       |---------------|-------------------|
-      | `#BPM 120` `#00111:01` `#99902:1` | nBMplay, BMEV, DDR, RDM, nazo, IIDXv, HDX, Angolmois |
-  - BM98 实现了小节长通道，但未在规格书中说明。可能正因为如此，拍子的概念未能传入某些游戏。 |
+      |`#BPM 120` `#00111:01` `#99902:1`|nBMplay, BMEV, DDR, RDM, nazo, IIDXv, HDX, Angolmois|
+
+- BM98 实现了小节长通道，但未在规格书中说明。可能正因为如此，拍子的概念未能传入某些游戏。 |
 | `#xxx03` | BPM | 作为对象放置的 [01-FF] 将解释为 [1-255] 的整数 BPM。`00` 为休止符。 |
 | `#xxx04` | BGA-BASE | 将在 `#BMPxx` 中定义的文件作为正常游玩时显示的图像对象放置。 |
 | `#xxx05` | Extended Object | 放置 `#ExtChr` 中定义的对象。仅 BM98 支持此功能。 |
@@ -120,62 +123,60 @@ BMS 起源于对 *beatmania* 的模仿。
 | `#xxx14` | 1P-side KEY4 | 同上。KEYs 是键盘型设备上的 5 个按钮。 |
 | `#xxx15` | 1P-side KEY5 | 同上。玩家必须按下与谱面指示对应的 KEY。 |
 | `#xxx16` | 1P-side SCRATCH | 同上。`#xxx16` 是通过转动转盘演奏的 Note 的轨道。 |
-| `#xxx17` | 1P-side FREE-ZONE | - `#xxx17` 设置**可自由刮擦转盘的区间**。
-  - 从"放置对象的位置"开始的"1 个四分音符"的长度即为 1 个 FREE-ZONE。
-  - 如果在 FREE-ZONE 关闭之前，在 `#xxx17` 上放置了新的对象，则 FREE-ZONE 会延长。
-  - 在 `#xxx17` 设定的区间内如果有 `#xxx16` 的 SCRATCH，则 SCRATCH 会重叠显示在 FREE-ZONE 上。
+|`#xxx17`|1P-side FREE-ZONE|- `#xxx17` 设置**可自由刮擦转盘的区间**。|
+- 从"放置对象的位置"开始的"1 个四分音符"的长度即为 1 个 FREE-ZONE。
+- 如果在 FREE-ZONE 关闭之前，在 `#xxx17` 上放置了新的对象，则 FREE-ZONE 会延长。
+- 在 `#xxx17` 设定的区间内如果有 `#xxx16` 的 SCRATCH，则 SCRATCH 会重叠显示在 FREE-ZONE 上。
 
-    ```
-    #00611:0011000000000000
-    #00614:1400001400000000
-    #00616:00000000**0016**0000
-    #00617:00000000**1700**0000
-    ```
+        #00611:0011000000000000
+        #00614:1400001400000000
+        #00616:00000000**0016**0000
+        #00617:00000000**1700**0000
     !["u gotta groove" #006 (from beatmania 2ndMIX)](images/u-gotta-groove.png)
 
-  - 1 个 FREE-ZONE，无论长度如何，都计为 1 个应演奏的 Note。
-  - FREE-ZONE 内的转盘对象，无论数量多少，都不计入应演奏的 Note。
-  - 如果 1 个 FREE-ZONE 内有 1 个以上的转盘对象，判定分为 3 种：
+- 1 个 FREE-ZONE，无论长度如何，都计为 1 个应演奏的 Note。
+- FREE-ZONE 内的转盘对象，无论数量多少，都不计入应演奏的 Note。
+- 如果 1 个 FREE-ZONE 内有 1 个以上的转盘对象，判定分为 3 种：
     0. 若全部以最佳时机演奏，则获得"相当于 1 个对象的最佳得分"。
     1. 若 FREE-ZONE 区间内从未进行刮擦，则不得分。
     2. 其他情况下，视为 1 个对象以尚可的时机被演奏，获得相应分数。
-  - 如果 1 个 FREE-ZONE 内没有转盘对象，判定分为 2 种：
+- 如果 1 个 FREE-ZONE 内没有转盘对象，判定分为 2 种：
     1. 若 FREE-ZONE 区间内从未进行刮擦，则不得分。
     2. 其他情况下，视为 1 个对象以尚可的时机被演奏，获得相应分数。
-    
+
     如果谱面中存在哪怕 1 处无刮擦的 FREE-ZONE，则绝对无法取得"Perfect"。
-  - 分配给 `#xxx16` 和 `#xxx17` 的声音与实际播放的声音之间有什么关系？我以前应该调查过，但记不起结果了。
-  - 支持 FREE-ZONE 的实现，应该呈现与 [*beatmania* 相同的渲染效果](https://www.youtube.com/watch?v=TxBCnbX5QEw)。
-  - 仅 BM98, BMSC, BMSV, nBMplay, Aqua (?), fgt（最初版本）支持此规格。
-    - 过于复杂的规格对程序员要求极高。
-    - 分数的概念与 FREE-ZONE 难以共存。
-    - FREE-ZONE 在 beatmania 3rdMIX 中被移除：**1998-09-28**
-  - ~~我对现代 FREE-ZONE 感兴趣。它需要制定什么样的规格呢？~~
-    - ~~它将拥有类似长音符的专用通道，通过起点和终点设定区间。~~
-    - ~~FREE-ZONE 不仅应适用于转盘，也应适用于键位。~~
-    - ~~FREE-ZONE 必须从分数和 Note 数的计算中完全分离。~~
-    - ~~不过，更好的格式应该会出现。因为所有对象不仅应有"点"，还应有"区间"。~~
-  - 近年来，通道 `#xxx17` 几乎不再作为 FREE-ZONE 使用。
-    - nanasi 和 Angolmois 将此通道用作脚踏板对象。
-    - nanasi, pomu2 和 Angolmois 将此通道用作 18KEYS (PMS-DP) 的按钮之一。
-    - LR2, PMSee-V, pomu2 和 Angolmois 将此通道用作 9KEYS (BME 型 PMS) 的按钮之一。 |
+- 分配给 `#xxx16` 和 `#xxx17` 的声音与实际播放的声音之间有什么关系？我以前应该调查过，但记不起结果了。
+- 支持 FREE-ZONE 的实现，应该呈现与 [*beatmania* 相同的渲染效果](https://www.youtube.com/watch?v=TxBCnbX5QEw)。
+- 仅 BM98, BMSC, BMSV, nBMplay, Aqua (?), fgt（最初版本）支持此规格。
+  - 过于复杂的规格对程序员要求极高。
+  - 分数的概念与 FREE-ZONE 难以共存。
+  - FREE-ZONE 在 beatmania 3rdMIX 中被移除：**1998-09-28**
+- ~~我对现代 FREE-ZONE 感兴趣。它需要制定什么样的规格呢？~~
+  - ~~它将拥有类似长音符的专用通道，通过起点和终点设定区间。~~
+  - ~~FREE-ZONE 不仅应适用于转盘，也应适用于键位。~~
+  - ~~FREE-ZONE 必须从分数和 Note 数的计算中完全分离。~~
+  - ~~不过，更好的格式应该会出现。因为所有对象不仅应有"点"，还应有"区间"。~~
+- 近年来，通道 `#xxx17` 几乎不再作为 FREE-ZONE 使用。
+  - nanasi 和 Angolmois 将此通道用作脚踏板对象。
+  - nanasi, pomu2 和 Angolmois 将此通道用作 18KEYS (PMS-DP) 的按钮之一。
+  - LR2, PMSee-V, pomu2 和 Angolmois 将此通道用作 9KEYS (BME 型 PMS) 的按钮之一。 |
 | `#xxx21-27` | 2P-side Visible object | 右侧玩家应演奏的对象。`21-25` 为键盘，`26` 为转盘，`27` 对应 FREE-ZONE。 |
-| `#xxx31-36` | 1P-side Invisible object | 不可见对象不显示、不被判定、不计入分数。它用于将分配给键位的声音更改为其他声音。
-  - 供玩家进行即兴演奏。
-  - 用于彩蛋（Easter egg）。
-  - 用 2 个不可见对象夹住 1 个可见对象，可以嘲讽玩家的 timing 偏差。
-  - 放置空的不可见对象可使演奏无声。例如在安静场景中很有用。
-  - 在 Angolmois 中，将不可见对象与地雷重叠放置，可以在一定程度上更改通常无法更改的爆炸音。 |
-| `#xxx41-46` | 2P-side Invisible object | - 由于其特性，FREE-ZONE 不能拥有不可见对象。
-  - 因此，通道 `#xxx37` 和 `#xxx47` 不被支持。（BM98 会产生编译错误）
-  - 但是，将 `#xxx17` 作为键位而非 FREE-ZONE 支持的实现也会支持 `#xxx37`。
-  - 支持 18KEYS 的 nanasi 和 pomu2 也将 `#xxx47` 作为不可见对象支持。
-  - Angolmois 可通过 "`--key-spec`" 选项自定义 `#xxx[1-6][0-Z]` 全部作为可演奏轨道。因此，Angolmois 支持 `#xxx[30-4Z]` 全部作为不可见对象。
-  - 一些实现存在与不可见对象相关的 Bug。
-    - pomu2: 应用 DOUBLE 系 LIGHT 选项时，分数可超过理论值。
-    - 同上: 自动游玩中，不可见对象仍会发声。
-    - RDM 及旧版 ruvit: 不可见对象被忽略。
-    - 同上: 在不可见对象存在的位置，如果玩家进行即兴演奏，它会被判定为未能处理可见对象。即 groove 值会减少。 |
+|`#xxx31-36`|1P-side Invisible object|不可见对象不显示、不被判定、不计入分数。它用于将分配给键位的声音更改为其他声音。|
+- 供玩家进行即兴演奏。
+- 用于彩蛋（Easter egg）。
+- 用 2 个不可见对象夹住 1 个可见对象，可以嘲讽玩家的 timing 偏差。
+- 放置空的不可见对象可使演奏无声。例如在安静场景中很有用。
+- 在 Angolmois 中，将不可见对象与地雷重叠放置，可以在一定程度上更改通常无法更改的爆炸音。 |
+|`#xxx41-46`|2P-side Invisible object|- 由于其特性，FREE-ZONE 不能拥有不可见对象。|
+- 因此，通道 `#xxx37` 和 `#xxx47` 不被支持。（BM98 会产生编译错误）
+- 但是，将 `#xxx17` 作为键位而非 FREE-ZONE 支持的实现也会支持 `#xxx37`。
+- 支持 18KEYS 的 nanasi 和 pomu2 也将 `#xxx47` 作为不可见对象支持。
+- Angolmois 可通过 "`--key-spec`" 选项自定义 `#xxx[1-6][0-Z]` 全部作为可演奏轨道。因此，Angolmois 支持 `#xxx[30-4Z]` 全部作为不可见对象。
+- 一些实现存在与不可见对象相关的 Bug。
+  - pomu2: 应用 DOUBLE 系 LIGHT 选项时，分数可超过理论值。
+  - 同上: 自动游玩中，不可见对象仍会发声。
+  - RDM 及旧版 ruvit: 不可见对象被忽略。
+  - 同上: 在不可见对象存在的位置，如果玩家进行即兴演奏，它会被判定为未能处理可见对象。即 groove 值会减少。 |
 
 ## BME
 
@@ -220,28 +221,28 @@ BMS 起源于对 *beatmania* 的模仿。
 此外，BMSC 并未支持基本命令 `#RANDOM`。"严格的 BME"并非 BMS 的完全超集。我认为执着于起源或词典上的定义已无意义。
 顺便一提，我不反对将 BME 恰当地用作 7KEYS 的代名词——这虽不严格，但比"严格的 BME"更有用。
 
-| origin | BMSC |
+|origin|BMSC|
 |--------|------|
-| support | 除 BM98, BM98k, BMSV 之外的所有实现 |
-| header | 除 BMS 的命令外，大多数实现还支持以下扩展命令。（这些被支持与 BME 的规范无关）
+|support|除 BM98, BM98k, BMSV 之外的所有实现|
+|header|除 BMS 的命令外，大多数实现还支持以下扩展命令。（这些被支持与 BME 的规范无关）|
 
-  | name & value | summary | BMSC | origin |
+  |name & value|summary|BMSC|origin|
   |-------------|---------|------|--------|
-  | `#STAGEFILE imageFilename` | 640x480 的启动画面 | Yes | BM98k 扩展 |
-  | `#BPMxx n` | 255 以上或小数 BPM | No | bemaniaDX 扩展 |
-  | `#BGAxx BMPnum x1 y1 x2 y2 dx dy` | 局部裁剪 & 显示 | No | BM98de 扩展 |
+  |`#STAGEFILE imageFilename`|640x480 的启动画面|Yes|BM98k 扩展|
+  |`#BPMxx n`|255 以上或小数 BPM|No|bemaniaDX 扩展|
+  |`#BGAxx BMPnum x1 y1 x2 y2 dx dy`|局部裁剪 & 显示|No|BM98de 扩展|
 
   许多实现不支持 `#MIDIFILE` 和 `#ExtChr`，因此它们实质上已成为非标准命令。 |
-| channel | 除 BMS 的通道外，大多数实现还支持 KEY6 和 KEY7。
+|channel|除 BMS 的通道外，大多数实现还支持 KEY6 和 KEY7。|
 
-  | number | object to change | BMSC | origin |
+  |number|object to change|BMSC|origin|
   |--------|-----------------|------|--------|
-  | `#xxx07` | BGA-LAYER | Yes | BM98k 扩展：叠加在 `#xxx04` 之上的图像对象 |
-  | `#xxx08` | 扩展 BPM | No | bemaniaDX 扩展：由 `#BPMxx` 定义的实数 BPM 对象 |
-  | `#xxx18-19` | 1P-side Visible KEY6 / KEY7 | Yes | FlashTerminal 扩展 |
-  | `#xxx28-29` | 2P-side Visible KEY6 / KEY7 | Yes | FlashTerminal 扩展 |
-  | `#xxx38-39` | 1P-side Invisible KEY6 / KEY7 | Yes | FlashTerminal 扩展 |
-  | `#xxx48-49` | 2P-side Invisible KEY6 / KEY7 | Yes | FlashTerminal 扩展 |
+  |`#xxx07`|BGA-LAYER|Yes|BM98k 扩展：叠加在 `#xxx04` 之上的图像对象|
+  |`#xxx08`|扩展 BPM|No|bemaniaDX 扩展：由 `#BPMxx` 定义的实数 BPM 对象|
+  |`#xxx18-19`|1P-side Visible KEY6 / KEY7|Yes|FlashTerminal 扩展|
+  |`#xxx28-29`|2P-side Visible KEY6 / KEY7|Yes|FlashTerminal 扩展|
+  |`#xxx38-39`|1P-side Invisible KEY6 / KEY7|Yes|FlashTerminal 扩展|
+  |`#xxx48-49`|2P-side Invisible KEY6 / KEY7|Yes|FlashTerminal 扩展|
 
   许多实现不支持 `#xxx[1-4]7`，因此它们实质上已成为非标准命令。 |
 
@@ -260,28 +261,30 @@ LN 是保持输入状态的操作，但另一些游戏可能要求快速重复�
 
 在原版游戏中，LN 可能有不同的名称或特征。以下是几种典型类型：
 
-| formal name | first appearance | remarks |
+|formal name|first appearance|remarks|
 |-------------|-----------------|---------|
-| 长音符 (Long Note) | **1999-04-20**: Ez2DJ THE 1st TRACKS | 在起点处 keydown 并保持。终点处的 Keyup ~~不需要~~ *曾需要，但现已不需要*。 ([note](https://note.com/wgc_tencho/n/nc7306a39a192)) |
-| 长音符 (Long Note) | **2000-02-06**: KEYBOARDMANIA | 在起点处 keydown 并保持。终点处的 Keyup 是必需的。 |
-| キープ君 (Keep-kun) | **2000-04-20**: pop'n music MICKEY TUNES | 显示为固定长度音符而非可变长度音符。按下的音符像进度条一样显示。这是一个时间计量器。 |
-| ![(Name unknown)](images/kintaro-ame.png) | **2001-02-21**: 太鼓达人 | 所有具有长度的对象都是需要连打的对象。这不是将一次动作拆分为 keydown-keep-keyup 的符号。而是无数 keydown 动作的符号。类似金太郎糖。（大概此后，长对象的命名变得名副其实了。） |
-| 冻结箭头 (Freeze Arrow) | **2001-10-19**: DDRMAX -DDR 6thMIX- | 请持续踩住面板。终点处无需抬脚。([DDR术语基础知识"Freeze Arrow"](http://mp.i-revo.jp/user.php/rjmwurxs/entry/4.html)) 即使改变步伐，只要在四分音符以内，箭头不会中断。恐怕考虑到"踩"这一操作，按下判定有所放宽。（某种意义上，这是长按与连打的组合。） |
-| 一圈刮擦 (One-turn Scratch) | **2002-01-31**: beatmania 7thMIX | 必须在到达终点前将转盘旋转 360°。区间内旋转角度越接近 360°，得分越高。无需在终点恰好停止旋转。 |
-| 模拟摇杆音符 (Analog Note) | **2006-01-14**: DJMAX Portable | 请持续旋转 PSP 的模拟摇杆。输入期间连击增加。需要保持输入至终点。 |
-| 按住长音符 (Hold Long Note) | **2008-10-31**: DJMAX TECHNICA | 请持续按住圆形部分直至终点。中途松开则 BREAK。 |
-| 拖拽长音符 (Drag Long Note) | **2008-10-31**: DJMAX TECHNICA | 请沿指示线描画音符。轨迹偏离太多则 BREAK。 |
-| 链条音符 (Chain Note) | **2008-10-31**: DJMAX TECHNICA | 请沿指示线的轨迹和时机描画音符。 |
-| 重复音符 (Repeat Note) | **2008-10-31**: DJMAX TECHNICA | 请反复触摸音符的前端部分。 |
-| 蓄力音符 (Charge Note) | **2009-10-21**: beatmaniaIIDX 17 SIRIUS | 在起点处 keydown 并保持。终点处的 Keyup 是必需的。 |
-| Backspin Scratch | **2009-10-21**: beatmaniaIIDX 17 SIRIUS | 在起点处开始旋转并保持。终点处需要反向旋转。 |
-| ---- | 触摸系 | 调查中 |
+|长音符 (Long Note)|**1999-04-20**: Ez2DJ THE 1st TRACKS|在起点处 keydown 并保持。终点处的 Keyup ~~不需要~~ *曾需要，但现已不需要*。 ([note](https://note.com/wgc_tencho/n/nc7306a39a192))|
+|长音符 (Long Note)|**2000-02-06**: KEYBOARDMANIA|在起点处 keydown 并保持。终点处的 Keyup 是必需的。|
+|キープ君 (Keep-kun)|**2000-04-20**: pop'n music MICKEY TUNES|显示为固定长度音符而非可变长度音符。按下的音符像进度条一样显示。这是一个时间计量器。|
+|![(Name unknown)](images/kintaro-ame.png)|**2001-02-21**: 太鼓达人|所有具有长度的对象都是需要连打的对象。这不是将一次动作拆分为 keydown-keep-keyup 的符号。而是无数 keydown 动作的符号。类似金太郎糖。（大概此后，长对象的命名变得名副其实了。）|
+|冻结箭头 (Freeze Arrow)|**2001-10-19**: DDRMAX -DDR 6thMIX-|请持续踩住面板。终点处无需抬脚。([DDR术语基础知识"Freeze Arrow"](http://mp.i-revo.jp/user.php/rjmwurxs/entry/4.html)) 即使改变步伐，只要在四分音符以内，箭头不会中断。恐怕考虑到"踩"这一操作，按下判定有所放宽。（某种意义上，这是长按与连打的组合。）|
+|一圈刮擦 (One-turn Scratch)|**2002-01-31**: beatmania 7thMIX|必须在到达终点前将转盘旋转 360°。区间内旋转角度越接近 360°，得分越高。无需在终点恰好停止旋转。|
+|模拟摇杆音符 (Analog Note)|**2006-01-14**: DJMAX Portable|请持续旋转 PSP 的模拟摇杆。输入期间连击增加。需要保持输入至终点。|
+|按住长音符 (Hold Long Note)|**2008-10-31**: DJMAX TECHNICA|请持续按住圆形部分直至终点。中途松开则 BREAK。|
+|拖拽长音符 (Drag Long Note)|**2008-10-31**: DJMAX TECHNICA|请沿指示线描画音符。轨迹偏离太多则 BREAK。|
+|链条音符 (Chain Note)|**2008-10-31**: DJMAX TECHNICA|请沿指示线的轨迹和时机描画音符。|
+|重复音符 (Repeat Note)|**2008-10-31**: DJMAX TECHNICA|请反复触摸音符的前端部分。|
+|蓄力音符 (Charge Note)|**2009-10-21**: beatmaniaIIDX 17 SIRIUS|在起点处 keydown 并保持。终点处的 Keyup 是必需的。|
+|Backspin Scratch|**2009-10-21**: beatmaniaIIDX 17 SIRIUS|在起点处开始旋转并保持。终点处需要反向旋转。|
+|----|触摸系|调查中|
 
 除 nanasi, HDX, Angolmois 之外的 BMS 应用不判定 LN 的终点，即终点处不需要 keyup。
+
 - 然而，我认为这一行为不适合"以点表示节奏、将动作与点关联"的 UI。
 - 依我之见，如果游戏系统不强制 keyup，LN 不应明确显示终点——因为外观违反直觉。
 
 LN 给 Note 的计数方式带来了混乱。这对程序员、谱面作者和谱面收藏者来说都很麻烦。
+
 - 在某些游戏中，LN 计为 1 个 Note。即 LN 的区间（由起点和终点组成）为 1 个 Note。
 - 在某些游戏中，起点和终点分别视为各自的 Note。
 
@@ -333,31 +336,34 @@ LN 给 Note 的计数方式带来了混乱。这对程序员、谱面作者和�
 
 ### 严格的 BML
 
-| origin | RDM |
+|origin|RDM|
 |--------|------|
-| support | RDM, nazo, nazoZZ, bme2wav, LR2, nanasi, ruvit, fgt++, fgt#, pomu2, uBMplay, PMSee-V, bmx2wav, iBMSC (3.0 or later), Angolmois |
-| channel | 与 BME 相同 |
-| header | 
-  | name & value | summary | origin | remarks |
-  |-------------|---------|--------|---------|
-  | `#LNOBJ xx` | 将 `#WAVxx` 用作 LN 终点 | RDM 扩展 | 应使用大写字母指定编号。（为了兼容性） |
+|support|RDM, nazo, nazoZZ, bme2wav, LR2, nanasi, ruvit, fgt++, fgt#, pomu2, uBMplay, PMSee-V, bmx2wav, iBMSC (3.0 or later), Angolmois|
+|channel|与 BME 相同|
+|header||
+
+`#LNOBJ xx`：将 `#WAVxx` 用作 LN 终点（RDM 扩展）。应使用大写字母指定编号。（为了兼容性）
 
 ### 宽松的 BML
 
-| origin | WAview |
+|origin|WAview|
 |--------|--------|
-| support | RDM, nazo, nazoZZ, bme2wav, LR2, nanasi, ruvit, fgt++, fgt#, pomu2, uBMplay, PMSee-V, bmx2wav, iBMSC, Angolmois
-  ~~DDR (only DDR mode),~~ WAview, in_bm2, BMSE, IIDXv, HDX, O2play, Aqua (?)
-  - DDR 在 Arrow 模式中支持 RDM 记法 `#xxx51-69`，而非 `#LNOBJ xx`。
-  - DDR 不符合扩展名 BML 的要求规范，因此不支持扩展名 BML。（= DDR 严格遵循规范） |
-| channel | 除 BME 的通道外...
+|support|RDM, nazo, nazoZZ, bme2wav, LR2, nanasi, ruvit, fgt++, fgt#, pomu2, uBMplay, PMSee-V, bmx2wav, iBMSC, Angolmois|
 
-  | number | object to change | origin | remarks |
+  ~~DDR (only DDR mode),~~ WAview, in_bm2, BMSE, IIDXv, HDX, O2play, Aqua (?)
+
+- DDR 在 Arrow 模式中支持 RDM 记法 `#xxx51-69`，而非 `#LNOBJ xx`。
+- DDR 不符合扩展名 BML 的要求规范，因此不支持扩展名 BML。（= DDR 严格遵循规范）
+|channel|除 BME 的通道外...|
+
+  |number|object to change|origin|remarks|
   |--------|-----------------|--------|---------|
-  | `#xxx51-59` | 1P-side LN Object | MGQ 扩展 | `#xxx57` 和 `#xxx67` 的支持取决于实现。 |
-  | `#xxx61-69` | 2P-side LN Object | MGQ 扩展 | `#LNTYPE 1`:: RDM 记法：发现非 `00` 编号则为 LN 起点；下次发现非 `00` 编号则为 LN 终点。
-    `#LNTYPE 2`:: MGQ 记法：发现非 `00` 编号则为 LN 起点；非 `00` 编号持续期间 LN 持续；发现 `00` 则其紧前方为 LN 终点。 |
-| header | 与 BME 相同 |
+  |`#xxx51-59`|1P-side LN Object|MGQ 扩展|`#xxx57` 和 `#xxx67` 的支持取决于实现。|
+  |`#xxx61-69`|2P-side LN Object|MGQ 扩展|`#LNTYPE 1`:: RDM 记法：发现非 `00` 编号则为 LN 起点；下次发现非 `00` 编号则为 LN 终点。|
+
+`#LNTYPE 2`:: MGQ 记法：发现非 `00` 编号则为 LN 起点；非 `00` 编号持续期间 LN 持续；发现 `00` 则其紧前方为 LN 终点。
+
+|header|与 BME 相同|
 
 ## PMS
 
@@ -394,27 +400,16 @@ LN 给 Note 的计数方式带来了混乱。这对程序员、谱面作者和�
     - **2014-02-05**: 解决此问题的方法由 Misty.ls04 提出。（[Twitter](https://twitter.com/misty_ls04/status/431288455231193088)）
     - **2014-06-01**: 为解决此问题，"lr2_pmsview_helper" 由 Misty.ls04 公开。请参考[我的文章](https://hitkey.nekokan.dyndns.info/diary1406.php#D140606)。
 
-| origin | pomu |
+|origin|pomu|
 |--------|------|
-| support | 
-  | | support |
-  |---|---------|
-  | 9KEYS (BMS-DP): | pomu2, WAview, in_bm2, LR2, nanasi, fgt++, fgt#, GDAC2, BMSE, uBMplay, PMSee-V, bmx2wav, iBMSC (3.0+), Angolmois (2.0a2 or later) |
-  | 9KEYS (BME-SP): | pomu2, LR2, GDAC2 (774gsc), PMSee-V, bmx2wav, Angolmois (2.0a2 or later) |
-  | 18KEYS (BME-DP): | pomu2, nanasi, GDAC2 (774gsc), bmx2wav, Angolmois (2.0a2 or later, by `--key-spec`) |
-| header | 为了兼容性，建议 PMS 指定 `#PLAYER 3`。 |
-| channel | 
-  | | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | remarks |
-  |---|:-:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|---------|
-  | 9KEYS (BMS-DP): | `11` | `12` | `13` | `14` | `15` | `22` | `23` | `24` | `25` | 标准 PMS |
-  | 9KEYS (BME-SP): | `11` | `12` | `13` | `14` | `15` | `18` | `19` | `16` | `17` | 不太为人所知 |
-  | 18KEYS (BME-DP): | `11` | `12` | `13` | `14` | `15` | `18` | `19` | `16` | `17` | 1P-side (left) |
-  | | `21` | `22` | `23` | `24` | `25` | `28` | `29` | `26` | `27` | 2P-side (right) |
+|support|9KEYS (BMS-DP): pomu2, WAview, in_bm2, LR2, nanasi, fgt++, fgt#, GDAC2, BMSE, uBMplay, PMSee-V, bmx2wav, iBMSC (3.0+), Angolmois (2.0a2 or later); 9KEYS (BME-SP): pomu2, LR2, GDAC2 (774gsc), PMSee-V, bmx2wav, Angolmois (2.0a2 or later); 18KEYS (BME-DP): pomu2, nanasi, GDAC2 (774gsc), bmx2wav, Angolmois (2.0a2 or later, by `--key-spec`)|
+|header|为了兼容性，建议 PMS 指定 `#PLAYER 3`。|
+|channel|1:`11`, 2:`12`, 3:`13`, 4:`14`, 5:`15`, 6:`22`, 7:`23`, 8:`24`, 9:`25` (标准 PMS); 1:`11`, 2:`12`, 3:`13`, 4:`14`, 5:`15`, 6:`18`, 7:`19`, 8:`16`, 9:`17` (BME-SP); 1P-side: 1:`11`, 2:`12`, 3:`13`, 4:`14`, 5:`15`, 6:`18`, 7:`19`, 8:`16`, 9:`17`; 2P-side: 1:`21`, 2:`22`, 3:`23`, 4:`24`, 5:`25`, 6:`28`, 7:`29`, 8:`26`, 9:`27`|
 
-  - 不可见 `#xxx31-49`、LN `#xxx51-69` 和 地雷 `#xxxD1-E9` 遵循可见对象的通道映射。
-  - 18KEYS 使用原本作为 FREE ZONE 通道的 `#xxxX7`。
-    - BMSE: BMSE 会丢弃 `#xxxX7`，故编辑困难。
-    - GDAC2 + 774gsc: 目前最佳选择。但 GDAC2 的响应不太舒适。
+- 不可见 `#xxx31-49`、LN `#xxx51-69` 和 地雷 `#xxxD1-E9` 遵循可见对象的通道映射。
+- 18KEYS 使用原本作为 FREE ZONE 通道的 `#xxxX7`。
+  - BMSE: BMSE 会丢弃 `#xxxX7`，故编辑困难。
+  - GDAC2 + 774gsc: 目前最佳选择。但 GDAC2 的响应不太舒适。
       ![GDAC2 18KEYS](https://hitkey.nekokan.dyndns.info/bmse_help_full/Capture/bmse_header_player3_pms4.png)
-    - BMSC: 可最快开始编辑。因为 BMSC 是唯一默认支持 FREE ZONE 的编辑器。
+  - BMSC: 可最快开始编辑。因为 BMSC 是唯一默认支持 FREE ZONE 的编辑器。
       ![18KEYS_by_BMSC](images/bmsc-18keys.png)

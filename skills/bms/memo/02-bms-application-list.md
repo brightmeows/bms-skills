@@ -8,7 +8,7 @@
 ## Body（已淘汰）
 
 | 名称/版本 | 简称 | 说明 |
-|---|---|---|
+| --- | --- | --- |
 | BM98 & BM98 kikuchan version 330 revision 42 | BM98 | <https://hitkey.nekokan.dyndns.info/bm98.htm> |
 | BM98 Kikuchan Version 3.32β Drink Edition | BM98de | <http://www.uranus.dti.ne.jp/~kikuchan/bm98/> |
 | music game quest ver2.18 | MGQ | <https://web.archive.org/web/*/http://www.geocities.co.jp/Playtown/4702/*> |
@@ -28,7 +28,7 @@
 ## Body（现行）
 
 | 名称/版本 | 简称 | 说明 |
-|---|---|---|
+| --- | --- | --- |
 | LunaticRave2 100201 | LR2 | <https://web.archive.org/web/20110210225009/http://www.lr2.sakura.ne.jp/index2.html>（目前日本事实上的标准） |
 | ruv-it! 2.0 b5p7 test #7 (2012-03-19) | ruvit | <https://nvyu.net/rdm/>（目前韩国事实上的标准） |
 | ナナシグルーヴ2 beta (Toy Musical 3 Ver.2.2) | nanasi2 | <http://d11x.sakura.ne.jp/asdf/> |
@@ -42,7 +42,7 @@
 ## 编辑器（Editor）
 
 | 名称/版本 | 简称 | 说明 |
-|---|---|---|
+| --- | --- | --- |
 | BMS Creator 2.0b1 | BMSC | <http://tixlab.com/software/bmsc.shtml> |
 | beditor 1.3.1 | beditor | <https://web.archive.org/web/*/http://macbeat.at.infoseek.co.jp/data/*> |
 | GDA Creator Professional Edition Ver.0.24 | GDAC2 | <https://www.asahi-net.or.jp/~nm4j-tyn/gdac2/> |
@@ -55,7 +55,7 @@
 ## 查看器（Viewer，已淘汰）
 
 | 名称/版本 | 简称 | 说明 |
-|---|---|---|
+| --- | --- | --- |
 | BMS Viewer 2.0 | BMSV | <https://web.archive.org/web/*/http://www.h3.dion.ne.jp/~cpp/download/bmview/index.html> |
 | BME(BMS) Viewer 0.04 | BMEV | <http://www.din.or.jp/~k-uraki/game/tools.html> |
 | nBMplay v0.26a | nBMplay | <https://www.nothing.sh/download/> |
@@ -65,7 +65,7 @@
 ## 查看器（Viewer，现行）
 
 | 名称/版本 | 简称 | 说明 |
-|---|---|---|
+| --- | --- | --- |
 | uBMplay 1.5.2 | uBMplay | <http://ucn.tokonats.net/software/ubmplay/> |
 | PMSee-V v2.2.3 | PMSee-V | <https://sakukoba.ninja-x.jp/ponila/> |
 | BMIIDXView2010 v2.14 | IIDXv | <http://www.charatsoft.com/software/bmview/index.html> |
@@ -73,7 +73,7 @@
 ## 其他工具（已淘汰）
 
 | 名称/版本 | 简称 | 说明 |
-|---|---|---|
+| --- | --- | --- |
 | otama Ver.0.991 | otama | <https://www.asahi-net.or.jp/~VG5M-OBT/otama.html>（弹幕游戏） |
 | NINJA AGENT GALLI ver1.03 | GALLI | <https://web.archive.org/web/20160311123053/http://ninjaactionteam.sakura.ne.jp/sakuhin_bmsplayer.html>（动作游戏） |
 | BMS Printer Ver.0.01 Pre-Release | bmsPRN | <https://delight.airytail.co/download.html> |
@@ -87,7 +87,7 @@
 ## 其他工具（现行）
 
 | 名称/版本 | 简称 | 说明 |
-|---|---|---|
+| --- | --- | --- |
 | bmx2wav 1.3.3 | bmx2wav | <http://childs.squares.net/program/bmx2wav/index.html> |
 | PMChr-V v4.0.2 | PMChr-V | <https://sakukoba.ninja-x.jp/ponila/> |
 | woslicerII（wav 文件切割器） | woslicerII | <https://cerebralmuddystream.nekokan.dyndns.info/> |
@@ -102,9 +102,9 @@
 ## 待测试
 
 | 名称/版本 | 简称 | 说明 |
-|---|---|---|
+| --- | --- | --- |
 | o2mania 1.2.0 | o2mania | <http://www.o2mania.com/> |
-| MyO2 (2011-06-01) | MyO2 |（似乎被警告了，所以不再提供） |
+| MyO2 (2011-06-01) | MyO2 | （似乎被警告了，所以不再提供） |
 | D3beat ver1.1（jubeat 风格 / Windows7 或更高版本） | D3beat | <http://www.nicovideo.jp/mylist/29296483> |
 | 不可視地雷コンバータ for LR2 | 3-4toD-E | <https://nekokan.dyndns.info/~otlovers/guidance/guidance_4b.html> |
 | Sp2Dp ver_110622 | SP2DP | <http://www.geocities.jp/o6o_o9o_o6o/soft/>（无法下载） |

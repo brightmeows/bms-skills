@@ -32,10 +32,10 @@
   - `<00>`, `<11>`, `<22>`, `<33>`：由 2 字符字母数字对组成，对应各对象的索引。
 
     | 时期 | 进制 | 范围 |
-    |---|---|---|
-    | 初期：十六进制 | 16\*16 (256) | [0-9A-Fa-f][0-9A-Fa-f] |
-    | 中期：有限三十六进制 | 16\*36 (576) | [0-9A-Fa-f][0-9A-Za-z] |
-    | 现在：三十六进制 | 36\*36 (1296) | [0-9A-Za-z][0-9A-Za-z] |
+    | --- | --- | --- |
+    | 初期：十六进制 | 16\*16 (256) | `[0-9A-Fa-f][0-9A-Fa-f]` |
+    | 中期：有限三十六进制 | 16\*36 (576) | `[0-9A-Fa-f][0-9A-Za-z]` |
+    | 现在：三十六进制 | 36\*36 (1296) | `[0-9A-Za-z][0-9A-Za-z]` |
 
   - 由若干「索引」组成的值将等分小节。
   - 若写入 4 个索引，则小节被 4 等分，即指定了「4 个四分音符」的节奏。
@@ -62,7 +62,7 @@
 - 同一头语句重复时，采用更靠近文件末尾（EOF）的一侧：
 
   | remarks | sample BMS code |
-  |---|---|
+  | --- | --- |
   | (line number 100) | `#TITLE ABC` |
   | (line number 200) | `#TITLE DEF` |
 
@@ -104,7 +104,7 @@
 - 行号较大者优先，但 `00` 不会覆盖旧位置：
 
   | remarks | sample BMS code | comment |
-  |---|---|---|
+  | --- | --- | --- | --- |
   | (行号 100) | `#00113:11111111` | // `1100110011001100` |
   | (行号 200) | `#00113:0022332255224400` | // `#001` 的通道 `13` 重复 |
   | (行号 300) | `#00113:0066` | // `#001` 的通道 `13` 重复 |
@@ -130,21 +130,21 @@
 - 规范未规定应如何解释给出了非法值的通道行。
 
   | sample BMS code | remarks |
-  |---|---|
+  | --- | --- |
   | `#00111:0011文字2233` | // 混入 DBCS |
   | `#00112:0011223` | // 数据长度非 2 的倍数 |
   | `#00113:+-;$%&'()/` | // 无法用作 `#WAV` 索引的特殊字符 |
   | `#00114:1100...(over 500000 characters)...011` | // 数据过长 |
   | `#00115:11  ;comment` | // DTX 的内联注释（GDAC2 无法正确解析） |
   | `#00102:12.375f` | // IIDXv 与 HDX 的 float 型显式选项 |
-   | <code>#00121:  FFFFFF  OOOOOO  OOOOOO  NNNNNN<br>#00122:  FF      OO  OO  OO  OO  NN  NN<br>#00123:  FFFFFF  OO  OO  OO  OO  NN  NN<br>#00124:  FF      OO  OO  OO  OO  NN  NN<br>#00125:  FF      OOOOOO  OOOOOO  NN  NN</code> | // ASCII art（[Shift_JIS art](https://en.wikipedia.org/wiki/Shift_JIS_art)） |
+  | <code>#00121:  FFFFFF  OOOOOO  OOOOOO  NNNNNN<br>#00122:  FF      OO  OO  OO  OO  NN  NN<br>#00123:  FFFFFF  OO  OO  OO  OO  NN  NN<br>#00124:  FF      OO  OO  OO  OO  NN  NN<br>#00125:  FF      OOOOOO  OOOOOO  NN  NN</code> | // ASCII art（[Shift_JIS art](https://en.wikipedia.org/wiki/Shift_JIS_art)） |
 
   某些实现（nazo、uBMplay、LR2 等）会尝试解释这些内容，但方式不明。「适当解释」的定义亦不明。
 
 - BMS 解析器可能需要读取如下形式的头语句：
 
   | sample BMS code | remarks |
-  |---|---|
+  | --- | --- |
   | `#stopA 192` | // 定义编号省略前导零 |
   | `#stop11 -192` | // 负数值 |
   | `#stop22␣` | // 空定义槽（带分隔符） |
@@ -155,7 +155,7 @@
   | `#WAV60 ura_63.wav` | // 实际文件名为 `ura_63..wav`（<http://www.comeup.info/bofoon2007/automation.zip>） |
   | `#bga01⇥ fz␣512␣␣256␣␣768␣␣384␣␣0␣␣␣64␣␣big.bmp` | // 多个制表符和空格排列的值 |
   | `#bmp字 big.bmp` | // 定义编号为 DBCS |
-   | <code>#random 10<br>⇥   #if 1<br>⇥   ⇥   #wavZZ foo.wav<br>⇥   #else<br>⇥   ⇥   #wavZZ bar.wav<br>⇥   #endif<br>#endrandom</code> | // 多个制表符和空格的缩进 |
+  | <code>#random 10<br>⇥   #if 1<br>⇥   ⇥   #wavZZ foo.wav<br>⇥   #else<br>⇥   ⇥   #wavZZ bar.wav<br>⇥   #endif<br>#endrandom</code> | // 多个制表符和空格的缩进 |
 
   某些实现允许上述内容作为有效值，而另一些实现则将其视为无效值。
 
@@ -164,7 +164,7 @@
 - 若干例外与注意事项：
 
   | apps | remarks |
-  |---|---|
+  | --- | --- |
   | BMSV | [000-511] |
   | DDR | [000-998] |
   | bemaniaDX | [000-399] |
@@ -176,4 +176,4 @@
   | LR2 | 若可见物件或长按音符物件存在于 `#000` 开头，LR2 会在 `#000` 之前插入与 `#000` 等长的空小节。（这是避免游戏启动时困扰用户的方法之一）。此功能虽方便，但若物件同时存在于 `#000` 和 `#999`，谱面将无法正常结束。 |
   | pomu2 | 键音播放期间 pomu2 不会结束谱面。但若谱面超过 `#999` 后仍有键音在播放，pomu2 会崩溃。 |
   | otama | 根据 otama 的文档（<https://www.asahi-net.or.jp/~VG5M-OBT/otamadoc.html>）：「小节最大数为 1024」。但此描述颇为奇怪，`#1024xx` 会引发 bug。 |
-  | MyO2 | 382.《[ニコニコ動画] 組曲》在谱面跑完前会崩溃，这与小节数无关吗？以下为错误信息引用（乱码部分已省略）：<br>`TypeError: Error #1010: A term is undefined and has no properties.`<br>`  at ::scorenum/()[E:\popstage_5key\com\scorenum.as:44]`<br>`  at ::scorenum/setNum()`<br>`  at ::o2jam/()[E:\popstage_5key\com\o2jam.as:2951]`<br>`  at ::o2jam/()[E:\popstage_5key\com\o2jam.as:2630]`<br>`  at ::o2jam/()[E:\popstage_5key\com\o2jam.as:3056]` |
+  | MyO2 | 382.《[ニコニコ動画] 組曲》在谱面跑完前会崩溃，这与小节数无关吗？以下为错误信息引用（乱码部分已省略）：<br>`TypeError: Error #1010: A term is undefined and has no properties.`<br>`at ::scorenum/()[E:\popstage_5key\com\scorenum.as:44]`<br>`at ::scorenum/setNum()`<br>`at ::o2jam/()[E:\popstage_5key\com\o2jam.as:2951]`<br>`at ::o2jam/()[E:\popstage_5key\com\o2jam.as:2630]`<br>`at ::o2jam/()[E:\popstage_5key\com\o2jam.as:3056]` |

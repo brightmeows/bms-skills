@@ -11,8 +11,8 @@
 - 可省略。
 - 省略时，期望各实现显示其默认的加载画面。
 
-  | in nazobmplay: |                                    |
-  | -------------- | ---------------------------------- |
+  | in nazobmplay:      |                                                                                                                     |
+  | ------------------- | ------------------------------------------------------------------------------------------------------------------- |
   | `#STAGEFILE` 指定时 | ![bmse_header_stagefile1.gif](https://hitkey.nekokan.dyndns.info/bmse_help_full/Capture/bmse_header_stagefile1.gif) |
   | `#STAGEFILE` 未指定 | ![bmse_header_stagefile2.gif](https://hitkey.nekokan.dyndns.info/bmse_help_full/Capture/bmse_header_stagefile2.gif) |
 
@@ -20,16 +20,16 @@
 
 ## `#BANNER imagefilename`
 
-|          |                                                                    |
-| -------- | ------------------------------------------------------------------ |
-| origin:  | nanasi                                                             |
+|          |                                                                                               |
+| -------- | --------------------------------------------------------------------------------------------- |
+| origin:  | nanasi                                                                                        |
 | support: | nanasi, pomu2, LR2, fgt++, iBMSC (3.0+), PMSee-V (2.0.0+), Sonorous, TechnicalGroove (仅解析) |
 
 300x80
 
 - 指定在选曲画面或结果画面等显示的 300x80 图像文件。
 - 也可指定相对于「BMS 文件所在目录」的相对路径（仅下级路径）。
-- ~~MATERIALS (<path>filename) 也可指定。~~ **（注：nanasi 已终止对 MATERIALS 的支持。）**
+- ~~MATERIALS (`<path>`filename) 也可指定。~~ **（注：nanasi 已终止对 MATERIALS 的支持。）**
 - 路径全长限制为 260 字节。
 - ~~命令省略时，nanasi 会从「BMS 的同级或下级目录」中查找 `banner.bmp`，若存在则应用。~~ **（实际并非如此。该功能似乎已被移除。）**
 
@@ -37,9 +37,9 @@
 
 ## `#BACKBMP imagefilename`
 
-|          |                                                                               |
-| -------- | ----------------------------------------------------------------------------- |
-| origin:  | DDR                                                                           |
+|          |                                                                                                          |
+| -------- | -------------------------------------------------------------------------------------------------------- |
+| origin:  | DDR                                                                                                      |
 | support: | DDR, nanasi, LR2（有条件）, pomu2（有条件）, iBMSC (3.0+), Sonorous（仅解析）, TechnicalGroove（仅解析） |
 
 - 原始规格：指定作为游戏画面背景显示的 640x480 图像。
@@ -59,19 +59,19 @@
 |          |                                                                                        |
 | -------- | -------------------------------------------------------------------------------------- |
 | origin:  | pomu                                                                                   |
-| support: | pomu2, PMChr-V, Sonorous（仅解析）, TechnicalGroove（仅解析）                              |
+| support: | pomu2, PMChr-V, Sonorous（仅解析）, TechnicalGroove（仅解析）                          |
 
 - 模仿《pop'n music》的角色文件。
 - 抱歉，作者对此规格并不熟悉。
 - 目前 `#CHARFILE` 是 pomu2 的独有扩展。但 LunaticRave 的下一代版本可能会支持 `#CHARFILE`。
 
-|                  |                                                                         |
-| ---------------- | ----------------------------------------------------------------------- |
-| For example:     | [Feeling PoMu - YouTube](https://www.youtube.com/watch?v=14skmXXCjOQ)   |
-| sample download: | [Colorful Channel official website](https://pmcc.nekokan.dyndns.info/pmcc2/download.html) |
-| official guidance: | [続！てきとうなキャラ作成講座](https://web.archive.org/web/*/http://m-nekomi.cool.ne.jp/newpage/mu2/Make2.htm) |
-| unofficial guidance: | [シュークリーム分が](https://web.archive.org/web/20140103231405/http://storyof.namidaame.com/yy_pce.htm) |
-| charfile viewer: | PMChr-V.zip: [ポニラボ](https://sakukoba.ninja-x.jp/ponila/)            |
+|                      |                                                                                                                |
+| -------------------- | -------------------------------------------------------------------------------------------------------------- |
+| For example:         | [Feeling PoMu - YouTube](https://www.youtube.com/watch?v=14skmXXCjOQ)                                          |
+| sample download:     | [Colorful Channel official website](https://pmcc.nekokan.dyndns.info/pmcc2/download.html)                      |
+| official guidance:   | [続！てきとうなキャラ作成講座](https://web.archive.org/web/*/http://m-nekomi.cool.ne.jp/newpage/mu2/Make2.htm) |
+| unofficial guidance: | [シュークリーム分が](https://web.archive.org/web/20140103231405/http://storyof.namidaame.com/yy_pce.htm)       |
+| charfile viewer:     | PMChr-V.zip: [ポニラボ](https://sakukoba.ninja-x.jp/ponila/)                                                   |
 
 ---
 
@@ -108,7 +108,7 @@
 |          |                                                    |
 | -------- | -------------------------------------------------- |
 | origin:  | nanasi                                             |
-| support: | nanasi, iBMSC (3.0+), TechnicalGroove（调查中）          |
+| support: | nanasi, iBMSC (3.0+), TechnicalGroove（调查中）    |
 
 - `#PLAYLEVEL` 的值可指定字符串。例如：`#PLAYLEVEL 安心`。
 - 也可如 `#PLAYLEVEL 12.4` 这样详细描述难度分类。
@@ -120,7 +120,7 @@
 |          |                                                               |
 | -------- | ------------------------------------------------------------- |
 | origin:  | nanasi                                                        |
-| support: | nanasi, LR2, iBMSC (3.0+), Sonorous, TechnicalGroove              |
+| support: | nanasi, LR2, iBMSC (3.0+), Sonorous, TechnicalGroove          |
 
 - 我们可以使用此元信息对谱面进行排序和筛选。
 - 支持此命令的实现预计可实现「按谱面难度类别筛选选曲列表」。
@@ -132,11 +132,11 @@
 
 | filename                    | add description        | remarks                                              |
 | --------------------------- | ---------------------- | ---------------------------------------------------- |
-| himiko_1p_beginner.bms      | `#DIFFICULTY 1`        | 低难度谱面（EASY/BEGINNER/LIGHT 等）                     |
-| himiko_1p_normal.bms        | `#DIFFICULTY 2`        | 标准难度谱面（NORMAL/STANDARD 等）                        |
-| himiko_1p_hyper.bms         | `#DIFFICULTY 3`        | 高难度谱面（HARD/HYPER 等）                              |
-| himiko_1p_another.bms       | `#DIFFICULTY 4`        | 更高难度谱面（EX/ANOTHER 等）                             |
-| himiko_1p_blackanother.bms  | `#DIFFICULTY 5`        | 所谓的粪谱面、发狂等                                  |
+| himiko_1p_beginner.bms      | `#DIFFICULTY 1`        | 低难度谱面（EASY/BEGINNER/LIGHT 等）                 |
+| himiko_1p_normal.bms        | `#DIFFICULTY 2`        | 标准难度谱面（NORMAL/STANDARD 等）                   |
+| himiko_1p_hyper.bms         | `#DIFFICULTY 3`        | 高难度谱面（HARD/HYPER 等）                          |
+| himiko_1p_another.bms       | `#DIFFICULTY 4`        | 更高难度谱面（EX/ANOTHER 等）                        |
+| himiko_1p_blackanother.bms  | `#DIFFICULTY 5`        | 所谓的粪谱面、发狂等                                 |
 
 **示例 2：**
 
@@ -154,12 +154,13 @@
     这是由众多用户积极讨论分类而成的巨大谱面数据库。
     各种谱面被提交、讨论并分类。
     传闻该表收录的谱面在 IR（Internet Ranking）中的游玩次数可达通常的 100 倍。
-  - 衍生自难度表的网站也很多。例如 [LN 难度表](http://ukita2.web.fc2.com/record.html)、转盘难度表、[DP 难度表](http://dpbms.at-ninja.jp/)、[Overjoy](http://achusi.main.jp/overjoy/) 等。
+  - 衍生自难度表的网站也很多。例如 [LN 难度表](http://ukita2.web.fc2.com/record.html)、转盘难度表、
+    [DP 难度表](http://dpbms.at-ninja.jp/)、[Overjoy](http://achusi.main.jp/overjoy/) 等。
   - 也有玩家偏好停止序列、BPM 变更、类 pop'n 强制选项等技巧。
   - 也有利用 BMS 格式规格漏洞的类型，包含某种幽默或玩笑的倾向。[kusofumen lovers](https://web.archive.org/web/*/http://soflan.hp.infoseek.co.jp/) 是其典型之一。
 - `#DIFFICULTY` 经常用于统一收录于包中的 BMS 格式：
 
-  | 系列名                                | URL                                                                                             |
+  | 系列名                               | URL                                                                                             |
   | ------------------------------------ | ----------------------------------------------------------------------------------------------- |
   | BMS Starter Pack 2009                | <http://www.yamajet.com/bmssp/>                                                                 |
   | Toy Musical 系列                     | <http://toymusical.net/>                                                                        |
@@ -178,8 +179,8 @@
 
   [连字符减号与既定**小写**关键词构成的、针对基名的后缀]
 
-  | filename                     | 对应难度             | group    |
-  | ---------------------------- | -------------------- | -------- |
+  | filename                     | 对应难度             | group      |
+  | ---------------------------- | -------------------- | ---------- |
   | `pmsname**-n**.pms`          | `#DIFFICULTY 2`      | **N**ORMAL |
   | `pmsname**-h**.pms`          | `#DIFFICULTY 3`      | **H**YPER  |
   | `pmsname**-ex**.pms`         | `#DIFFICULTY 4`      | **EX**TRA  |
@@ -193,20 +194,20 @@
 |          |                                  |
 | -------- | -------------------------------- |
 | origin:  | TechnicalGroove                  |
-| support: | ~~TechnicalGroove~~       |
+| support: | ~~TechnicalGroove~~              |
 
 - 满足以下所有条件时，会自动设置虚拟的 `#DIFFICULTY` 值：
   - 不存在有效的 `#DIFFICULTY` 命令。
   - 存在 `#SUBTITLE` 或隐式副标题。
   - 副标题包含以下任一关键词（不区分大小写）。
 
-  | Grouping            | Keywords                                                  |
-  | ------------------- | --------------------------------------------------------- |
+  | Grouping            | Keywords                                                       |
+  | ------------------- | -------------------------------------------------------------- |
   | `#DIFFICULTY 1`     | "Easy", "Beginner", "Light", "Simple", "5Button", "[B]", "(B)" |
-  | `#DIFFICULTY 2`     | "Normal", "Standard", "[N]", "(N)"                        |
-  | `#DIFFICULTY 3`     | "Hyper", "Hard", "Extend", "[H]", "(H)"                   |
-  | `#DIFFICULTY 4`     | "Maniac", "Extra", "EX"                                   |
-  | `#DIFFICULTY 5`     | "Insane", "Another", "Plus", "[A]", "(A)"                 |
+  | `#DIFFICULTY 2`     | "Normal", "Standard", "[N]", "(N)"                             |
+  | `#DIFFICULTY 3`     | "Hyper", "Hard", "Extend", "[H]", "(H)"                        |
+  | `#DIFFICULTY 4`     | "Maniac", "Extra", "EX"                                        |
+  | `#DIFFICULTY 5`     | "Insane", "Another", "Plus", "[A]", "(A)"                      |
 
 - TechnicalGroove 也支持 `#DIFFICULTY 6` 及以上的正整数（但不推荐）。
 - TechnicalGroove 也支持 `#DIFFICULTY 0`，但未明确 `0` 的含义。

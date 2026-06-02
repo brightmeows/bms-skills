@@ -3,7 +3,7 @@
 ## `#RANDOM n` / `#IF n` / `#ENDIF`
 
 | 项目 | 内容 |
-|------|------|
+| ------ | ------ |
 | 来源 | BM98 (<http://bm98.yaneu.com/bm98/bmsformat.html>) |
 | 支持 | BM98, BM98de, DDR, RDM, MW, bemaniaDX, nazo, Mac, Aqua, WAview, in_BM2, bms2wav, bms2avi, LR2, ruvit, nanasi, fgt++, fgt#, pomu2, nazoZZ, uBMplay, PMSee-V, IIDXv, HDX, bmx2wav, outliner, Angolmois, BMSE (partial), iBMSC (3.0+ / partial), Sonorous, BGAEncAdv, TechnicalGroove |
 | 解除嵌套 | RDM, bemaniaDX, nazo, nazoZZ, WAview, in_BM2, LR2, ruvit, fgt++, fgt#, uBMplay (1.4.6 及更早), PMSee-V, bmx2wav |
@@ -25,9 +25,9 @@
 
 ### 基本示例
 
-| BMS code | 生成值 1 时 | 生成值 2 时 |
+|BMS code|生成值 1 时|生成值 2 时|
 |----------|-------------|-------------|
-| <pre><code>#00111:11000000<br><br>#RANDOM 2<br><br>#IF 1<br>#00112:00220000<br>#ENDIF<br><br>#IF 2<br>#00113:00003300<br>#ENDIF<br><br>#00114:00000044</code></pre> | ![](images/flow1.png)<br><pre><code>#00111:11000000<br>#00112:00220000<br>#00114:00000044</code></pre> | ![](images/flow2.png)<br><pre><code>#00111:11000000<br>#00113:00003300<br>#00114:00000044</code></pre> |
+|<pre><code>#00111:11000000<br><br>#RANDOM 2<br><br>#IF 1<br>#00112:00220000<br>#ENDIF<br><br>#IF 2<br>#00113:00003300<br>#ENDIF<br><br>#00114:00000044</code></pre>|![基本示例 生成值1时的流程图](images/flow1.png)<br><pre><code>#00111:11000000<br>#00112:00220000<br>#00114:00000044</code></pre>|![示例 生成值2时的流程图](images/flow2.png)<br><pre><code>#00111:11000000<br>#00113:00003300<br>#00114:00000044</code></pre>|
 
 - 此例的顶层有 2 行和一个 `#RANDOM` 块。
 - `#00111:11000000` 和 `#00114:00000044` 写在 `#RANDOM` 外部 (top-level)。因此，无论 `#RANDOM` 的生成值如何，这两行始终会被解析。
@@ -38,9 +38,9 @@
 
 ### 不推荐的示例：公共部分的孤儿化
 
-| BMS code | 生成值 1 时 | 生成值 2 时 |
+|BMS code|生成值 1 时|生成值 2 时|
 |----------|-------------|-------------|
-| <pre><code>#RANDOM 2<br>#00111:11000000<br>#00114:00000044<br><br>#IF 1<br>#00112:00220000<br>#ENDIF<br><br>#IF 2<br>#00113:00003300<br>#ENDIF</code></pre> | ![](images/flow3.png)<br><pre><code>#00112:00220000</code></pre> | ![](images/flow4.png)<br><pre><code>#00113:00003300</code></pre> |
+|<pre><code>#RANDOM 2<br>#00111:11000000<br>#00114:00000044<br><br>#IF 1<br>#00112:00220000<br>#ENDIF<br><br>#IF 2<br>#00113:00003300<br>#ENDIF</code></pre>|![不推荐示例 生成值1时的孤儿流程图](images/flow3.png)<br><pre><code>#00112:00220000</code></pre>|![不推荐示例 生成值2时的孤儿流程图](images/flow4.png)<br><pre><code>#00113:00003300</code></pre>|
 
 - 谱师可能会期望这个示例与第一个示例产生相同的结果。但是，这是**不推荐的**。
 - 因为 `#RANDOM` 块包含了不属于 `#IF` 部分的行。
@@ -50,9 +50,9 @@
 
 ### 嵌套 `#RANDOM` 示例
 
-| `#RANDOM 2` 的双重嵌套 | 生成值 1 » 进一步生成值 1 时 | 生成值 1 » 进一步生成值 2 时 | 生成值 2 时 |
+|`#RANDOM 2` 的双重嵌套|生成值 1 » 进一步生成值 1 时|生成值 1 » 进一步生成值 2 时|生成值 2 时|
 |------------------------|----------------------------|----------------------------|------------|
-| <pre><code>#00111:11000000<br><br>#RANDOM 2<br><br>  #IF 1<br>    #00112:00220000<br><br>    #RANDOM 2<br><br>      #IF 1<br>        #00115:00550000<br>      #ENDIF<br><br>      #IF 2<br>        #00116:00006600<br>      #ENDIF<br><br>    #ENDRANDOM<br><br>  #ENDIF<br><br>  #IF 2<br>    #00113:00003300<br>  #ENDIF<br><br>#ENDRANDOM<br><br>#00114:00000044</code></pre> | ![](images/flow5.png)<br>(pattern A)<br><pre><code>#00111:11000000<br>#00112:00220000<br>#00115:00550000<br>#00114:00000044</code></pre> | ![](images/flow6.png)<br>(pattern B)<br><pre><code>#00111:11000000<br>#00112:00220000<br>#00116:00006600<br>#00114:00000044</code></pre> | ![](images/flow2.png)<br>(pattern C)<br><pre><code>#00111:11000000<br>#00113:00003300<br>#00114:00000044</code></pre> |
+|<pre><code>#00111:11000000<br><br>#RANDOM 2<br><br>  #IF 1<br>    #00112:00220000<br><br>    #RANDOM 2<br><br>      #IF 1<br>        #00115:00550000<br>      #ENDIF<br><br>      #IF 2<br>        #00116:00006600<br>      #ENDIF<br><br>    #ENDRANDOM<br><br>  #ENDIF<br><br>  #IF 2<br>    #00113:00003300<br>  #ENDIF<br><br>#ENDRANDOM<br><br>#00114:00000044</code></pre>|![嵌套示例 生成值1进一步1时的流程图](images/flow5.png)<br>(pattern A)<br><pre><code>#00111:11000000<br>#00112:00220000<br>#00115:00550000<br>#00114:00000044</code></pre>|![嵌套示例 生成值1进一步2时的流程图](images/flow6.png)<br>(pattern B)<br><pre><code>#00111:11000000<br>#00112:00220000<br>#00116:00006600<br>#00114:00000044</code></pre>|![示例 生成值2时的流程图](images/flow2.png)<br>(pattern C)<br><pre><code>#00111:11000000<br>#00113:00003300<br>#00114:00000044</code></pre>|
 
 - **请注意，能正确解释嵌套 `#RANDOM` 的实现很少。**
 - 为了使代码更易读，我在示例中使用了缩进和 `#ENDRANDOM`。实际使用嵌套 `#RANDOM` 时，应去掉缩进，并删除行尾的空格。
@@ -75,20 +75,22 @@
 例如：Declinin' (sta, 2008-01-13) (下载: [低级语言关怀会](http://bit192.info/))
 
 | 实现 | 截图 |
-|------|------|
+| ------ | ------ |
 | BMSE（部分支持） | <https://hitkey.nekokan.dyndns.info/090102/090102_01.png> |
 | BMSC（不支持） | <https://hitkey.nekokan.dyndns.info/090102/090102_02.png> |
 | iBMSC 3.0（部分支持） | <https://hitkey.nekokan.dyndns.info/img/20120123_ibmsc30_random.png><br>"扩展代码"选项卡的隔离是准确的。该选项卡至少可存储 700,000 字符以上。<br>但目前的隔离还不完善，"编辑面板"中仍会显示流控表达式。 |
 
 - 该 BMS 在 `#026-033` 中使用 40 个 `#RANDOM` 语句来随机化音符的节奏。
 - 概念图：<https://hitkey.nekokan.dyndns.info/090102/090102_03.gif>
-- BMSE 能解析 `#RANDOM` 部分并将其分离到"扩展命令"选项卡。然而，该 BMS 中过多的 `#RANDOM` 块会超出 BMSE "扩展命令"选项卡的容量。通过此 BMS，我发现"扩展命令"选项卡最多只能容纳 65535 字符。
+- BMSE 能解析 `#RANDOM` 部分并将其分离到"扩展命令"选项卡。然而，该 BMS 中过多的 `#RANDOM` 块会超出 BMSE "扩展命令"选项卡的容量。通过此 BMS，我发现"扩展命令"选项卡最多只能容纳 65535
+  字符。
 
 ### 其他注意事项
 
 - 控制流需要在所有其他命令之前进行解析。
 - 控制流有能力更改包括头部在内的任何命令行。
-  - e.g. オートメーション工場 (automation factory) (John "De Bello" Cage, 2007-03-14) (<http://www.comeup.info/bofoon2007/automation.zip>)
+  - e.g. オートメーション工場 (automation factory) (John "De Bello" Cage, 2007-03-14)
+    (<http://www.comeup.info/bofoon2007/automation.zip>)
   - 该 BMS 会随机自动生成音乐。
   `#TITLE`, `#RANK`, `#BPM[01-ZZ]` 都受到该语法控制。
   - 第 347781-409539 行的部分是 `#IF 14` (347780-409542) 的子级。
@@ -110,7 +112,7 @@
 ## `#RONDAM n`
 
 | 项目 | 内容 |
-|------|------|
+| ------ | ------ |
 | 来源 | uBMplay |
 | 支持 | uBMplay, outliner, Sonorous, BGAEncAdv, TechnicalGroove |
 
@@ -122,9 +124,9 @@
     - 然而，此行为未被规范定义，因此依赖于实现。
   - `#RANDOM` 的范围是如何确定的呢？是否根本不存在范围，只有 `#IF`-`#ENDIF` 的部分？
 
-  | 可疑的代码示例 | 说明 |
+  |可疑的代码示例|说明|
   |---------------|------|
-  | <pre><code>#00111:11<br><br>#RANDOM 2<br>  #IF 1<br>    #00212:22<br>  #ENDIF<br>  #IF 2<br>    #00313:33<br>  #ENDIF<br><br>#00414:44<br>#00515:55<br><br>#RONDAM 3<br>  #IF 1<br>    #00616:66<br>  #ENDIF<br>  #IF 2<br>    #00717:77<br>  #ENDIF<br>  #IF 3<br>    #00818:88<br>  #ENDIF<br><br>#00919:99</code></pre> | 此行为顶层，始终被解释。<br><br>┐<br>│<br>│<br>│<br>│<br>│<br>┆ 无法确定 #RANDOM 是否在此处关闭。<br><br>┐ 通常情况下，这些行属于顶层。<br>┘ 但在 #RONDAM 中，这可能不正确。此处可能成为孤儿块。<br><br>] 此行被注释掉。<br>┐<br>│ 如果前一个 #RANDOM 生成值为 1，则此块也被应用。<br>┘<br>┐<br>│ 如果前一个 #RANDOM 生成值为 2，则此块也被应用。<br>┘<br>┐<br>│ 如果前一个 #RANDOM 生成值为 3，则此块也被应用。<br>┘ 但这不可能实现，因此此块无论如何都不会被应用。<br><br>] 此行属于顶层吗？在 #RANDOM 外部吗？真的吗？ |
+  |<pre><code>#00111:11<br><br>#RANDOM 2<br>  #IF 1<br>    #00212:22<br>  #ENDIF<br>  #IF 2<br>    #00313:33<br>  #ENDIF<br><br>#00414:44<br>#00515:55<br><br>#RONDAM 3<br>  #IF 1<br>    #00616:66<br>  #ENDIF<br>  #IF 2<br>    #00717:77<br>  #ENDIF<br>  #IF 3<br>    #00818:88<br>  #ENDIF<br><br>#00919:99</code></pre>|此行为顶层，始终被解释。<br><br>┐<br>│<br>│<br>│<br>│<br>│<br>┆ 无法确定 #RANDOM 是否在此处关闭。<br><br>┐ 通常情况下，这些行属于顶层。<br>┘ 但在 #RONDAM 中，这可能不正确。此处可能成为孤儿块。<br><br>] 此行被注释掉。<br>┐<br>│ 如果前一个 #RANDOM 生成值为 1，则此块也被应用。<br>┘<br>┐<br>│ 如果前一个 #RANDOM 生成值为 2，则此块也被应用。<br>┘<br>┐<br>│ 如果前一个 #RANDOM 生成值为 3，则此块也被应用。<br>┘ 但这不可能实现，因此此块无论如何都不会被应用。<br><br>] 此行属于顶层吗？在 #RANDOM 外部吗？真的吗？|
 
   - 如果第一个 `#RANDOM 2` 不存在，上述示例会发生什么？
     - nanasi 不会将 `#IF` 块识别为 `#IF` 块。也就是说，`#IF` 块的内容会以与"写在 `#RANDOM` 外部的命令行"相同的优先级处理。
@@ -138,7 +140,7 @@
 ## `#END IF`
 
 | 项目 | 内容 |
-|------|------|
+| ------ | ------ |
 | 来源 | uBMplay (1.5.0) |
 | ad-hoc 支持 | Angolmois (`#END`), outliner (`#END`), Sonorous (`#END`), BGAEncAdv, TechnicalGroove |
 | 偶然被解释 | nazo, rdm, ruvit, fgt++, fgt#, LR2, uBMplay (1.4.6 及更早), PMSee-V |
@@ -146,7 +148,8 @@
 | 仅当最后一个 `#IF` 匹配时被解释 | nanasi |
 
 - 为了处理拼写错误。
-- e.g. Velocity Magic 3 [Aren't you lucky?] (Speed Magician / Transfero, 2010-09-11) (<http://uploader.bms.ms/data/PW/vm3_ts3.zip>)（目前无法下载）
+- e.g. Velocity Magic 3 [Aren't you lucky?] (Speed Magician / Transfero, 2010-09-11)
+  (<http://uploader.bms.ms/data/PW/vm3_ts3.zip>)（目前无法下载）
   - 请将 lovetricks.**ogg** 的扩展名改为 bms、bme 或 bml。
   - `#END IF` 是基于误解的拼写错误。或者这可能是故意的技巧，但我对此不感兴趣。
   - 通常的实现会忽略这一行。也就是说，这是"没有 `#ENDIF` 的 `#IF`"的问题。
@@ -176,16 +179,16 @@
 ## `#SETRANDOM n`
 
 | 项目 | 内容 |
-|------|------|
+| ------ | ------ |
 | 来源 | pomu2 |
 | 支持 | pomu2, WAview, in_bm2, nanasi, Aqua, PMSee-V, IIDXv, HDX, outliner, iBMSC (3.0+ / partial), Angolmois, Sonorous, BGAEncAdv, TechnicalGroove |
 | 类似功能 | bms2avi（"SEED"菜单）, bmx2wav (bmx2wav.ini 的 RandomConstantValue) |
 
 - 如果用 `#SETRANDOM *n*` 代替 `#RANDOM *n*`，则会生成常量 `*n*`。
 
-| 示例 | 说明 |
+|示例|说明|
 |------|------|
-| <pre><code>// #RANDOM 3<br>#SETRANDOM 2<br>  #IF 1<br>    #WAV01 a.wav<br>  #ENDIF<br>  #IF 2<br>    #WAV01 b.wav<br>  #ENDIF<br>  #IF 3<br>    #WAV01 c.wav<br>  #ENDIF<br>#ENDRANDOM</code></pre> | - 此示例注释掉了原来的 `#RANDOM` 语句。<br>- 目前几乎还没有实现支持缩进，因此使用缩进还为时过早。本文件为使示例代码更易读而使用了缩进。<br>- 此 `#SETRANDOM` 始终生成 `2`，因此标签为"2"的块始终被选中。<br>- 结果，`#WAV01 b.wav` 始终被应用。<br>- 只要指定了 `#SETRANDOM 2`，`#IF 1` 和 `#IF 3` 就永远不会被选中。<br>- 未被选中的语句块会被简单地忽略。 |
+|<pre><code>// #RANDOM 3<br>#SETRANDOM 2<br>  #IF 1<br>    #WAV01 a.wav<br>  #ENDIF<br>  #IF 2<br>    #WAV01 b.wav<br>  #ENDIF<br>  #IF 3<br>    #WAV01 c.wav<br>  #ENDIF<br>#ENDRANDOM</code></pre>|- 此示例注释掉了原来的 `#RANDOM` 语句。<br>- 目前几乎还没有实现支持缩进，因此使用缩进还为时过早。本文件为使示例代码更易读而使用了缩进。<br>- 此 `#SETRANDOM` 始终生成 `2`，因此标签为"2"的块始终被选中。<br>- 结果，`#WAV01 b.wav` 始终被应用。<br>- 只要指定了 `#SETRANDOM 2`，`#IF 1` 和 `#IF 3` 就永远不会被选中。<br>- 未被选中的语句块会被简单地忽略。|
 
 - 看起来 `#SETRANDOM` 很可能是为了测试嵌套控制语法而准备的命令。
 
@@ -194,7 +197,7 @@
 ## `#ELSEIF n`
 
 | 项目 | 内容 |
-|------|------|
+| ------ | ------ |
 | 来源 | IIDXv |
 | 支持 | IIDXv, HDX, outliner, Angolmois, Sonorous, BGAEncAdv, TechnicalGroove |
 
@@ -203,16 +206,16 @@
 - 如果不需要，我们不必写 `#ELSEIF`。
 - "标签与生成值匹配的块中的第一个块"的内容会被应用。示例：
 
-| 代码 | 说明 |
+|代码|说明|
 |------|------|
-| <pre><code>#RANDOM 5<br><br>  #IF 1<br>            #00111:UU<br>  #ELSEIF 2<br>            #00112:VV<br>  #ELSEIF 3<br>            #00113:WW<br>  #ELSE<br>            #00115:ZZ<br>  #ENDIF<br><br>  #IF 2<br>            #00121:AA<br>  #ELSEIF 2<br>            #00123:BB<br>  #ELSEIF 5<br>            #00125:CC<br>  #ELSE<br>            #00126:DD<br>  #ENDIF<br><br>#ENDRANDOM</code></pre> | - 生成值为 `1` 时，应用：`#00111:UU` + `#00126:DD`<br>- 生成值为 `2` 时，应用：`#00112:VV` + `#00121:AA`<br>- 生成值为 `3` 时，应用：`#00113:WW` + `#00126:DD`<br>- 生成值为 `4` 时，应用：`#00115:ZZ` + `#00126:DD`<br>- 生成值为 `5` 时，应用：`#00115:ZZ` + `#00125:CC`<br><br>在 IIDXv 和 HDX 中，`#IF` - `#ELSEIF` - `#ELSE` 的各块是互斥的选项。一旦找到与生成值匹配的选项，后续选项将被跳过。<br>- 因此，此示例中的 `#00123:BB` **无论生成值如何都绝不会被应用**。<br>- outliner 尚未能模拟此互斥行为。 |
+|<pre><code>#RANDOM 5<br><br>  #IF 1<br>            #00111:UU<br>  #ELSEIF 2<br>            #00112:VV<br>  #ELSEIF 3<br>            #00113:WW<br>  #ELSE<br>            #00115:ZZ<br>  #ENDIF<br><br>  #IF 2<br>            #00121:AA<br>  #ELSEIF 2<br>            #00123:BB<br>  #ELSEIF 5<br>            #00125:CC<br>  #ELSE<br>            #00126:DD<br>  #ENDIF<br><br>#ENDRANDOM</code></pre>|- 生成值为 `1` 时，应用：`#00111:UU` + `#00126:DD`<br>- 生成值为 `2` 时，应用：`#00112:VV` + `#00121:AA`<br>- 生成值为 `3` 时，应用：`#00113:WW` + `#00126:DD`<br>- 生成值为 `4` 时，应用：`#00115:ZZ` + `#00126:DD`<br>- 生成值为 `5` 时，应用：`#00115:ZZ` + `#00125:CC`<br><br>在 IIDXv 和 HDX 中，`#IF` - `#ELSEIF` - `#ELSE` 的各块是互斥的选项。一旦找到与生成值匹配的选项，后续选项将被跳过。<br>- 因此，此示例中的 `#00123:BB` **无论生成值如何都绝不会被应用**。<br>- outliner 尚未能模拟此互斥行为。|
 
 ---
 
 ## `#ELSE`
 
 | 项目 | 内容 |
-|------|------|
+| ------ | ------ |
 | 来源 | nanasi |
 | 支持 | nanasi, IIDXv, HDX, outliner, iBMSC (3.0+ / partial), Angolmois, Sonorous, BGAEncAdv, TechnicalGroove |
 
@@ -229,9 +232,9 @@
 
 ### 示例
 
-| 代码 | // 1 | // 2 | // 3 | // 4 | 图示 |
+|代码|// 1|// 2|// 3|// 4|图示|
 |------|------|------|------|------|------|
-| <pre><code>#RANDOM 4<br>  #IF 1<br>        #00111:UU<br>  #ELSE<br>        #00112:VV<br>  #ENDIF<br>  #IF 2<br>        #00113:WW<br>  #ELSE<br>        #00114:XX<br>  #ENDIF<br>  #IF 3<br>        #00115:YY<br>  #ELSE<br>        #00116:ZZ<br>  #ENDIF<br>#ENDRANDOM</code></pre> | <pre><code> UU <br><br>    <br><br>    <br><br> XX <br><br>    <br><br> ZZ <br></code></pre> | <pre><code>    <br><br> VV <br><br> WW <br><br>    <br><br>    <br><br> ZZ <br></code></pre> | <pre><code>    <br><br> VV <br><br>    <br><br> XX <br><br> YY <br><br>    <br></code></pre> | <pre><code>    <br><br> VV <br><br>    <br><br> XX <br><br>    <br><br> ZZ <br></code></pre> | <pre><code>┐<br>│<br>│ IF-1 block<br>│<br>┘<br>┐<br>│<br>│ IF-2 block<br>│<br>┘<br>┐<br>│<br>│ IF-3 block<br>│<br>┘</code></pre> |
+|<pre><code>#RANDOM 4<br>  #IF 1<br>        #00111:UU<br>  #ELSE<br>        #00112:VV<br>  #ENDIF<br>  #IF 2<br>        #00113:WW<br>  #ELSE<br>        #00114:XX<br>  #ENDIF<br>  #IF 3<br>        #00115:YY<br>  #ELSE<br>        #00116:ZZ<br>  #ENDIF<br>#ENDRANDOM</code></pre>|<pre><code> UU <br><br>    <br><br>    <br><br> XX <br><br>    <br><br> ZZ <br></code></pre>|<pre><code>    <br><br> VV <br><br> WW <br><br>    <br><br>    <br><br> ZZ <br></code></pre>|<pre><code>    <br><br> VV <br><br>    <br><br> XX <br><br> YY <br><br>    <br></code></pre>|<pre><code>    <br><br> VV <br><br>    <br><br> XX <br><br>    <br><br> ZZ <br></code></pre>|<pre><code>┐<br>│<br>│ IF-1 block<br>│<br>┘<br>┐<br>│<br>│ IF-2 block<br>│<br>┘<br>┐<br>│<br>│ IF-3 block<br>│<br>┘</code></pre>|
 
 - 生成值为 `1` 时，应用：`#00111:UU` + `#00114:XX` + `#00116:ZZ`
 - 生成值为 `2` 时，应用：`#00112:VV` + `#00113:WW` + `#00116:ZZ`
@@ -240,9 +243,9 @@
 
 ### 另一个示例（特殊模式以 1/64 概率应用的谱面）
 
-| `#RANDOM` 方式 | 使用 `#ELSE` 的方式 | 说明 |
+|`#RANDOM` 方式|使用 `#ELSE` 的方式|说明|
 |----------------|-------------------|------|
-| <pre><code>#RANDOM 64<br>  #IF 1<br>    // special pattern<br>  #ENDIF<br>  #IF 2<br>    // default pattern<br>  #ENDIF<br>    ...<br>  #IF 64<br>    // default pattern<br>  #ENDIF<br>#ENDRANDOM</code></pre> | <pre><code>#RANDOM 64<br>  #IF 1<br>    // special<br>  #ELSE<br>    // default<br>  #ENDIF<br>#ENDRANDOM</code></pre><br>注：违反 nanasi 规范 | - 生成值为 `1` 时，应用特殊模式。<br>- 生成值非 `1` 时，应用默认模式。<br>- 如果不使用 `#ELSE`，则必须写 1 个特殊模式和 63 个默认模式。 |
+|<pre><code>#RANDOM 64<br>  #IF 1<br>    // special pattern<br>  #ENDIF<br>  #IF 2<br>    // default pattern<br>  #ENDIF<br>    ...<br>  #IF 64<br>    // default pattern<br>  #ENDIF<br>#ENDRANDOM</code></pre>|<pre><code>#RANDOM 64<br>  #IF 1<br>    // special<br>  #ELSE<br>    // default<br>  #ENDIF<br>#ENDRANDOM</code></pre><br>注：违反 nanasi 规范|- 生成值为 `1` 时，应用特殊模式。<br>- 生成值非 `1` 时，应用默认模式。<br>- 如果不使用 `#ELSE`，则必须写 1 个特殊模式和 63 个默认模式。|
 
 - nanasi 规范写道："需要覆盖 1-*x* 的所有模式。"
   - 因此，上述两个示例违反了 nanasi 规范。
@@ -255,7 +258,7 @@
 ## `#ENDRANDOM`
 
 | 项目 | 内容 |
-|------|------|
+| ------ | ------ |
 | 来源 | nanasi |
 | 支持 | nanasi, IIDXv, HDX, outliner, iBMSC (3.0+ / partial), Angolmois, Sonorous |
 
@@ -278,16 +281,18 @@
 ## `#SWITCH n` / `#SETSWITCH n` / `#CASE n` / `#SKIP` / `#DEF` / `#ENDSW`
 
 | 项目 | 内容 |
-|------|------|
+| ------ | ------ |
 | 来源 | nanasi |
 | 支持 | nanasi, IIDXv, HDX, outliner, iBMSC (3.0+ / partial), Sonorous (parsing-only), BGAEncAdv, TechnicalGroove |
 
 - 这些与编程语言中的 SWITCH 语法几乎相同。
 - `#SWITCH` 会生成从 1 到 `*n*` 之间的一个自然数。不言而喻，`*n*` 应指定为自然数。
 - 如果用 `#SETSWITCH *n*` 代替 `#SWITCH *n*`，则会生成常量 `*n*`。这在测试游玩时非常有用。
-- 检查 `#CASE` 的标签 `*n*` 是否与 `#SWITCH` 的生成值一致。不言而喻，BMS 解析器会按行号顺序评估 `#SWITCH` 之后存在的每一行。从标签匹配的 `#CASE` 到 `#ENDSW` 之间的区间内容会被应用。
+- 检查 `#CASE` 的标签 `*n*` 是否与 `#SWITCH` 的生成值一致。不言而喻，BMS 解析器会按行号顺序评估 `#SWITCH` 之后存在的每一行。从标签匹配的 `#CASE` 到 `#ENDSW`
+  之间的区间内容会被应用。
 - 如果在标签匹配的 `#CASE` 与下一个 `#CASE` 之间存在 `#SKIP`，则解析会从 `#SKIP` 跳到 `#ENDSW`。
-- 即使下一个 `#CASE` 的标签与目标值不匹配，如果当前 `#CASE` 与下一个 `#CASE` 之间没有 `#SKIP`，则下一个 `#CASE` 的内容也会被应用。也就是说，**nanasi 规范允许 *fall-through***。
+- 即使下一个 `#CASE` 的标签与目标值不匹配，如果当前 `#CASE` 与下一个 `#CASE` 之间没有 `#SKIP`，则下一个 `#CASE` 的内容也会被应用。也就是说，**nanasi 规范允许
+  *fall-through***。
 - `#ENDSW` 结束 `#SWITCH` 块。与 `#ENDRANDOM` 的情况不同，谱师不允许省略 `#ENDSW`。
 - 也可以使用 `#DEF` 代替 `#CASE`。
   - nanasi 规范写道："如果之前的 #CASE 都不匹配，则执行。"
@@ -296,23 +301,25 @@
   - 因此，谱师不应为一个 `#SWITCH` 写多个 `#DEF`。
   - 此外，如果需要 `#DEF`，谱师应将 `#DEF` 写在所有其他 `#CASE` 之后。
     - 这条规则并未写在 nanasi 规范中，但我们必须遵守这条规则。
-    - 因为当 nanasi 找到 `#DEF` 后，`#DEF`-`#ENDSW` 之间的所有 `#CASE` / `#SKIP` / `#DEF` 都会失效。也就是说，nanasi 会将 `#DEF`-`#ENDSW` 视为一个整体，并应用其间所有的内容。
-    - IIDXv、HDX 和 outliner 能够正确解释写在 `#CASE` 之前的 `#DEF`。从 `#DEF` 的 *fall-through* 也是有效的。如果 `#DEF` 与下一个 `#CASE` 之间没有 `#SKIP`，解析会流向下一个 `#CASE`。
+    - 因为当 nanasi 找到 `#DEF` 后，`#DEF`-`#ENDSW` 之间的所有 `#CASE` / `#SKIP` / `#DEF` 都会失效。也就是说，nanasi 会将 `#DEF`-`#ENDSW`
+      视为一个整体，并应用其间所有的内容。
+    - IIDXv、HDX 和 outliner 能够正确解释写在 `#CASE` 之前的 `#DEF`。从 `#DEF` 的 *fall-through* 也是有效的。如果 `#DEF` 与下一个 `#CASE` 之间没有
+      `#SKIP`，解析会流向下一个 `#CASE`。
   - 我认为"CASE 之前的 DEF"或 *fall-through* 这样的风格是不雅的。但我不懂编程，所以无法下定论。
 
 ### 示例
 
-| BMS code | 说明 |
+|BMS code|说明|
 |----------|------|
-| <pre><code>#SWITCH 5<br>  #CASE 1<br>    #00111:XX<br>  #CASE 2<br>    #00112:YY<br>    #SKIP<br>  #CASE 3<br>    #00113:ZZ<br>  #DEF<br>    #00114:AA<br>    #00115:BB<br>#ENDSW</code></pre> | 1. 生成值为 `1` 时，应用：`#00111:XX` + `*#00112:YY*`<br>2. 生成值为 `2` 时，应用：`#00112:YY`<br>3. 生成值为 `3` 时，应用：`#00113:ZZ` + `*#00114:AA*` + `*#00115:BB*`<br>4. 生成值为 `4` 时，应用：`#00114:AA` + `#00115:BB`<br>5. 生成值为 `5` 时，应用：`#00114:AA` + `#00115:BB`<br><br>斜体表示因省略 `#SKIP` 而被应用的行（即 *fall-through*）。<br>实际使用 `#SWITCH` 时，**我们应该去掉缩进**。（否则 nanasi 会忽略整个 `#SWITCH` 块。） |
+|<pre><code>#SWITCH 5<br>  #CASE 1<br>    #00111:XX<br>  #CASE 2<br>    #00112:YY<br>    #SKIP<br>  #CASE 3<br>    #00113:ZZ<br>  #DEF<br>    #00114:AA<br>    #00115:BB<br>#ENDSW</code></pre>|1. 生成值为 `1` 时，应用：`#00111:XX` + `*#00112:YY*`<br>2. 生成值为 `2` 时，应用：`#00112:YY`<br>3. 生成值为 `3` 时，应用：`#00113:ZZ` + `*#00114:AA*` + `*#00115:BB*`<br>4. 生成值为 `4` 时，应用：`#00114:AA` + `#00115:BB`<br>5. 生成值为 `5` 时，应用：`#00114:AA` + `#00115:BB`<br><br>斜体表示因省略 `#SKIP` 而被应用的行（即 *fall-through*）。<br>实际使用 `#SWITCH` 时，**我们应该去掉缩进**。（否则 nanasi 会忽略整个 `#SWITCH` 块。）|
 
 ### `#SWITCH` 与 `#RANDOM` 的对比
 
 `#SWITCH` 可能比 `#RANDOM` 更巧妙地表达相同的内容。
 
-| `#RANDOM` 方式 | 使用 `#ELSE` 的方式 | `#SWITCH` 方式 | 1/65535 方式 |
+|`#RANDOM` 方式|使用 `#ELSE` 的方式|`#SWITCH` 方式|1/65535 方式|
 |----------------|-------------------|---------------|--------------|
-| <pre><code>#RANDOM 64<br>  #IF 1<br>    // special pattern<br>  #ENDIF<br>  #IF 2<br>    // default pattern<br>  #ENDIF<br>    ...<br>  #IF 64<br>    // default pattern<br>  #ENDIF<br>#ENDRANDOM</code></pre> | <pre><code>#RANDOM 64<br>  #IF 1<br>    // special<br>  #ELSE<br>    // default<br>  #ENDIF<br>#ENDRANDOM</code></pre><br>注：违反 nanasi 规范 | <pre><code>#SWITCH 64<br>  #CASE 1<br>    // special<br>    #SKIP<br>  #DEF<br>    // default<br>    #SKIP<br>#ENDSW</code></pre> | <pre><code>#SWITCH 65535<br>  #CASE 1<br>    // special<br>    #SKIP<br>  #DEF<br>    // default<br>    #SKIP<br>#ENDSW</code></pre> |
+|<pre><code>#RANDOM 64<br>  #IF 1<br>    // special pattern<br>  #ENDIF<br>  #IF 2<br>    // default pattern<br>  #ENDIF<br>    ...<br>  #IF 64<br>    // default pattern<br>  #ENDIF<br>#ENDRANDOM</code></pre>|<pre><code>#RANDOM 64<br>  #IF 1<br>    // special<br>  #ELSE<br>    // default<br>  #ENDIF<br>#ENDRANDOM</code></pre><br>注：违反 nanasi 规范|<pre><code>#SWITCH 64<br>  #CASE 1<br>    // special<br>    #SKIP<br>  #DEF<br>    // default<br>    #SKIP<br>#ENDSW</code></pre>|<pre><code>#SWITCH 65535<br>  #CASE 1<br>    // special<br>    #SKIP<br>  #DEF<br>    // default<br>    #SKIP<br>#ENDSW</code></pre>|
 
 - 使用 `#RANDOM` 时，谱师必须写出所有选项。此示例需要写 63 个默认模式。
   - 所有支持 `#RANDOM` 的实现都能解释此方法。此方法的可移植性最高。
@@ -347,12 +354,12 @@
 ## 缩进样式 (Indent style)
 
 | 项目 | 内容 |
-|------|------|
+| ------ | ------ |
 | 来源 | IIDXv |
 | 支持 | 见下表 |
 
 | 应用 | 制表符 (U+0009) | 半角空格 (U+0020) | 全角空格 (U+3000) |
-|------|:---:|:---:|:---:|
+| ------ | :---: | :---: | :---: |
 | fgt, fgt++, fgt# | Yes | Yes | Yes |
 | IIDXv, HDX | Yes | Yes | Yes |
 | iBMSC | Yes | Yes | Yes |
@@ -380,7 +387,7 @@
 ## 注释语法 (Comment syntax)
 
 | 项目 | 内容 |
-|------|------|
+| ------ | ------ |
 | 来源 | IIDXv |
 | 支持 | IIDXv, HDX, outliner（不包括转义）, BGAEncAdv（仅"`//`"）, TechnicalGroove（仅"`//`"） |
 
@@ -396,27 +403,27 @@
 
 ### 示例
 
-| 解析前 | 解析后 | 说明 |
+|解析前|解析后|说明|
 |--------|--------|------|
-| <pre><code>#TITLE foo-/*bar-*/baz; :)<br>#RANDOM 23<br>  #IF 1<br>    #00111:XX<br>  #ELSEIF 2/*<br>    #00112:YY<br>  #ELSEIF ; */3<br>    #00113:ZZ<br>  #ELSE//IF 4<br>    #00114:AA<br>  #ENDIF<br>//*<br>#ARTIST foon<br>/*/<br>#ARTIST asso<br>//*/<br>#BPM 130</code></pre> | <pre><code>#TITLE foo-baz<br>#RANDOM 23<br>  #IF 1<br>    #00111:XX<br>  #ELSEIF 2<br><br>3<br>    #00113:ZZ<br>  #ELSE<br>    #00114:AA<br>  #ENDIF<br><br>#ARTIST foon<br><br><br><br>#BPM 130</code></pre> | - 与编程语言不同，不会变成 `#ELSEIF 23` 的结果。<br>- 这是因为遵循了 BMS "一行一个命令"的规范。<br>- 注释的结果是，行中只留下字符 `3`。此行根据 BMS 规范被解释为隐式注释行，被简单地忽略。<br><br>- 如果删除 `//*` 开头的一个斜杠：<br>  - 此处会按如下方式被注释掉：<br>    <pre><code>/*<br>#ARTIST foon<br>/*/<br>#ARTIST asso<br>//*/</code></pre> 或 <pre><code>/* (another solution)<br>#ARTIST foon<br>/*/<br>#ARTIST asso<br>/**/</code></pre><br>  - 这样就可以轻松切换块注释的开关。 |
+|<pre><code>#TITLE foo-/*bar-*/baz; :)<br>#RANDOM 23<br>  #IF 1<br>    #00111:XX<br>  #ELSEIF 2/*<br>    #00112:YY<br>  #ELSEIF ; */3<br>    #00113:ZZ<br>  #ELSE//IF 4<br>    #00114:AA<br>  #ENDIF<br>//*<br>#ARTIST foon<br>/*/<br>#ARTIST asso<br>//*/<br>#BPM 130</code></pre>|<pre><code>#TITLE foo-baz<br>#RANDOM 23<br>  #IF 1<br>    #00111:XX<br>  #ELSEIF 2<br><br>3<br>    #00113:ZZ<br>  #ELSE<br>    #00114:AA<br>  #ENDIF<br><br>#ARTIST foon<br><br><br><br>#BPM 130</code></pre>|- 与编程语言不同，不会变成 `#ELSEIF 23` 的结果。<br>- 这是因为遵循了 BMS "一行一个命令"的规范。<br>- 注释的结果是，行中只留下字符 `3`。此行根据 BMS 规范被解释为隐式注释行，被简单地忽略。<br><br>- 如果删除 `//*` 开头的一个斜杠：<br>  - 此处会按如下方式被注释掉：<br>    <pre><code>/*<br>#ARTIST foon<br>/*/<br>#ARTIST asso<br>//*/</code></pre> 或 <pre><code>/* (another solution)<br>#ARTIST foon<br>/*/<br>#ARTIST asso<br>/**/</code></pre><br>  - 这样就可以轻松切换块注释的开关。|
 
 ### 转义
 
 - 在 IIDXv 和 HDX 中，**不存在禁用注释语法的手段**。
   - IIDXv 的文档建议将字符串值中想用的注释符号改为全角字符。
   - 例如，将 `#ARTIST audio: foo // video: bar` 改为 `#ARTIST audio: foo ／／ video: bar`。
-  - 对于过去的 BMS 作品等无法修改的情况，IIDXv 和 HDX 只能将其解释为 `#ARTIST audio: foo `。
+  - 对于过去的 BMS 作品等无法修改的情况，IIDXv 和 HDX 只能将其解释为 `#ARTIST audio: foo`。
 - 在 IIDXv 2.13+ 和 HDX 0.98+ 中，提供了**字符串转义**。（**但这并不能禁用注释语法**）
   - 所有接受字符串值的命令都可以用引号 (U+0022) 将值括起来。
   - 引号括起来的字符串中的注释标记仅作为普通字符串解释。
   - 此外，前置转义字符 "`\`" (U+005C) 的字符仅作为普通字符解释。
 
-  | 示例 | IIDXv/HDX 显示 | 其他软件显示 |
-  |------|---------------|-------------|
-  | `#ARTIST C:\usr the "DPer" (http://hitkey.nekokan.dyndns.info/)` | `C:usr the DPer (http:` | `C:\usr the "DPer" (https://hitkey.nekokan.dyndns.info/)` |
-  | `#ARTIST C:\\usr the \"DPer\" (http:\//hitkey.nekokan.dyndns.info/)` | `C:\usr the "DPer" (https://hitkey.nekokan.dyndns.info/)` | `C:\\usr the \"DPer\" (http:\//hitkey.nekokan.dyndns.info/)` |
-  | `#ARTIST "C:\usr the "DPer" (http://hitkey.nekokan.dyndns.info/)"` | `C:usr the DPer (https://hitkey.nekokan.dyndns.info/)` | `"C:\usr the "DPer" (https://hitkey.nekokan.dyndns.info/)"` |
-  | `#ARTIST "C:\\usr the \"DPer\" (http://hitkey.nekokan.dyndns.info/)"` | `C:\usr the "DPer" (https://hitkey.nekokan.dyndns.info/)` | `"C:\\usr the \"DPer\" (https://hitkey.nekokan.dyndns.info/)"` |
+| 示例 | IIDXv/HDX 显示 | 其他软件显示 |
+| ------ | --------------- | ------------- |
+| `#ARTIST C:\usr the "DPer" (http://hitkey.nekokan.dyndns.info/)` | `C:usr the DPer (http:` | `C:\usr the "DPer" (https://hitkey.nekokan.dyndns.info/)` |
+| `#ARTIST C:\\usr the \"DPer\" (http:\//hitkey.nekokan.dyndns.info/)` | `C:\usr the "DPer" (https://hitkey.nekokan.dyndns.info/)` | `C:\\usr the \"DPer\" (http:\//hitkey.nekokan.dyndns.info/)` |
+| `#ARTIST "C:\usr the "DPer" (http://hitkey.nekokan.dyndns.info/)"` | `C:usr the DPer (https://hitkey.nekokan.dyndns.info/)` | `"C:\usr the "DPer" (https://hitkey.nekokan.dyndns.info/)"` |
+| `#ARTIST "C:\\usr the \"DPer\" (http://hitkey.nekokan.dyndns.info/)"` | `C:\usr the "DPer" (https://hitkey.nekokan.dyndns.info/)` | `"C:\\usr the \"DPer\" (https://hitkey.nekokan.dyndns.info/)"` |
 
 - HDX 0.99 及更新版本中，未用 U+0022 括起来的 "`\`" (U+005C) 会直接输出，不再进行转义。
 
@@ -426,9 +433,9 @@
 
 ### 1. 来自 BMIIDXView2010.txt
 
-| BMS code | 说明 |
+|BMS code|说明|
 |----------|------|
-| <pre><code>#SWITCH 5<br>    #DEF<br>        #00013:0055<br>        #SKIP<br>    #CASE 1<br>        #00013:0100000000000000<br>        #RANDOM 2<br>            #IF 1<br>                #00014:04<br>            #ELSE<br>                #00014:05<br>            #ENDIF<br>    #CASE 2<br>        #00013:0200000000000000<br>        #SKIP<br>    #CASE 3<br>        #00013:0300000000000000<br>        #SWITCH 2<br>            #CASE 1<br>                #00016:1111<br>                #SKIP<br>            #CASE 2<br>                #00016:2222<br>                #SKIP<br>        #ENDSW<br>        #SKIP<br>#ENDSW</code></pre> | - 缩进<br>- `#CASE` 前的 `#DEF`<br>- 无 `#ENDRANDOM` 的嵌套 `#RANDOM`<br>- 目标值大于已准备的 `#IF` 数量（注：违反 nanasi 规范）<br>- 因省略 `#SKIP` 导致的 fall-through<br>- `#RANDOM` 和 `#SWITCH` 非交替的嵌套<br><br>**通过测试：** IIDXv, HDX, outliner<br>**部分通过（但隔离失败）：** iBMSC (3.0+) |
+|<pre><code>#SWITCH 5<br>    #DEF<br>        #00013:0055<br>        #SKIP<br>    #CASE 1<br>        #00013:0100000000000000<br>        #RANDOM 2<br>            #IF 1<br>                #00014:04<br>            #ELSE<br>                #00014:05<br>            #ENDIF<br>    #CASE 2<br>        #00013:0200000000000000<br>        #SKIP<br>    #CASE 3<br>        #00013:0300000000000000<br>        #SWITCH 2<br>            #CASE 1<br>                #00016:1111<br>                #SKIP<br>            #CASE 2<br>                #00016:2222<br>                #SKIP<br>        #ENDSW<br>        #SKIP<br>#ENDSW</code></pre>|- 缩进<br>- `#CASE` 前的 `#DEF`<br>- 无 `#ENDRANDOM` 的嵌套 `#RANDOM`<br>- 目标值大于已准备的 `#IF` 数量（注：违反 nanasi 规范）<br>- 因省略 `#SKIP` 导致的 fall-through<br>- `#RANDOM` 和 `#SWITCH` 非交替的嵌套<br><br>**通过测试：** IIDXv, HDX, outliner<br>**部分通过（但隔离失败）：** iBMSC (3.0+)|
 
 ### 2. オートメーション工場 (automation factory)
 
@@ -459,15 +466,16 @@
 
 - lovetricks.ogg » lovetricks.bms
 - `#END IF` 是拼写错误。
-- **通过测试：** nazoZZ, RDM, ruvit, fgt++, fgt#, LR2, uBMplay, PMSee-V, outliner, Angolmois, Sonorous, BGAEncAdv, TechnicalGroove
+- **通过测试：** nazoZZ, RDM, ruvit, fgt++, fgt#, LR2, uBMplay, PMSee-V, outliner, Angolmois, Sonorous, BGAEncAdv,
+  TechnicalGroove
 
 ### 5. kitchen twies
 
 (Orange Strophe, 2009-07-22) (<https://onedrive.live.com/?id=A1F351E1932E6FF7!282&cid=A1F351E1932E6FF7>)
 
-| 修正前 | 修正后 | 说明 |
+|修正前|修正后|说明|
 |--------|--------|------|
-| <pre><code>#RANDOM 2<br><br>#00002:0.5<br>#00003:4F<br>#IF 1<br>#00004:01<br>#00006:03<br>#ENDIF<br>#IF 2<br>#00004:02<br>#00006:04<br>#ENDIF</code></pre> | <pre><code>#00002:0.5<br>#00003:4F<br>#RANDOM 2<br>#IF 1<br>#00004:01<br>#00006:03<br>#ENDIF<br>#IF 2<br>#00004:02<br>#00006:04<br>#ENDIF</code></pre> | - 非法的分支包含了不属于 `#IF` 的行。<br>- 2009-10-05：此 bug 已通过补丁修正。<br>- 当然，通过测试是理想的。BM98 就是这样实现 `#RANDOM` 的。<br><br>**通过测试：** RDM, ruvit, nanasi, uBMplay, PMSee-V, bmx2wav, IIDXv, HDX, Angolmois, Sonorous, BGAEncAdv, TechnicalGroove, ...（未调查） |
+|<pre><code>#RANDOM 2<br><br>#00002:0.5<br>#00003:4F<br>#IF 1<br>#00004:01<br>#00006:03<br>#ENDIF<br>#IF 2<br>#00004:02<br>#00006:04<br>#ENDIF</code></pre>|<pre><code>#00002:0.5<br>#00003:4F<br>#RANDOM 2<br>#IF 1<br>#00004:01<br>#00006:03<br>#ENDIF<br>#IF 2<br>#00004:02<br>#00006:04<br>#ENDIF</code></pre>|- 非法的分支包含了不属于 `#IF` 的行。<br>- 2009-10-05：此 bug 已通过补丁修正。<br>- 当然，通过测试是理想的。BM98 就是这样实现 `#RANDOM` 的。<br><br>**通过测试：** RDM, ruvit, nanasi, uBMplay, PMSee-V, bmx2wav, IIDXv, HDX, Angolmois, Sonorous, BGAEncAdv, TechnicalGroove, ...（未调查）|
 
 ---
 

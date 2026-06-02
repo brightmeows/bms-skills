@@ -1,11 +1,11 @@
 # 头部命令：长音与选项
 
-> 来源：https://hitkey.nekokan.dyndns.info/cmdsJP.htm
+> 来源：<https://hitkey.nekokan.dyndns.info/cmdsJP.htm>
 
 ## `#LNTYPE 1`
 
 | 字段 | 值 |
-|---|---|
+| --- | --- |
 | channel: | `#xxx51-69` |
 | origin: | RDM |
 | support: | RDM (1.3+), WAview, in_BM2, ruvit, Angolmois, Sonorous, o2mania |
@@ -39,12 +39,8 @@ LN 从出现非 `00` 音符的位置开始（LN 起点符号）。
 LN 在下次出现非 `00` 音符的位置闭合（LN 终点符号）。
 
 | For example | remarks |
-|---|---|
-| ```text
-#LNTYPE 1
-#00151:00220000
-#06451:000000000033
-``` | O2mania 以外的实现可省略此声明。LN 区间在 `#001` 中开始。若区间内未出现终点以外的物体，则该 LN 在 `#064` 处闭合。 |
+| --- | --- |
+| <pre># LNTYPE 1<br># 00151:00220000<br># 06451:000000000033</pre> | O2mania 以外的实现可省略此声明。LN 区间在 `#001` 中开始。若区间内未出现终点以外的物体，则该 LN 在 `#064` 处闭合。 |
 
 此例构成一个长度为 `#001-064` 的 LN 段落。
 一个 LN 段落可能算作"1 个物体"或"2 个物体"，取决于实现。多数实现算作 1 个物体。
@@ -56,7 +52,7 @@ LN 在下次出现非 `00` 音符的位置闭合（LN 终点符号）。
 ### LN 终端播放不同音
 
 | 字段 | 值 |
-|---|---|
+| --- | --- |
 | channel: | `#xxx51-69` |
 | origin: | HDX |
 | support: | HDX, IIDXv, TechnicalGroove |
@@ -64,12 +60,8 @@ LN 在下次出现非 `00` 音符的位置闭合（LN 终点符号）。
 - 在长音始端和终端放置不同索引可分别播放不同音。例如：
 
 | For example | remarks |
-|---|---|
-| ```text
-#WAVaa onkeydown.wav
-#WAVbb onkeyup.wav
-#00151:00aa00bb
-``` | LN 始端用音。LN 终端用音。LN 始端播放 onkeydown.wav，LN 终端播放 onkeyup.wav。 |
+| --- | --- |
+| <pre>#WAVaa onkeydown.wav<br>#WAVbb onkeyup.wav<br>#00151:00aa00bb</pre> | LN 始端用音。LN 终端用音。LN 始端播放 onkeydown.wav，LN 终端播放 onkeyup.wav。 |
 
 - 结合判定 LN 终端的游戏系统，可模拟再现 beatmania IIDX 的"背转 Scratch"。
 
@@ -78,7 +70,7 @@ LN 在下次出现非 `00` 音符的位置闭合（LN 终点符号）。
 ## `#LNTYPE 2`
 
 | 字段 | 值 |
-|---|---|
+| --- | --- |
 | channel: | `#xxx51-69` |
 | origin: | RDM |
 | support: | RDM (1.3+), WAview, in_BM2, ruvit, Angolmois, Sonorous |
@@ -95,7 +87,7 @@ LN 在下次出现非 `00` 音符的位置闭合（LN 终点符号）。
 - MGQ 格式已过时。不应再使用 MGQ-LN。
   - 对于类似 KEYBOARDMANIA 的游戏，已设计出比 MGQ 更合适的格式。
   - 例如 Synthesia 支持"直接从 MIDI 生成谱面"和 87KEYS。
-    https://www.youtube.com/watch?v=euadl2uWy_g
+    <https://www.youtube.com/watch?v=euadl2uWy_g>
 - WAview 和 in_bm2 无法正确解析 MGQ-LN，至少不会按照 RDM 规范解释。
 - RDM 和 ruvit 中，最后一个音符若为 MGQ-LN，则无法正确解析（大概是 bug）。
 
@@ -106,21 +98,11 @@ LN 在下次出现非 `00` 音符的位置闭合（LN 终点符号）。
 LN 从出现非 `00` 音符的位置开始。
 LN 在非 `00` 音符连续期间保持连接。
 LN 在出现 `00` 时闭合。
-若"前一小节最后一个音符"非 `00"且"当前小节第一个音符"也非 `00`，MGQ-LN 可跨越小节线连接。
+若"前一小节最后一个音符"非 `00`"且"当前小节第一个音符"也非 `00`，MGQ-LN 可跨越小节线连接。
 
 | For example | remarks |
-|---|---|
-| ```text
-#LNTYPE 2
-#00151:0022zzzz
-#00251:zz
-#00351:zz
-...
-#06351:zz
-#06451:zzzzzzzz3300
-#06551:00
-#06511:0011
-``` | **声明不可省略。** LN 开始 & LN 持续。LN 持续符号不可省略。LN 持续符号不可省略。LN 持续符号不可省略... LN 持续符号不可省略... 最后一个音符不一定必须是 `33`，`33` 也可以是其他索引。显式终点符号 `00`（可省略）。« 用于规避 RDM/ruvit 的 bug ... 不要将各通道最后一个物体设为 MGQ-LN。 |
+| --- | --- |
+| <pre>#LNTYPE 2<br>#00151:0022zzzz<br>#00251:zz<br>#00351:zz<br>...<br>#06351:zz<br>#06451:zzzzzzzz3300<br>#06551:00<br>#06511:0011</pre> | **声明不可省略。** LN 开始 & LN 持续。LN 持续符号不可省略。LN 持续符号不可省略。LN 持续符号不可省略... LN 持续符号不可省略... 最后一个音符不一定必须是 `33`，`33` 也可以是其他索引。显式终点符号 `00`（可省略）。« 用于规避 RDM/ruvit 的 bug ... 不要将各通道最后一个物体设为 MGQ-LN。 |
 
 此例表现与 `#LNTYPE 1` 示例相同的谱面（不含 `#06511:0011`）。
 RDM 和 ruvit 中，起始和结束位置的播放方式与 `#LNTYPE 1` 相同。
@@ -134,18 +116,8 @@ ruvit 的实现如上所述，但 Guide to understand BMS format 所解释的 MG
 至少，为了在 ruvit 和 2013年3月10日版之前的 Angolmois 中获得相同的解析结果，必须如下编写：
 
 | For example | remarks |
-|---|---|
-| ```text
-#LNTYPE 2
-#00151:00222222
-#00251:22
-#00351:22
-...
-#06351:22
-#06451:222222222200
-#06551:00
-#06511:0011
-``` | **声明不可省略。** LN 开始 & LN 持续。**所有索引必须相同。** LN 持续符号不可省略。LN 持续符号不可省略。LN 持续符号不可省略... LN 持续符号不可省略... 最后一个索引也必须与第一个索引相同。显式终点符号 `00`（可省略）。« 用于规避 RDM/ruvit 的 bug ... 不要将各通道最后一个物体设为 MGQ-LN。 |
+| --- | --- |
+| <pre>#LNTYPE 2<br>#00151:00222222<br>#00251:22<br>#00351:22<br>...<br>#06351:22<br>#06451:222222222200<br>#06551:00<br>#06511:0011</pre> | **声明不可省略。** LN 开始 & LN 持续。**所有索引必须相同。** LN 持续符号不可省略。LN 持续符号不可省略。LN 持续符号不可省略... LN 持续符号不可省略... 最后一个索引也必须与第一个索引相同。显式终点符号 `00`（可省略）。« 用于规避 RDM/ruvit 的 bug ... 不要将各通道最后一个物体设为 MGQ-LN。 |
 
 2013年3月10日版之后的 Angolmois 已修改为即使连续不同索引也能获得与 ruvit 相同的解析结果。
 
@@ -154,7 +126,7 @@ ruvit 的实现如上所述，但 Guide to understand BMS format 所解释的 MG
 ## `#LNOBJ xx`
 
 | 字段 | 值 |
-|---|---|
+| --- | --- |
 | channel: | `#xxx11-29` |
 | origin: | RDM |
 | support: | RDM (1.61+), nazo, nazoZZ, ~~WAview~~ (buggy), ~~in_bm2~~ (buggy), bme2wav, LR2, nanasi, ruvit, fgt++, fgt#, pomu2, BMSE, uBMplay, PMSee-V, bmx2wav, iBMSC (3.0+), Angolmois, Sonorous, TechnicalGroove |
@@ -185,21 +157,18 @@ ruvit 的实现如上所述，但 Guide to understand BMS format 所解释的 MG
 使用 `#LNOBJ` 的谱面无需 `#LNTYPE` 声明。
 
 当结束标记通过判定线时，**定义为 `#LNOBJ` 的 `#WAV` 索引的文件会作为 BGM 播放。**
+
 - 这是符合 RDM 规范的行为，但大多数实现不会播放结束标记的音。
 - 将"空 `#WAV`"的索引定义为 `#LNOBJ` 可保持兼容性。
 
 | For example | remarks |
-|---|---|
-| ```text
-#LNOBJ ZZ
-#00111:00220000
-#06411:0000000000zz
-``` | 为规避 nanasi 和 fgt++ 的 bug，`#WAV` 索引使用大写。此例表现与 `#LNTYPE 1` 示例相同的谱面。但若 `#WAVzz` 定义了文件，结束标记可能会播放（取决于实现）。 |
+| --- | --- |
+| <pre>#LNOBJ ZZ<br>#00111:00220000<br>#06411:0000000000zz</pre> | 为规避 nanasi 和 fgt++ 的 bug，`#WAV` 索引使用大写。此例表现与 `#LNTYPE 1` 示例相同的谱面。但若 `#WAVzz` 定义了文件，结束标记可能会播放（取决于实现）。 |
 
 ### LN 终端播放不同音（`#LNOBJ`）
 
 | 字段 | 值 |
-|---|---|
+| --- | --- |
 | channel: | `#xxx11-29` |
 | origin: | TechnicalGroove |
 | support: | TechnicalGroove |
@@ -207,24 +176,15 @@ ruvit 的实现如上所述，但 Guide to understand BMS format 所解释的 MG
 - 这是 HDX 扩展在 `#LNOBJ` 上的实现。例如：
 
 | For example | remarks |
-|---|---|
-| ```text
-#WAVaa onkeydown1.wav
-#WAVbb onkeyup1.wav
-#WAVcc onkeydown2.wav
-#WAVdd onkeyup2.wav
-#LNOBJ BB
-#LNOBJ DD
-#00111:00aa00bb
-#00213:00cc00dd
-``` | LN 始端用音 (1)。LN 终端用音 (1)。LN 始端用音 (2)。LN 终端用音 (2)。LN 终端定义 (1)。LN 终端定义 (2)（**multiple LNOBJ**）。LN 始端播放 onkeydown1.wav，LN 终端播放 onkeyup1.wav。LN 始端播放 onkeydown2.wav，LN 终端播放 onkeyup2.wav。 |
+| --- | --- |
+| <pre>#WAVaa onkeydown1.wav<br>#WAVbb onkeyup1.wav<br>#WAVcc onkeydown2.wav<br>#WAVdd onkeyup2.wav<br>#LNOBJ BB<br>#LNOBJ DD<br>#00111:00aa00bb<br>#00213:00cc00dd</pre> | LN 始端用音 (1)。LN 终端用音 (1)。LN 始端用音 (2)。LN 终端用音 (2)。LN 终端定义 (1)。LN 终端定义 (2)（**multiple LNOBJ**）。LN 始端播放 onkeydown1.wav，LN 终端播放 onkeyup1.wav。LN 始端播放 onkeydown2.wav，LN 终端播放 onkeyup2.wav。 |
 
 ---
 
 ## `#OCT/FP`
 
 | 字段 | 值 |
-|---|---|
+| --- | --- |
 | origin: | nanasi |
 | support: | nanasi (, BMSE, Angolmois, Sonorous), uBMplay (1.5.0+), TechnicalGroove |
 
@@ -233,7 +193,7 @@ ruvit 的实现如上所述，但 Guide to understand BMS format 所解释的 MG
 
 ### OCT/FP 说明
 
-https://web.archive.org/web/*/http://www.diana.dti.ne.jp/~idee/octave.html
+<https://web.archive.org/web/*/http://www.diana.dti.ne.jp/~idee/octave.html>
 
 OCT/FP 是八度模式/脚踏板模式。此格式由 idee 于 2002 年（2003 年?）提出。
 八度模式使用 13 个按键和 2 个唱盘。可选使用 1 个脚踏板。
@@ -267,7 +227,7 @@ BMSE 通过主题文件的方式支持编辑 OCT/FP 谱面。
 ## `#OPTION optionID`
 
 | 字段 | 值 |
-|---|---|
+| --- | --- |
 | origin: | nanasi |
 | support: | nanasi, HDX (v0.99+), IIDXv (v2.14+), Sonorous（仅解析） |
 
@@ -276,7 +236,7 @@ BMSE 通过主题文件的方式支持编辑 OCT/FP 谱面。
 - 为应对其他应用可能支持此命令的情况，建议添加厂商前缀。
 
 | 机型 | 前缀 |
-|---|---|
+| --- | --- |
 | nanasi | `774:` |
 | HDX, IIDXv | `charatbeatHDX:` |
 
@@ -284,39 +244,8 @@ BMSE 通过主题文件的方式支持编辑 OCT/FP 谱面。
 - 可写入多个 `#OPTION`，例如如下指定：
 
 | For example | remarks |
-|---|---|
-| ```text
-#OPTION 774:HI-SPEED_x99.75
-#OPTION 774:HI-SPEED_x0.77
-#OPTION 774:CHANGE-HS_RANDOM
-#OPTION 774:CHANGE-HS_COMBO-UP
-#OPTION 774:HIDDEN_DEEPMIST
-#OPTION 774:HIDDEN_OFF
-#OPTION 774:RANDOM_ALL+
-#OPTION 774:RANDOM_MIRROR
-#OPTION 774:NOTES_DOUBLE
-#OPTION 774:NOTES_DBLCOPY
-#OPTION 774:CRAZY_STAR
-#OPTION 774:CRAZY_SPIN
-#OPTION 774:CRAZY_CLONE
-#OPTION 774:CRAZY_GREAT2BAD
-#OPTION 774:CRAZY_XYWAVE2
-#OPTION 774:CRAZY_3DWAVE
-#OPTION 774:CRAZY_DARK2
-#OPTION 774:CRAZY_FADEOUT
-#OPTION 774:CRAZY_RD-SIZE
-#OPTION 774:CRAZY_ADDMINE
-#OPTION 774:AUTOPLAY_LINE
-``` | 同系列选项重复时，最接近 EOF 的行优先。
-应用 `x0.77` 而非 `x99.75`。`x0.77` 是仅可从 BMS 侧设置的值。
-应用 `COMBO-UP` 而非 `RANDOM`（二者为同系列）。
-应用 `OFF` 而非 `DEEPMIST`。`OFF` 取消选项的应用。
-应用 `MIRROR` 而非 `ALL+`（二者为同系列）。
-应用 `DBLCOPY` 而非 `DOUBLE`。`NOTES` 系列不能在 `#CHANGEOPTION` 中使用。
-`CRAZY` 系列可同时应用多个选项。通常模式只能应用一个选项。
-仅在指定 `#OPTION` 时可同时应用多个 `CRAZY` 选项。
-`CRAZY` 系列中，"影响判定的选项"和 `ADDMINE` 不能在 `#CHANGEOPTION` 中使用。
-`AUTOPLAY` 系列在 `#OPTION` 和 `#CHANGEOPTION` 中无效（即此行无效）。 |
+| --- | --- |
+| <pre>#OPTION 774:HI-SPEED_x99.75<br>#OPTION 774:HI-SPEED_x0.77<br>#OPTION 774:CHANGE-HS_RANDOM<br>#OPTION 774:CHANGE-HS_COMBO-UP<br>#OPTION 774:HIDDEN_DEEPMIST<br>#OPTION 774:HIDDEN_OFF<br>#OPTION 774:RANDOM_ALL+<br>#OPTION 774:RANDOM_MIRROR<br>#OPTION 774:NOTES_DOUBLE<br>#OPTION 774:NOTES_DBLCOPY<br>#OPTION 774:CRAZY_STAR<br>#OPTION 774:CRAZY_SPIN<br>#OPTION 774:CRAZY_CLONE<br>#OPTION 774:CRAZY_GREAT2BAD<br>#OPTION 774:CRAZY_XYWAVE2<br>#OPTION 774:CRAZY_3DWAVE<br>#OPTION 774:CRAZY_DARK2<br>#OPTION 774:CRAZY_FADEOUT<br>#OPTION 774:CRAZY_RD-SIZE<br>#OPTION 774:CRAZY_ADDMINE<br>#OPTION 774:AUTOPLAY_LINE</pre> | 同系列选项重复时，最接近 EOF 的行优先。<br>应用 `x0.77` 而非 `x99.75`。`x0.77` 是仅可从 BMS 侧设置的值。<br>应用 `COMBO-UP` 而非 `RANDOM`（二者为同系列）。<br>应用 `OFF` 而非 `DEEPMIST`。`OFF` 取消选项的应用。<br>应用 `MIRROR` 而非 `ALL+`（二者为同系列）。<br>应用 `DBLCOPY` 而非 `DOUBLE`。`NOTES` 系列不能在 `#CHANGEOPTION` 中使用。<br>`CRAZY` 系列可同时应用多个选项。通常模式只能应用一个选项。<br>仅在指定 `#OPTION` 时可同时应用多个 `CRAZY` 选项。<br>`CRAZY` 系列中，"影响判定的选项"和 `ADDMINE` 不能在 `#CHANGEOPTION` 中使用。<br>`AUTOPLAY` 系列在 `#OPTION` 和 `#CHANGEOPTION` 中无效（即此行无效）。 |
 
 此例合计强制应用 **14 个选项**。
 
@@ -329,7 +258,7 @@ BMSE 通过主题文件的方式支持编辑 OCT/FP 谱面。
 ## `#CHANGEOPTION[01-ZZ] optionID`
 
 | 字段 | 值 |
-|---|---|
+| --- | --- |
 | channel: | `#xxxA6` |
 | origin: | nanasi 1.550 |
 | support: | nanasi 1.550+, Sonorous（仅解析） |
@@ -343,20 +272,13 @@ BMSE 通过主题文件的方式支持编辑 OCT/FP 谱面。
   - `CRAZY` 系列可同时应用多个选项。
 
 | For example | remarks |
-|---|---|
-| ```text
-#changeoption01 774:HIDDEN_STEALTH
-#changeoption02 774:HIDDEN_OFF
-#changeoption03 774:HI-SPEED_x0.25
-#032a6:00000001
-#034a6:02
-#034a6:03
-``` | 此例中，在 `#032` 的第 4 拍处，音符将完全不显示。到达 `#034` 时，STEALTH 状态解除，音符将重新显示（以压缩形式）。 |
+| --- | --- |
+| <pre>#changeoption01 774:HIDDEN_STEALTH<br>#changeoption02 774:HIDDEN_OFF<br>#changeoption03 774:HI-SPEED_x0.25<br>#032a6:00000001<br>#034a6:02<br>#034a6:03</pre> | 此例中，在 `#032` 的第 4 拍处，音符将完全不显示。到达 `#034` 时，STEALTH 状态解除，音符将重新显示（以压缩形式）。 |
 
 - 关于 nanasi 的 `optionID`：[详情参见 option.htm](https://hitkey.nekokan.dyndns.info/option.htm)
 
 | category | 1.500 之前 | 1.500 之后 |
-|---|---|---|
+| --- | --- | --- |
 | `GAMELEVEL` | `774:GTP-EASY` | `774:GAMELEVEL_BEGINNER` |
 | `HI-SPEED` | `774:HSP-1.0` | `774:HI-SPEED_x1.00` |
 | `CHANGE-HS` | `774:HSP-COMBO` | `774:CHANGE-HS_COMBO-UP` |

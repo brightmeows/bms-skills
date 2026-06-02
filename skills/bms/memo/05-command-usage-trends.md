@@ -1,11 +1,11 @@
 # 命令使用趋势
 
-> 来源：https://hitkey.nekokan.dyndns.info/cmdsJP.htm#TRENDS-IN-USE-OF-COMMANDS
+> 来源：<https://hitkey.nekokan.dyndns.info/cmdsJP.htm#TRENDS-IN-USE-OF-COMMANDS>
 
 ## 主流扩展
 
 | command line | remarks | origin |
-|---|---|---|
+| --- | --- | --- |
 | **channel** | | |
 | `#xxx07` | BGA-LAYER | BM98k |
 | `#xxx08` | BPM 变更 « `#BPMxx n` | bemaniaDX |
@@ -29,7 +29,7 @@
 ## 偶尔使用的扩展
 
 | command line | remarks | origin |
-|---|---|---|
+| --- | --- | --- |
 | **channel** | | |
 | `#xxx99` | 文本变更 « `TEXTxx "string"` | pomu |
 | `#xxxA0` | 判定变更 « `#EXRANKxx n` | nanasi |
@@ -49,7 +49,7 @@
 ## 测试游玩时有用的扩展
 
 | command line | remarks | origin |
-|---|---|---|
+| --- | --- | --- |
 | **header** | | |
 | `#PATH_WAV path` | 定义文件引用目录的路径 | GDAC2 → BMEV |
 | `#SETRANDOM n` | 生成常量 | pomu2 |

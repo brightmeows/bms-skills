@@ -1,11 +1,11 @@
 # 头部命令：模式与判定
 
-> 来源：https://hitkey.nekokan.dyndns.info/cmdsJP.htm#HEADER
+> 来源：<https://hitkey.nekokan.dyndns.info/cmdsJP.htm#HEADER>
 
 ## #PLAYER [1-4]
 
 | origin | support |
-|--------|---------|
+| -------- | --------- |
 | BM98 | 几乎全部 |
 
 - 定义玩家数。
@@ -14,7 +14,7 @@
 - 实际上，该值并非玩家数，而是游戏模式的选择。对应关系如下：
 
 | command | summary | gauges | abbreviated name | remarks |
-|---------|---------|--------|------------------|---------|
+| --------- | --------- | -------- | ------------------ | --------- |
 | `#PLAYER 1` | 1P | 1 条 groove 值 | Single Play, 1P, SP | default |
 | `#PLAYER 2` | 1P + 2P | 2 条 groove 值 | Couple Play, 2P | 近年来此模式几乎不被支持。 |
 | `#PLAYER 3` | 1P + 2P for 1P | 1 条 groove 值 | Double Play, DP | 现代应用程序实现了中心双打（CENTER DOUBLE）。 |
@@ -33,12 +33,14 @@
   - 同样地，`#PLAYER 2` 是可由客户端覆盖的模式。
 
 - beatmania 的 "Single Play" 画面为 3 列静态布局：
-  ```
+
+  ```text
   +--------+ +--------+ +--------+
   |1P side | |movie   | |2P side |
   |notes   | |display | |notes   |
   +--------+ +--------+ +--------+
   ```
+
   - 左列：显示 1P 侧谱面的屏幕
   - 中列：影片屏幕
   - 右列：显示 2P 侧谱面的屏幕
@@ -60,33 +62,45 @@
   - 1P 侧谱面与 2P 侧谱面不相邻的 DP 布局，俗称为 "TWIN MIX PLAY (TMP)"。
     - 早期 beatmania 系列不支持 "CENTER DOUBLE"，因此 DP 非常困难。
   - "CENTER DOUBLE" 的画面布局为 1P 侧与 2P 侧相邻：
-    ```
+
+    ```text
     +--------+ +--------+ +--------+        ┌┐+--------+ +--------+┌┐
     |1P side | |2P side | |movie   |        └┘|1P side | |2P side |└┘
     |notes   | |notes   | |display |   or   ┌┐|notes   | |notes   |┌┐
     +--------+ +--------+ +--------+        └┘+--------+ +--------+└┘
     ```
+
     - 影片屏幕显示在谱面以外的空间。
-    - 一些实现可以分屏显示影片。 (https://www.youtube.com/watch?v=FtQ8woowZiM)
+    - 一些实现可以分屏显示影片。 (<https://www.youtube.com/watch?v=FtQ8woowZiM>)
   - "CENTER DOUBLE" 首次出现在 *beatmania complete MIX 2* (2000-01-27)。
     - 因此一些较旧的实现不支持 "CENTER DOUBLE"。
 
 - `#PLAYER` 不约束频道，因此 `#PLAYER 1` 和 `#xxx21-29` 可以同时写入。
 
-| for example: | in nazobmplay: | remarks |
-|--------------|----------------|---------|
-| ```
-#PLAYER 1
-#00111:1100000000000000
-#00121:2100000000000000
-#00122:0022000000000000
-#00123:0000230000000000
-#00124:0000002400000000
-#00125:0000000025000000
-#00128:0000000000260000
-#00129:0000000000002700
-#00126:000000000000002S
-``` | ![nazo-2p-bug](images/nazo-2p-bug.png) | 依赖 `#PLAYER` 命令进行渲染的实现会出现问题。<br>`#PLAYER 1` 应应用 "Single Play" 模式，但朴素的实现也会显示 2P 侧物件。<br>此 bug 被一些幽默谱面故意利用。<br>此时玩家击打物件的计数方式取决于实现。 |
+**for example:**
+
+```text
+# PLAYER 1
+# 00111:1100000000000000
+# 00121:2100000000000000
+# 00122:0022000000000000
+# 00123:0000230000000000
+# 00124:0000002400000000
+# 00125:0000000025000000
+# 00128:0000000000260000
+# 00129:0000000000002700
+# 00126:000000000000002S
+```
+
+**in nazobmplay:**
+![nazo-2p-bug](images/nazo-2p-bug.png)
+
+**remarks:**
+
+依赖 `#PLAYER` 命令进行渲染的实现会出现问题。
+`#PLAYER 1` 应应用 "Single Play" 模式，但朴素的实现也会显示 2P 侧物件。
+此 bug 被一些幽默谱面故意利用。
+此时玩家击打物件的计数方式取决于实现。
 
 - 现代实现不再信任 `#PLAYER`。
   - LR2, nanasi, ruvit 和 pomu2 忽略 `#PLAYER`，从解析出的频道推断实际游玩模式。
@@ -104,7 +118,7 @@
 ## #RANK [0-3]
 
 | origin | support |
-|--------|---------|
+| -------- | --------- |
 | BM98 | 几乎全部 |
 
 - 判定等级的定义。
@@ -118,7 +132,7 @@
 - 值与标签的对应关系由规范定义。
 
 | name & value | label | range in LR2 | remarks |
-|--------------|-------|--------------|---------|
+| -------------- | ------- | -------------- | --------- |
 | `#RANK 0` | VERY HARD | ± 8ms | |
 | `#RANK 1` | HARD | ±15ms | |
 | `#RANK 2` | NORMAL | ±18ms | |
@@ -127,7 +141,7 @@
 - 判定宽度取决于各实现。判定方式也取决于实现。
 
 | judgment system | support | remarks |
-|-----------------|---------|---------|
+| ----------------- | --------- | --------- |
 | 像素判定 | 早期实现 | 判定宽度取决于谱面滚动速度。<br>BPM 越高判定越严格，BPM 越低判定越宽松。 |
 | 时间判定 | DDR, uBMplay, pomu2, LR2, ... | 无论 BPM 如何，判定宽度始终不变。 |
 | 动态像素判定 | nanasi, ruvit, fgt++, ... | BPM 变更时，重新计算适当的判定宽度。 |
@@ -139,7 +153,7 @@
 ### #RANK 4
 
 | origin | support |
-|--------|---------|
+| -------- | --------- |
 | nanasi | nanasi, ~~ruvit~~, fgt++, iBMSC (3.0+), Angolmois, Sonorous, TechnicalGroove |
 
 - ナナシグルーヴ 规范将值 `4` 赋予名为 VERY EASY 的标签。
@@ -151,7 +165,7 @@
 ### 相对 #RANK
 
 | origin | support |
-|--------|---------|
+| -------- | --------- |
 | fgt | fgt, Angolmois, TechnicalGroove |
 
 - 根据 forgetalia 的帮助文件，判定等级的初始值为 "`#RANK` 值加 2"（？）
@@ -170,7 +184,7 @@
 ## #DEFEXRANK n
 
 | origin | support |
-|--------|---------|
+| -------- | --------- |
 | nanasi | nanasi, ruvit (2.0b3+), fgt++, iBMSC (3.0 / 实际是 `#EXRANK` 而非 `#DEFEXRANK`), Sonorous, TechnicalGroove |
 
 - 可以比 `#RANK [0-3]` 更详细地指定判定难度。
@@ -183,7 +197,7 @@
 - nanasi 中，值的范围与标签关联如下，选曲列表显示对应图标：
 
 | label | 标准 | nanasi 的情况 | fgt++ 的情况 | TechnicalGroove 的情况 | remarks |
-|-------|------|-------------|-------------|------------------------|---------|
+| ------- | ------ | ------------- | ------------- | ------------------------ | --------- |
 | OVER HARD | - | `#DEFEXRANK ↑` | `#DEFEXRANK ↑` | `#DEFEXRANK ↑` | nanasi 独有的标签 |
 | VERY HARD | `#RANK 0` | `#DEFEXRANK 48` | `#DEFEXRANK 60` | `#DEFEXRANK 50` | |
 | MORE HARD | - | `#DEFEXRANK ↕` | `#DEFEXRANK ↕` | `#DEFEXRANK ↕` | nanasi 独有的标签 |
@@ -206,7 +220,7 @@
 ### #DEFEXRANK 0
 
 | origin | support |
-|--------|---------|
+| -------- | --------- |
 | TechnicalGroove | ~~TechnicalGroove~~ |
 
 - 使除 Scratch 外的演奏通道判定变为 "All or Nothing"。
@@ -218,20 +232,25 @@
 ## #EXRANK[01-ZZ] n
 
 | channel | origin | support |
-|---------|--------|---------|
+| --------- | -------- | --------- |
 | `#xxxA0` | nanasi | nanasi, ruvit (2.0b3+), fgt++, Sonorous, TechnicalGroove |
 
 - 判定宽度的动态变更。
 - 命令省略或定义为空时，不影响判定。
 
-| for example | remarks |
-|-------------|---------|
-| ```
-#RANK 2
-#EXRANKaa 48
-#EXRANKcc 100
-#114a0:aa0000cc
-``` | 在 `#114` 中，判定变为与 nanasi 基准的 "VERY HARD" 相同宽度。<br>在 `#114` 的第 4 拍，判定变为与 "NORMAL" 相同宽度。 |
+**for example:**
+
+```text
+# RANK 2
+# EXRANKaa 48
+# EXRANKcc 100
+# 114a0:aa0000cc
+```
+
+**remarks:**
+
+在 `#114` 中，判定变为与 nanasi 基准的 "VERY HARD" 相同宽度。
+在 `#114` 的第 4 拍，判定变为与 "NORMAL" 相同宽度。
 
 - nanasi 中，对于描述了 `#EXRANK` 的谱面，判定难度标签为 "RANDOM"。
 - 选曲列表中会显示专用图标。
@@ -239,7 +258,7 @@
 ## #TOTAL n
 
 | origin | support |
-|--------|---------|
+| -------- | --------- |
 | BM98 | mostly |
 
 - 所有物件均以最佳判定演奏时，groove 值总量最多增加 `n`%。
@@ -258,7 +277,7 @@
   - 大多数实现基于 BM98 的解释，但并非所有实现都如此。例如：
 
 | body | default |
-|------|---------|
+| ------ | --------- |
 | bm98 | `200+NOTES` |
 | bemaniaDX | `200` |
 | LR2 | `160`?（注：NORMAL Gauge） |
@@ -268,7 +287,7 @@
 | nazo | `100+NOTES`? (min: `#TOTAL 130`?) |
 | TechnicalGroove | `0` |
 
-  - **强烈不建议省略 `#TOTAL`**，因适用的默认值因软件而异。
+- **强烈不建议省略 `#TOTAL`**，因适用的默认值因软件而异。
 
 - 关于适当计算公式的讨论：
   - *beatmaniaIIDX* 的 groove 值增加率据称为 "`7.605*NOTES/(0.01*NOTES+6.5)`"。
@@ -281,7 +300,7 @@
 - 本部分描述了 "beatmania / beatmaniaIIDX 中的 NORMAL groove 值"。但：
 
 | name | the first appearance | remarks |
-|------|---------------------|---------|
+| ------ | --------------------- | --------- |
 | NORMAL gauge | 1997-12-10: beatmania | 1 阶段（乐曲）结束时，若 groove 值达一定量则阶段 Clear。 |
 | EXPERT gauge | 1998-09-28: beatmania 3rdMIX | 从 groove 值 100% 开始，阶段结束时若刻度剩余则阶段 Clear。即所谓的生命值条（EXPERT 模式从初代即存在，但 EXPERT groove 值从 3rdMIX 开始引入）。 |
 | HARD gauge | 2001-09-28: beatmaniaIIDX 6th style | 玩家可选的选项之一。减少率较大的生命值条。EXPERT 模式下，groove 值比通常更难增加、更容易减少。 |
@@ -296,7 +315,7 @@
 ## #VOLWAV n
 
 | origin | support |
-|--------|---------|
+| -------- | --------- |
 | BM98 | BM98k, DDR, WAview, bemaniaDX, Mac, Aqua, KbMedia, PMSee-V, BMSC, BMSE, TechnicalGroove |
 
 - 谱面使用的所有音源以原始值的 `n`% 音量播放。
@@ -310,31 +329,41 @@
 ### BGM 音量变更
 
 | channel | range | origin | support |
-|---------|-------|--------|---------|
+| --------- | ------- | -------- | --------- |
 | `#xxx97` | `[01-FF]` | fgt | fgt（fgt++/fgt# 已删除，**已过时？**） |
 
 - 以 255 级动态变更 BGM 音量。
 - 以十六进制指定 [1-255] 的整数值。`00` 为休止符。
 
-| For example | remarks |
-|-------------|---------|
-| ```
-#00197:003C
-#00497:FF
-``` | BGM 音量在 `#001` 中途变为 60（3C = 60）。<br>BGM 音量在 `#004` 开头恢复原音（FF = 255）。 |
+**For example:**
+
+```text
+# 00197:003C
+# 00497:FF
+```
+
+**remarks:**
+
+BGM 音量在 `#001` 中途变为 60（3C = 60）。
+BGM 音量在 `#004` 开头恢复原音（FF = 255）。
 
 ### KEY 音量变更
 
 | channel | range | origin | support |
-|---------|-------|--------|---------|
+| --------- | ------- | -------- | --------- |
 | `#xxx98` | `[01-FF]` | fgt | fgt（fgt++/fgt# 已删除，**已过时？**） |
 
 - 以 255 级动态变更玩家演奏的 KEY SOUND 音量。
 - 以十六进制指定 [1-255] 的整数值。`00` 为休止符。
 
-| For example | remarks |
-|-------------|---------|
-| ```
-#00198:003C
-#00498:FF
-``` | KEY 音量在 `#001` 中途变为 60（3C = 60）。<br>KEY 音量在 `#004` 开头恢复原音（FF = 255）。 |
+**For example:**
+
+```text
+# 00198:003C
+# 00498:FF
+```
+
+**remarks:**
+
+KEY 音量在 `#001` 中途变为 60（3C = 60）。
+KEY 音量在 `#004` 开头恢复原音（FF = 255）。

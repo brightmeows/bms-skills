@@ -5,7 +5,7 @@
 ### `#TITLE <string>`
 
 | | |
-|---|---|
+| --- | --- |
 | origin: | BM98 |
 | support: | 几乎所有 |
 
@@ -19,7 +19,7 @@
     <https://hitkey.nekokan.dyndns.info/bmse_help_full/Capture/textlength43679.txt>
   - DDR 若超过 500 字节将强制退出（文档中已说明）。
 - 部分实现会对文本进行 trim（nanasi, LR2 等）。
-  - 例如 `#TITLE    ABC   ` 将显示为 "ABC"。
+  - 例如 `#TITLE    ABC` 将显示为 "ABC"。
   - BMSE 不会 trim 文本。不进行无意识改动的编辑器是可取的。
 - 若文本包含多字节字符，可能产生字符编码问题。
   - ruvit, iBMSC, IIDXv, HDX, Sonorous, BGAEncAdv, TechnicalGroove 支持部分 ASCII 以外的字符集。
@@ -29,13 +29,14 @@
   - HTML5 规范草案已移除对 UTF-7 和 UTF-32 字符集的支持。
     (<https://www.w3.org/TR/2008/WD-html5-20080122/>)
     > Authors should not use JIS_X0212-1990, x-JIS0208, and encodings based on EBCDIC.
-    > Authors should not use UTF-32. Authors must not use the CESU-8, UTF-7, BOCU-1 and SCSU encodings. [CESU8] [UTF7] [BOCU1] [SCSU]
+    > Authors should not use UTF-32. Authors must not use the CESU-8, UTF-7, BOCU-1 and SCSU encodings.
+    > [CESU8] [UTF7] [BOCU1] [SCSU]
   - 当 BMS 文件在 Web 应用程序中使用时，UTF-7 和 UTF-32 可能成为障碍。
 
 #### 隐式子字符串（`#TITLE`）
 
 | | |
-|---|---|
+| --- | --- |
 | origin: | DDR |
 | support: | DDR |
 
@@ -44,7 +45,7 @@
 - 值不区分大小写。
 
 | 被搜索的字符串: | label: |
-|---|---|
+| -------- | ------ |
 | Basic, Light | Basic |
 | Another, Trick, Standard | Another |
 | Maniac, SSR, Heavy | SSR |
@@ -55,7 +56,7 @@
 #### 隐式副标题
 
 | | |
-|---|---|
+| --- | --- |
 | origin: | bemaniaDX |
 | support: | bemaniaDX, nazo, nazoZZ, LR2, TechnicalGroove |
 
@@ -63,7 +64,7 @@
 - 在选曲列表、加载画面等界面中，副标题预期将以与主标题不同的形式显示。
 
 | example | remarks |
-|---|---|
+| ------- | ------- |
 | `#TITLE main-sub-` | 连字符减号 (<https://www.fileformat.info/info/unicode/char/002d/index.htm>) |
 | `#TITLE main～sub～` | 全角波浪线 (<https://en.wikipedia.org/wiki/Tilde#Japanese>) |
 | `#TITLE main(sub)` | 括号（bemaniaDX 也支持全角括号？？） |
@@ -77,9 +78,9 @@
   例如：`#TITLE while(1) { LOVE -- }`
 
 | implementation | maintitle | subtitle |
-|---|---|---|
+| -------------- | --------- | -------- |
 | bemaniaDX | `while` | `(1) { LOVE -- }` |
-| nazo / nazoZZ | `while(1) { LOVE ` | `-- }` |
+| nazo / nazoZZ | `while(1) { LOVE` | `-- }` |
 | LR2 | `while(1) { LOVE -- }` | (empty) |
 
 - 对于难以解释的文本，规范未提供任何提示。
@@ -89,7 +90,7 @@
 ### `#SUBTITLE <string>`
 
 | | |
-|---|---|
+| --- | --- |
 | origin: | nanasi |
 | support: | nanasi, LR2, iBMSC (3.0+), Sonorous, TechnicalGroove, diff |
 
@@ -102,30 +103,15 @@
 #### `#SUBTITLE` 的多重定义
 
 | | |
-|---|---|
+| --- | --- |
 | origin: | Sonorous |
 | support: | Sonorous |
 
 - 可定义多个副标题。语法解析结果对比如下：
 
 | BMS code | Sonorous | LR2, nanasi, iBMSC |
-|---|---|---|
-| ```
-#TITLE title
-#SUBTITLE (5keys)
-#SUBTITLE [Beginner]
-#ARTIST artist
-``` | ```
-title
-(5keys)
-[Beginner]
-artist
-``` | ```
-title
-
-[Beginner]
-artist
-``` |
+| -------- | -------- | ------------------ |
+| <pre>#TITLE title<br>#SUBTITLE (5keys)<br>#SUBTITLE [Beginner]<br>#ARTIST artist</pre> | <pre>title<br>(5keys)<br>[Beginner]<br>artist</pre> | <pre>title<br><br>[Beginner]<br>artist</pre> |
 
 ---
 
@@ -134,7 +120,7 @@ artist
 ### `#ARTIST <string>`
 
 | | |
-|---|---|
+| --- | --- |
 | origin: | BM98 |
 | support: | 几乎所有 |
 
@@ -144,7 +130,7 @@ artist
 ### `#SUBARTIST <string>`
 
 | | |
-|---|---|
+| --- | --- |
 | origin: | LR2 |
 | support: | LR2, nanasi, iBMSC (3.0+), Sonorous, TechnicalGroove, diff |
 
@@ -155,40 +141,22 @@ artist
 #### `#SUBARTIST` 的多重定义
 
 | | |
-|---|---|
+| --- | --- |
 | origin: | TechnicalGroove |
 | support: | TechnicalGroove, Sonorous |
 
 - 可定义多个协作者名称。语法解析结果对比如下：
 
 | BMS code | TechnicalGroove | LR2, nanasi, iBMSC |
-|---|---|---|
-| ```
-#TITLE title
-#ARTIST artist
-#SUBARTIST MOVIE: m
-#SUBARTIST NOTER: n
-#SUBARTIST TESTR: t
-``` | ```
-title
-artist
-MOVIE: m
-NOTER: n
-TESTR: t
-``` | ```
-title
-artist
-
-
-TESTR: t
-``` |
+| -------- | --------------- | ------------------ |
+| <pre>#TITLE title<br>#ARTIST artist<br>#SUBARTIST MOVIE: m<br>#SUBARTIST NOTER: n<br>#SUBARTIST TESTR: t</pre> | <pre>title<br>artist<br>MOVIE: m<br>NOTER: n<br>TESTR: t</pre> | <pre>title<br>artist<br><br><br>TESTR: t</pre> |
 
 ---
 
 ## `#MAKER <string>`
 
 | | |
-|---|---|
+| --- | --- |
 | origin: | bemaniaDX |
 | support: | bemaniaDX, Sonorous(parsing-only), TechnicalGroove(parsing-only) |
 
@@ -202,7 +170,7 @@ TESTR: t
 ### `#GENRE <string>`
 
 | | |
-|---|---|
+| --- | --- |
 | origin: | BM98 |
 | support: | 几乎所有 |
 
@@ -212,7 +180,7 @@ TESTR: t
 ### `#GENLE <string>`
 
 | | |
-|---|---|
+| --- | --- |
 | origin: | uBMplay |
 | support: | uBMplay, Sonorous, TechnicalGroove |
 
@@ -221,7 +189,7 @@ TESTR: t
 #### 隐式子字符串（`#GENRE`）
 
 | | |
-|---|---|
+| --- | --- |
 | origin: | DDR |
 | support: | DDR |
 
@@ -230,7 +198,7 @@ TESTR: t
 - 值不区分大小写。
 
 | 被搜索的字符串: | label: |
-|---|---|
+| -------- | ------ |
 | Basic, Light | Basic |
 | Another, Trick, Standard | Another |
 | Maniac, SSR, Heavy | SSR |
@@ -242,7 +210,7 @@ TESTR: t
 ## `#COMMENT <string>`
 
 | | |
-|---|---|
+| --- | --- |
 | origin: | pomu |
 | support: | pomu2, nanasi, PMSee-V, BM-A4, beat arranger, iBMSC (3.0+), Sonorous, TechnicalGroove(parsing-only) |
 
@@ -255,34 +223,22 @@ TESTR: t
 ### `#COMMENT` 的多重定义
 
 | | |
-|---|---|
+| --- | --- |
 | origin: | Sonorous |
 | support: | Sonorous |
 
 - 可定义多个注释。语法解析结果对比如下：
 
 | BMS code | Sonorous | nanasi, iBMSC |
-|---|---|---|
-| ```
-#TITLE title
-#COMMENT Legacy comment
-#COMMENT "Current comment"
-``` | ```
-title
-Legacy comment
-Current comment
-``` | ```
-title
-
-Current comment
-``` |
+| -------- | -------- | ------------- |
+| <pre>#TITLE title<br>#COMMENT Legacy comment<br>#COMMENT "Current comment"</pre> | <pre>title<br>Legacy comment<br>Current comment</pre> | <pre>title<br><br>Current comment</pre> |
 
 ---
 
 ## `#TEXT[00-ZZ] "<string>"`
 
 | | |
-|---|---|
+| --- | --- |
 | channel: | `#xxx99` |
 | origin: | pomu |
 | support: | pomu2, nanasi, Sonorous(parsing-only), ~~TechnicalGroove(skin-dependent)~~ |
@@ -291,13 +247,8 @@ Current comment
 - nanasi 中，miss 时会显示 `#TEXT00` 的内容（pomu2 不支持 `#TEXT00`）。
 
 | For example | remarks |
-|---|---|
-| ```
-#TEXT00 "MISS!!"
-#TEXTaa "SIROMARU eats only the bread crust"
-#TEXTbb ""
-#10099:aabbaabb
-``` | `#100` 使文本闪烁。 |
+| ----------- | ------- |
+| <pre>#TEXT00 "MISS!!"<br>#TEXTaa "SIROMARU eats only the bread crust"<br>#TEXTbb ""<br>#10099:aabbaabb</pre> | `#100` 使文本闪烁。 |
 
 - 实际上，即使删除 `#TEXTbb ""` 这一行，结果也相同。
 
@@ -306,7 +257,7 @@ Current comment
 ## `#SONG[01-ZZ] "<string>"`
 
 | | |
-|---|---|
+| --- | --- |
 | channel: | `#xxx99` |
 | origin: | pomu |
 | support: | pomu2, Sonorous(parsing-only), ~~TechnicalGroove(skin-dependent)~~ |
@@ -322,7 +273,7 @@ Current comment
 ## 地雷（Landmine）
 
 | | |
-|---|---|
+| --- | --- |
 | header: | `#WAV00 <soundfilename>` |
 | channel: | `#xxxD1-E9` |
 | origin: | nanasi |
@@ -342,34 +293,23 @@ Current comment
   - `ZZ` 为强制游戏结束。
 
 | For example | remarks |
-|---|---|
-| ```
-#WAV00 explode.wav
-#001D3:0000001E
-``` | 放置一个夺取 25% 血量的地雷。// 1E (36 进制) = 50 (10 进制) |
+| ----------- | ------- |
+| <pre>#WAV00 explode.wav<br>#001D3:0000001E</pre> | 放置一个夺取 25% 血量的地雷。// 1E (36 进制) = 50 (10 进制) |
 
 - 由于日本 BMS 领域的事实标准 LR2 支持了地雷，它正在悄然流行。
 - 地雷的特点是能够强制玩家 keyup。与 LN 或特殊模式组合时，能发挥极其凶恶的威力。
 - **通常，地雷的爆炸音无法更改。** 但：
 
 | For example | remarks |
-|---|---|
-| ```
-#wav00 bomb.wav
-#wav11 visible.wav
-#wav33 invisible.wav
-
-#00111:00000011
-#00131:33
-#001D1:1E
-``` | - 叠加不可见物件可以模拟播放其他音效。<br>- 但此行为取决于实现，不具备兼容性和确定性。<br>- Angolmois 和 LR2 在时机合适时可能可行。<br>- nanasi 同时播放不可见物件的音效和爆炸音。 |
+| ----------- | ------- |
+| <pre>#wav00 bomb.wav<br>#wav11 visible.wav<br>#wav33 invisible.wav<br><br>#00111:00000011<br>#00131:33<br>#001D1:1E</pre> | - 叠加不可见物件可以模拟播放其他音效。<br>- 但此行为取决于实现，不具备兼容性和确定性。<br>- Angolmois 和 LR2 在时机合适时可能可行。<br>- nanasi 同时播放不可见物件的音效和爆炸音。 |
 
 ---
 
 ## `#PATH_WAV <path>`
 
 | | |
-|---|---|
+| --- | --- |
 | origin: | BMEV (?) |
 | support: | BMEV, WAview, in_bm2, uBMplay, IIDXv, Angolmois, Sonorous, BGAEncAdv, TechnicalGroove |
 
@@ -378,14 +318,15 @@ Current comment
 - 预期用于测试游玩。
 
 | For example | remarks |
-|---|---|
-| ```
-#PATH_WAV C:\WINDOWS\Media
-#WAV01 onestop.mid
-#WAV02 chimes.wav
-#WAV03 chord.wav
-#BMP01 ..\..\img\koala.bmp
-``` | 指定路径前缀。<br>`#WAV01` 引用的文件："C:\WINDOWS\Media\onestop.mid"<br>`#WAV02` 引用的文件："C:\WINDOWS\Media\chimes.wav"<br>`#WAV03` 引用的文件："C:\WINDOWS\Media\chord.wav"<br>`#BMP01` 引用的文件："C:\img\koala.bmp" |
+| ----------- | ------- |
+| <pre>#PATH_WAV C:\WINDOWS\Media<br>#WAV01 onestop.mid<br>#WAV02 chimes.wav<br>#WAV03 chord.wav<br>#BMP01 ..\..\img\koala.bmp</pre> | 指定路径前缀。 |
+
+指定路径说明：
+
+- `#WAV01` 引用的文件："C:\WINDOWS\Media\onestop.mid"
+- `#WAV02` 引用的文件："C:\WINDOWS\Media\chimes.wav"
+- `#WAV03` 引用的文件："C:\WINDOWS\Media\chord.wav"
+- `#BMP01` 引用的文件："C:\img\koala.bmp"
 
 - 发布 BMS 时，应将 `#PATH_WAV` 注释掉。
 - WAview, in_bm2, uBMplay (1.5.1 及更早版本) 中，值的后缀需要分隔符。例如：
@@ -396,7 +337,7 @@ Current comment
 ## `#CHARSET <encode>`
 
 | | |
-|---|---|
+| --- | --- |
 | origin: | ruvit |
 | support: | ruvit (2.0b5p2 以下) |
 | caution: | **此命令已过时。我们不应再使用此命令。** |
@@ -421,7 +362,7 @@ Current comment
 ### Unicode 支持
 
 | | |
-|---|---|
+| --- | --- |
 | origin: | ruvit |
 | support: | ruvit, iBMSC, IIDXv (2.13+), HDX (0.98+), Sonorous, BGAEncAdv, TechnicalGroove |
 
@@ -430,7 +371,8 @@ Current comment
 - HTML5 规范草案已移除对 UTF-7 和 UTF-32 字符集的支持。
   (<https://www.w3.org/TR/2008/WD-html5-20080122/>)
   > Authors should not use JIS_X0212-1990, x-JIS0208, and encodings based on EBCDIC.
-  > Authors should not use UTF-32. Authors must not use the CESU-8, UTF-7, BOCU-1 and SCSU encodings. [CESU8] [UTF7] [BOCU1] [SCSU]
+  > Authors should not use UTF-32. Authors must not use the CESU-8, UTF-7, BOCU-1 and SCSU encodings.
+  > [CESU8] [UTF7] [BOCU1] [SCSU]
   - 当 BMS 文件在 Web 应用程序中使用时，UTF-7 和 UTF-32 可能成为障碍。
 - IIDXv 和 HDX 支持 UTF-8, UTF-16LE, UTF-16BE（**必须带 BOM**）。
 - Sonorous 支持 UTF-8（**BOM 可选**）。
@@ -441,7 +383,7 @@ Current comment
 ## `%URL <string>`
 
 | | |
-|---|---|
+| --- | --- |
 | origin: | BMS Manager |
 | support: | BMS Manager, BMSC |
 
@@ -456,7 +398,7 @@ Current comment
 ## `%EMAIL <string>`
 
 | | |
-|---|---|
+| --- | --- |
 | origin: | BMS Manager |
 | support: | BMS Manager, BMSC |
 

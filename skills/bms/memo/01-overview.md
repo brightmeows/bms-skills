@@ -8,10 +8,10 @@
 ## 参考来源
 
 | 项目 | 链接 |
-|------|------|
+| ------ | ------ |
 | 关于 BMS（Be-Music Script） | <https://en.wikipedia.org/wiki/Be-Music_Source> |
 | 本文档参考了 | <https://web.archive.org/web/*/http://wiki.bms.ms/Bms:Spec> |
-| _BMS Format Specification_ | <http://bm98.yaneu.com/bm98/bmsformat.html> (1998-11-26) |
+| *BMS Format Specification* | <http://bm98.yaneu.com/bm98/bmsformat.html> (1998-11-26) |
 | BML（Be-Music Longnote format）基本规范 | <https://nvyu.net/rdm/rby_ex.php> |
 | Sonorous 提出的 BMS 扩展 | <https://cosmic.mearie.org/f/sonorous/bmsexts> (2013-07-10 起，作为参考资料) |
 | DTX 文件格式规范 | <http://dtxmania.net/wiki.cgi?page=qa_dtx_spec_e> (作为参考资料) |
