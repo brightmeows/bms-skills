@@ -3,11 +3,15 @@
 ## Commands
 
 ```bash
-# Check all markdown files under skills/bms/
-markdownlint --config .markdownlint.toml skills/bms/*.md
+# 检查 skills/ 下所有 markdown 文件
+markdownlint --config .markdownlint.toml skills/*.md
 
-# Auto-fix fixable issues
-markdownlint --fix --config .markdownlint.toml skills/bms/*.md
+# 自动修复可修复问题
+markdownlint --fix --config .markdownlint.toml skills/*.md
+
+# 编辑 SKILL.md 后同步更新 .well-known/agent-skills/index.json 中的 digest
+# 先运行 sha256sum 获取新值，再更新 index.json 中的 "digest" 字段
+sha256sum skills/bms/SKILL.md skills/bmson/SKILL.md
 ```
 
 ## Boundaries
@@ -17,6 +21,8 @@ markdownlint --fix --config .markdownlint.toml skills/bms/*.md
 | **Never** | 勿编辑 `origin/` 目录下的任何文件（原始 HTML 源，只读） |
 | **Never** | 勿启用 `.markdownlint.toml` 中禁用的规则（注释已说明原因） |
 | **Always** | 修改 .md 后运行 `markdownlint` 验证 |
+| **Always** | 修改 `skills/bms/SKILL.md` 或 `skills/bmson/SKILL.md` 后，同步更新 `.well-known/agent-skills/index.json` 中对应 `digest` 字段 |
+| **Always** | `.claude-plugin/plugin.json` 仅引用目录路径，内容变更无需修改；新增/移除技能目录时同步更新 |
 | **Ask** | 需修改 `.markdownlint.toml` 配置时先确认 |
 
 ## Content Rules
