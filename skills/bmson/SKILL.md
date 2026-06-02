@@ -1,5 +1,5 @@
 ---
-name: bmson-quick-reference
+name: bmson
 description: Use when working with .bmson files, creating or editing BMSON charts, converting between BMS and BMSON, implementing BMSON parsers/generators, looking up v1 JSON schema fields, or troubleshooting beatoraja BMSON extensions.
 ---
 
