@@ -6,14 +6,14 @@
       "type": "skill-md",
       "description": "创建或编辑 .bms 谱面、排查解析/渲染异常、查询 #xxx 通道映射和头部命令兼容性、或开发 BMS 解析器/生成器/播放器时使用。",
       "url": "https://codeberg.org/brightmeows/bms-skills/raw/branch/main/skills/bms/SKILL.md",
-      "digest": "sha256:3a89c65fd7f69a2551c3f12510e639af6fb0f5f4f3ba60f0c343784c98c689c6"
+      "digest": "sha256:b30e67711a4edf770c80e3762c01024d83a3eb96a0687bb282f6c2647d845179"
     },
     {
       "name": "bmson",
       "type": "skill-md",
       "description": "处理 .bmson JSON 格式谱面、实现解析器/生成器、查询 v1/v2 schema 字段定义及类型、或排查 beatoraja BMSON 扩展兼容性问题时使用。",
       "url": "https://codeberg.org/brightmeows/bms-skills/raw/branch/main/skills/bmson/SKILL.md",
-      "digest": "sha256:684809305e119df4af40d5e5ab4b76c83d21281cbeeaebdda16d4cdabe4ca9f1"
+      "digest": "sha256:d84b60630e7bcffcdfb43b548b1d83b3bc809cab4ec29ef6796bfd9cf9f075ae"
     }
   ]
 }
