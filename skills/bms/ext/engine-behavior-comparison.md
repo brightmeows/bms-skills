@@ -1,7 +1,13 @@
 # beatoraja / LR2 运行时行为对比
 
 > 来源：[【発狂PMS】beatoraja/LR2仕様比較まとめ (beatoraja0.8.7対応) - 発Pでハッピー](https://ralba-gear.hateblo.jp/entry/2023/11/06/141139)
+> 原文开头注：已有一些 beatoraja 与 LR2 的比较文章，但没有从 9keys（PMS）视角出发的对比，故撰写本文。
 > 本文对比 beatoraja 与 LR2 在血量槽、判定、LN 等引擎层面的运行时行为差异。数据主要针对 PMS（9keys）场景。
+>
+> 原文更新履历：
+>
+> - 2024/02/29 — 修正 `#DEFEXRANK` 相关错误；删除关于本家长音符的不精确描述（因可能不准确）；其他细微修正
+> - 2024/02/27 — 对应 beatoraja 0.8.7 LN 判定变更；追加判定范围说明及细微修正
 
 ---
 
@@ -24,6 +30,8 @@ A = min(0.15, max(0, (2 × TOTAL − 320) / ノーツ数))
 | TOTAL | ≥240 | ≥230 | ≥210 | ≥200 | ≥180 | ≥160 | ≥150 | ≥130 | ≥120 | <120 |
 |-------|------|------|------|------|------|------|------|------|------|------|
 | 补正  | 1.0  | 1.11 | 1.25 | 1.5  | 1.666 | 2.0 | 2.5  | 3.333 | 5.0  | 10.0 |
+
+Note 数 ≤ 1000 时，按 Note 数分级增加减量补正：999–500 Notes 时每 Note +**0.02%**，490–250 Notes 时每 Note +**0.04%**。
 
 ### 1.1 EASY 模式
 
@@ -78,6 +86,12 @@ A = min(0.15, max(0, (2 × TOTAL − 320) / ノーツ数))
 | 空POOR | −8.0 | −15.0 | −2.0B |
 
 > EXHARD 无剩余血量补正。
+>
+> HARD / EXHARD 血量增减规则在所有模式（7keys/9keys）中通用。
+>
+> LR2oraja 0.8.3+ 中，剩余血量从 **32** 起即施加 0.6 补正，低于 **2** 时直接 FAILED。（LR2 中血量低于 2 即失败；beatoraja 在 0 时失败。）
+>
+> **注意**：原文对 LR2 失败条件标记为“らしい？”（推测语气），该数据来源单一，需进一步验证。
 
 ### 1.5 血量总量·边界·初始值
 
@@ -90,6 +104,8 @@ A = min(0.15, max(0, (2 × TOTAL − 320) / ノーツ数))
 
 - 9keys 的血量总量为 120，初始值为 30，清除边界为 85（≈70.83%），接近本家 pop'n music 的内部值 724/1024（≈70.70%）。
 - 清除所需的净增加量：LR2 为 60（80−20），9keys 为 55（85−30），差距不大。
+
+![ゲージ比較図（7keys vs 9keys vs LR2）](engine-behavior-comparison/20231104205614.png)
 
 ### 1.6 段位认定血量
 
@@ -105,6 +121,10 @@ A = min(0.15, max(0, (2 × TOTAL − 320) / ノーツ数))
 
 > beatoraja 的判定宽度通过 **JUDGERANK** 控制（EASY 为基准 `100%`），不同模式有不同的补正系数。
 > LR2 数值为**垂直同步关闭**时的参考值。
+> 本文所有判定宽度数值以 `+` 方向为**早（EARLY）**、`-` 方向为**晚（LATE）**。
+>
+> 注：表格中“7keys”/“9keys”对应 beatoraja 的游戏模式；LR2 无对应功能时标注为“LR2oraja”。
+> 7keys 的键盘与碟盘判定宽度不同，但本文专注 PMS（9keys）场景，故省略此差异。
 
 ### 2.1 VERY EASY
 
@@ -171,7 +191,7 @@ A = min(0.15, max(0, (2 × TOTAL − 320) / ノーツ数))
 | 补正系数 | 133% | 100% | 70% | 50% | 33% |
 
 > 9keys VERY HARD 下，GREAT 判定宽度（±16ms）小于 PGREAT（±20ms），即**不存在 GREAT 判定**（PGREAT 直接跳 GOOD），称为“グドバド判定”。
-
+![beatoraja 9keys vs LR2 判定幅比較](engine-behavior-comparison/20240227233037.png)
 ---
 
 ## 三、LN（长音）判定
@@ -187,7 +207,7 @@ A = min(0.15, max(0, (2 × TOTAL − 320) / ノーツ数))
 ### 3.2 判定规则
 
 - beatoraja LN 模式：始点和终点判定中**取较差的一方**
-- 过早离键（早すぎ）：beatoraja 判为**早 POOR**（非空 POOR）；LR2 判为**早 BAD**
+- 过早离键（早すぎ）：beatoraja **0.8.7 起**判为**早 BAD**（0.8.6 及之前判为早 POOR）；LR2 判为**早 BAD**
 
 ### 3.3 beatoraja 0.8.7+ 押し直し（Re-press）机制
 
@@ -211,6 +231,7 @@ A = min(0.15, max(0, (2 × TOTAL − 320) / ノーツ数))
 ### 4.1 `#DEFEXRANK` 的基准
 
 - `#DEFEXRANK` 以 **NORMAL 判定**为基准（即值 `100` = NORMAL）
+- **注意**：μBMSC 的 UI 中标注为 `#EXRANK`，但实际 BMS 头部命令是 `#DEFEXRANK`
 - JUDGERANK（游戏中可选）以 **EASY 判定**为基准
 - 两者不同。例如 9keys 下 `#DEFEXRANK 100` 等效于 JUDGERANK `70%`（NORMAL）
 
@@ -257,6 +278,8 @@ beatoraja 提供三种判定算法（处理同一轨道上两个 Note 同时靠�
 | **Score 优先** | 优先取 GREAT 以上可判定的 Note；均可取时取下方 Note | 接近某寺游戏 |
 | **最下 Note 优先** | 无条件取下方 Note | 可能发生迟 BAD ハマり |
 
+![同轨双 Note 冲突场景示例](engine-behavior-comparison/20231106011410.png)
+
 ---
 
 ## 六、数值分析与考察
@@ -274,9 +297,12 @@ POOR 的减少量在 LR2 比值为 0.625 倍，即使算上增量也更容易回
 GREAT 以上的增量相同。但如果 BAD 数不超过空 POOR 数的 1.5 倍，
 9keys 的减少量比 LR2 更大。根据约 2000 谱面的 score.db 统计：
 7 成以上谱面减少量增加，考虑 GOOD 增量后约 9 成谱面变重。
+
+![BP 量一例（挑战阶段级别结果）](engine-behavior-comparison/20231104214238.png)
+
 但 LR2 判定宽度不同且存在 BAD ハマり等规格差异，仅供参考。
 
-挑战阶段的典型结果中，beatoraja 的 BAD 比空 POOR 更多出现。
+挑战阶段的典型结果中，beatoraja 的空 POOR 比 BAD 更多出现。
 
 **HARD 模式对比**：
 beatoraja 与 LR2 的 HARD 减少量补正（即 30% 补正）的开始值和补正值不同，
@@ -360,6 +386,8 @@ PGREAT 不参与补正，此后继续增大值无变化。
 下一个 Note 的 BAD 判定被连带——这就是 BAD ハマり。
 本家不存在此现象，因此 9keys BAD 判定后**不消失**，可再次击打。
 
+![BAD ハマり示例](engine-behavior-comparison/20231105190458.png)
+
 **空 POOR 计数**：
 LR2/7keys 在一个 Note 判定范围内可**多次**判空 POOR。
 9keys 一个 Note 最多判**一次**空 POOR（本家仕様準拠）。
@@ -393,3 +421,25 @@ LR2：也无纵连密度限制。
 - [空 BAD 仕様について](https://w.atwiki.jp/asagaolabo/pages/897.html)
 - [LR2 判定宽度（垂直同步 ON/OFF）](https://twitter.com/n13092s/status/908795911286878208)
 - [lr2oraja Readme](https://github.com/wcko87/lr2oraja/blob/readme/README.md)
+
+---
+
+## 八、作者余談（原文个人感想）
+
+以下内容来自原文作者的亲身感触，原文标记为“余談”。
+
+**关于血量槽选择**：
+
+- beatoraja 的 NORMAL 血量槽作为清除目标实用——接近本家规格，且有尾杀抗性
+- NORMAL 与 HARD 的难度差较小，配合 GAS（自动调节速度）导致文件夹清完时多半已有 HARD 清除
+- 推荐以 EX-HARD 作为下一个目标，对本家辛ゲージ意识下的罚数减少很有用
+
+**推荐使用 beatoraja**：
+
+- 更新持续进行
+- 更接近本家行为
+- PMS 难度表以其为基准
+- 可使用 IR（Internet Ranking）
+- 如觉得 EASY/HARD 太简单，可将 NORMAL(HARD) 与 EX-HARD 作为目标线
+
+> 原文引用了 PMS Database 作为 BMS 播放器导入指南。

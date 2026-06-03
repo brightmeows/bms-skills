@@ -34,6 +34,8 @@
 | `2` | CN（Charge Note） | 蓄力长音，持续按住即可，终点不要求 Keyup |
 | `3` | HCN（Hell Charge Note） | 地狱蓄力长音，类似 CN 但判定更严格 |
 
+> 注：上表中 LN/CN/HCN 的行为说明为译者补充——原文（beatoraja Wiki）仅定义了值映射（`1:LN, 2:CN, 3:HCN`），未描述各模式的具体游戏内行为。行为描述基于通用认知整理。
+
 ## #RANK 4（VERY EASY）
 
 - beatoraja 中 `#RANK 4` 的判定宽度为 EASY 的 **1.25 倍**。

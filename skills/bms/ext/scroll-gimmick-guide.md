@@ -4,7 +4,11 @@
 > 本文是 BMS 谱面滚动特效（Gimmick）的实践教程，涵盖 Scroll / BPM / Stop 三类基础命令的组合用法。
 >
 > **引用约定**：标注 `→ 详见 [xxx.md](xxx.md)` 的内容表示该命令或概念已在现有文档中定义，本文侧重其实战组合用法，不重复格式细节。
-
+>
+> **原文简介**：作者 numuto 自 2022 年 4 月下旬开始制作 Gimmick 谱面，至 2022 年 10 月左右集中创作。
+> 本文使用自制 BMS 曲目「Odyssey in the sky」作为示例，讲解基础 Gimmick 技法。
+> 实际谱面解说因篇幅原因留待后续文章。
+>
 ---
 
 BMS 的 Gimmick 类命令可分为三大类：**Scroll**、**BPM**、**Stop**。
@@ -39,6 +43,10 @@ Scroll 改变宽度而不改变时间，因此无需移动 Note 位置，这是 
 
 → 详见 [scroll-speed-extensions.md](scroll-speed-extensions.md)
 
+![Scroll 加速/减速示例](scroll-gimmick-guide/1672643699592-dRC5UHoMoU.png)
+
+[▶ Scroll 加速/减速演示](https://youtube.com/watch?v=WZBmdwDCHqM)
+
 #### BPM 方式
 
 BPM 是改变曲子流速的命令，与 Scroll 不同——单纯改变速度会使音乐变快或变慢。因此必须根据变化的倍率**压缩或扩展整个小节**来补偿。LR2 不支持 Scroll Gimmick，所以 LR2 兼容的谱面只能采用 BPM 方式。
@@ -57,6 +65,10 @@ BPM 是改变曲子流速的命令，与 Scroll 不同——单纯改变速度�
 
 → 详见 [memo/09-header-commands-audio-and-bpm.md](../memo/09-header-commands-audio-and-bpm.md)
 
+![BPM 加速/减速示例](scroll-gimmick-guide/1672644716842-tFAUQ9de4x.png)
+
+[▶ BPM 加速/减速演示](https://youtube.com/watch?v=WcokWqlH9Ks)
+
 #### Stop 方式
 
 Stop 是谱面暂停命令。以曲子的基准 BPM（编辑器右上角显示的值）为基准，**1 小节 = 192 个 stop 单位**。
@@ -64,7 +76,7 @@ Stop 是谱面暂停命令。以曲子的基准 BPM（编辑器右上角显示�
 用暂停模拟减速的原理很简单：超高速连续暂停拟似低速。基准 BPM 下 1 小节 = 192：
 
 - **1/2 倍速**：stop 值设为 96（即 192/2），剩余 96 用 `#xxx02` 压缩
-- **1/4 倍速**：stop 值设为 48（192/4），剩余 144 压缩
+- **1/4 倍速**：stop 值设为 144，剩余 48 用 `#xxx02` 压缩
 - **2 倍速**：stop 值设为 **-192**（负值），剩余 384 扩展
 
 负 stop 在编辑器中无法直接输入，需要把 `.bms` 文件用记事本打开手动编辑。
@@ -77,6 +89,8 @@ Stop 是谱面暂停命令。以曲子的基准 BPM（编辑器右上角显示�
 Stop 和 BPM 一样是调整速度的手段，因此也需要对整体进行压缩/扩展。
 
 → 详见 [memo/09-header-commands-audio-and-bpm.md](../memo/09-header-commands-audio-and-bpm.md)
+
+[▶ Stop 加速/减速演示](https://youtube.com/watch?v=9VI3dhD32nY)
 
 ---
 
@@ -94,6 +108,10 @@ Warp 是让 Note 瞬间出现在判定线上或消失的特效。它也是 Gimmi
 ```
 
 → 详见 [scroll-speed-extensions.md](scroll-speed-extensions.md)
+
+![Scroll Warp 示例](scroll-gimmick-guide/1672648632660-qrnMURFaG2.png)
+
+[▶ Scroll Warp 演示](https://youtube.com/watch?v=u5w32ATOkQM)
 
 #### BPM Warp（100001 倍技术）
 
@@ -113,6 +131,10 @@ BPM 改变的是速度而非宽度，所以需要相应地移动整个谱面的�
 ```bms
 #STOP01 30000    ; 100001 倍 BPM 下 3/1920 小节的补偿量
 ```
+
+![BPM Warp 示例](scroll-gimmick-guide/1672646974171-1IM0mwBYWm.png)
+
+[▶ BPM Warp 演示](https://youtube.com/watch?v=gvsWdQy0ryQ)
 
 #### Stop Warp
 
@@ -149,6 +171,10 @@ stop = 192 × 100001 ÷ 64 − 192 = 299811
 （这里的 −192 是把基准 BPM 的 1 小节长度移走的意思，
 如果 Warp 间隔是 1/2 小节就要 −96。）
 
+![BPM 动画分割数说明](scroll-gimmick-guide/1672649662659-EhQ6fkEkAC.png)
+
+[▶ BPM 动画演示（16/32/64/96 分割比较）](https://youtube.com/watch?v=eTtdYJ2VE-g)
+
 #### Scroll 动画
 
 理论上 Scroll 也可以做动画，但基本不推荐。因为看上去非常繁琐，
@@ -162,7 +188,14 @@ stop = 192 × 100001 ÷ 64 − 192 = 299811
 
 → 详见 [scroll-speed-extensions.md](scroll-speed-extensions.md) 中 SCROLL=0 的说明
 
+![Scroll 动画示例](scroll-gimmick-guide/1672650600682-uDkhbhGsWx.png)
+
 ---
+
+> 以上是基础 Gimmick 的全部内容。“就这些？”——确实，各种花哨的 Gimmick 本质上就是这几种基础技法的组合。
+> 真正厉害的人还会使用更难理解的技术，但它们不属于基础 Gimmick 的范畴。
+>
+> 接下来进入正题，围绕 oraja Gimmick（即 Scroll Gimmick），将作者积累的经验和技巧整理如下。
 
 ## 二、Scroll Gimmick 高阶技巧
 
@@ -203,6 +236,10 @@ stop = 192 × 100001 ÷ 64 − 192 = 299811
 **后续处理**：不可见 Note 部分流过之后，需要插入 scroll=1000 之类的值，
 否则下一个 Note 会过早显示，失去谱面切换的视觉感。
 
+![空中停止ギミック示例](scroll-gimmick-guide/1672654334149-YHWH4xlpqB.png)
+
+[▶ 空中停止演示（迷路地带）](https://youtube.com/watch?v=c0ilz53wx8Y?t=55)
+
 ### 2.2 逆走（Reverse Scroll）
 
 顾名思义谱面逆向滚动。用 scroll=-1.0 来实现——但单纯 = -1.0 的话，Note 从判定线下方出现，极难游玩。
@@ -221,6 +258,10 @@ stop = 192 × 100001 ÷ 64 − 192 = 299811
 
 使用逆走时，建议在谱面信息中标注推荐绿数字。如果看到多余的小节线，后半顺走部分的小节线可能提前流到了上方——在某个位置插入 scroll=10000 即可解决。
 
+![逆走ギミック示例](scroll-gimmick-guide/1672661933773-66Cq5BlJNv.png)
+
+[▶ 逆走演示（scroll=-1）](https://youtube.com/watch?v=M7sjnR2RjBc) | [▶ 修正版](https://youtube.com/watch?v=4ZjRzJsqBVw)
+
 ### 2.3 Scroll 出现/消失 Bug（beatoraja 特定）
 
 实 Note 看起来固定不动，但不知为何 Note 在变化——这就是 beatoraja 上
@@ -237,13 +278,19 @@ Scroll 的出现/消失 Bug 制造的 Gimmick。
 调整绿数字或 HS 可以改变这个阈值
 ——例如 scroll=1561 时提高绿数字或降低 HS，演出又会变为可见。
 
-因此像 Maxi -C0ffee- 这类谱面，需要事先指定合适的绿数字和白数字
+因此像 1008 制作的 Maxi -C0ffee- 这类谱面，需要事先指定合适的绿数字和白数字
 （Note 判定位置的显示设定值）才能让 Gimmick 正确发动。没有固定公式，只能手动试探。
 
 **渐进出现**：用 scroll=0.0 无法实现渐进出现，需要改用 scroll=0.0625 等微小正值。
 在 scroll=0.0625 下使用 561 值，可以获得平滑出现的视觉效果。
 Scroll 值、SUD（遮盖）、HS、绿数字等都会影响效果，
 建议在谱面信息的 Artist 栏等位置注明推荐设置。
+
+![Scroll Bug 示例 1](scroll-gimmick-guide/1672655787375-SpgaE7r1DH.png)
+![Scroll Bug 示例 2（1561 值）](scroll-gimmick-guide/1672663996549-0DpGlGPsBb.png)
+![Scroll Bug 示例 3（调整后）](scroll-gimmick-guide/1672665539336-sxfA7w7fCQ.png)
+
+[▶ Scroll Bug 代表性演示](https://youtube.com/watch?v=GRCdFoqU_R4?t=76)
 
 > 此行为无固定公式，需根据目标绿数字/SUD 手动调整阈值。
 
@@ -271,6 +318,10 @@ Scroll 值、SUD（遮盖）、HS、绿数字等都会影响效果，
 如果基准 scroll=0.0，则 240 无需加 2，用 238 即可。
 基准 scroll=0.0625 时当作误差处理。
 
+![非动画具現化示例](scroll-gimmick-guide/1672668507402-zDeb95viPI.png)
+
+[▶ 非动画具現化演示](https://youtube.com/watch?v=iYx8iFZrCiE) | [▶ 续篇](https://youtube.com/watch?v=xA4OVeKh4PU?t=28)
+
 > 效果受绿数字和 SUD 影响，建议在谱面信息中推荐设置。
 
 ### 2.5 部分ワープ（Partial Warp）
@@ -286,8 +337,11 @@ LN 或伪 LN（橙色棒）在一瞬间消失——这就是部分 Warp。
 #SCROLL01 240
 #SCROLL02 -238    ; 补偿（基准 scroll=1.0 时，每个命令占用 2/1920 小節）
 #STOP01 30000     ; 100001BPM × 3/1920 小節的补偿
-; 30000 = 192 × 100001 ÷ 1920 × 3 − 192 ÷ 1920 × 3
 ```
+
+![部分ワープ示例](scroll-gimmick-guide/1672673266286-1XB5bjFQJW.png)
+
+[▶ 部分ワープ演示](https://youtube.com/watch?v=kPbb6sQC4iI?t=13)
 
 ### 2.6 マイナス Scroll アニメーション（Negative Scroll Animation）
 
@@ -306,7 +360,18 @@ Scroll Gimmick 中最有趣（一点也不为过）的就是负 Scroll 动画！
 
 试过把实 Note 部分 scroll=1.0、动画部分 scroll=-1.0，但 beatoraja 的特性下似乎无法正确显示。具体原因未知。
 
+![マイナス Scroll 动画示例](scroll-gimmick-guide/1672674499296-3f0Awai3xN.png)
+![マイナス Scroll 动画另一示例](scroll-gimmick-guide/1672676380244-r67hciVlQw.png)
+
+[▶ 负 Scroll 动画演示 1](https://youtube.com/watch?v=Cvcerl_K1LE)
+| [▶ 演示 2](https://youtube.com/watch?v=LMItjD1-No4?t=65)
+| [▶ 演示 3](https://youtube.com/watch?v=lNg8L4ItAUk?t=44)
+
 ---
+
+**外部链接：**
+
+- 示例 BMS 曲目「Odyssey in the sky / numuto」：[pupuly 下载](https://pupuly.nekokan.dyndns.info/bms/v/228) | [SoundCloud](https://soundcloud.com/kgisjhy3c6t6/odyssey-in-the-sky)
 
 以上是 Scroll Gimmick 的全部基础内容，本质上就是这些基础技法的组合。真正厉害的人还会使用更难理解的技术，但它们不属于基础 Gimmick（笑）。
 
@@ -321,4 +386,6 @@ Scroll Gimmick 的核心原则：
 7. **Scroll 大绝对值** 在 beatoraja 上可隐藏 Note
 8. **每次变化后必须补偿**，否则后续 Note 位置偏移
 
-> 作者 numuto 的话：有趣的动画需要付出极大的努力，每一帧都是手动制作的。希望对大家有所帮助，请务必尝试制作 Scroll Gimmick！
+> **原文感言**：以上是全部基础 Gimmick 的介绍。本质上都是基于这些技法的展开，只要有毅力就能做到。
+> 真正精彩的动画需要逐帧制作，非常辛苦。希望未来有机会用实际谱面进行解说。
+> 希望对大家有所帮助——请一定试试制作 Scroll Gimmick！
