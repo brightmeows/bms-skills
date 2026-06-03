@@ -53,7 +53,7 @@ BMS（Be-Music Script）是 1998 年由 Urao Yane 与 NBK 设计的音乐游戏�
 | 36 进制 | `[0-9A-Z]` | 1296 | 当前标准 |
 | **62 进制** | `[0-9A-Za-z]` | 3844 | beatoraja 0.8.7+ |
 
-> → 详见 [base62-format.md](base62-format.md)
+> → 详见 [base62-format.md](ext/base62-format.md)
 
 ---
 
@@ -73,7 +73,7 @@ BMS（Be-Music Script）是 1998 年由 Urao Yane 与 NBK 设计的音乐游戏�
 | `#EXRANKxx n` | 通道 `#xxxA0` | 动态判定变更 |
 | `#TOTAL n` | 数值 | 最佳判定时血量总增加量（默认因实现而异） |
 
-> → 详见 [memo/06](memo/06-header-commands-mode-and-judgment.md). RANK 4 见 [beatoraja-extensions](beatoraja-extensions.md).
+> → 详见 [memo/06](memo/06-header-commands-mode-and-judgment.md). RANK 4 见 [beatoraja-extensions](ext/beatoraja-extensions.md).
 > LR2 默认 `#TOTAL` ≈160；nanasi 默认 350；**强烈不建议省略**。
 
 ---
@@ -127,7 +127,7 @@ BMS（Be-Music Script）是 1998 年由 Urao Yane 与 NBK 设计的音乐游戏�
 
 > → 详见 [memo/09](memo/09-header-commands-audio-and-bpm.md)
 > 负 BPM：部分实现（beatoraja/LR2/ruvit/angolmois）支持逆向滚动。
-> 详见 [scroll-gimmick-guide.md](scroll-gimmick-guide.md)
+> 详见 [scroll-gimmick-guide.md](ext/scroll-gimmick-guide.md)
 
 ### STOP
 
@@ -177,7 +177,7 @@ BMS（Be-Music Script）是 1998 年由 Urao Yane 与 NBK 设计的音乐游戏�
 - 建议将空 `#WAV` 索引设为 `#LNOBJ`，避免终点播放不期望的音效
 - 62 进制下 `#LNOBJ` 区分大小写
 
-> → 详见 [memo/10](memo/10-header-commands-long-notes-and-options.md)、[base62-format.md](base62-format.md)
+> → 详见 [memo/10](memo/10-header-commands-long-notes-and-options.md)、[base62-format.md](ext/base62-format.md)
 
 ---
 
@@ -228,8 +228,8 @@ BMS（Be-Music Script）是 1998 年由 Urao Yane 与 NBK 设计的音乐游戏�
 - 负值 = 逆向滚动（beatoraja/ruvit/fgt++/angolmois 等）
 - `#SPEED` 在两个关键帧之间自动线性补间，无需逐小节计算
 
-> → 详见 [scroll-speed-extensions.md](scroll-speed-extensions.md)
-> → Gimmick 实战组合技：详见 [scroll-gimmick-guide.md](scroll-gimmick-guide.md)
+> → 详见 [scroll-speed-extensions.md](ext/scroll-speed-extensions.md)
+> → Gimmick 实战组合技：详见 [scroll-gimmick-guide.md](ext/scroll-gimmick-guide.md)
 
 ### Gimmick 核心原则
 
@@ -348,7 +348,7 @@ BMS（Be-Music Script）是 1998 年由 Urao Yane 与 NBK 设计的音乐游戏�
 | 行为变化 | `#LNOBJ` 在 62 进制下区分大小写 |
 | 支持 | beatoraja 0.8.7+, mBMplay, BMSE 2.2.0a, μBMSC 等 |
 
-> → 详见 [base62-format.md](base62-format.md)
+> → 详见 [base62-format.md](ext/base62-format.md)
 
 ---
 
@@ -364,8 +364,8 @@ BMS（Be-Music Script）是 1998 年由 Urao Yane 与 NBK 设计的音乐游戏�
 | 音频格式 | WAV(PCM/MP3)/OGG | WAV 仅支持 PCM 和 MP3 编码 |
 | 视频格式 | mp4/wmv/m4v/webm/mpg/avi | 按优先级自动检测 |
 
-> → 详见 [beatoraja-extensions.md](beatoraja-extensions.md)
-> → Scroll Gimmick 详见 [scroll-gimmick-guide.md](scroll-gimmick-guide.md)
+> → 详见 [beatoraja-extensions.md](ext/beatoraja-extensions.md)
+> → Scroll Gimmick 详见 [scroll-gimmick-guide.md](ext/scroll-gimmick-guide.md)
 
 ---
 
@@ -375,13 +375,13 @@ BMS（Be-Music Script）是 1998 年由 Urao Yane 与 NBK 设计的音乐游戏�
 
 BMSE 对部分命令有改写/删除行为，可用ダミー分岐（Dummy Branch）技巧保护。
 
-> → 详见 [bmse-compatibility.md](bmse-compatibility.md)
+> → 详见 [bmse-compatibility.md](ext/bmse-compatibility.md)
 
 ### 引擎行为差异（beatoraja vs LR2）
 
 beatoraja 与 LR2 在血量槽规格、判定宽度、LN 行为、空 POOR 机制等方面存在显著差异。
 
-> → 详见 [engine-behavior-comparison.md](engine-behavior-comparison.md)
+> → 详见 [engine-behavior-comparison.md](ext/engine-behavior-comparison.md)
 
 ---
 

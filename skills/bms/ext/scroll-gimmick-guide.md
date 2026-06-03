@@ -55,7 +55,7 @@ BPM 是改变曲子流速的命令，与 Scroll 不同——单纯改变速度�
 #BPM08 300
 ```
 
-→ 详见 [memo/09-header-commands-audio-and-bpm.md](memo/09-header-commands-audio-and-bpm.md)
+→ 详见 [memo/09-header-commands-audio-and-bpm.md](../memo/09-header-commands-audio-and-bpm.md)
 
 #### Stop 方式
 
@@ -76,7 +76,7 @@ Stop 是谱面暂停命令。以曲子的基准 BPM（编辑器右上角显示�
 
 Stop 和 BPM 一样是调整速度的手段，因此也需要对整体进行压缩/扩展。
 
-→ 详见 [memo/09-header-commands-audio-and-bpm.md](memo/09-header-commands-audio-and-bpm.md)
+→ 详见 [memo/09-header-commands-audio-and-bpm.md](../memo/09-header-commands-audio-and-bpm.md)
 
 ---
 

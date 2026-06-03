@@ -6,7 +6,7 @@
       "type": "skill-md",
       "description": "创建或编辑 BMS 谱面文件、排查格式问题、查询通道映射和头部命令、或开发 BMS 解析/生成工具时使用。",
       "url": "https://codeberg.org/brightmeows/bms-skills/raw/branch/main/skills/bms/SKILL.md",
-      "digest": "sha256:c806155531f212eda7952b2f4aa45143337435c923208d285342a421b8f3982d"
+      "digest": "sha256:383bd2489c72b55277a2439efcec44220469268a8919534076b1937bfdb650ce"
     },
     {
       "name": "bmson",
