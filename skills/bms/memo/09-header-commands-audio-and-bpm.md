@@ -1,5 +1,7 @@
 # 头部命令：音频与 BPM
 
+> 来源：[BMS command memo (JP)](https://hitkey.nekokan.dyndns.info/cmdsJP.htm#HEADER)
+
 ## #BPM `n`
 
 |          |          |

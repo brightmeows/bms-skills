@@ -1,6 +1,6 @@
 # 命令使用趋势
 
-> 来源：<https://hitkey.nekokan.dyndns.info/cmdsJP.htm#TRENDS-IN-USE-OF-COMMANDS>
+> 来源：[BMS command memo (JP)](https://hitkey.nekokan.dyndns.info/cmdsJP.htm#TRENDS-IN-USE-OF-COMMANDS)
 
 ## 主流扩展
 

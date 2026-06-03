@@ -1,5 +1,7 @@
 # 控制流
 
+> 来源：[BMS command memo (JP)](https://hitkey.nekokan.dyndns.info/cmdsJP.htm#CONTROL-FLOW)
+
 ## `#RANDOM n` / `#IF n` / `#ENDIF`
 
 | 项目 | 内容 |
@@ -480,5 +482,3 @@ uBMplay 1.5.2 及更新, Sonorous (UTF-8), BGAEncAdv, TechnicalGroove
 |<pre><code>#RANDOM 2<br><br>#00002:0.5<br>#00003:4F<br>#IF 1<br>#00004:01<br>#00006:03<br>#ENDIF<br>#IF 2<br>#00004:02<br>#00006:04<br>#ENDIF</code></pre>|<pre><code>#00002:0.5<br>#00003:4F<br>#RANDOM 2<br>#IF 1<br>#00004:01<br>#00006:03<br>#ENDIF<br>#IF 2<br>#00004:02<br>#00006:04<br>#ENDIF</code></pre>|- 非法的分支包含了不属于 `#IF` 的行。<br>- 2009-10-05：此 bug 已通过补丁修正。<br>- 当然，通过测试是理想的。BM98 就是这样实现 `#RANDOM` 的。<br><br>**通过测试：** RDM, ruvit, nanasi, uBMplay, PMSee-V, bmx2wav, IIDXv, HDX, Angolmois, Sonorous, BGAEncAdv, TechnicalGroove, ...（未调查）|
 
 ---
-
-> 原始文档：<https://hitkey.nekokan.dyndns.info/cmdsJP.htm#CONTROL-FLOW>

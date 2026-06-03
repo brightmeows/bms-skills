@@ -1,6 +1,6 @@
 # 头部命令：模式与判定
 
-> 来源：<https://hitkey.nekokan.dyndns.info/cmdsJP.htm#HEADER>
+> 来源：[BMS command memo (JP)](https://hitkey.nekokan.dyndns.info/cmdsJP.htm#HEADER)
 
 ## #PLAYER [1-4]
 
@@ -51,7 +51,7 @@
   - 两人共用一台 PC 键盘的游玩方式已不再被接受。
   - 即 “Couple Play” 和 “Battle Play” 已不再受欢迎，取而代之的是在线对战。
 
-- BM98, BM98de, DDR, bemaniaDX, DDR 及 fgt++ 沿用了这种静态 3 列布局。LR2 的部分皮肤也是如此。
+- BM98, BM98de, DDR, bemaniaDX 及 fgt++ 沿用了这种静态 3 列布局。LR2 的部分皮肤也是如此。
   - 但这种布局在其他实现中几乎见不到了。
 
 - 基于这些原因，`#PLAYER 2` 和 `#PLAYER 4` 取决于具体实现。

@@ -1,6 +1,6 @@
 # 头部命令：长音与选项
 
-> 来源：<https://hitkey.nekokan.dyndns.info/cmdsJP.htm>
+> 来源：[BMS command memo (JP)](https://hitkey.nekokan.dyndns.info/cmdsJP.htm#HEADER)
 
 ## `#LNTYPE 1`
 

@@ -1,5 +1,7 @@
 # BMS Format Specification 相关笔记
 
+> 来源：[BMS command memo (JP)](https://hitkey.nekokan.dyndns.info/cmdsJP.htm#MEMO-ABOUT-BMS-FORMAT-SPECIFICATION)
+
 ## 关于规定的最低要求规格
 
 - 规格摘要：

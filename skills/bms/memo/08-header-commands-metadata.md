@@ -1,5 +1,7 @@
 # 头部命令（HEADER）——元数据
 
+> 来源：[BMS command memo (JP)](https://hitkey.nekokan.dyndns.info/cmdsJP.htm#HEADER)
+
 ## `#TITLE <string>` / `#SUBTITLE <string>`
 
 ### `#TITLE <string>`

@@ -1,5 +1,7 @@
 # 头部命令：图像与 BGA
 
+> 来源：[BMS command memo (JP)](https://hitkey.nekokan.dyndns.info/cmdsJP.htm#HEADER)
+
 ## `#BMP[00-ZZ] <imagefilename>`
 
 |channel:|remarks|support|

@@ -1,5 +1,7 @@
 # 通道映射
 
+> 来源：[BMS command memo (JP)](https://hitkey.nekokan.dyndns.info/cmdsJP.htm#CHANNEL)
+
 ## 通道分配表
 
 | 通道号 | 名称 | 说明 | 来源 |

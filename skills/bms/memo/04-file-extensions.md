@@ -1,5 +1,7 @@
 # BMS 格式谱面文件扩展名
 
+> 来源：[BMS command memo (JP)](https://hitkey.nekokan.dyndns.info/cmdsJP.htm#ABOUT-FILENAME-EXTENSIONS-OF-MUSICAL-SCORE-FILE-OF-BMS-FORMAT)
+
 ## 大要
 
 - 典型的扩展名如下：

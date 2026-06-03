@@ -1,5 +1,7 @@
 # 头部命令：显示与难度
 
+> 来源：[BMS command memo (JP)](https://hitkey.nekokan.dyndns.info/cmdsJP.htm#HEADER)
+
 ## `#STAGEFILE imagefilename`
 
 |          |                           |

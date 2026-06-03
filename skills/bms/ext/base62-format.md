@@ -96,8 +96,8 @@
 // BPM=127（16 进制，不变）
 #00003:7f
 
-#00116:AA           // 36 进制下为 LNOBJ；62 进制下为 cymbal.wav
-#00216:ZZ
+#00116:AA
+#00216:ZZ           // 36 进制下为 LNOBJ；62 进制下为 cymbal.wav
 #00211:aAaAaAaA
 #00219:00aa00aa00aa00aa
 #00316:Aa

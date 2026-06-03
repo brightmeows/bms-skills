@@ -1,5 +1,7 @@
 # BMS command memo (JP)
 
+> 来源：[BMS command memo (JP)](https://hitkey.nekokan.dyndns.info/cmdsJP.htm)
+
 - 最新更新: 2014-07-11
 - 作者: hitkey
   - 网站: <https://hitkey.nekokan.dyndns.info/>

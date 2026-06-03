@@ -1,6 +1,6 @@
 # 头部命令：视频与扩展
 
-> 来源：<https://hitkey.nekokan.dyndns.info/cmdsJP.htm#HEADER>
+> 来源：[BMS command memo (JP)](https://hitkey.nekokan.dyndns.info/cmdsJP.htm#HEADER)
 
 ## #VIDEOFILE
 
