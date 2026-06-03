@@ -20,7 +20,7 @@ BMSON 将 BMS 的头部信息、通道数据、定义等以 JSON 对象表示，
 
 - 在根级 BMSInfo 对象中指定全局长音类型。
 - 值：`1`（LN）、`2`（CN）、`3`（HCN）。
-- 类型定义同 BMS 侧 [`#LNMODE`](./../bms/beatoraja-extensions.md)。
+- 类型定义同 BMS 侧 [`#LNMODE`](./../../bms/ext/beatoraja-extensions.md)。
 
 ```json
 {
