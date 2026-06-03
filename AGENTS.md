@@ -27,7 +27,7 @@ sha256sum skills/bms/SKILL.md skills/bmson/SKILL.md
 
 ## 提交格式
 
-Conventional Commits，`type(scope):` + body（中文）。
+Conventional Commits。title 英文，body 中文（可选）。
 
 ---
 
