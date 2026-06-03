@@ -13,7 +13,7 @@
       "type": "skill-md",
       "description": "处理 .bmson 文件、创建或编辑 BMSON 谱面、实现 BMSON 解析/生成器、查询 v1 JSON schema 字段、或排查 beatoraja BMSON 扩展问题时使用。",
       "url": "https://codeberg.org/brightmeows/bms-skills/raw/branch/main/skills/bmson/SKILL.md",
-      "digest": "sha256:4ea87afebc01dff3bb2fcd9d246fd8c3661fe95bac688caf8373e0605904af4a"
+      "digest": "sha256:ee5240bed54c7ffeb9d3dacc542ba6ed60cabab876d45a15a20e7db3b3056643"
     }
   ]
 }
