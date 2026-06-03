@@ -209,7 +209,7 @@ dictionary BGAEvent  { unsigned long y; unsigned long id; }
 | `mine_channels` | Root | `{name, notes[{x,y,damage}]}[]` | 地雷通道（`damage` 支持小数） |
 | `key_channels` | Root | `{name, notes[{x,y}]}[]` | 不可见音符通道（不显示/不判定，空打播音频） |
 
-> → 详见 [beatoraja-bmson-extensions.md](beatoraja-bmson-extensions.md)
+> → 详见 [beatoraja-bmson-extensions.md](./ext/beatoraja-bmson-extensions.md)
 
 ---
 
