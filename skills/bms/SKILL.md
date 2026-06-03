@@ -1,6 +1,6 @@
 ---
 name: bms
-description: 创建或编辑 BMS 谱面文件、排查格式问题、检查引擎行为差异（beatoraja vs LR2）、验证 BMSE 兼容性、查询通道映射和头部命令、或开发 BMS 解析/生成工具时使用。
+description: 创建或编辑 BMS 谱面文件、排查格式问题、查询通道映射和头部命令、或开发 BMS 解析/生成工具时使用。
 license: Apache-2.0
 ---
 

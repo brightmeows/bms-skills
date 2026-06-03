@@ -4,16 +4,16 @@
     {
       "name": "bms",
       "type": "skill-md",
-      "description": "创建或编辑 BMS 谱面文件、排查格式问题、检查引擎行为差异（beatoraja vs LR2）、验证 BMSE 兼容性、查询通道映射和头部命令、或开发 BMS 解析/生成工具时使用。",
+      "description": "创建或编辑 BMS 谱面文件、排查格式问题、查询通道映射和头部命令、或开发 BMS 解析/生成工具时使用。",
       "url": "https://codeberg.org/brightmeows/bms-skills/raw/branch/main/skills/bms/SKILL.md",
-      "digest": "sha256:be9fd7aa6611d75a88b606157f14fd31b6e3b59323257d2d58653dd774f34fb6"
+      "digest": "sha256:7048a5b033eaa1edcb6515f5872521d2bb914022b20e5e0599df31b0d585c550"
     },
     {
       "name": "bmson",
       "type": "skill-md",
-      "description": "处理 .bmson 文件、创建或编辑 BMSON 谱面、BMS/BMSON 格式互转、实现 BMSON 解析/生成器、查询 v1 JSON schema 字段、或排查 beatoraja BMSON 扩展问题时使用。",
+      "description": "处理 .bmson 文件、创建或编辑 BMSON 谱面、实现 BMSON 解析/生成器、查询 v1 JSON schema 字段、或排查 beatoraja BMSON 扩展问题时使用。",
       "url": "https://codeberg.org/brightmeows/bms-skills/raw/branch/main/skills/bmson/SKILL.md",
-      "digest": "sha256:1fd87a3ccad3874f87356960d1f4b24eaac75ed378040aed0fabdacf3eaa2792"
+      "digest": "sha256:1f27ea25dc5e77c2838b7634f796b6b42c2c6ed492deacdeedfe85d94d943384"
     }
   ]
 }

@@ -1,6 +1,6 @@
 ---
 name: bmson
-description: 处理 .bmson 文件、创建或编辑 BMSON 谱面、BMS/BMSON 格式互转、实现 BMSON 解析/生成器、查询 v1 JSON schema 字段、或排查 beatoraja BMSON 扩展问题时使用。
+description: 处理 .bmson 文件、创建或编辑 BMSON 谱面、实现 BMSON 解析/生成器、查询 v1 JSON schema 字段、或排查 beatoraja BMSON 扩展问题时使用。
 license: Apache-2.0
 ---
 
