@@ -60,3 +60,18 @@ BMS（Be-Music Script）是 1998 年由 Urao Yane 与 NBK 设计的音乐游戏�
 | [08-beat-tab-operations.md](./bmse/08-beat-tab-operations.md) | 拍子选项卡操作说明：基本操作、小节长度定义、快捷键、全选注意事项、对象重叠处理。使用 BMSE 编辑变拍子谱面时用 | `#xxx02` |
 | [09-measure-length-limits.md](./bmse/09-measure-length-limits.md) | BMSE 小节长度限制：精度（0.015625 倍数）、最小值/最大值、链式保存退化问题、比率型ソフランの弱点、特殊拍子崩溃条件。**理解 BMSE 如何处理小节长度时必读** | `#xxx02` `#BPM` |
 | [10-scroll-speed-extensions.md](./bmse/10-scroll-speed-extensions.md) | `#SCROLL`/`#SPEED` 扩展详解：语法、通道号、负值逆向滚动、BMSE 保存兼容性。实现或使用 SCROLL/SPEED 扩展时必读 | `#SCROLLxx` `#SPEEDxx` `#xxxSC` `#xxxSP` |
+
+---
+
+## test/ —— 可执行规范（BMSpec）测试用例
+
+基于 [bmspec](https://github.com/bemusic/bmspec) 的 Gherkin 可执行规范，按功能分组。实现 BMS 解析器/生成器时，以此验证格式兼容性。
+
+| 文件 | 覆盖主题 | 测试场景数 |
+|------|----------|-----------|
+| [bmspec-1-basic.md](./test/bmspec-1-basic.md) | 句子解析、头部命令、对象定位与合并、拍号、BPM、STOP、基本信息、WAV 引用 | 22 |
+| [bmspec-2-bml.md](./test/bmspec-2-bml.md) | 长音 LNOBJ 与 LNTYPE1 两种模式 | 2 |
+| [bmspec-3-positioning.md](./test/bmspec-3-positioning.md) | SCROLL 滚动定位（含扩展行） | 3 |
+| [bmspec-4-random.md](./test/bmspec-4-random.md) | RANDOM 随机分支（含多随机值序列） | 3 |
+| [bmspec-5-song-info.md](./test/bmspec-5-song-info.md) | 隐式/显式副标题、多行副标题、子艺术家 | 4 |
+| [bmspec-6-spacing.md](./test/bmspec-6-spacing.md) | SPEED 间距（含多值插值） | 3 |
