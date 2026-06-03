@@ -23,6 +23,7 @@ sha256sum skills/bms/SKILL.md skills/bmson/SKILL.md
 | **Always** | 修改 .md 后运行 `markdownlint` 验证 |
 | **Always** | 修改 `skills/bms/SKILL.md` 或 `skills/bmson/SKILL.md` 后，同步更新 `.well-known/agent-skills/index.json` 中对应 `digest` 字段 |
 | **Always** | `.claude-plugin/plugin.json` 仅引用目录路径，内容变更无需修改；新增/移除技能目录时同步更新 |
+| **Note** | 通过 raw URL 使用 `npx skills add` 时，仓库根目录必须配置 `.well-known/agent-skills/index.json`，否则无法发现技能 |
 | **Ask** | 需修改 `.markdownlint.toml` 配置时先确认 |
 
 ## 提交格式
