@@ -27,7 +27,7 @@
 
 |BMS code|生成值 1 时|生成值 2 时|
 |----------|-------------|-------------|
-|<pre><code>#00111:11000000<br><br>#RANDOM 2<br><br>#IF 1<br>#00112:00220000<br>#ENDIF<br><br>#IF 2<br>#00113:00003300<br>#ENDIF<br><br>#00114:00000044</code></pre>|![基本示例 生成值1时的流程图](images/flow1.png)<br><pre><code>#00111:11000000<br>#00112:00220000<br>#00114:00000044</code></pre>|![示例 生成值2时的流程图](images/flow2.png)<br><pre><code>#00111:11000000<br>#00113:00003300<br>#00114:00000044</code></pre>|
+|<pre><code>#00111:11000000<br><br>#RANDOM 2<br><br>#IF 1<br>#00112:00220000<br>#ENDIF<br><br>#IF 2<br>#00113:00003300<br>#ENDIF<br><br>#00114:00000044</code></pre>|![基本示例 生成值1时的流程图](https://hitkey.nekokan.dyndns.info/cmd/flow1.png)<br><pre><code>#00111:11000000<br>#00112:00220000<br>#00114:00000044</code></pre>|![示例 生成值2时的流程图](https://hitkey.nekokan.dyndns.info/cmd/flow2.png)<br><pre><code>#00111:11000000<br>#00113:00003300<br>#00114:00000044</code></pre>|
 
 - 此例的顶层有 2 行和一个 `#RANDOM` 块。
 - `#00111:11000000` 和 `#00114:00000044` 写在 `#RANDOM` 外部 (top-level)。因此，无论 `#RANDOM` 的生成值如何，这两行始终会被解析。
@@ -40,7 +40,7 @@
 
 |BMS code|生成值 1 时|生成值 2 时|
 |----------|-------------|-------------|
-|<pre><code>#RANDOM 2<br>#00111:11000000<br>#00114:00000044<br><br>#IF 1<br>#00112:00220000<br>#ENDIF<br><br>#IF 2<br>#00113:00003300<br>#ENDIF</code></pre>|![不推荐示例 生成值1时的孤儿流程图](images/flow3.png)<br><pre><code>#00112:00220000</code></pre>|![不推荐示例 生成值2时的孤儿流程图](images/flow4.png)<br><pre><code>#00113:00003300</code></pre>|
+|<pre><code>#RANDOM 2<br>#00111:11000000<br>#00114:00000044<br><br>#IF 1<br>#00112:00220000<br>#ENDIF<br><br>#IF 2<br>#00113:00003300<br>#ENDIF</code></pre>|![不推荐示例 生成值1时的孤儿流程图](https://hitkey.nekokan.dyndns.info/cmd/flow3.png)<br><pre><code>#00112:00220000</code></pre>|![不推荐示例 生成值2时的孤儿流程图](https://hitkey.nekokan.dyndns.info/cmd/flow4.png)<br><pre><code>#00113:00003300</code></pre>|
 
 - 谱师可能会期望这个示例与第一个示例产生相同的结果。但是，这是**不推荐的**。
 - 因为 `#RANDOM` 块包含了不属于 `#IF` 部分的行。
@@ -52,7 +52,7 @@
 
 |`#RANDOM 2` 的双重嵌套|生成值 1 » 进一步生成值 1 时|生成值 1 » 进一步生成值 2 时|生成值 2 时|
 |------------------------|----------------------------|----------------------------|------------|
-|<pre><code>#00111:11000000<br><br>#RANDOM 2<br><br>  #IF 1<br>    #00112:00220000<br><br>    #RANDOM 2<br><br>      #IF 1<br>        #00115:00550000<br>      #ENDIF<br><br>      #IF 2<br>        #00116:00006600<br>      #ENDIF<br><br>    #ENDRANDOM<br><br>  #ENDIF<br><br>  #IF 2<br>    #00113:00003300<br>  #ENDIF<br><br>#ENDRANDOM<br><br>#00114:00000044</code></pre>|![嵌套示例 生成值1进一步1时的流程图](images/flow5.png)<br>(pattern A)<br><pre><code>#00111:11000000<br>#00112:00220000<br>#00115:00550000<br>#00114:00000044</code></pre>|![嵌套示例 生成值1进一步2时的流程图](images/flow6.png)<br>(pattern B)<br><pre><code>#00111:11000000<br>#00112:00220000<br>#00116:00006600<br>#00114:00000044</code></pre>|![示例 生成值2时的流程图](images/flow2.png)<br>(pattern C)<br><pre><code>#00111:11000000<br>#00113:00003300<br>#00114:00000044</code></pre>|
+|<pre><code>#00111:11000000<br><br>#RANDOM 2<br><br>  #IF 1<br>    #00112:00220000<br><br>    #RANDOM 2<br><br>      #IF 1<br>        #00115:00550000<br>      #ENDIF<br><br>      #IF 2<br>        #00116:00006600<br>      #ENDIF<br><br>    #ENDRANDOM<br><br>  #ENDIF<br><br>  #IF 2<br>    #00113:00003300<br>  #ENDIF<br><br>#ENDRANDOM<br><br>#00114:00000044</code></pre>|![嵌套示例 生成值1进一步1时的流程图](https://hitkey.nekokan.dyndns.info/cmd/flow5.png)<br>(pattern A)<br><pre><code>#00111:11000000<br>#00112:00220000<br>#00115:00550000<br>#00114:00000044</code></pre>|![嵌套示例 生成值1进一步2时的流程图](https://hitkey.nekokan.dyndns.info/cmd/flow6.png)<br>(pattern B)<br><pre><code>#00111:11000000<br>#00112:00220000<br>#00116:00006600<br>#00114:00000044</code></pre>|![示例 生成值2时的流程图](https://hitkey.nekokan.dyndns.info/cmd/flow2.png)<br>(pattern C)<br><pre><code>#00111:11000000<br>#00113:00003300<br>#00114:00000044</code></pre>|
 
 - **请注意，能正确解释嵌套 `#RANDOM` 的实现很少。**
 - 为了使代码更易读，我在示例中使用了缩进和 `#ENDRANDOM`。实际使用嵌套 `#RANDOM` 时，应去掉缩进，并删除行尾的空格。

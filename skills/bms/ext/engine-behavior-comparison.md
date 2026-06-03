@@ -107,7 +107,7 @@ EASY/NORMAL 模式的血量总量、边界和初始值在 7keys（LR2）和 9key
 - 9keys 的血量总量为 120，初始值为 30，清除边界为 85（≈70.83%），接近本家 pop'n music 的内部值 724/1024（≈70.70%）。
 - 清除所需的净增加量：LR2 为 60（80−20），9keys 为 55（85−30），差距不大。
 
-![ゲージ比較図（7keys vs 9keys vs LR2）](engine-behavior-comparison/20231104205614.png)
+![ゲージ比較図（7keys vs 9keys vs LR2）](https://cdn-ak.f.st-hatena.com/images/fotolife/r/ralba_gear/20231104/20231104205614.png)
 
 ### 1.6 段位认定血量
 
@@ -197,7 +197,7 @@ EASY/NORMAL 模式的血量总量、边界和初始值在 7keys（LR2）和 9key
 | 补正系数 | 133% | 100% | 70% | 50% | 33% |
 
 > 9keys VERY HARD 下，GREAT 判定宽度（±16ms）小于 PGREAT（±20ms），即**不存在 GREAT 判定**（PGREAT 直接跳 GOOD），称为“グドバド判定”。
-![beatoraja 9keys vs LR2 判定幅比較](engine-behavior-comparison/20240227233037.png)
+![beatoraja 9keys vs LR2 判定幅比較](https://cdn-ak.f.st-hatena.com/images/fotolife/r/ralba_gear/20240227/20240227233037.png)
 > 图例：粉=PG、黄=GR、红=GD、蓝=BD、紫=PR。空 POOR 因过长而截断。
 
 ---
@@ -290,7 +290,7 @@ beatoraja 提供三种判定算法（处理同一轨道上两个 Note 同时靠�
 | **Score 优先** | 优先取 GREAT 以上可判定的 Note；均可取时取下方 Note | 接近某寺游戏 |
 | **最下 Note 优先** | 无条件取下方 Note | 可能发生迟 BAD ハマり |
 
-![同轨双 Note 冲突场景示例](engine-behavior-comparison/20231106011410.png)
+![同轨双 Note 冲突场景示例](https://cdn-ak.f.st-hatena.com/images/fotolife/r/ralba_gear/20231106/20231106011410.png)
 
 ---
 
@@ -310,7 +310,7 @@ GREAT 以上的增量相同。但如果 BAD 数不超过空 POOR 数的 1.5 倍�
 9keys 的减少量比 LR2 更大。根据约 2000 谱面的 score.db 统计：
 7 成以上谱面减少量增加，考虑 GOOD 增量后约 9 成谱面变重。
 
-![BP 量一例（挑战阶段级别结果）](engine-behavior-comparison/20231104214238.png)
+![BP 量一例（挑战阶段级别结果）](https://cdn-ak.f.st-hatena.com/images/fotolife/r/ralba_gear/20231104/20231104214238.png)
 
 但 LR2 判定宽度不同且存在 BAD ハマり等规格差异，仅供参考。
 
@@ -398,7 +398,7 @@ PGREAT 不参与补正，此后继续增大值无变化。
 下一个 Note 的 BAD 判定被连带——这就是 BAD ハマり。
 本家不存在此现象，因此 9keys BAD 判定后**不消失**，可再次击打。
 
-![BAD ハマり示例](engine-behavior-comparison/20231105190458.png)
+![BAD ハマり示例](https://cdn-ak.f.st-hatena.com/images/fotolife/r/ralba_gear/20231105/20231105190458.png)
 
 **空 POOR 计数**：
 LR2/7keys 在一个 Note 判定范围内可**多次**判空 POOR。

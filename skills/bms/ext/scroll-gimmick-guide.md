@@ -45,7 +45,7 @@ Scroll 改变宽度而不改变时间，因此无需移动 Note 位置，这是 
 
 → `#SCROLL` 语法详见 [beatoraja-extensions.md](beatoraja-extensions.md#SCROLL)
 
-![Scroll 加速/减速示例](scroll-gimmick-guide/1672643699592-dRC5UHoMoU.png)
+![Scroll 加速/减速示例](https://assets.st-note.com/img/1672643699592-dRC5UHoMoU.png)
 
 [▶ Scroll 加速/减速演示](https://youtube.com/watch?v=WZBmdwDCHqM)
 
@@ -67,7 +67,7 @@ BPM 是改变曲子流速的命令，与 Scroll 不同——单纯改变速度�
 
 → 详见 [memo/09-header-commands-audio-and-bpm.md](../memo/09-header-commands-audio-and-bpm.md)
 
-![BPM 加速/减速示例](scroll-gimmick-guide/1672644716842-tFAUQ9de4x.png)
+![BPM 加速/减速示例](https://assets.st-note.com/img/1672644716842-tFAUQ9de4x.png)
 
 [▶ BPM 加速/减速演示](https://youtube.com/watch?v=WcokWqlH9Ks)
 
@@ -92,9 +92,9 @@ Stop 和 BPM 一样是调整速度的手段，因此也需要对整体进行压�
 
 → 详见 [memo/09-header-commands-audio-and-bpm.md](../memo/09-header-commands-audio-and-bpm.md)
 
-![Stop 加速/减速示例 1](scroll-gimmick-guide/1672648632660-qrnMURFaG2.png)
+![Stop 加速/减速示例 1](https://assets.st-note.com/img/1672648632660-qrnMURFaG2.png)
 
-![Stop 加速/减速示例 2](scroll-gimmick-guide/1672646974171-1IM0mwBYWm.png)
+![Stop 加速/减速示例 2](https://assets.st-note.com/img/1672646974171-1IM0mwBYWm.png)
 
 [▶ Stop 加速/减速演示](https://youtube.com/watch?v=9VI3dhD32nY)
 
@@ -115,7 +115,7 @@ Warp 是让 Note 瞬间出现在判定线上或消失的特效。它也是 Gimmi
 
 → `#SCROLL` 语法详见 [beatoraja-extensions.md](beatoraja-extensions.md#SCROLL)
 
-![Scroll Warp 示例](scroll-gimmick-guide/1672649662659-EhQ6fkEkAC.png)
+![Scroll Warp 示例](https://assets.st-note.com/img/1672649662659-EhQ6fkEkAC.png)
 
 [▶ Scroll Warp 演示](https://youtube.com/watch?v=u5w32ATOkQM)
 
@@ -139,7 +139,7 @@ BPM 改变的是速度而非宽度，所以需要相应地移动整个谱面的�
 // 计算过程：192 × 100001 ÷ 1920 × 3 - 192 ÷ 1920 × 3 = 30000
 ```
 
-![BPM Warp 示例](scroll-gimmick-guide/1672650600682-uDkhbhGsWx.png)
+![BPM Warp 示例](https://assets.st-note.com/img/1672650600682-uDkhbhGsWx.png)
 
 [▶ BPM Warp 演示](https://youtube.com/watch?v=gvsWdQy0ryQ)
 
@@ -178,7 +178,7 @@ stop = 192 × 100001 ÷ 64 − 192 = 299811
 （这里的 −192 是把基准 BPM 的 1 小节长度移走的意思，
 如果 Warp 间隔是 1/2 小节就要 −96。）
 
-![BPM 动画分割数说明](scroll-gimmick-guide/1672654334149-YHWH4xlpqB.png)
+![BPM 动画分割数说明](https://assets.st-note.com/img/1672654334149-YHWH4xlpqB.png)
 
 [▶ BPM 动画演示（16/32/64/96 分割比较）](https://youtube.com/watch?v=eTtdYJ2VE-g)
 
@@ -195,9 +195,9 @@ stop = 192 × 100001 ÷ 64 − 192 = 299811
 
 → SCROLL=0 的说明详见 [bmse-compatibility.md](bmse-compatibility.md#SCROLL--SPEED-扩展)
 
-![Scroll 动画示例 1](scroll-gimmick-guide/1672661933773-66Cq5BlJNv.png)
+![Scroll 动画示例 1](https://assets.st-note.com/img/1672661933773-66Cq5BlJNv.png)
 
-![Scroll 动画示例 2](scroll-gimmick-guide/1672655787375-SpgaE7r1DH.png)
+![Scroll 动画示例 2](https://assets.st-note.com/img/1672655787375-SpgaE7r1DH.png)
 
 ---
 
@@ -245,7 +245,7 @@ stop = 192 × 100001 ÷ 64 − 192 = 299811
 **后续处理**：不可见 Note 部分流过之后，需要插入 scroll=1000 之类的值，
 否则下一个 Note 会过早显示，失去谱面切换的视觉感。
 
-![空中停止ギミック示例](scroll-gimmick-guide/1672663996549-0DpGlGPsBb.png)
+![空中停止ギミック示例](https://assets.st-note.com/img/1672663996549-0DpGlGPsBb.png)
 
 [▶ 空中停止演示（迷路地带）](https://youtube.com/watch?v=c0ilz53wx8Y?t=55)
 
@@ -267,7 +267,7 @@ stop = 192 × 100001 ÷ 64 − 192 = 299811
 
 使用逆走时，建议在谱面信息中标注推荐绿数字。如果看到多余的小节线，后半顺走部分的小节线可能提前流到了上方——在某个位置插入 scroll=10000 即可解决。
 
-![逆走ギミック示例](scroll-gimmick-guide/1672665539336-sxfA7w7fCQ.png)
+![逆走ギミック示例](https://assets.st-note.com/img/1672665539336-sxfA7w7fCQ.png)
 
 [▶ 逆走演示（scroll=-1）](https://youtube.com/watch?v=M7sjnR2RjBc) | [▶ 修正版](https://youtube.com/watch?v=4ZjRzJsqBVw)
 
@@ -295,7 +295,7 @@ Scroll 的出现/消失 Bug 制造的 Gimmick。
 Scroll 值、SUD（遮盖）、HS、绿数字等都会影响效果，
 建议在谱面信息的 Artist 栏等位置注明推荐设置。
 
-![Scroll 出现/消失 Bug 示例](scroll-gimmick-guide/1672668507402-zDeb95viPI.png)
+![Scroll 出现/消失 Bug 示例](https://assets.st-note.com/img/1672668507402-zDeb95viPI.png)
 
 [▶ Scroll Bug 代表性演示](https://youtube.com/watch?v=GRCdFoqU_R4?t=76)
 
@@ -325,7 +325,7 @@ Scroll 值、SUD（遮盖）、HS、绿数字等都会影响效果，
 如果基准 scroll=0.0，则 240 无需加 2，用 238 即可。
 基准 scroll=0.0625 时当作误差处理。
 
-![非动画具現化示例](scroll-gimmick-guide/1672673266286-1XB5bjFQJW.png)
+![非动画具現化示例](https://assets.st-note.com/img/1672673266286-1XB5bjFQJW.png)
 
 [▶ 非动画具現化演示](https://youtube.com/watch?v=iYx8iFZrCiE) | [▶ 续篇](https://youtube.com/watch?v=xA4OVeKh4PU?t=28)
 
@@ -346,7 +346,7 @@ LN 或伪 LN（橙色棒）在一瞬间消失——这就是部分 Warp。
 #STOP01 30000     ; 100001BPM × 3/1920 小節的补偿
 ```
 
-![部分ワープ示例](scroll-gimmick-guide/1672674499296-3f0Awai3xN.png)
+![部分ワープ示例](https://assets.st-note.com/img/1672674499296-3f0Awai3xN.png)
 
 [▶ 部分ワープ演示](https://youtube.com/watch?v=kPbb6sQC4iI?t=13)
 
@@ -367,7 +367,7 @@ Scroll Gimmick 中最有趣（一点也不为过）的就是负 Scroll 动画！
 
 试过把实 Note 部分 scroll=1.0、动画部分 scroll=-1.0，但 beatoraja 的特性下似乎无法正确显示。具体原因未知。
 
-![マイナス Scroll 动画示例](scroll-gimmick-guide/1672676380244-r67hciVlQw.png)
+![マイナス Scroll 动画示例](https://assets.st-note.com/img/1672676380244-r67hciVlQw.png)
 
 [▶ 负 Scroll 动画演示 1](https://youtube.com/watch?v=Cvcerl_K1LE)
 | [▶ 演示 2](https://youtube.com/watch?v=LMItjD1-No4?t=65)

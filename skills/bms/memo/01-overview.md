@@ -95,7 +95,7 @@
 - 2012-04-27: PMSV 1.10.4, PMCV 3.1.0, nanasi2 0.1, SMB 1.03
 - 2012-03-25: ruv-it! 2.0 b5p7 test #7
 - 2012-03-18: Be-Music Helper (beta 3)
-- 2012-02-10: 修正了本文档 HTML 的大量 Bug。![Valid HTML5](images/valid-html5.png) ![Valid CSS3](images/valid-css3.png)
+- 2012-02-10: 修正了本文档 HTML 的大量 Bug。![Valid HTML5](https://hitkey.nekokan.dyndns.info/cmd/valid-html5.png) ![Valid CSS3](https://hitkey.nekokan.dyndns.info/cmd/valid-css3.png)
 - 2012-01-28: 修正了 `#TOTAL` 条目（感谢 kisama）
 - 2012-01-23: 忘了反映 iBMSC 3.0 的最新版本，现已补充
 - 2012-01-16: 为所有标题设置了永久链接，并补充了几个项目

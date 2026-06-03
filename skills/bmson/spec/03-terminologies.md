@@ -22,7 +22,7 @@
 
 这是 4/4 拍号下每个四分音符的脉冲数。默认值为 `240`，即 1 个四分音符被分为 240 个脉冲 [^1]。
 
-![节拍、脉冲与公制时间之间的关系](images/time_units.png)
+![节拍、脉冲与公制时间之间的关系](https://bmson-spec.readthedocs.io/en/latest/_images/time_units.png)
 
 节拍、脉冲与公制时间之间的关示例。
 

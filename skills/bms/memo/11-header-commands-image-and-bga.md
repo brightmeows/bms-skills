@@ -55,16 +55,16 @@ nazoZZ, GDAC2, BMSE, uBMplay, bmx2wav, IIDXv, HDX, Angolmois, Sonorous, BGAEncAd
 
 |示例代码|Image|实际显示|
 |---|---|---|
-|`#BMP01 1.bmp`|1.bmp|![BASE+LAYER_SEQUENCE](images/Eg_bga+layer.gif)|
+|`#BMP01 1.bmp`|1.bmp|![BASE+LAYER_SEQUENCE](https://hitkey.nekokan.dyndns.info/cmd/Eg_bga+layer.gif)|
 |`#BMP02 2.bmp`|2.bmp||
 |`#BMP03 3.bmp`|3.bmp||
 |`#BMP04 4.bmp`|4.bmp||
-|`#00104:01020304`|![BGA_BASE_SEQUENCE](images/Eg_bga.gif)||
-|`#BMP05 5.bmp`|![5.bmp](images/Eg_layer1.bmp)||
-|`#BMP06 6.bmp`|![6.bmp](images/Eg_layer2.bmp)||
-|`#BMP07 7.bmp`|![7.bmp](images/Eg_layer3.bmp)||
-|`#BMP08 8.bmp`|![8.bmp](images/Eg_layer4.bmp)||
-|`#00107:05060708`|![BGA_LAYER_SEQUENCE](images/Eg_layer.gif)||
+|`#00104:01020304`|![BGA_BASE_SEQUENCE](https://hitkey.nekokan.dyndns.info/cmd/Eg_bga.gif)||
+|`#BMP05 5.bmp`|![5.bmp](https://hitkey.nekokan.dyndns.info/cmd/Eg_layer1.bmp)||
+|`#BMP06 6.bmp`|![6.bmp](https://hitkey.nekokan.dyndns.info/cmd/Eg_layer2.bmp)||
+|`#BMP07 7.bmp`|![7.bmp](https://hitkey.nekokan.dyndns.info/cmd/Eg_layer3.bmp)||
+|`#BMP08 8.bmp`|![8.bmp](https://hitkey.nekokan.dyndns.info/cmd/Eg_layer4.bmp)||
+|`#00107:05060708`|![BGA_LAYER_SEQUENCE](https://hitkey.nekokan.dyndns.info/cmd/Eg_layer.gif)||
 
 在一般实现中，BASE+LAYER 如上显示。
 
@@ -275,7 +275,7 @@ BMSE, Angolmois, Sonorous, BGAEncAdv, pomu2
 
 |原始图像: `#BMP01 320x64.bmp`|裁剪部分:|显示部分:|
 |---|---|---|
-|![bga_320-64](images/bga_320-64.png)|从 (64, 64) 到 (128, 128) 裁剪。 `#BGA02 01 64 64 128 128 0 0`|在画布的 (96, 96) 处显示。 `#BGA03 01 64 64 128 128 96 96`|
+|![bga_320-64](https://hitkey.nekokan.dyndns.info/cmd/bga_320-64.png)|从 (64, 64) 到 (128, 128) 裁剪。 `#BGA02 01 64 64 128 128 0 0`|在画布的 (96, 96) 处显示。 `#BGA03 01 64 64 128 128 96 96`|
 
 以下 URL 是 BMSE 的操作示例：
 

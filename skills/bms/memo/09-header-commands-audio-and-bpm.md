@@ -41,7 +41,7 @@
 | `#00103:00FF` |                      |
 | `#00108:0001` |                      |
 
-- iBMSC 中两者均保存，但会友好地给出警告：![ibmsc-error-mark](images/ibmsc-error-mark.png)
+- iBMSC 中两者均保存，但会友好地给出警告：![ibmsc-error-mark](https://hitkey.nekokan.dyndns.info/cmd/ibmsc-error-mark.png)
 
 ## #BPM`[01-ZZ]` `n`
 
@@ -296,16 +296,16 @@
 
 | 图片                                                  | 代码                                                                                                    | 说明                                                                  |
 | ----------------------------------------------------- | ------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------- |
-| ![not_multidef_1](images/bmse_material_multidef4.png) | `#00101:01` `#00101:01` `#00101:01` `#00101:01`                                                         | 此例实际播放的 aaa.wav 为 1 个。                                      |
-| ![not_multidef_2](images/bmse_material_multidef1.png) | `#00111:0100000000000000` `#00112:0001000000000000` `#00113:0000010000000000` `#00114:0000000100000000` | 此例中播放下一个 aaa.wav 时，前一个发音会被中断。中断时可能产生噪音。 |
-| ![multidef_1](images/bmse_material_multidef5.png)     | `#00101:01` `#00101:02` `#00101:03` `#00101:04`                                                         | 此例中实际播放的 aaa.wav 为 4 个。即 aaa.wav 的音量变为 4 倍。        |
-| ![multidef_2](images/bmse_material_multidef2.png)     | `#00111:0100000000000000` `#00112:0002000000000000` `#00113:0000030000000000` `#00114:0000000400000000` | aaa.wav 的声音不被中断。                                              |
+| ![not_multidef_1](https://hitkey.nekokan.dyndns.info/cmd/bmse_material_multidef4.png) | `#00101:01` `#00101:01` `#00101:01` `#00101:01`                                                         | 此例实际播放的 aaa.wav 为 1 个。                                      |
+| ![not_multidef_2](https://hitkey.nekokan.dyndns.info/cmd/bmse_material_multidef1.png) | `#00111:0100000000000000` `#00112:0001000000000000` `#00113:0000010000000000` `#00114:0000000100000000` | 此例中播放下一个 aaa.wav 时，前一个发音会被中断。中断时可能产生噪音。 |
+| ![multidef_1](https://hitkey.nekokan.dyndns.info/cmd/bmse_material_multidef5.png)     | `#00101:01` `#00101:02` `#00101:03` `#00101:04`                                                         | 此例中实际播放的 aaa.wav 为 4 个。即 aaa.wav 的音量变为 4 倍。        |
+| ![multidef_2](https://hitkey.nekokan.dyndns.info/cmd/bmse_material_multidef2.png)     | `#00111:0100000000000000` `#00112:0002000000000000` `#00113:0000030000000000` `#00114:0000000400000000` | aaa.wav 的声音不被中断。                                              |
 
 - 实用示例：
 
 | 1                                                           | 2                                                                | 3                                                           | 4                                                             | 5                                                   |
 | ----------------------------------------------------------- | ---------------------------------------------------------------- | ----------------------------------------------------------- | ------------------------------------------------------------- | --------------------------------------------------- |
-| ![multidef_for_tremolo](images/bmse_material_multidef8.png) | ![multidef_for_preventNoise](images/bmse_material_multidef9.png) | ![multidef_for_prolong](images/bmse_material_multidefa.png) | ![multidef_for_turnUpVol](images/bmse_material_multidefb.png) | ![not_multidef](images/bmse_material_multidef7.png) |
+| ![multidef_for_tremolo](https://hitkey.nekokan.dyndns.info/cmd/bmse_material_multidef8.png) | ![multidef_for_preventNoise](https://hitkey.nekokan.dyndns.info/cmd/bmse_material_multidef9.png) | ![multidef_for_prolong](https://hitkey.nekokan.dyndns.info/cmd/bmse_material_multidefa.png) | ![multidef_for_turnUpVol](https://hitkey.nekokan.dyndns.info/cmd/bmse_material_multidefb.png) | ![not_multidef](https://hitkey.nekokan.dyndns.info/cmd/bmse_material_multidef7.png) |
 
 1. 防止颤音等产生的意外噪音。在安静音乐中这是不可或缺的技术。
 1. 防止因时机误判产生噪音。对应用了深度混响的低音鼓等有效。

@@ -89,7 +89,7 @@ BMS 起源于对 *beatmania* 的模仿。
 |number|object to change|remarks|
 |--------|-----------------|---------|
 |`#xxx01`|BGM|将在 `#WAVxx` 中定义的文件作为自动播放的音频对象放置。|
-|`#xxx02`|小节长|`#xxx02` 控制拍子（[Metre (music)](https://en.wikipedia.org/wiki/Metre_%28music%29)）。<br>- 小节长由整数或浮点数指定。<br>  - 值 1 为 4/4 拍。`#xxx01:11223344` // 相当于 4 个四分音符<br>  - 值 2 为 8/4 拍。`#xxx01:1122334411223344` // 相当于 8 个四分音符<br>  - 值 0.75 为 3/4 拍。`#xxx01:112233` // 相当于 3 个四分音符<br>  - 值 0.015625 为 1/64 拍，相当于 1 个 64 分音符的长度。BMSE 可编辑的最小长度<br>  - 值 0.01 相当于 4 拍小节的 1%。BMSE 以 0.01625 倍数处理，会四舍五入<br>    ![BMSE rounds a value 0.01 to 0.01625](images/bmse_material_beat_humanshield.png)<br>  - BMSE/beditor 将长度与音符关联，擅长编辑[变拍子](https://en.wikipedia.org/wiki/List_of_musical_works_in_unusual_time_signatures)<br>  - BMSC/GDAC2 将长度作数值处理，擅长编辑与音乐无关的滚动速度变化|
+|`#xxx02`|小节长|`#xxx02` 控制拍子（[Metre (music)](https://en.wikipedia.org/wiki/Metre_%28music%29)）。<br>- 小节长由整数或浮点数指定。<br>  - 值 1 为 4/4 拍。`#xxx01:11223344` // 相当于 4 个四分音符<br>  - 值 2 为 8/4 拍。`#xxx01:1122334411223344` // 相当于 8 个四分音符<br>  - 值 0.75 为 3/4 拍。`#xxx01:112233` // 相当于 3 个四分音符<br>  - 值 0.015625 为 1/64 拍，相当于 1 个 64 分音符的长度。BMSE 可编辑的最小长度<br>  - 值 0.01 相当于 4 拍小节的 1%。BMSE 以 0.01625 倍数处理，会四舍五入<br>    ![BMSE rounds a value 0.01 to 0.01625](https://hitkey.nekokan.dyndns.info/cmd/bmse_material_beat_humanshield.png)<br>  - BMSE/beditor 将长度与音符关联，擅长编辑[变拍子](https://en.wikipedia.org/wiki/List_of_musical_works_in_unusual_time_signatures)<br>  - BMSC/GDAC2 将长度作数值处理，擅长编辑与音乐无关的滚动速度变化|
 
       |BPM|小节长|比率 = 变化后 BPM / 变化前 BPM|
       |-----|--------|-------------------------------|
@@ -132,7 +132,7 @@ BMS 起源于对 *beatmania* 的模仿。
         #00614:1400001400000000
         #00616:00000000**0016**0000
         #00617:00000000**1700**0000
-    !["u gotta groove" #006 (from beatmania 2ndMIX)](images/u-gotta-groove.png)
+    !["u gotta groove" #006 (from beatmania 2ndMIX)](https://hitkey.nekokan.dyndns.info/cmd/u-gotta-groove.png)
 
 - 1 个 FREE-ZONE，无论长度如何，都计为 1 个应演奏的 Note。
 - FREE-ZONE 内的转盘对象，无论数量多少，都不计入应演奏的 Note。
@@ -266,7 +266,7 @@ LN 是保持输入状态的操作，但另一些游戏可能要求快速重复�
 |长音符 (Long Note)|**1999-04-20**: Ez2DJ THE 1st TRACKS|在起点处 keydown 并保持。终点处的 Keyup ~~不需要~~ *曾需要，但现已不需要*。 ([note](https://note.com/wgc_tencho/n/nc7306a39a192))|
 |长音符 (Long Note)|**2000-02-06**: KEYBOARDMANIA|在起点处 keydown 并保持。终点处的 Keyup 是必需的。|
 |キープ君 (Keep-kun)|**2000-04-20**: pop'n music MICKEY TUNES|显示为固定长度音符而非可变长度音符。按下的音符像进度条一样显示。这是一个时间计量器。|
-|![(Name unknown)](images/kintaro-ame.png)|**2001-02-21**: 太鼓达人|所有具有长度的对象都是需要连打的对象。这不是将一次动作拆分为 keydown-keep-keyup 的符号。而是无数 keydown 动作的符号。类似金太郎糖。（大概此后，长对象的命名变得名副其实了。）|
+|![(Name unknown)](https://hitkey.nekokan.dyndns.info/cmd/kintaro-ame.png)|**2001-02-21**: 太鼓达人|所有具有长度的对象都是需要连打的对象。这不是将一次动作拆分为 keydown-keep-keyup 的符号。而是无数 keydown 动作的符号。类似金太郎糖。（大概此后，长对象的命名变得名副其实了。）|
 |冻结箭头 (Freeze Arrow)|**2001-10-19**: DDRMAX -DDR 6thMIX-|请持续踩住面板。终点处无需抬脚。([DDR术语基础知识“Freeze Arrow”](http://mp.i-revo.jp/user.php/rjmwurxs/entry/4.html)) 即使改变步伐，只要在四分音符以内，箭头不会中断。恐怕考虑到“踩”这一操作，按下判定有所放宽。（某种意义上，这是长按与连打的组合。）|
 |一圈刮擦 (One-turn Scratch)|**2002-01-31**: beatmania 7thMIX|必须在到达终点前将转盘旋转 360°。区间内旋转角度越接近 360°，得分越高。无需在终点恰好停止旋转。|
 |模拟摇杆音符 (Analog Note)|**2006-01-14**: DJMAX Portable|请持续旋转 PSP 的模拟摇杆。输入期间连击增加。需要保持输入至终点。|
@@ -412,4 +412,4 @@ LN 给 Note 的计数方式带来了混乱。这对程序员、谱面作者和�
   - GDAC2 + 774gsc: 目前最佳选择。但 GDAC2 的响应不太舒适。
       ![GDAC2 18KEYS](https://hitkey.nekokan.dyndns.info/bmse_help_full/Capture/bmse_header_player3_pms4.png)
   - BMSC: 可最快开始编辑。因为 BMSC 是唯一默认支持 FREE ZONE 的编辑器。
-      ![18KEYS_by_BMSC](images/bmsc-18keys.png)
+      ![18KEYS_by_BMSC](https://hitkey.nekokan.dyndns.info/cmd/bmsc-18keys.png)

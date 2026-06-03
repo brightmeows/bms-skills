@@ -22,7 +22,7 @@
 
 ## 二、BMSE 原生支持的命令
 
-![BMSE 主面板截图](bmse-compatibility/bmse_material_beat_mpanel.gif)
+![BMSE 主面板截图](https://hitkey.nekokan.dyndns.info/bmse_help_full/Capture/bmse_material_beat_mpanel.gif)
 
 以下命令 BMSE 原生支持（出现在主面板或定义列表中）。即使写在 `#IF`-`#ENDIF` 分叉中，BMSE 读取时也会将其**卷起到分叉外**。
 
@@ -132,7 +132,7 @@ BMSE 不支持的命令几乎全部被隔离到此选项卡。但有例外：自
 | `#xxx[D-E][A-Z]` | 保留到扩展选项卡 |
 | `#xxx[F-Z][0-9A-Z]` | 保留到扩展选项卡 |
 
-![拡張命令タブ预览](bmse-compatibility/bmse_material_expand.gif)
+![拡張命令タブ预览](https://hitkey.nekokan.dyndns.info/bmse_help_full/Capture/bmse_material_expand.gif)
 
 > **注意**：若将上述会被删除的通道写在 `#IF`-`#ENDIF` 分叉中（用 **ダミー分岐** 技巧保护），则 BMSE 不会删除它们。
 
@@ -188,7 +188,7 @@ BMSE 将「第一个 `#RANDOM` 到第一个出现的 `#ENDIF`」识别为分支�
 - 使用单一 `#IF`-`#ENDIF` 区间且不嵌套时可正常工作。
 - `#SWITCH` 区间内无 `#RANDOM` 嵌套时，可将整个 `#SWITCH` 区间用ダミー分岐保护。
 
-![随机分支演示](bmse-compatibility/bmse_material_expand2.gif)
+![随机分支演示](https://hitkey.nekokan.dyndns.info/bmse_help_full/Capture/bmse_material_expand2.gif)
 
 ## 五、ダミー分岐（Dummy Branch）技巧
 
@@ -268,13 +268,13 @@ BMSE 的**所有功能均不适用于扩展命令选项卡**的内容：
 
 扩展命令选项卡文本框内的 Ctrl+Z/Ctrl+Y 是 **Windows 自身的撤销功能**，不是 BMSE 的撤销/重做。通常只能追溯 **1 步**。
 
-![9 字符限制图示](bmse-compatibility/why-expand-textbox.gif)
+![9 字符限制图示](https://hitkey.nekokan.dyndns.info/bmse_help_full/Capture/why-expand-textbox.gif)
 
 ### 保存位置
 
 BMSE 保存时，扩展命令选项卡的记述插入到 BMS 代码中 **MAIN DATA FIELD 的紧前方**。
 
-![BMSE 标题栏星号标记](bmse-compatibility/bmse00_titlebar.gif)
+![BMSE 标题栏星号标记](https://hitkey.nekokan.dyndns.info/bmse_help_full/Capture/bmse00_titlebar.gif)
 
 ### 星号标记
 
@@ -360,7 +360,7 @@ BMS 中可通过调整 BPM 与 小节长度 的**比值**来实现不改变音�
 1. 更改配置间隔不如 BMSC/GDAC2 方便
 2. 小节长度 0.991666... 不能表示为拍子，BMSE 无法正确配置
 
-   ![BPM 与 小节長的关系图](bmse-compatibility/bmse_material_beat_bpm.gif)
+   ![BPM 与 小节長的关系图](https://hitkey.nekokan.dyndns.info/bmse_help_full/Capture/bmse_material_beat_bpm.gif)
 
 3. **链式保存退化**：原始 BPM=119、小节长度=0.991666 的谱面，经 BMSE 保存后四舍五入为 64 分音符 × 63
    个分；原本 4 等分节奏被嵌入 63 等分 → 要求 189 个 192 分音符 → 189÷4 不可整除 → 产生可见误差
@@ -424,8 +424,8 @@ BMSE 对所有小节长度值的处理方式：
 > 此问题可能与垂直滚动条的 16 小节末端留白有关，但确切原因不明。
 > 使用这些非常规拍子值前建议先保存谱面。
 
-![0.01 累加误差示例](bmse-compatibility/bmse_material_beat_humanshield.gif)
-![小節長 32 示例](bmse-compatibility/bmse_material_beat_length16.gif)
+![0.01 累加误差示例](https://hitkey.nekokan.dyndns.info/bmse_help_full/Capture/bmse_material_beat_humanshield.gif)
+![小節長 32 示例](https://hitkey.nekokan.dyndns.info/bmse_help_full/Capture/bmse_material_beat_length16.gif)
 
 - **例 1**：小节长 `0.01` 延续 200 小节的谱面 — BMSE 上 `0.01` 被四舍五入为 `0.015625`，误差 `0.005625` 累积 200 小节后，比原长度多出「8 分音符 × 9 个」的长度。
 
@@ -466,7 +466,7 @@ BMSE 对所有小节长度值的处理方式：
 
 此例中 `#001` 前半部分以 2 倍速滚动，`#002` 后半部分以 0.5 倍速滚动。
 
-![#SCROLL 示例谱面](bmse-compatibility/bmse_material_beat_bpm2.gif)
+![#SCROLL 示例谱面](https://hitkey.nekokan.dyndns.info/bmse_help_full/Capture/bmse_material_beat_bpm2.gif)
 
 ### 用途
 

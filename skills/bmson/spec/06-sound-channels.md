@@ -10,17 +10,17 @@
 
 一个音频通道代表一条音轨。
 
-![音频通道](images/sound_channels.png)
+![音频通道](https://bmson-spec.readthedocs.io/en/latest/_images/sound_channels.png)
 
 ## 切片与重启
 
 音频通道内的音符决定了如何切片以及何时重启。
 
-![切片示意 1](images/slicing_1.png)
+![切片示意 1](https://bmson-spec.readthedocs.io/en/latest/_images/slicing_1.png)
 
 不同时间的音符导致声音在不同时间被切片。
 
-![切片示意 2](images/slicing_2.png)
+![切片示意 2](https://bmson-spec.readthedocs.io/en/latest/_images/slicing_2.png)
 
 高亮的 `SoundChannel` 代表底鼓声音。与其重复使用底鼓声音多次（导致冗余的音频文件），不如将 `SoundChannel` 重启。
 
@@ -128,7 +128,7 @@ sound_channels:
 
 切片后的声音如下所示：
 
-![切片示意 3](images/slicing_3.png)
+![切片示意 3](https://bmson-spec.readthedocs.io/en/latest/_images/slicing_3.png)
 
 最后，这些切片与音符关联。
 

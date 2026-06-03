@@ -93,7 +93,7 @@
 ```
 
 **in nazobmplay:**
-![nazo-2p-bug](images/nazo-2p-bug.png)
+![nazo-2p-bug](https://hitkey.nekokan.dyndns.info/cmd/nazo-2p-bug.png)
 
 **remarks:**
 
