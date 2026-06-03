@@ -3,7 +3,10 @@
 > 来源：[beatoraja Wiki — 楽曲製作者向け資料](https://github.com/exch-bms2/beatoraja/wiki/%E6%A5%BD%E6%9B%B2%E8%A3%BD%E4%BD%9C%E8%80%85%E5%90%91%E3%81%91%E8%B3%87%E6%96%99)
 > beatoraja 是目前最活跃的 BMS 播放器之一，实现了一些特有的扩展命令。
 >
-> **范围说明**：本文档仅覆盖 beatoraja 对 BMS（.bms/.bme/.bml/.pms）格式的扩展命令。
+> 原文注：以下信息为 beatoraja 当前的规格，但未确定的部分很多，今后规格可能发生大幅变更。
+> 最后编辑日期：2022/1/15。
+>
+> **范围说明**：本文档仅覆盖 beatoraja 对 BMS（.bms/.bme/.bml/.pms）格式的扩展命令。beatoraja 还支持 BMSON 0.2.1/1.0.0 (.bmson) 格式。
 > BMSON（.bmson）格式的 beatoraja 扩展请参见 [beatoraja BMSON 扩展](../../bmson/ext/beatoraja-bmson-extensions.md)。
 
 ## #PREVIEW
@@ -74,7 +77,7 @@
 - 与 BPM 导致的滚动速度补正**重叠生效**。
 - 格式与扩展 BPM 定义、STOP 定义相同。
 - 倍率设为负值时，谱面**逆向滚动**（逆走）。
-- 配合正负交替可实现复杂的滚动演出。
+- 配合正负交替可实现复杂的滚动演出（译者补充）。
 
 ```bms
 #SCROLL01 -1
@@ -107,6 +110,14 @@ beatoraja 0.5.4 起检测以下视频扩展名为 BGA（按优先级降序）：
 6. `m1v` / `m2v`
 7. `avi`
 
-> 同名文件存在多种格式时，无论 BMS 定义如何，均按上述顺序自动检测。ffmpeg 支持的格式均可使用。
+> 同名文件存在多种格式时，无论 BMS 定义如何，均按上述顺序自动检测。ffmpeg 支持的格式均可使用。如有希望支持的格式，请提交 Issue。
 > 建议分辨率不超过 1280x720。beatoraja 可自动维持宽高比（无需手动插入黑边）。
 > 视频包含音轨时，解码时自动分离忽略。
+
+---
+
+## BMSON 扩展字段
+
+beatoraja 在 BMSON 格式中定义了 6 个扩展字段：`ln_type`、`t`、`up`、
+`scroll_events`、`mine_channels`、`key_channels`。
+本文档不重复这些内容，详见 [beatoraja BMSON 扩展](../../bmson/ext/beatoraja-bmson-extensions.md)。

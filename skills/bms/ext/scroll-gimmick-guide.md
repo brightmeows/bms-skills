@@ -25,6 +25,8 @@ BMS 的 Gimmick 类命令可分为三大类：**Scroll**、**BPM**、**Stop**。
 
 ### 1.1 加速·减速
 
+加速和减速是最基础的 Gimmick。以下分别展示使用 Scroll、BPM、Stop 实现加速·减速的方法。
+
 #### Scroll 方式
 
 Scroll 改变宽度而不改变时间，因此无需移动 Note 位置，这是 Scroll 方式的最大优点。
@@ -134,6 +136,7 @@ BPM 改变的是速度而非宽度，所以需要相应地移动整个谱面的�
 
 ```bms
 #STOP01 30000    ; 100001 倍 BPM 下 3/1920 小节的补偿量
+// 计算过程：192 × 100001 ÷ 1920 × 3 - 192 ÷ 1920 × 3 = 30000
 ```
 
 ![BPM Warp 示例](scroll-gimmick-guide/1672650600682-uDkhbhGsWx.png)

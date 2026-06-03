@@ -95,6 +95,8 @@ Note 数 ≤ 1000 时，按 Note 数分级增加减量补正：999–500 Notes �
 
 ### 1.5 血量总量·边界·初始值
 
+EASY/NORMAL 模式的血量总量、边界和初始值在 7keys（LR2）和 9keys 之间不同。HARD/EXHARD 在所有模式中通用。
+
 | 项目 | beatoraja 7keys | beatoraja 9keys | LR2 |
 |------|----------------|----------------|-----|
 | 最小值 | 2 | 2 | 2 |
@@ -132,11 +134,13 @@ Note 数 ≤ 1000 时，按 Note 数分级增加减量补正：999–500 Notes �
 
 | 判定 | beatoraja 7keys | beatoraja 9keys | LR2oraja |
 |------|----------------|----------------|----------|
-| PGREAT | ±25ms | ±20ms | ±18ms（补正为 NORMAL） |
+| PGREAT | ±25ms | ±20ms | ±18ms |
 | GREAT | ±75ms | ±66ms | ±40ms |
 | GOOD | ±187ms | ±155ms | ±100ms |
 | BAD | +275~−350ms | ±183ms | ±200ms |
 | 空POOR | +500~−150ms | +500~−175ms | +1000~0ms |
+
+> LR2oraja 的 VERY EASY 整行补正为 NORMAL 判定。
 
 ### 2.2 EASY
 
@@ -194,6 +198,8 @@ Note 数 ≤ 1000 时，按 Note 数分级增加减量补正：999–500 Notes �
 
 > 9keys VERY HARD 下，GREAT 判定宽度（±16ms）小于 PGREAT（±20ms），即**不存在 GREAT 判定**（PGREAT 直接跳 GOOD），称为“グドバド判定”。
 ![beatoraja 9keys vs LR2 判定幅比較](engine-behavior-comparison/20240227233037.png)
+> 图例：粉=PG、黄=GR、红=GD、蓝=BD、紫=PR。空 POOR 因过长而截断。
+
 ---
 
 ## 三、LN（长音）判定
@@ -209,7 +215,7 @@ Note 数 ≤ 1000 时，按 Note 数分级增加减量补正：999–500 Notes �
 ### 3.2 判定规则
 
 - beatoraja LN 模式：始点和终点判定中**取较差的一方**
-- 过早离键（早すぎ）：beatoraja **0.8.7 起**判为**早 BAD**（0.8.6 及之前判为早 POOR）；LR2 判为**早 BAD**
+- 过早离键（早すぎ）：beatoraja **0.8.7 起**判为**早 BAD**（0.8.6 及之前判为早 POOR）；LR2 判为**早 BAD**（此为终点判定的情况；始点过早仍可能判空 POOR）
 
 ### 3.3 beatoraja 0.8.7+ 押し直し（Re-press）机制
 
@@ -225,6 +231,7 @@ Note 数 ≤ 1000 时，按 Note 数分级增加减量补正：999–500 Notes �
 - 过早离键后不保证 BAD 以上判定，可能判为见逃し POOR
 - LN 终点未按到判定端时终点判定被优先
 - CN/HCN 某些条件下不执行终点判定导致无法完奏
+- CN/HCN 与 LN 不同，不保证 BAD 以上判定，离键时机不当时可能判早 POOR（0.8.7+ 亦然）
 
 ---
 
@@ -234,6 +241,9 @@ Note 数 ≤ 1000 时，按 Note 数分级增加减量补正：999–500 Notes �
 
 - `#DEFEXRANK` 以 **NORMAL 判定**为基准（即值 `100` = NORMAL）
 - **注意**：μBMSC 的 UI 中标注为 `#EXRANK`，但实际 BMS 头部命令是 `#DEFEXRANK`
+
+> #DEFEXRANK 用于谱面制作时精细设定判定宽度，定义后优先于 #RANK 命令。注意：μBMSC UI 标注为 #EXRANK 仅是界面标注错误，实际写入 BMS 的是 #DEFEXRANK。另外，原本的 #EXRANK 是用于曲中切换判定宽度的命令，与此不同。
+
 - JUDGERANK（游戏中可选）以 **EASY 判定**为基准
 - 两者不同。例如 9keys 下 `#DEFEXRANK 100` 等效于 JUDGERANK `70%`（NORMAL）
 
@@ -268,7 +278,7 @@ Note 数 ≤ 1000 时，按 Note 数分级增加减量补正：999–500 Notes �
 
 - beatoraja **7keys**：S 乱时纵连密度限制为 **40ms**（不允许更密的纵连）
 - beatoraja **9keys**：S 乱**无纵连密度限制**
-- LR2：也无纵连密度限制
+- LR2：也无纵连密度限制（推测）
 
 ### 5.5 判定算法选择
 
@@ -417,7 +427,7 @@ LR2：也无纵连密度限制。
 
 ## 七、参考来源
 
-- [beatoraja GitHub - 判定/血量实现源码](https://github.com/exch-bms2/beatoraja/tree/master/src/bms/player/beatoraja/play)
+- [beatoraja GitHub — 几乎所有规格都能在此找到](https://github.com/exch-bms2/beatoraja/tree/master/src/bms/player/beatoraja/play)
 - [IIDX LR2 beatoraja differences](https://iidx.org/misc/iidx_lr2_beatoraja_diff)
 - [bemaniwiki - pop'n music peace 系统相关](https://bemaniwiki.com/?pop%27n+music+peace/%A5%B7%A5%B9%A5%C6%A5%E0%B4%D8%CF%A2)
 - [空 BAD 仕様について](https://w.atwiki.jp/asagaolabo/pages/897.html)
@@ -444,4 +454,4 @@ LR2：也无纵连密度限制。
 - 可使用 IR（Internet Ranking）
 - 如觉得 EASY/HARD 太简单，可将 NORMAL(HARD) 与 EX-HARD 作为目标线
 
-> 原文引用了 PMS Database 作为 BMS 播放器导入指南。
+> 原文引用了 [PMS Database](https://pmsdifficulty.xxxxxxxx.jp/about.html) 作为 BMS 播放器导入指南。

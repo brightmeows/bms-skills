@@ -20,6 +20,8 @@
 | 10–35 | `A`–`Z` | 与 36 进制相同 |
 | 36–61 | `a`–`z` | **新增**。36 进制中未定义的范围 |
 
+> 译者注：以下对照表为便于理解而补充，原文无此表。
+
 ### 常见索引对照
 
 | 62 进制 | 10 进制 | 计算过程 | 说明 |
@@ -49,6 +51,13 @@
   - `#SPEEDxx`
   - `#LNOBJ`
 - `#BASE 62` 声明**必须**的原因是原始 BMS 格式不区分大小写。无此声明时，`aa` 和 `AA` 被视为相同索引。
+
+```bms
+// 例如，无 #BASE 62 声明时，以下代码中 aa 会被视为 AA
+// 此时 kick.wav 会覆盖 rev-cymbal.wav
+#WAVAA kick.wav
+#00101:aa
+```
 
 ### 完整示例
 
@@ -112,8 +121,12 @@
 | 语法 | 原因 |
 |------|------|
 | `#xxx03`（旧式 BPM 变更） | 仍为 16 进制 `[01-FF]`，最大值 255 |
+
+旧式 BPM 变更（ch03）定义为 16 进制，最大值 FF=255。本次实现不影响此规格。因此上述写法表示变更为 BPM=127。
+
 | 地雷伤害值 `#xxxD1-E9` | 仍为 36 进制，`ZZ` = 即死 |
-| `#BASE` 声明本身 | 固定为数字 62 |
+
+地雷定义为 36 进制伤害值，ZZ = 本来是即游戏结束的含义。此规格也不受影响。因此上述各行表示 0a=0A=10% 伤害的地雷。实际实现中可能使用考虑 #RANK 和模式的综合计算公式。
 
 ```bms
 // BPM=127（16 进制，不变）
@@ -124,9 +137,9 @@
 #004D6:0A
 ```
 
-> 实际实现中可能使用考虑 `#RANK` 和模式的综合计算公式。
-
 ## #LNOBJ 的行为变化
+
+`#LNOBJ` 表示与可见 Note 同一通道的长按终止端。本次实现中 `#LNOBJ` 也以 62 进制处理。
 
 `#LNOBJ` 在 62 进制下也区分大小写：
 
@@ -135,8 +148,11 @@
 #LNOBJ zz
 
 #00116:AA
-// 62 进制：#LNOBJ zz 与 ZZ 不匹配 → AA 和 ZZ 是两个独立 Note
-// 36 进制：#LNOBJ zz 与 ZZ 匹配 → AA 和 ZZ 形成 LN 对
+// 62 进制下 #LNOBJ zz 与 #00216:ZZ 不匹配
+// 因此 ch16 的 #001 小节开头有 AA、#002 小节开头有 ZZ，产生两个独立 Note
+//
+// 36 进制下 #LNOBJ zz 与 #00216:ZZ 匹配
+// #00116:AA 与 #00216:ZZ 作为长按对，ch16 的 #001 小节开头到 #002 小节开头成为 LN
 #00216:ZZ
 ```
 
@@ -146,13 +162,15 @@
 
 | 类别 | 软件 | 版本 |
 |------|------|------|
-| 播放 | **beatoraja** | 0.8.7+ |
-| 播放 | **mBMplay** | v3.24.0414.0 |
-| 编辑 | **BMSE** | 2.2.0a（官方支持） |
-| 编辑 | **μBMSC** | 定制构建 |
-| 编辑 | **BMHelper** | 定制构建 |
-| 编辑 | **Mid2BMS** | 定制构建 |
-| 编辑 | **sayaslicer** | - |
+| 播放 | [**beatoraja**](https://mocha-repository.info/) | 0.8.7+ |
+| 播放 | [**mBMplay**](https://mistyblue.info/mbmplay.html) | v3.24.0414.0 |
+| 编辑 | [**BMSE**](https://github.com/Nekokan/BMSE/releases) | 2.2.0a（官方支持） |
+| 编辑 | [**μBMSC**](https://nekokan.dyndns.info/file/BOFoonNT/separate/) | 定制构建 |
+| 编辑 | [**BMHelper**](https://nekokan.dyndns.info/file/BOFoonNT/separate/) | 定制构建 |
+| 编辑 | [**Mid2BMS**](https://nekokan.dyndns.info/file/BOFoonNT/separate/) | 定制构建 |
+| 编辑 | [**sayaslicer**](https://github.com/SayakaIsBaka/sayaslicer) | - |
+
+> 译者注：以下注意事项为译者基于规范内容整理，原文无此节。
 
 ### 注意事项
 
