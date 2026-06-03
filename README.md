@@ -15,15 +15,19 @@
 
 ### npx skills（推荐）
 
+`main` 分支，始终最新，HTTP 轻量：
+
 ```bash
 npx skills add https://codeberg.org/brightmeows/bms-skills/raw/branch/main
 ```
 
+或锁定到指定 release tag，版本确定，需浅克隆：
+
 ```bash
-npx skills add https://codeberg.org/brightmeows/bms-skills.git#v1.1.0
+npx skills add https://codeberg.org/brightmeows/bms-skills.git#v2.0.0
 ```
 
-> 前者从 `main` 分支获取，始终最新，HTTP 轻量；后者锁定到指定 release tag，版本确定，需浅克隆。按需选择。
+按需选择。
 
 ### 手动引用
 
