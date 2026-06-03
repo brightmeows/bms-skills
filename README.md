@@ -24,7 +24,7 @@ npx skills add https://codeberg.org/brightmeows/bms-skills/raw/branch/main
 或锁定到指定 release tag，版本确定，需浅克隆：
 
 ```bash
-npx skills add https://codeberg.org/brightmeows/bms-skills.git#v2.0.0
+npx skills add https://codeberg.org/brightmeows/bms-skills.git#v2.1.0
 ```
 
 按需选择。
