@@ -1,6 +1,6 @@
 # BMS Skills — Agent Guide
 
-## Commands
+## 命令
 
 ```bash
 # 检查 skills/ 下所有 markdown 文件
@@ -14,7 +14,7 @@ markdownlint --fix --config .markdownlint.toml skills/*.md
 sha256sum skills/bms/SKILL.md skills/bmson/SKILL.md
 ```
 
-## Boundaries
+## 边界
 
 | 层级 | 规则 |
 |---|---|
@@ -25,7 +25,13 @@ sha256sum skills/bms/SKILL.md skills/bmson/SKILL.md
 | **Always** | `.claude-plugin/plugin.json` 仅引用目录路径，内容变更无需修改；新增/移除技能目录时同步更新 |
 | **Ask** | 需修改 `.markdownlint.toml` 配置时先确认 |
 
-## Content Rules
+## 提交格式
+
+Conventional Commits，`type(scope):` + body（中文）。
+
+---
+
+## 内容规则
 
 - 只修改格式问题，不修改文字、代码示例、数据内容
 - 文件名保持英文，与现有命名风格一致
