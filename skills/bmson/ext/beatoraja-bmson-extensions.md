@@ -63,7 +63,7 @@ BMSON 将 BMS 的头部信息、通道数据、定义等以 JSON 对象表示，
 | 值 | `ScrollEvent[]` |
 | 支持 | beatoraja 0.7.6+ |
 
-- BMSON 形式的 `#SCROLL` / `#SPEED`，详见 BMS 侧 [`scroll-speed-extensions.md`](./../bms/scroll-speed-extensions.md)。
+- BMSON 形式的 `#SCROLL` / `#SPEED`，详见 BMS 侧 [`beatoraja-extensions.md`](./../bms/ext/beatoraja-extensions.md#SCROLL)。
 - 以事件数组形式定义谱面各位置的滚动速度倍率。
 - 每个事件包含 `y`（位置）和 `rate`（倍率）。
 - 倍率为负值时谱面**逆走**。

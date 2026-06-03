@@ -41,7 +41,7 @@ Scroll 改变宽度而不改变时间，因此无需移动 Note 位置，这是 
 #SCROLL08 2
 ```
 
-→ 详见 [scroll-speed-extensions.md](scroll-speed-extensions.md)
+→ `#SCROLL` 语法详见 [beatoraja-extensions.md](beatoraja-extensions.md#SCROLL)
 
 ![Scroll 加速/减速示例](scroll-gimmick-guide/1672643699592-dRC5UHoMoU.png)
 
@@ -111,7 +111,7 @@ Warp 是让 Note 瞬间出现在判定线上或消失的特效。它也是 Gimmi
 #001SC:01
 ```
 
-→ 详见 [scroll-speed-extensions.md](scroll-speed-extensions.md)
+→ `#SCROLL` 语法详见 [beatoraja-extensions.md](beatoraja-extensions.md#SCROLL)
 
 ![Scroll Warp 示例](scroll-gimmick-guide/1672649662659-EhQ6fkEkAC.png)
 
@@ -190,7 +190,7 @@ stop = 192 × 100001 ÷ 64 − 192 = 299811
 
 通常用 Scroll + BPM 变化 + Stop 来表现（没有 Scroll 也可以，但编辑器限制 999 小节的长度，超出后无法编辑，因此压缩小节长度是有意义的节省手段）。
 
-→ 详见 [scroll-speed-extensions.md](scroll-speed-extensions.md) 中 SCROLL=0 的说明
+→ SCROLL=0 的说明详见 [bmse-compatibility.md](bmse-compatibility.md#SCROLL--SPEED-扩展)
 
 ![Scroll 动画示例 1](scroll-gimmick-guide/1672661933773-66Cq5BlJNv.png)
 

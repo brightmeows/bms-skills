@@ -429,7 +429,7 @@ BMSE 对所有小节长度值的处理方式：
 
 此例中 `#001` 前半部分以 2 倍速滚动，`#002` 后半部分以 0.5 倍速滚动。
 
-![#SCROLL 示例谱面](scroll-speed-extensions/bmse_material_beat_bpm2.gif)
+![#SCROLL 示例谱面](bmse-compatibility/bmse_material_beat_bpm2.gif)
 
 ### 用途
 
