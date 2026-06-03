@@ -2,6 +2,9 @@
 
 > 来源：[beatoraja Wiki — 楽曲製作者向け資料](https://github.com/exch-bms2/beatoraja/wiki/%E6%A5%BD%E6%9B%B2%E8%A3%BD%E4%BD%9C%E8%80%85%E5%90%91%E3%81%91%E8%B3%87%E6%96%99)
 > beatoraja 是目前最活跃的 BMS 播放器之一，实现了一些特有的扩展命令。
+>
+> **范围说明**：本文档仅覆盖 beatoraja 对 BMS（.bms/.bme/.bml/.pms）格式的扩展命令。
+> BMSON（.bmson）格式的 beatoraja 扩展请参见 [beatoraja BMSON 扩展](../../bmson/ext/beatoraja-bmson-extensions.md)。
 
 ## #PREVIEW
 
@@ -42,7 +45,8 @@
 
 ## #DEFEXRANK
 
-- beatoraja **0.7.3 起**基线从 EASY 改为 **NORMAL**（即值 `100` 对应 NORMAL）。
+- 值以 **NORMAL 为基准**（即 `100` = NORMAL 判定宽度），可精细指定任意宽度倍率。
+- beatoraja **0.7.3 起**基线从 EASY 改为 **NORMAL**。
 - `#DEFEXRANK` 优先级高于 `#RANK`。
 
 ## #VOLWAV
@@ -59,9 +63,17 @@
 #VOLWAV 80
 ```
 
-## #SCROLL 负值
+## #SCROLL
 
-- `#SCROLL` 的倍率设为负值时，谱面**逆向滚动**（逆走）。
+| 项目 | 内容 |
+|------|------|
+| 语法 | `#SCROLLxx`（定义）、`#nnnSC`（通道） |
+| 支持 | beatoraja |
+
+- 指定谱面的滚动速度倍率。未定义时默认为 `1.0`。
+- 与 BPM 导致的滚动速度补正**重叠生效**。
+- 格式与扩展 BPM 定义、STOP 定义相同。
+- 倍率设为负值时，谱面**逆向滚动**（逆走）。
 - 配合正负交替可实现复杂的滚动演出。
 
 ```bms

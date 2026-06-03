@@ -90,6 +90,10 @@ Stop 和 BPM 一样是调整速度的手段，因此也需要对整体进行压�
 
 → 详见 [memo/09-header-commands-audio-and-bpm.md](../memo/09-header-commands-audio-and-bpm.md)
 
+![Stop 加速/减速示例 1](scroll-gimmick-guide/1672648632660-qrnMURFaG2.png)
+
+![Stop 加速/减速示例 2](scroll-gimmick-guide/1672646974171-1IM0mwBYWm.png)
+
 [▶ Stop 加速/减速演示](https://youtube.com/watch?v=9VI3dhD32nY)
 
 ---
@@ -171,7 +175,7 @@ stop = 192 × 100001 ÷ 64 − 192 = 299811
 （这里的 −192 是把基准 BPM 的 1 小节长度移走的意思，
 如果 Warp 间隔是 1/2 小节就要 −96。）
 
-![BPM 动画分割数说明](scroll-gimmick-guide/1672649662659-EhQ6fkEkAC.png)
+![BPM 动画分割数说明](scroll-gimmick-guide/1672654334149-YHWH4xlpqB.png)
 
 [▶ BPM 动画演示（16/32/64/96 分割比较）](https://youtube.com/watch?v=eTtdYJ2VE-g)
 
@@ -188,7 +192,9 @@ stop = 192 × 100001 ÷ 64 − 192 = 299811
 
 → 详见 [scroll-speed-extensions.md](scroll-speed-extensions.md) 中 SCROLL=0 的说明
 
-![Scroll 动画示例](scroll-gimmick-guide/1672650600682-uDkhbhGsWx.png)
+![Scroll 动画示例 1](scroll-gimmick-guide/1672661933773-66Cq5BlJNv.png)
+
+![Scroll 动画示例 2](scroll-gimmick-guide/1672655787375-SpgaE7r1DH.png)
 
 ---
 
@@ -228,7 +234,7 @@ stop = 192 × 100001 ÷ 64 − 192 = 299811
 
 **结合地雷具現化**：地雷从左到右依次在 120/1920、240/1920、360/1920、480/1920 显示，
 但无法同时移动，于是逐个移动：第一个移动 120 后 -120 补偿，下一个移动 240 后 -240 补偿……
-即 120 + (-120) + 240 + (-240) + 360 + (-360) + 480 = -480。
+即 120 + (-120) + 240 + (-240) + 360 + (-360) + 480 = 480。
 
 **关于 Note 重叠**：beatoraja 的特性是 scroll=0.0 时 Note 重叠，后方的 Note 显示在前方之上。
 因此如果直接用实 Note，地雷会悬浮在空中而实 Note 不可见。视频中改为不可见 Note 来让实 Note 可见。
@@ -236,7 +242,7 @@ stop = 192 × 100001 ÷ 64 − 192 = 299811
 **后续处理**：不可见 Note 部分流过之后，需要插入 scroll=1000 之类的值，
 否则下一个 Note 会过早显示，失去谱面切换的视觉感。
 
-![空中停止ギミック示例](scroll-gimmick-guide/1672654334149-YHWH4xlpqB.png)
+![空中停止ギミック示例](scroll-gimmick-guide/1672663996549-0DpGlGPsBb.png)
 
 [▶ 空中停止演示（迷路地带）](https://youtube.com/watch?v=c0ilz53wx8Y?t=55)
 
@@ -258,7 +264,7 @@ stop = 192 × 100001 ÷ 64 − 192 = 299811
 
 使用逆走时，建议在谱面信息中标注推荐绿数字。如果看到多余的小节线，后半顺走部分的小节线可能提前流到了上方——在某个位置插入 scroll=10000 即可解决。
 
-![逆走ギミック示例](scroll-gimmick-guide/1672661933773-66Cq5BlJNv.png)
+![逆走ギミック示例](scroll-gimmick-guide/1672665539336-sxfA7w7fCQ.png)
 
 [▶ 逆走演示（scroll=-1）](https://youtube.com/watch?v=M7sjnR2RjBc) | [▶ 修正版](https://youtube.com/watch?v=4ZjRzJsqBVw)
 
@@ -286,9 +292,7 @@ Scroll 的出现/消失 Bug 制造的 Gimmick。
 Scroll 值、SUD（遮盖）、HS、绿数字等都会影响效果，
 建议在谱面信息的 Artist 栏等位置注明推荐设置。
 
-![Scroll Bug 示例 1](scroll-gimmick-guide/1672655787375-SpgaE7r1DH.png)
-![Scroll Bug 示例 2（1561 值）](scroll-gimmick-guide/1672663996549-0DpGlGPsBb.png)
-![Scroll Bug 示例 3（调整后）](scroll-gimmick-guide/1672665539336-sxfA7w7fCQ.png)
+![Scroll 出现/消失 Bug 示例](scroll-gimmick-guide/1672668507402-zDeb95viPI.png)
 
 [▶ Scroll Bug 代表性演示](https://youtube.com/watch?v=GRCdFoqU_R4?t=76)
 
@@ -318,7 +322,7 @@ Scroll 值、SUD（遮盖）、HS、绿数字等都会影响效果，
 如果基准 scroll=0.0，则 240 无需加 2，用 238 即可。
 基准 scroll=0.0625 时当作误差处理。
 
-![非动画具現化示例](scroll-gimmick-guide/1672668507402-zDeb95viPI.png)
+![非动画具現化示例](scroll-gimmick-guide/1672673266286-1XB5bjFQJW.png)
 
 [▶ 非动画具現化演示](https://youtube.com/watch?v=iYx8iFZrCiE) | [▶ 续篇](https://youtube.com/watch?v=xA4OVeKh4PU?t=28)
 
@@ -339,7 +343,7 @@ LN 或伪 LN（橙色棒）在一瞬间消失——这就是部分 Warp。
 #STOP01 30000     ; 100001BPM × 3/1920 小節的补偿
 ```
 
-![部分ワープ示例](scroll-gimmick-guide/1672673266286-1XB5bjFQJW.png)
+![部分ワープ示例](scroll-gimmick-guide/1672674499296-3f0Awai3xN.png)
 
 [▶ 部分ワープ演示](https://youtube.com/watch?v=kPbb6sQC4iI?t=13)
 
@@ -360,8 +364,7 @@ Scroll Gimmick 中最有趣（一点也不为过）的就是负 Scroll 动画！
 
 试过把实 Note 部分 scroll=1.0、动画部分 scroll=-1.0，但 beatoraja 的特性下似乎无法正确显示。具体原因未知。
 
-![マイナス Scroll 动画示例](scroll-gimmick-guide/1672674499296-3f0Awai3xN.png)
-![マイナス Scroll 动画另一示例](scroll-gimmick-guide/1672676380244-r67hciVlQw.png)
+![マイナス Scroll 动画示例](scroll-gimmick-guide/1672676380244-r67hciVlQw.png)
 
 [▶ 负 Scroll 动画演示 1](https://youtube.com/watch?v=Cvcerl_K1LE)
 | [▶ 演示 2](https://youtube.com/watch?v=LMItjD1-No4?t=65)
@@ -388,4 +391,4 @@ Scroll Gimmick 的核心原则：
 
 > **原文感言**：以上是全部基础 Gimmick 的介绍。本质上都是基于这些技法的展开，只要有毅力就能做到。
 > 真正精彩的动画需要逐帧制作，非常辛苦。希望未来有机会用实际谱面进行解说。
-> 希望对大家有所帮助——请一定试试制作 Scroll Gimmick！
+> 希望对大家有所帮助。各位，请一定试试制作 Scroll Gimmick！我嘛……看心情再做了笑
