@@ -15,7 +15,7 @@
 | Delight Delight Reduplication Ver.0.50 beta5 | DDR | <https://delight.airytail.co/download.html> |
 | rhythm-it 1.72a | RDM | <https://nvyu.net/rdm/download3.php> |
 | Mixwaver 1.6 Final & MixWaver][ 1.2 | MW | <http://mixwaver.s18.xrea.com/html/dl_mw.html> |
-| BmDx Millennium Edition M6 | BmDx | <https://web.archive.org/web/*/http://www.interq.or.jp/ski/sakura/otoge/otoge_bmdx.html> |
+| BmDx Millennium Edition M6（[旧文档](https://web.archive.org/web/*/http://www.interq.or.jp/ski/sakura/BmDxA.html)） | BmDx | <https://web.archive.org/web/*/http://www.interq.or.jp/ski/sakura/otoge/otoge_bmdx.html> |
 | bemaniaDX Vision.3 APPEND Vision.4 Skin version 0.95 | bemaniaDX | <https://web.archive.org/web/20070518162219/http://bemaniadx.s3.xrea.com/download.html> |
 | unofficial nazobmplay rev.798 | nazo | <https://manbow.nothing.sh/nazobmplay/download.html> |
 | unofficial nazobmplay rev.798 + Glasopal 20080313 | nazoZZ | <https://hitkey.nekokan.dyndns.info/glasopal.html> |
