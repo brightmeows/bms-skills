@@ -109,7 +109,7 @@ Warp 是让 Note 瞬间出现在判定线上或消失的特效。它也是 Gimmi
 
 → 详见 [scroll-speed-extensions.md](scroll-speed-extensions.md)
 
-![Scroll Warp 示例](scroll-gimmick-guide/1672648632660-qrnMURFaG2.png)
+![Scroll Warp 示例](scroll-gimmick-guide/1672649662659-EhQ6fkEkAC.png)
 
 [▶ Scroll Warp 演示](https://youtube.com/watch?v=u5w32ATOkQM)
 
@@ -132,7 +132,7 @@ BPM 改变的是速度而非宽度，所以需要相应地移动整个谱面的�
 #STOP01 30000    ; 100001 倍 BPM 下 3/1920 小节的补偿量
 ```
 
-![BPM Warp 示例](scroll-gimmick-guide/1672646974171-1IM0mwBYWm.png)
+![BPM Warp 示例](scroll-gimmick-guide/1672650600682-uDkhbhGsWx.png)
 
 [▶ BPM Warp 演示](https://youtube.com/watch?v=gvsWdQy0ryQ)
 
