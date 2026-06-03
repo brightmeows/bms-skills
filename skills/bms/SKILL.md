@@ -65,7 +65,7 @@ BMS（Be-Music Script）是 1998 年由 Urao Yane 与 NBK 设计的音乐游戏�
 
 ## test/ —— 可执行规范（BMSpec）测试用例
 
-基于 [bmspec](https://github.com/bemusic/bmspec) 的 Gherkin 可执行规范，按功能分组。实现 BMS 解析器/生成器时，以此验证格式兼容性。
+Gherkin 可执行规范，按功能分组。实现 BMS 解析器/生成器时，以此验证格式兼容性。
 
 | 文件 | 覆盖主题 | 测试场景数 |
 |------|----------|-----------|
