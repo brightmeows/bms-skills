@@ -228,7 +228,7 @@ BMS（Be-Music Script）是 1998 年由 Urao Yane 与 NBK 设计的音乐游戏�
 - 负值 = 逆向滚动（beatoraja/ruvit/fgt++/angolmois 等）
 - `#SPEED` 在两个关键帧之间自动线性补间，无需逐小节计算
 
-> → `#SCROLL` 语法详见 [beatoraja-extensions.md](ext/beatoraja-extensions.md#SCROLL)；SCROLL=0 说明详见 [bmse-compatibility.md](ext/bmse-compatibility.md#SCROLL--SPEED-扩展)
+> → `#SCROLL` 语法详见 [beatoraja-extensions.md](ext/beatoraja-extensions.md#SCROLL)；SCROLL=0 说明详见 [bmse/10-scroll-speed-extensions.md](bmse/10-scroll-speed-extensions.md)
 > → Gimmick 实战组合技：详见 [scroll-gimmick-guide.md](ext/scroll-gimmick-guide.md)
 
 ### Gimmick 核心原则
@@ -375,7 +375,7 @@ BMS（Be-Music Script）是 1998 年由 Urao Yane 与 NBK 设计的音乐游戏�
 
 BMSE 对部分命令有改写/删除行为，可用ダミー分岐（Dummy Branch）技巧保护。
 
-> → 详见 [bmse-compatibility.md](ext/bmse-compatibility.md)
+> → 详见 [bmse/](bmse/)（BMSE 兼容性参考系列，共 10 篇）
 
 ### 引擎行为差异（beatoraja vs LR2）
 

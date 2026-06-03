@@ -193,7 +193,7 @@ stop = 192 × 100001 ÷ 64 − 192 = 299811
 
 通常用 Scroll + BPM 变化 + Stop 来表现（没有 Scroll 也可以，但编辑器限制 999 小节的长度，超出后无法编辑，因此压缩小节长度是有意义的节省手段）。
 
-→ SCROLL=0 的说明详见 [bmse-compatibility.md](bmse-compatibility.md#SCROLL--SPEED-扩展)
+→ SCROLL=0 的说明详见 [bmse/10-scroll-speed-extensions.md](../bmse/10-scroll-speed-extensions.md)
 
 ![Scroll 动画示例 1](https://assets.st-note.com/img/1672661933773-66Cq5BlJNv.png)
 
