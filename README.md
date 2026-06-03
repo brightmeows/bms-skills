@@ -6,8 +6,8 @@
 
 | 技能 | 说明 |
 |---|---|
-| **bms** | BMS 速查表 — 头部命令、通道映射、控制流、扩展格式、引擎差异（beatoraja vs LR2）、BMSE 兼容性 |
-| **bmson** | BMSON 速查表 — JSON 序列化格式、顶层结构、计时与拍号、音频通道与切片、BGA、beatoraja 扩展 |
+| [bms](skills/bms/SKILL.md) | 创建/编辑 BMS 谱面、排查格式问题、查通道映射与头部命令、引擎差异（beatoraja vs LR2）、BMSE 兼容性、开发 BMS 工具 |
+| [bmson](skills/bmson/SKILL.md) | 处理 .bmson 文件、查 v1 JSON schema、排查 beatoraja 扩展问题、实现 BMSON 解析器、BGA、计时与拍号 |
 
 ## 使用方式
 
