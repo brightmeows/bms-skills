@@ -24,7 +24,7 @@ BMS（Be-Music Script）是 1998 年由 Urao Yane 与 NBK 设计的音乐游戏�
 | `.bme` | 7K | BMS 扩展格式（IIDX 7KEYS） | BMSC |
 | `.bml` | — | 长音谱面（RDM `#LNOBJ`） | RDM |
 | `.pms` | 9K | pop'n music 风格谱面 | pomu |
-| `.mbm` | — | MacBeat MOD（含 `#WAVCMD`） | MacBeat |
+| `.mbm` | — | MacBeat MOD 格式 | MacBeat |
 
 > → 详见 [memo/04-file-extensions.md](memo/04-file-extensions.md)
 
@@ -62,7 +62,6 @@ BMS（Be-Music Script）是 1998 年由 Urao Yane 与 NBK 设计的音乐游戏�
 | `#PLAYER 1` | 1 | Single Play（1P） | BM98 | [memo/06](memo/06-header-commands-mode-and-judgment.md) |
 | `#PLAYER 2` | 2 | Couple Play（1P+2P） | BM98 | |
 | `#PLAYER 3` | 3 | Double Play（DP） | BM98 | |
-| `#PLAYER 4` | 4 | Battle Play | BM98 | （已废弃，极少支持） |
 | `#RANK 0` | 0 | VERY HARD ±8ms | BM98 | [memo/06](memo/06-header-commands-mode-and-judgment.md) |
 | `#RANK 1` | 1 | HARD ±15ms | BM98 | |
 | `#RANK 2` | 2 | NORMAL ±18ms | BM98 | 默认值 |
@@ -88,8 +87,6 @@ BMS（Be-Music Script）是 1998 年由 Urao Yane 与 NBK 设计的音乐游戏�
 | `#MAKER <string>` | BMS 制作者 | bemaniaDX | |
 | `#COMMENT <string>` | 选曲列表附加文本 | pomu | |
 | `#TEXTxx "<string>"` | 通道 `#xxx99`，游戏中文本显示 | pomu | |
-| `%URL <string>` | 制作者 URL（BMSC 生成） | BMS Manager | |
-| `%EMAIL <string>` | 制作者邮箱（BMSC 生成） | BMS Manager | |
 
 > 字符串编码：Shift_JIS 为日文主流，ruvit/iBMSC 支持多编码。现代工具建议 UTF-8 + BOM。
 
@@ -131,7 +128,6 @@ BMS（Be-Music Script）是 1998 年由 Urao Yane 与 NBK 设计的音乐游戏�
 | 命令 | 通道 | 单位 | 说明 | → 详见 |
 |------|------|------|------|--------|
 | `#STOPxx n` | `#xxx09` | 1 = 4/4 拍的 1/192 | 谱面暂停 | [memo/09](memo/09-header-commands-audio-and-bpm.md) |
-| `#STP xxx.yyy zzzz` | — | 毫秒 | bemaniaDX 型 STOP 序列 | |
 
 > 负 STOP：nazo/fgt/pomu2 等支持跳过。LR2 轻微跳过。
 
@@ -141,8 +137,6 @@ BMS（Be-Music Script）是 1998 年由 Urao Yane 与 NBK 设计的音乐游戏�
 |------|----------|------|--------|
 | `#WAVxx <file>` | `[01-ZZ]`（1295） | 音频文件定义 | [memo/09](memo/09-header-commands-audio-and-bpm.md) |
 | `#WAV00 <file>` | 固定 | 地雷爆炸音定义 | |
-| `#EXWAVxx <pvf> <值> <file>` | 同 `#WAVxx` | 带效果（pan/vol/freq）的音频 | |
-| `#WAVCMD` | — | MacBeat MOD 音高/音量/时间控制 | |
 
 > 支持格式：WAV（PCM 8/16/24/32bit）、OGG、MP3（部分实现）。LR2 限制 >60s 音频不得 IR 注册。
 > 替代搜索：未找到定义文件时自动搜索同基本名的 `.wav`/`.ogg`/`.mp3`。
@@ -168,7 +162,6 @@ BMS（Be-Music Script）是 1998 年由 Urao Yane 与 NBK 设计的音乐游戏�
 | 命令 | 值 | 说明 | 通道 | → 详见 |
 |------|----|------|------|--------|
 | `#LNTYPE 1` | 1 | RDM 记法 LN（当前标准） | `#xxx51-69` | [memo/10](memo/10-header-commands-long-notes-and-options.md) |
-| `#LNTYPE 2` | 2 | MGQ 记法 LN（**已过时**） | `#xxx51-8C` | |
 | `#LNOBJ xx` | `#WAV` 索引 | LN 终点符号（RDM type #2） | `#xxx11-29` | |
 
 - `#LNTYPE 1` 可省略（但 o2mania 例外——它不可省略）
@@ -178,16 +171,6 @@ BMS（Be-Music Script）是 1998 年由 Urao Yane 与 NBK 设计的音乐游戏�
 
 > → 详见 [memo/10](memo/10-header-commands-long-notes-and-options.md)、[base62-format.md](base62-format.md)
 
-### 选项
-
-| 命令 | 通道 | 说明 | 来源 |
-|------|------|------|------|
-| `#OCT/FP` | — | Octave 模式/脚踏板模式声明 | nanasi |
-| `#OPTION <prefix:option>` | — | BMS 侧强制播放选项 | nanasi |
-| `#CHANGEOPTIONxx <prefix:option>` | `#xxxA6` | 动态播放选项变更（多行可） | nanasi |
-
-> 选项前缀：`774:`（nanasi）、`charatbeatHDX:`（HDX/IIDXv）。
-
 ---
 
 ## 七、图像与 BGA
@@ -195,12 +178,6 @@ BMS（Be-Music Script）是 1998 年由 Urao Yane 与 NBK 设计的音乐游戏�
 | 命令 | 通道 | 说明 | → 详见 |
 |------|------|------|--------|
 | `#BMPxx <file>` | `#xxx04/06/07` | 图像定义（通常 ≤256×256） | [memo/11](memo/11-header-commands-image-and-bga.md) |
-| `#EXBMPxx <a,r,g,b> <file>` | 同上 | 带透明色修正的图像 | |
-| `#BGAxx <idx> <x1> <y1> <x2> <y2> <dx> <dy>` | `#xxx04/06/07/0A` | 图像裁剪显示 | |
-| `#@BGAxx <idx> <sx> <sy> <w> <h> <dx> <dy>` | 同上 | 同上（语法糖，用宽高替代终点） | |
-| `#ARGBxx <a,r,g,b>` | `#xxxA1-A4` | BGA 各层 aRGB 叠加 | |
-| `#POORBGA [0-2]` | — | POOR 图像显示模式 | |
-| `#SWBGAxx <params> <pattern>` | `#xxxA5` | 按键绑定 LAYER 动画 | |
 
 **BGA 层叠顺序**（从上到下）：
 
@@ -221,23 +198,10 @@ BMS（Be-Music Script）是 1998 年由 Urao Yane 与 NBK 设计的音乐游戏�
 | 命令 | 说明 | 来源 |
 |------|------|------|
 | `#VIDEOFILE <file>` | BGA 视频（MPEG/AVI） | bemaniaDX |
-| `#VIDEOf/s <n>` | 视频帧率 | bemaniaDX |
-| `#VIDEOCOLORS <n>` | 视频调色板位数 | bemaniaDX |
-| `#VIDEODLY <n>` | 视频延迟（帧数） | bemaniaDX |
 | `#MOVIE <file>` | 视频，不循环，`#xxx04` 冲突时优先 | DXEmu |
 | `#SEEKxx <ms>` | 通道 `#xxx05`，视频跳转 | LR2 |
 
 > 详见 [memo/12](memo/12-header-commands-video-and-extensions.md)。
-
-### 其他扩展
-
-| 命令 | 说明 | 来源 |
-|------|------|------|
-| `#ExtChr ...` | 通道 `#xxx05`，BM98 界面自定义 | BM98 |
-| `#MATERIALSWAV` | **已过时**，Materials 路径寻址 | nanasi (<1.00) |
-| `#MATERIALSBMP` | **已过时**，同上 | nanasi (<1.00) |
-| `#DIVIDEPROP` | **已过时**，小节分辨率指定 | nanasi (<0.98) |
-| `#CHARSET <encoding>` | **已过时**，字符集声明 | ruvit (<2.0b5p2) |
 
 ---
 
@@ -277,7 +241,7 @@ BMS（Be-Music Script）是 1998 年由 Urao Yane 与 NBK 设计的音乐游戏�
 | `02` | 小节长度 | 1 = 4/4，小数可 | BM98 |
 | `03` | BPM 变更 | `[01-FF]`（1-255 整数） | BM98 |
 | `04` | BGA BASE | `#BMPxx` 基础层 | BM98 |
-| `05` | ExtChr / SEEK | BM98 扩展 / LR 视频跳转 | BM98 / LR |
+| `05` | SEEK | LR 视频跳转 | LR |
 | `06` | BGA POOR | miss 时显示 | BM98 |
 | `07` | BGA LAYER | 黑色透明叠加层 | BM98k |
 | `08` | exBPM | `#BPMxx` 实数 BPM 对象 | bemaniaDX |
@@ -395,13 +359,15 @@ BMS（Be-Music Script）是 1998 年由 Urao Yane 与 NBK 设计的音乐游戏�
 
 ---
 
-## 十四、BMSE 兼容性
+## 十四、兼容性与引擎差异
+
+### BMSE 兼容性
 
 BMSE 对部分命令有改写/删除行为，可用ダミー分岐（Dummy Branch）技巧保护。
 
 > → 详见 [bmse-compatibility.md](bmse-compatibility.md)
 
-## 十五、引擎行为差异（beatoraja vs LR2）
+### 引擎行为差异（beatoraja vs LR2）
 
 beatoraja 与 LR2 在血量槽规格、判定宽度、LN 行为、空 POOR 机制等方面存在显著差异。
 
@@ -409,66 +375,104 @@ beatoraja 与 LR2 在血量槽规格、判定宽度、LN 行为、空 POOR 机�
 
 ---
 
-## 快速索引（命令字母序）
+## 快速索引（按使用趋势分类）
+
+### 主流扩展
 
 | 命令 | 参见章节 |
 |------|----------|
-| `#ARGB` | 七、图像与 BGA |
-| `#@BGA` / `#BGA` | 七、图像与 BGA |
-| `#BACKBMP` | 四、显示与难度 |
 | `#BANNER` | 四、显示与难度 |
 | `#BASE 62` | 十二、62 进制格式 |
 | `#BASEBPM` | 五、音频与 BPM |
-| `#BMP` / `#EXBMP` | 七、图像与 BGA |
+| `#BMP` | 七、图像与 BGA |
 | `#BPM` / `#BPMxx` / `#EXBPM` | 五、音频与 BPM |
-| `#CASE` | 十一、控制流 |
-| `#CDDA` | 五、音频与 BPM |
-| `#CHANGEOPTION` | 六、长音与选项 |
-| `#CHARFILE` | 四、显示与难度 |
-| `#CHARSET` | 八、视频与扩展 |
-| `#COMMENT` | 三、元数据 |
-| `#DEF` | 十一、控制流 |
 | `#DEFEXRANK` | 二、模式与判定 |
 | `#DIFFICULTY` | 四、显示与难度 |
+| `#LNOBJ` | 六、长音与选项 |
+| `#PLAYER 1–3` | 二、模式与判定 |
+| `#PLAYLEVEL` | 四、显示与难度 |
+| `#RANK` | 二、模式与判定 |
+| `#SCROLL` / `#SPEED` | 九、滚动与速度扩展 |
+| `#STAGEFILE` | 四、显示与难度 |
+| `#STOPxx` | 五、音频与 BPM |
+| `#SUBARTIST` | 三、元数据 |
+| `#SUBTITLE` | 三、元数据 |
+| `#TITLE` / `#ARTIST` / `#GENRE` / `#MAKER` | 三、元数据 |
+| `#TOTAL` | 二、模式与判定 |
+| `#WAVxx` / `#WAV00` | 五、音频与 BPM |
+| `#xxx03`（BPM 变更） | 五、音频与 BPM |
+| `#xxx04/06/07/0A`（BGA 通道） | 七、图像与 BGA |
+| `#xxx08`（exBPM 对象） | 五、音频与 BPM |
+| `#xxx09`（STOP 对象） | 五、音频与 BPM |
+| `#xxx51–69`（LN 通道） | 六、长音与选项 |
+
+### 偶尔使用的扩展
+
+| 命令 | 参见章节 |
+|------|----------|
+| `#BACKBMP` | 四、显示与难度 |
+| `#CASE` / `#DEF` / `#SKIP` | 十一、控制流 |
+| `#CHARFILE` | 四、显示与难度 |
+| `#COMMENT` | 三、元数据 |
 | `#ELSE` / `#ELSEIF` | 十一、控制流 |
 | `#ENDIF` / `#ENDRANDOM` / `#ENDSW` | 十一、控制流 |
 | `#EXRANK` | 二、模式与判定 |
-| `#EXWAV` | 五、音频与 BPM |
-| `#ExtChr` | 八、视频与扩展 |
-| `#GENRE` | 三、元数据 |
-| `#IF` | 十一、控制流 |
+| `#IF` / `#RANDOM` / `#SWITCH` | 十一、控制流 |
 | `#LNMODE` | 十三、beatoraja 扩展 |
-| `#LNOBJ` | 六、长音与选项 |
-| `#LNTYPE` | 六、长音与选项 |
-| `#MAKER` | 三、元数据 |
-| `#MATERIALSWAV` / `#MATERIALSBMP` | 八、视频与扩展 |
-| `#MIDIFILE` | 五、音频与 BPM |
-| `#MOVIE` | 八、视频与扩展 |
-| `#OCT/FP` | 六、长音与选项 |
-| `#OPTION` | 六、长音与选项 |
-| `#PATH_WAV` | 五、音频与 BPM |
-| `#PLAYER` | 二、模式与判定 |
-| `#PLAYLEVEL` | 四、显示与难度 |
-| `#POORBGA` | 七、图像与 BGA |
+| `#LNTYPE 1` | 六、长音与选项 |
+| `#MOVIE` / `#VIDEOFILE` / `#SEEK` | 八、视频与扩展 |
 | `#PREVIEW` | 十三、beatoraja 扩展 |
-| `#RANDOM` | 十一、控制流 |
-| `#RANK` | 二、模式与判定 |
-| `#SCROLL` | 九、滚动与速度扩展 |
-| `#SEEK` | 八、视频与扩展 |
-| `#SETRANDOM` / `#SETSWITCH` | 十一、控制流 |
-| `#SKIP` | 十一、控制流 |
-| `#SPEED` | 九、滚动与速度扩展 |
-| `#STAGEFILE` | 四、显示与难度 |
-| `#STOP` / `#STP` | 五、音频与 BPM |
-| `#SUBARTIST` | 三、元数据 |
-| `#SUBTITLE` | 三、元数据 |
-| `#SWBGA` | 七、图像与 BGA |
-| `#SWITCH` | 十一、控制流 |
 | `#TEXT` / `#SONG` | 三、元数据 |
-| `#TITLE` | 三、元数据 |
-| `#TOTAL` | 二、模式与判定 |
-| `#VIDEOFILE` / `#VIDEOf/s` / `#VIDEOCOLORS` / `#VIDEODLY` | 八、视频与扩展 |
-| `#VOLWAV` | 二、模式与判定 |
-| `#WAV` / `#WAV00` | 五、音频与 BPM |
-| `#WAVCMD` | 五、音频与 BPM |
-| `%URL` / `%EMAIL` | 三、元数据 |
+| `#xxx99`（TEXT 通道） | 三、元数据 |
+| `#xxxA0`（判定通道） | 二、模式与判定 |
+| `#xxxD1–E9`（地雷通道） | 五、音频与 BPM |
+
+### 测试游玩时有用
+
+| 命令 | 参见章节 |
+|------|----------|
+| `#PATH_WAV` | 附录 |
+| `#SETRANDOM` / `#SETSWITCH` | 十一、控制流 |
+
+---
+
+## 附录：遗留与低频命令
+
+以下命令已过时、极少使用、或仅特定场景需要。
+
+### 已废弃命令
+
+| 命令 | 说明 | 来源 |
+|------|------|------|
+| `#PLAYER 4` | Battle Play（极少支持） | BM98 |
+| `#LNTYPE 2` | MGQ 记法 LN（已被 `#LNTYPE 1` 取代） | MGQ |
+| `#MATERIALSWAV` | 路径寻址（nanasi <1.00） | nanasi |
+| `#MATERIALSBMP` | 路径寻址（nanasi <1.00） | nanasi |
+| `#DIVIDEPROP` | 小节分辨率指定（nanasi <0.98） | nanasi |
+| `#CHARSET` | 字符集声明（ruvit <2.0b5p2） | ruvit |
+| `#WAVCMD` | MacBeat MOD 音高/音量/时间控制 | MacBeat |
+| `#ExtChr ...` | BM98 界面自定义（`#xxx05`） | BM98 |
+
+### 低频命令
+
+| 命令 | 说明 | 来源 |
+|------|------|------|
+| `#ARGBxx <a,r,g,b>` | BGA 各层 aRGB 叠加 | nanasi |
+| `#BGAxx` / `#@BGAxx` | 图像裁剪显示 | nanasi |
+| `#CHANGEOPTIONxx <prefix:option>` | 动态播放选项变更 | nanasi |
+| `#EXBMPxx <a,r,g,b> <file>` | 带透明色修正的图像 | nanasi |
+| `#EXWAVxx <pvf> <值> <file>` | 带效果（pan/vol/freq）的音频 | nanasi |
+| `#OCT/FP` | Octave 模式/脚踏板模式声明 | nanasi |
+| `#OPTION <prefix:option>` | BMS 侧强制播放选项 | nanasi |
+| `#POORBGA [0-2]` | POOR 图像显示模式 | nanasi |
+| `#STP xxx.yyy zzzz` | 毫秒级 STOP 序列 | bemaniaDX |
+| `#SWBGAxx <params> <pattern>` | 按键绑定 LAYER 动画 | nanasi |
+| `#VIDEOf/s <n>` | 视频帧率 | bemaniaDX |
+| `#VIDEOCOLORS <n>` | 视频调色板位数 | bemaniaDX |
+| `#VIDEODLY <n>` | 视频延迟（帧数） | bemaniaDX |
+| `#VOLWAV` | WAV 音量调整（与 `#RANK` 交互） | BM98 |
+| `#CDDA` | CD 音轨定义 | bemaniaDX |
+| `#MIDIFILE` | MIDI 文件定义 | bemaniaDX |
+| `#PATH_WAV` | 定义文件引用目录路径 | GDAC2 → BMEV |
+| `%URL` | 制作者 URL（BMSC 自动生成） | BMS Manager |
+| `%EMAIL` | 制作者邮箱（BMSC 自动生成） | BMS Manager |

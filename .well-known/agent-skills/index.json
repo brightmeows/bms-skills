@@ -6,7 +6,7 @@
       "type": "skill-md",
       "description": "Use when creating or editing BMS chart files, troubleshooting format issues, checking engine-specific behavior (beatoraja vs LR2), verifying BMSE compatibility, looking up channel mappings and header commands, or developing BMS tools that parse/generate BMS format.",
       "url": "https://codeberg.org/brightmeows/bms-skills/raw/branch/main/skills/bms/SKILL.md",
-      "digest": "sha256:a607f3bad8ce1580bbeed8f3d980fc7e1dd7b858d8826444511f4f6e9d5752c4"
+      "digest": "sha256:41e4cabae9a3112b6373fd7adc09dc8af5e1b1d6873fa758f4032d993d23a760"
     },
     {
       "name": "bmson",
