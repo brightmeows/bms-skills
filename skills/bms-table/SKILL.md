@@ -237,6 +237,5 @@ HTML 文件在 `<head>` 中通过 meta 标签引用头部 JSON：
 
 | 文件 | 说明 |
 |------|------|
-| [implementation.md](./ext/implementation.md) | 实现参考：Rust/Java 解析库、解析/生成设计要点 |
 | [creation-guide.md](./ext/creation-guide.md) | 创建流程：从零搭建难度表的步骤与工具 |
 | [ecosystem.md](./ext/ecosystem.md) | 生态概览：常见难度表、支持工具、段位体系 |

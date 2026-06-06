@@ -20,7 +20,7 @@
       "type": "skill-md",
       "description": "处理 BMS 難易度表（难度表）、实现解析器/生成器、查询 JSON 字段定义及类型、或排查 beatoraja/GLAssist/LR2IR 难度表兼容性问题时使用。",
       "url": "https://codeberg.org/brightmeows/bms-skills/raw/branch/main/skills/bms-table/SKILL.md",
-      "digest": "sha256:06d50db91bca0d4e76ab21677a529cbaf3b86f59f873cfd2dd9b33c76e085753"
+      "digest": "sha256:5dd45c2cdb555a865360eefbb15a6980f0e696f7924de4fe446316790ac973cd"
     }
   ]
 }
