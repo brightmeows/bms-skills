@@ -11,7 +11,7 @@ markdownlint --fix --config .markdownlint.toml skills/*.md
 
 # 编辑 SKILL.md 后同步更新 .well-known/agent-skills/index.json 中的 digest
 # 先运行 sha256sum 获取新值，再更新 index.json 中的 "digest" 字段
-sha256sum skills/bms/SKILL.md skills/bmson/SKILL.md
+sha256sum skills/bms/SKILL.md skills/bmson/SKILL.md skills/bms-table/SKILL.md
 ```
 
 ## 边界
