@@ -70,7 +70,7 @@ HTML 文件在 `<head>` 中通过 meta 标签引用头部 JSON：
 |------|------|------|
 | `tag` | String | 标签标记文字。省略时使用 `symbol` |
 | `level_order` | Array（String\|Integer） | 等级顺序列表。省略时按检测顺序 |
-| `course` | Array（Array（Course）） | 段位认定信息 |
+| `course` | Array（Course）\|Array（Array（Course）） | 段位认定信息。支持扁平或嵌套数组，空值为 `[[]]` |
 | `mode` | String | 谱面玩法模式。同 bmson 的 mode_hint |
 
 ### Course 对象
@@ -80,7 +80,11 @@ HTML 文件在 `<head>` 中通过 meta 标签引用头部 JSON：
 | `name` | String | 段位名称 |
 | `constraint` | Array（String） | 段位约束（见下） |
 | `trophy` | Array（Trophy） | 奖牌条件 |
-| `charts` | Array（ChartInfo） | 构成段位的谱面集合 |
+| `charts` | Array（ChartInfo） | 谱面集合，缺 `level` 时默认为 `"0"` |
+| `md5` | Array（String） | MD5 简写列表，自动转为 ChartItem（level 默认 `"0"`） |
+| `sha256` | Array（String） | SHA256 简写列表，自动转为 ChartItem（level 默认 `"0"`） |
+
+> `charts`、`md5`、`sha256` 三者合并为一个统一的谱面列表，合并顺序为 charts → md5 → sha256。
 
 **constraint 可选值：**
 
