@@ -81,8 +81,8 @@ HTML 文件在 `<head>` 中通过 meta 标签引用头部 JSON：
 | `constraint` | Array（String） | 段位约束（见下） |
 | `trophy` | Array（Trophy） | 奖牌条件 |
 | `charts` | Array（ChartInfo） | 谱面集合，缺 `level` 时默认为 `"0"` |
-| `md5` | Array（String） | MD5 简写列表，自动转为 ChartItem（level 默认 `"0"`） |
-| `sha256` | Array（String） | SHA256 简写列表，自动转为 ChartItem（level 默认 `"0"`） |
+| `md5` | Array（String） | MD5 简写列表，自动转为 ChartInfo（level 默认 `"0"`） |
+| `sha256` | Array（String） | SHA256 简写列表，自动转为 ChartInfo（level 默认 `"0"`） |
 
 > `charts`、`md5`、`sha256` 三者合并为一个统一的谱面列表，合并顺序为 charts → md5 → sha256。
 
@@ -147,7 +147,7 @@ HTML 文件在 `<head>` 中通过 meta 标签引用头部 JSON：
 
 ## 数据部（データ部，Data JSON）
 
-顶层为数组 `[...]`，每个元素为一张谱面的信息对象。
+顶层为数组 `[...]`，每个元素为一个 **ChartInfo** 对象（谱面信息条目）。ChartInfo 的字段定义如下：
 
 ### 必须字段（Data）
 
