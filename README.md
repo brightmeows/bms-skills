@@ -19,7 +19,7 @@
 - 锁定到指定 release tag，版本确定，需浅克隆：
 
 ```bash
-npx skills add https://codeberg.org/brightmeows/bms-skills.git#v2.2.1
+npx skills add https://codeberg.org/brightmeows/bms-skills.git#v2.2.2
 ```
 
 - 拉取 `main` 分支，始终最新，HTTP 轻量：
