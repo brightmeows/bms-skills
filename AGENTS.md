@@ -36,5 +36,5 @@ Conventional Commits。title 英文，body 中文（可选）。
 
 - `skills/bms/memo/`、`skills/bms/ext/`、`skills/bms/bmse/`、`skills/bmson/spec/` 等子文档只修改格式问题，不修改文字、代码示例、数据内容；`SKILL.md` 索引文件允许结构编辑和措辞优化
 - 文件名保持英文，与现有命名风格一致
-- `skills/bms/` 和 `skills/bmson/` 下的文档（SKILL.md 除外）必须有来源 URL，标记在开头的 `> 来源：[标题](URL)` 行
+- 直接源自特定参考来源的文档（如 memo/*.md、ext/*.md、bmse/*.md、spec/*.md）必须在开头标注 `> 来源：[标题](URL)` 行；间接参考/总览类文档不强制要求
 - `skills/bms/memo/` / `skills/bms/ext/` 文档修改后需与 `origin/` 中对应 HTML 对照验证内容准确性；清理未引用的图片前需确认所有 markdown 引用仍能正确解析
