@@ -43,6 +43,7 @@ BMSON 是 BMS 的 JSON 序列化格式，以结构化方式描述谱面。核心
 |------|------|----------|
 | [01-overview.md](./spec/01-overview.md) | bmson 格式概述：顶层结构、基本类型定义、核心链表 | `version` `info` `lines` `bpm_events` `stop_events` `sound_channels` `bga` |
 | [02-changelog.md](./spec/02-changelog.md) | 版本更新日志（0.21→1.0.0）：破坏性变更（snake_case、字段拆分）、非破坏性变更（新增字段） | — |
+| [legacy-v021.md](./spec/legacy-v021.md) | v0.21 旧版格式逆向重构：schema、时间位置值分析、完整示例、文件检测、实现兼容性说明 | `soundChannel` `bpmNotes` `stopNotes` `EventNote` `BarLine.k` `initBPM` `judgeRank` `BGAHeader.ID` |
 | [03-terminologies.md](./spec/03-terminologies.md) | 术语定义：公制时间/音乐时间/时钟时间、节拍分辨率（240 脉冲/四分音符）、x/y 维度含义 | `y` `x` `resolution` |
 | [04-top-level-and-info.md](./spec/04-top-level-and-info.md) | 顶层对象 `Bmson` 与信息对象 `BmsonInfo` 各字段详解：版本、元数据（title/artist/genre 等）、计时参数（init_bpm/judge_rank/total）、资源路径（图片/预览音频）、分辨率 | `version` `title` `subtitle` `artist` `subartists` `genre` `mode_hint` `chart_name` `level` `init_bpm` `judge_rank` `total` `back_image` `eyecatch_image` `banner_image` `preview_music` `resolution` |
 | [05-time-signatures-and-timing.md](./spec/05-time-signatures-and-timing.md) | 拍号与计时：小节线机制（BarLine）、BPM 事件（BpmEvent）、STOP 事件（StopEvent）、同脉冲事件处理顺序 | `lines` `BarLine` `bpm_events` `BpmEvent` `stop_events` `StopEvent` |
