@@ -28,7 +28,7 @@ license: Apache-2.0
 
 ### 建议阅读路径
 
-- **解析器/播放器开发者**：按顺序阅读 全体构成 → 头部 JSON → 数据 JSON → 编码与兼容性，再按需查阅 ext/implementation.md。
+- **解析器/播放器开发者**：按顺序阅读 全体构成 → 头部 JSON → 数据 JSON → 编码与兼容性，再按需查阅 ext/creation-guide.md。
 - **谱面作者/表管理者**：先读 全体构成 → 头部 JSON → 数据 JSON 了解格式，再查阅 ext/creation-guide.md。
 - **工具/转换器开发者**：全文通读 + ext/ 全部参考文件。
 
@@ -70,7 +70,7 @@ HTML 文件在 `<head>` 中通过 meta 标签引用头部 JSON：
 |------|------|------|
 | `tag` | String | 标签标记文字。省略时使用 `symbol` |
 | `level_order` | Array（String\|Integer） | 等级顺序列表。省略时按检测顺序 |
-| `course` | Array（Course）\|Array（Array（Course）） | 段位认定信息。支持扁平或嵌套数组，空值为 `[[]]` |
+| `course` | Array（Course）\|Array（Array（Course）） | 段位认定信息。支持扁平或嵌套数组，两种形式均有实际难度表使用，空值为 `[[]]` |
 | `mode` | String | 谱面玩法模式。同 bmson 的 mode_hint |
 
 ### Course 对象
@@ -177,7 +177,7 @@ HTML 文件在 `<head>` 中通过 meta 标签引用头部 JSON：
 | `name_pack` | String | 收录包名称 |
 | `comment` | String | 备注 |
 | `org_md5` | String | 附属谱面（同梱譜面）的 MD5（用于自动差分导入） |
-| `mode` | String | 谱面玩法模式。未定义时使用 header 的 mode |
+| `mode` | String | 谱面玩法模式。同 bmson 的 mode_hint。未定义时使用 header 的 mode |
 | `ipfs` | String | BMS 本体的 IPFS path（须为目录） |
 | `ipfs_diff` | String | BMS 差分的 IPFS path（文件或目录均可） |
 | `lr2_bmsid` | String | LR2IR 上的 bmsid（第2通常表特有） |
