@@ -1,0 +1,13 @@
+{
+  "plugins": [
+    {
+      "name": "bms-skills",
+      "source": "./",
+      "skills": [
+        "./skills/bms",
+        "./skills/bmson",
+        "./skills/bms-table"
+      ]
+    }
+  ]
+}

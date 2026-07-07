@@ -3,15 +3,21 @@
 ## 命令
 
 ```bash
-# 检查 skills/ 下所有 markdown 文件
-markdownlint --config .markdownlint.toml skills/*.md
+# pre-commit（6 个任务：markdownlint + well-known list + plugin skills list + digest 检查 + name 一致性 + 格式检查）
+pre-commit run --all-files
 
-# 自动修复可修复问题
-markdownlint --fix --config .markdownlint.toml skills/*.md
+# 提交时自动触发钩子，也可手动指定单个任务
+pre-commit run check-well-known-digest       # index.json digest 与 SKILL.md 匹配
+pre-commit run check-skill-name-consistency  # frontmatter name/description 与 index.json 一致
+pre-commit run check-plugin-skills-list      # marketplace.json skills 与技能目录一致
+pre-commit run check-skill-md-format         # frontmatter 字段格式与 body 行数合规
 
 # 编辑 SKILL.md 后同步更新 .well-known/agent-skills/index.json 中的 digest
-# 先运行 sha256sum 获取新值，再更新 index.json 中的 "digest" 字段
 sha256sum skills/bms/SKILL.md skills/bmson/SKILL.md skills/bms-table/SKILL.md
+
+# 手动验证
+markdownlint --config .markdownlint.toml skills/*.md
+markdownlint --fix --config .markdownlint.toml skills/*.md
 ```
 
 ## 边界
@@ -20,9 +26,9 @@ sha256sum skills/bms/SKILL.md skills/bmson/SKILL.md skills/bms-table/SKILL.md
 |---|---|
 | **Never** | 勿编辑 `origin/` 目录下的任何文件（原始 HTML 源，只读） |
 | **Never** | 勿启用 `.markdownlint.toml` 中禁用的规则（注释已说明原因） |
-| **Always** | 修改 .md 后运行 `markdownlint` 验证 |
-| **Always** | 修改 `skills/bms/SKILL.md` 或 `skills/bmson/SKILL.md` 后，同步更新 `.well-known/agent-skills/index.json` 中对应 `digest` 字段 |
-| **Always** | `.claude-plugin/plugin.json` 仅引用目录路径，内容变更无需修改；新增/移除技能目录时同步更新 |
+| **Always** | 修改 `.md` 后通过 `pre-commit run markdownlint` 验证（pre-commit 中以 `--config .markdownlint.toml` 覆盖默认规则） |
+| **Always** | 修改 `skills/*/SKILL.md` 后，同步更新 `.well-known/agent-skills/index.json` 中对应 `digest` 字段（由 `check-well-known-digest` hook 强制） |
+| **Always** | 新增/移除技能目录时同步更新 `.well-known/agent-skills/index.json` 与 `.claude-plugin/marketplace.json` 的 `skills` 数组 |
 | **Note** | 通过 raw URL 使用 `npx skills add` 时，仓库根目录必须配置 `.well-known/agent-skills/index.json`，否则无法发现技能 |
 | **Ask** | 需修改 `.markdownlint.toml` 配置时先确认 |
 
