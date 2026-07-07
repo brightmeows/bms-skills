@@ -29,6 +29,7 @@ markdownlint --fix --config .markdownlint.toml skills/*.md
 | **Always** | 修改 `.md` 后通过 `pre-commit run markdownlint` 验证（pre-commit 中以 `--config .markdownlint.toml` 覆盖默认规则） |
 | **Always** | 修改 `skills/*/SKILL.md` 后，同步更新 `.well-known/agent-skills/index.json` 中对应 `digest` 字段（由 `check-well-known-digest` hook 强制） |
 | **Always** | 新增/移除技能目录时同步更新 `.well-known/agent-skills/index.json` 与 `.claude-plugin/marketplace.json` 的 `skills` 数组 |
+| **Always** | 发布新版本（release/tag）时，更新 `README.md` 中安装命令的版本号引用（`#vX.Y.Z`） |
 | **Note** | 通过 raw URL 使用 `npx skills add` 时，仓库根目录必须配置 `.well-known/agent-skills/index.json`，否则无法发现技能 |
 | **Ask** | 需修改 `.markdownlint.toml` 配置时先确认 |
 
