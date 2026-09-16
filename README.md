@@ -19,13 +19,13 @@
 - 锁定到指定 release tag，版本确定，需浅克隆：
 
 ```bash
-npx skills add https://codeberg.org/brightmeows/bms-skills.git#v2.2.2
+npx skills add https://github.com/brightmeows/bms-skills.git#v2.2.2
 ```
 
 - 拉取 `main` 分支，始终最新，HTTP 轻量：
 
 ```bash
-npx skills add https://codeberg.org/brightmeows/bms-skills/raw/branch/main
+npx skills add https://raw.githubusercontent.com/brightmeows/bms-skills/main
 ```
 
 按需选择。
@@ -35,7 +35,7 @@ npx skills add https://codeberg.org/brightmeows/bms-skills/raw/branch/main
 克隆仓库后，在 AI 助手的配置中引用 `skills/` 下的 `SKILL.md`：
 
 ```bash
-git clone https://codeberg.org/brightmeows/bms-skills.git
+git clone https://github.com/brightmeows/bms-skills.git
 ```
 
 ## 贡献

@@ -1,8 +1,8 @@
 {
   "name": "bms-skills",
   "description": "BMS (Be-Music Script) and BMSON format knowledge skills for AI coding assistants — creating/editing beatmania-style charts, troubleshooting format issues, and developing BMS tools.",
-  "homepage": "https://codeberg.org/brightmeows/bms-skills",
-  "repository": "https://codeberg.org/brightmeows/bms-skills",
+  "homepage": "https://github.com/brightmeows/bms-skills",
+  "repository": "https://github.com/brightmeows/bms-skills",
   "license": "Apache-2.0",
   "keywords": [
     "bms",

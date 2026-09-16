@@ -5,21 +5,21 @@
       "name": "bms",
       "type": "skill-md",
       "description": "创建或编辑 .bms 谱面、排查解析/渲染异常、查询 #xxx 通道映射和头部命令兼容性、或开发 BMS 解析器/生成器/播放器时使用。",
-      "url": "https://codeberg.org/brightmeows/bms-skills/raw/branch/main/skills/bms/SKILL.md",
+      "url": "https://raw.githubusercontent.com/brightmeows/bms-skills/main/skills/bms/SKILL.md",
       "digest": "sha256:ac26fcab1bcb93db22712c2653ece22ad22e06580365adcd9d7cba28517d85dc"
     },
     {
       "name": "bmson",
       "type": "skill-md",
       "description": "处理 .bmson JSON 格式谱面、实现解析器/生成器、查询 v1/v2 schema 字段定义及类型、或排查 beatoraja BMSON 扩展兼容性问题时使用。",
-      "url": "https://codeberg.org/brightmeows/bms-skills/raw/branch/main/skills/bmson/SKILL.md",
+      "url": "https://raw.githubusercontent.com/brightmeows/bms-skills/main/skills/bmson/SKILL.md",
       "digest": "sha256:60d053df80384360c1b8f005dd0f20e169bfc5d2547692423c06183b7bf62545"
     },
     {
       "name": "bms-table",
       "type": "skill-md",
       "description": "处理 BMS 难度表（難易度表）、实现解析器/生成器、查询 JSON 字段定义及类型、或排查 beatoraja/GLAssist/LR2IR 难度表兼容性问题时使用。",
-      "url": "https://codeberg.org/brightmeows/bms-skills/raw/branch/main/skills/bms-table/SKILL.md",
+      "url": "https://raw.githubusercontent.com/brightmeows/bms-skills/main/skills/bms-table/SKILL.md",
       "digest": "sha256:41522a2e7aeb1de52401647f9836742166925d8c71716db7479e33c27ffcbb1d"
     }
   ]
