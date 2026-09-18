@@ -14,29 +14,13 @@
 
 ## 使用方式
 
-### npx skills（推荐）
-
-- 锁定到指定 release tag，版本确定，需浅克隆：
+通过 `npx skills` 直接安装：
 
 ```bash
-npx skills add https://github.com/brightmeows/bms-skills.git#v2.2.2
+npx skills add brightmeows/bms-skills
 ```
 
-- 拉取 `main` 分支，始终最新，HTTP 轻量：
-
-```bash
-npx skills add https://raw.githubusercontent.com/brightmeows/bms-skills/main
-```
-
-按需选择。
-
-### 手动引用
-
-克隆仓库后，在 AI 助手的配置中引用 `skills/` 下的 `SKILL.md`：
-
-```bash
-git clone https://github.com/brightmeows/bms-skills.git
-```
+拉取 `main` 分支，始终最新。
 
 ## 贡献
 

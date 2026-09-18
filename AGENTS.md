@@ -32,7 +32,6 @@ markdownlint --fix --config .markdownlint.toml skills/*.md
 - 修改 `.md` 后通过 `pre-commit run markdownlint` 验证（pre-commit 中用 `--config .markdownlint.toml`）
 - 修改 `skills/*/SKILL.md` 后，同步更新 `.well-known/agent-skills/index.json` 的 digest（`check-well-known-digest` hook 强制）
 - 新增/移除技能目录时同步更新 `.well-known/agent-skills/index.json` 与 `.claude-plugin/marketplace.json` 的 `skills`
-- 发布新版本（release/tag）时，更新 `README.md` 中安装命令的版本号引用（`#vX.Y.Z`）
 
 ### Ask
 
@@ -56,7 +55,6 @@ Conventional Commits。title 英文，body 中文（可选）。
 - 代理已能稳定遵循某条规则 → 从边界节移除（已内化）
 - 规则可被 hook 或 lint 强制 → 迁移到 `.pre-commit-config.yaml`，指向工具配置
 - 边界节膨胀超过 10 条 → 审计精简，工具可强制的移出
-- 发布新版本后 → 确认 `README.md` 安装命令 tag 已更新
 - 内容规则引用的目录/路径发生变化 → 同步更新
 
 ## 内容规则
