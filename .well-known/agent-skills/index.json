@@ -4,7 +4,7 @@
     {
       "name": "bms",
       "type": "skill-md",
-      "description": "创建或编辑 .bms 谱面、排查解析/渲染异常、查询 #xxx 通道映射和头部命令兼容性、或开发 BMS 解析器/生成器/播放器时使用。",
+      "description": "创建或编辑 .bms 谱面、排查解析/渲染异常、查询",
       "url": "https://raw.githubusercontent.com/brightmeows/bms-skills/main/skills/bms/SKILL.md",
       "digest": "sha256:ac26fcab1bcb93db22712c2653ece22ad22e06580365adcd9d7cba28517d85dc"
     },

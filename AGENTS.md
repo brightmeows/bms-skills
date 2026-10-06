@@ -1,5 +1,15 @@
 # BMS Skills — Agent Guide
 
+## 仓库定位
+
+BMS（Be-Music Script）与 BMSON 格式的代理技能集：谱面创建/编辑、解析排障、格式工具开发。技能位于 `skills/<name>/SKILL.md`，配套 `memo/`、`ext/`、`bmse/`、`spec/` 等文档区与 `origin/` 原始 HTML 存档。
+
+| 技能 | 用途 |
+|------|------|
+| `bms` | .bms 谱面创建/编辑、解析排障 |
+| `bmson` | .bmson JSON 谱面、schema 字段与兼容性 |
+| `bms-table` | 难易度表处理、解析器/生成器 |
+
 ## 命令
 
 ```bash
@@ -40,6 +50,12 @@ markdownlint --fix --config .markdownlint.toml skills/*.md
 ### Note
 
 - 通过 raw URL 使用 `npx skills add` 时，仓库根目录必须配置 `.well-known/agent-skills/index.json`，否则无法发现技能
+
+## SKILL.md 编写约定
+
+- frontmatter `name` 与父目录名一致，小写连字符
+- `description` 总长 ≤1024 字符
+- 正文 <500 行；事实类内容须在改动时重新验证，不依赖记忆
 
 ## 提交格式
 
