@@ -10,6 +10,7 @@ license: Apache-2.0
 
 > 来源：[難易度表の仕様 · exch-bms2/jbmstable](https://github.com/exch-bms2/jbmstable-parser/wiki/%E9%9B%A3%E6%98%93%E5%BA%A6%E8%A1%A8%E3%81%AE%E4%BB%95%E6%A7%98)
 > 来源：[第2通常難易度表：難易度表導入支援ツール](https://bmsnormal2.syuriken.jp/bms_dtmanager.html)
+> 来源：[beatoraja CourseData.java（constraint 全枚举与 trophy 校验口径）](https://github.com/exch-bms2/beatoraja/blob/master/src/bms/player/beatoraja/CourseData.java)
 
 ## 声明
 
@@ -84,12 +85,14 @@ HTML 文件在 `<head>` 中通过 meta 标签引用头部 JSON：
 | `md5` | Array（String） | MD5 简写列表，自动转为 ChartInfo（level 默认 `"0"`） |
 | `sha256` | Array（String） | SHA256 简写列表，自动转为 ChartInfo（level 默认 `"0"`） |
 
-> `charts`、`md5`、`sha256` 三者合并为一个统一的谱面列表，合并顺序为 charts → md5 → sha256。
+> 少数表（GLAssist 面向）把段位放在 header 顶层 `grade` 字段而非 `course`，条目形状为
+> `{ name, style, md5[] }`（`style` 是 GLAssist 的展示样式）。解析器应作为未知字段宽容保留。
 
 **constraint 可选值：**
 
 | 值 | 说明 |
 |----|------|
+| `grade` | 段位认定本体（禁乱数与镜像） |
 | `grade_random` | 允许 RANDOM / R-RANDOM / S-RANDOM / MIRROR |
 | `grade_mirror` | 允许 MIRROR |
 | `no_speed` | 禁用 HI-SPEED 设定 |
@@ -100,12 +103,19 @@ HTML 文件在 `<head>` 中通过 meta 标签引用头部 JSON：
 | `gauge_7k` | 7KEY 用段位槽 |
 | `gauge_9k` | 9KEY 用段位槽 |
 | `gauge_24k` | 24KEY 用段位槽 |
+| `ln` | LN（长条）mode 段位 |
+| `cn` | CN（长按）mode 段位 |
+| `hcn` | HCN（变轨长按）mode 段位 |
+
+> 词表以 beatoraja 的 `CourseDataConstraint` 全枚举为准（比 jbmstable wiki 文档多
+> `grade` / `ln` / `cn` / `hcn` 四值，LN 段位认定等真实表在用）。清单外的值保持宽容：
+> 提示即可，不拒收整表；空串值会使 beatoraja 丢弃整份段位文件。
 
 ### Trophy 对象
 
 | 字段 | 类型 | 说明 |
 |------|------|------|
-| `name` | String | 奖牌类型：`goldmedal` / `silvermedal` / `bronzemedal` |
+| `name` | String | 奖牌名称，显示文本：标准三值为 `goldmedal` / `silvermedal` / `bronzemedal`，beatoraja 只要求非空，任意名称合法（真实表存在日文奖牌名） |
 | `missrate` | Float | 失误率上限（0–100%） |
 | `scorerate` | Float | 得分率下限（0–100%） |
 
