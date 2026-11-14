@@ -125,7 +125,7 @@ HTML 文件在 `<head>` 中通过 meta 标签引用头部 JSON：
 {
   "name": "第2発狂難易度",
   "tag": "▼",
-  "data_url": "http://rattoto10.jounin.jp/js/insane_data.json",
+  "data_url": "https://rattoto10.github.io/second_table/insane_data.json",
   "symbol": "▼",
   "level_order": [
     "0-", "0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10",
