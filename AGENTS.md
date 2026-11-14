@@ -59,7 +59,7 @@ markdownlint --fix --config .markdownlint.toml skills/*.md
 
 ## 提交格式
 
-Conventional Commits。title 英文，body 中文（可选）。
+Conventional Commits 格式。标题与正文语言不限。
 
 ---
 
