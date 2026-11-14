@@ -19,4 +19,4 @@
 
 ## 示例资源
 
-- [第2通常难易度表 サンプルファイル集](https://bmsnormal2.syuriken.jp/sample/)：含 `table_sample.html`、`header.json`、`score.json`、`style.css`
+- [第2通常难易度表 サンプルファイル集](https://bmsnormal2.syuriken.jp/sample/table_sample.html)：`header.json`、`score.json`、`style.css` 与该页面同目录；`sample/` 目录无索引页，文件须直接访问
