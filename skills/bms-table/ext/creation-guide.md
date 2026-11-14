@@ -9,7 +9,7 @@
 2. **编写 `header.json`**：定义 `name`、`symbol`、`data_url`、`level_order` 等字段。
 3. **编写 `score.json`**（数据部）：录入每条谱面的 MD5/SHA256、level、标题、艺术家等信息。
 4. **部署至服务器**：推荐使用 GitHub Pages 或传统 FTP 托管。
-5. **注册发现**：在 [Ribbit 難易度表まとめ](http://www.ribbit.xyz/bms/tables/table_list.html) 或 DARKSABUN 的列表中登记。
+5. **注册发现**：在 [DARKSABUN 难易度表リスト](https://darksabun.club/table/tablelist.html) 登记；该页同时是 BeMusicSeeker 的 Table List URI，可直接订阅。
 
 ## 数据部管理技巧
 
